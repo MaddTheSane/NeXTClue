@@ -1,24 +1,22 @@
 //-----------------------------------------------------------------------------
-// ClueInfo.h
+// ClueInfo.M
 //
 //	Info panel for the Clue program.
 //
 // Copyright (C), 1997, Paul McCarthy.  All rights reserved.
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
-// $Id: ClueInfo.M,v 1.2 97/05/31 14:05:50 zarnuk Exp Locker: zarnuk $
+// $Id: ClueInfo.M,v 1.3 97/05/31 16:15:03 zarnuk Exp Locker: zarnuk $
 // $Log:	ClueInfo.M,v $
-//  Revision 1.2  97/05/31  14:05:50  zarnuk
-//  v21: Now reads version number from PACKAGE_NUMBER file.
-//  
-//  Revision 1.1  97/05/31  10:10:48  zarnuk
+//  Revision 1.3  97/05/31  16:15:03  zarnuk
+//  Makes key so that cmd-w will close the window.
 //-----------------------------------------------------------------------------
 #import "ClueInfo.h"
 #import "ClueLoadNib.h"
 
 extern "Objective-C" {
 #import	<appkit/TextField.h>
-#import	<appkit/Panel.h>	// NXRunAlertPanel(), Window
+#import	<appkit/Panel.h>
 #import	<objc/NXBundle.h>
 }
 
@@ -28,50 +26,69 @@ extern "C" {
 }
 
 
-static char const PKGFILE[] = "PACKAGE_NUMBER";
-
 @implementation ClueInfo
 
-- init
+//-----------------------------------------------------------------------------
+// format:field:file:
+//-----------------------------------------------------------------------------
+- (void) format:(char const*)fmt field:(TextField*)fld file:(char const*)file
+    {
+    char path[ FILENAME_MAX ];
+    char write_buff[ 256 ];
+
+    char const* ver = "find?";
+
+    if ([[NXBundle mainBundle] getPath:path forResource:file ofType:""])
+	{
+	FILE* fp;
+	if ((fp = fopen( path, "r" )) != 0)
+	    {
+	    char read_buff[ 256 ];
+	    if (fscanf( fp, "%s", read_buff ) == 1)
+		{
+		sprintf( write_buff, fmt, read_buff );
+		ver = write_buff;
+		}
+	    else
+		ver = "parse?";
+	    fclose( fp );
+	    }
+	else
+	    ver = "open?";
+	}
+
+    [buildField setStringValue:ver];
+    }
+
+
+//-----------------------------------------------------------------------------
+// init
+//-----------------------------------------------------------------------------
+- (id) init
     {
     [super init];
     ClueLoadNib( self );
 
-    char const* ver = "find pkg#";
-
-    char buff[ FILENAME_MAX ];
-    if ([[NXBundle mainBundle] getPath:buff forResource:PKGFILE ofType:""])
-	{
-	FILE* fp;
-	if ((fp = fopen( buff, "r" )) != 0)
-	    {
-	    int n;
-	    if (fscanf( fp, "%d", &n ) == 1)
-		{
-		sprintf( buff, "v%d", n );
-		ver = buff;
-		}
-	    else
-		ver = "parse pkg#";
-	    fclose( fp );
-	    }
-	else
-	    ver = "open pkg#";
-	}
-
-    [versionField setStringValue:ver];
+    [self format:"Release %s" field:releaseField file:"RELEASE_NUMBER"];
+    [self format:"Build %s" field:buildField file:"PACKAGE_NUMBER"];
 
     return self;
     }
 
 
-- makeKeyAndOrderFront:sender
+//-----------------------------------------------------------------------------
+// makeKeyAndOrderFront:
+//-----------------------------------------------------------------------------
+- (id) makeKeyAndOrderFront:(id)sender
     {
     return [window makeKeyAndOrderFront:sender];
     }
 
 
-+ launch
+//-----------------------------------------------------------------------------
+// +launch
+//-----------------------------------------------------------------------------
++ (id) launch
     {
     static ClueInfo* instance = 0;
     if (instance == 0)

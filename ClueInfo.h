@@ -8,10 +8,10 @@
 // Copyright (C), 1997, Paul McCarthy.  All rights reserved.
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
-// $Id: ClueInfo.h,v 1.1 97/05/31 10:10:50 zarnuk Exp Locker: zarnuk $
+// $Id: ClueInfo.h,v 1.2 97/05/31 14:06:16 zarnuk Exp Locker: zarnuk $
 // $Log:	ClueInfo.h,v $
-//  Revision 1.1  97/05/31  10:10:50  zarnuk
-//  v21
+//  Revision 1.2  97/05/31  14:06:16  zarnuk
+//  v21: Added buildField.
 //-----------------------------------------------------------------------------
 extern "Objective-C" {
 #import <objc/Object.h>
@@ -21,7 +21,8 @@ extern "Objective-C" {
 @interface ClueInfo:Object
     {
     Window*	window;
-    TextField*	versionField;
+    TextField*	buildField;
+    TextField*	releaseField;
     }
 + launch;
 @end

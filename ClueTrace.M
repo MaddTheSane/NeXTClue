@@ -7,8 +7,11 @@
 // Copyright (C), 1997, Paul McCarthy.  All rights reserved.
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
-// $Id$
-// $Log$
+// $Id: ClueTrace.M,v 1.1 97/05/31 10:13:04 zarnuk Exp Locker: zarnuk $
+// $Log:	ClueTrace.M,v $
+//  Revision 1.1  97/05/31  10:13:04  zarnuk
+//  v21
+//  
 //-----------------------------------------------------------------------------
 #import "ClueTrace.h"
 #import	"ClueLoadNib.h"
@@ -56,11 +59,12 @@ extern "C" {
 
 - (void) appendPiece:(ClueCard)x
     {
-    char buff[64];
-    char const* s = ClueCardName(x);
-    sprintf( buff, " %s ", s );
+    char const* const s = ClueCardName(x);
+    [self appendText:" "];
+    [self appendText:s];
+    [self appendText:" "];
     [self appendIcon:s];
-    [self appendText:buff];
+    [self appendText:"  "];
     }
 
 

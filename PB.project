@@ -1,0 +1,29 @@
+FILESTABLE = {
+    LIBRARYSEARCH = (/homes/zarnuk/Source/Palettes/MCGHTableScroll, /LocalLibrary/lib, /usr/local/lib);
+    OTHER_LIBS = (MCGHTableScroll, Media_s, NeXT_s, Indexing_s);
+    HEADERSEARCH = (/homes/zarnuk/Source/Palettes/MCGHTableScroll, /LocalLibrary/include/mcgh, /usr/local/include/mcgh);
+    OTHER_RESOURCES = (ClueRules.rtfd, HISTORY.txt, Help, PACKAGE_NUMBER);
+    OTHER_SOURCES = (Makefile.preamble, Makefile, Makefile.postamble);
+    INTERFACES = (Clue.nib, ClueBoard.nib, ClueHuman.nib, ClueInfo.nib, ClueMessages.nib, ClueRules.nib, ClueSetup.nib);
+    H_FILES = (ClueAnnaLyzer.h, ClueBeaGinner.h, ClueBoard.h, ClueBoardView.h, ClueButton.h, ClueCardPicker.h, ClueComputer.h, ClueCondArray.h, ClueCoordArray.h, ClueCyLent.h, ClueDeeDucer.h, ClueDefs.h, ClueHuman.h, ClueInfo.h, ClueLoadNib.h, ClueMap.h, ClueMessages.h, ClueMgr.h, CluePlayer.h, ClueRandyMizer.h, ClueRules.h, ClueSetup.h, ClueTrace.h, ClueUpdateStack.h, ClueCyBorg.h);
+    IMAGES = ("ball-room.tiff", "billiard-room.tiff", board.tiff, candlestick.tiff, Clue.tiff, conservatory.tiff, die1.tiff, die2.tiff, die3.tiff, die4.tiff, die5.tiff, die6.tiff, "dining-room.tiff", green.tiff, hall.tiff, kitchen.tiff, knife.tiff, "lead-pipe.tiff", library.tiff, lounge.tiff, mustard.tiff, peacock.tiff, plum.tiff, revolver.tiff, room.tiff, rope.tiff, scarlet.tiff, study.tiff, suspect.tiff, weapon.tiff, white.tiff, wrench.tiff);
+    OTHER_LINKED = (ClueAnnaLyzer.M, ClueBeaGinner.M, ClueBoard.M, ClueBoardView.M, ClueButton.M, ClueCardPicker.cc, ClueComputer.M, ClueCondArray.cc, ClueCoordArray.cc, ClueCyBorg.M, ClueCyLent.M, ClueDeeDucer.M, ClueDefs.cc, ClueHuman.M, ClueInfo.M, ClueLoadNib.M, ClueMap.cc, ClueMessages.M, ClueMgr.M, CluePlayer.M, ClueRandyMizer.M, ClueRules.M, ClueSetup.M, ClueTrace.M, ClueUpdateStack.cc);
+    M_FILES = (Clue_main.m);
+};
+INSTALLDIR = /Games;
+COMPILEROPTIONS = "";
+APPICON = Clue.tiff;
+GENERATEMAIN = YES;
+DOCICONFILES = ();
+APPCLASS = Application;
+MAINNIB = Clue;
+LINKEROPTIONS = "";
+DOCEXTENSIONS = ();
+PROJECTTYPE = Application;
+PROJECTVERSION = 1.1;
+LOCALIZABLE_FILES = {
+    Help;
+};
+PROJECTNAME = Clue;
+SYSTEMEXTENSIONS = ();
+LANGUAGE = English;

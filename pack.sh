@@ -6,8 +6,10 @@
 #
 #-----------------------------------------------------------------------------
 #-----------------------------------------------------------------------------
-# $Id$
-# $Log$
+# $Id: pack.sh,v 1.1 97/05/31 15:49:51 zarnuk Exp Locker: zarnuk $
+# $Log:	pack.sh,v $
+# Revision 1.1  97/05/31  15:49:51  zarnuk
+# Script to tag, tar and zip a source code package.
 #-----------------------------------------------------------------------------
 
 ROOT=Clue
@@ -28,9 +30,8 @@ CO=/usr/bin/co
 cd ..
 RCSDIRS=`$FIND $ROOT -name RCS -print`
 HELPDIRS=`$FIND $ROOT -name Help -print`
-cd $ROOT
 
-TARDIRS=$RCSDIRS $HELPDIRS
+TARDIRS="$RCSDIRS $HELPDIRS"
 
 
 echo "What's locked..."
@@ -48,6 +49,8 @@ if $TEST "$answer" != "y" ; then
     exit 1
     fi
 
+
+cd $ROOT
 PKG=`$CAT PACKAGE_NUMBER`
 PKG=`$EXPR $PKG + 1`
 
@@ -56,8 +59,6 @@ read answer
 if $TEST -n "$answer" ; then
     PKG=$answer
     fi
-
-./freeze.sh "v$PKG"
 
 PACKAGE_FILE=$PACKAGE.v${PKG}.tar.gz
 echo "PACKAGE_FILE is [$PACKAGE_FILE]"
@@ -76,17 +77,24 @@ if $TEST -f ../$PACKAGE_FILE ; then
 	fi
     fi
 
-set -x
+
+echo "Updating package number..."
 $RM -f PACKAGE_NUMBER
 echo $PKG > PACKAGE_NUMBER
 
 $RM -f RCS/PACKAGE_NUMBER,v
-$CI PACKAGE_NUMBER << EOS_CI
+$CI -q PACKAGE_NUMBER << EOS_CI
 Package Number
 EOS_CI
-$RCS -L RCS/PACKAGE_NUMBER,v
-$CO RCS/PACKAGE_NUMBER,v
+$RCS -q -L RCS/PACKAGE_NUMBER,v
+$CO -q RCS/PACKAGE_NUMBER,v
+
+
+echo "Tagging RCS files with current version..."
+./freeze.sh "v$PKG"
 
 
 cd ..
+echo "Creating package..."
+echo "$GNUTAR czvf $PACKAGE_FILE $TARDIRS"
 $GNUTAR czvf $PACKAGE_FILE $TARDIRS

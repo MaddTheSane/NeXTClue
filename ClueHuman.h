@@ -8,19 +8,21 @@
 // Copyright (C), 1997, Paul McCarthy and Eric Sunshine.  All rights reserved.
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
-// $Id$
-// $Log$
+// $Id: ClueHuman.h,v 1.1 97/05/31 10:09:48 zarnuk Exp Locker: zarnuk $
+// $Log:	ClueHuman.h,v $
+//  Revision 1.1  97/05/31  10:09:48  zarnuk
+//  v21
 //-----------------------------------------------------------------------------
 #import	"CluePlayer.h"
 
 @class Button, Matrix, Text, TextField, Window;
-@class MCGHTableScroll;
+@class MiscTableScroll;
 class ClueMap;
 
 @interface ClueHuman:CluePlayer
 	{
 	Window*		window;
-	MCGHTableScroll* scroll;
+	MiscTableScroll* scroll;
 	TextField*	messageField;
 	Matrix*		revealMatrix;
 	Button*		stayButton;

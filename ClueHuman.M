@@ -6,8 +6,12 @@
 // Copyright (C), 1997, Paul McCarthy and Eric Sunshine.  All rights reserved.
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
-// $Id: ClueHuman.M,v 1.2 97/05/31 12:53:32 zarnuk Exp Locker: zarnuk $
+// $Id: ClueHuman.M,v 1.3 97/06/27 08:53:09 zarnuk Exp Locker: zarnuk $
 // $Log:	ClueHuman.M,v $
+//  Revision 1.3  97/06/27  08:53:09  zarnuk
+//  v23 -- Turned off sorting in the table scroll.  Eric added stuff
+//  to keep first responder if the user presses enter.
+//  
 //  Revision 1.2  97/05/31  12:53:32  zarnuk
 //  v21: Fixed bug sometimes restored pieces on top of other pieces.
 //  
@@ -22,8 +26,8 @@
 #import	"ClueMap.h"
 #import	"ClueMgr.h"
 
-#import	<MCGHTableScroll.h>
-#import	<MCGHTableCell.h>
+#import	<misckit/MiscTableScroll.h>
+#import	<misckit/MiscTableCell.h>
 
 extern "Objective-C" {
 #import	<appkit/Application.h>
@@ -128,7 +132,7 @@ ClueFilter( unsigned short c, int flags, unsigned short cset )
 //-----------------------------------------------------------------------------
 - (void) separatorRow:(int)row tag:(int)tag name:(char const*)name
     {
-    MCGHTableCell* cell;
+    MiscTableCell* cell;
     cell = [scroll cellAt:row:ICON_SLOT];
     [cell setTag:tag];
     cell = [scroll cellAt:row:NAME_SLOT];
@@ -168,7 +172,7 @@ ClueFilter( unsigned short c, int flags, unsigned short cset )
 	int const tag = ((i << 1) | 1);
 	ClueCard const card = ClueCard(i);
 	ClueCategory const cat = ClueCardCategory(card);
-	MCGHTableCell* cell;
+	MiscTableCell* cell;
 
 	if (last_cat != cat)
 	    {
@@ -235,7 +239,7 @@ ClueFilter( unsigned short c, int flags, unsigned short cset )
 //-----------------------------------------------------------------------------
 // tableScroll:canEdit:at::
 //-----------------------------------------------------------------------------
--  (BOOL)tableScroll:(MCGHTableScroll*)ts
+-  (BOOL)tableScroll:(MiscTableScroll*)ts
     canEdit:(NXEvent const*)event at:(int)row :(int)col
     {
     return (col >= P1_SLOT);	// Edit on single-click allowed.
@@ -254,10 +258,10 @@ ClueFilter( unsigned short c, int flags, unsigned short cset )
 //-----------------------------------------------------------------------------
 // editNext:row:col:
 //-----------------------------------------------------------------------------
-- (void)editNext:(BOOL)next row:(MCGHCoord_P)p_row col:(MCGHCoord_P)p_col
+- (void)editNext:(BOOL)next row:(MiscCoord_P)p_row col:(MiscCoord_P)p_col
     {
     int const nrows = [scroll numRows];
-    MCGHCoord_V v_row = [scroll rowPosition:p_row];
+    MiscCoord_V v_row = [scroll rowPosition:p_row];
 
     v_row += (next ? 1 : -1);
     if (v_row >= nrows) v_row = 0;
@@ -274,8 +278,8 @@ ClueFilter( unsigned short c, int flags, unsigned short cset )
 //-----------------------------------------------------------------------------
 - (id)textDidEnd:(id)sender endChar:(unsigned short)whyEnd
     {
-    MCGHCoord_P row = [scroll clickedRow];
-    MCGHCoord_P col = [scroll clickedCol];
+    MiscCoord_P row = [scroll clickedRow];
+    MiscCoord_P col = [scroll clickedCol];
     switch (whyEnd)
 	{
 	case NX_TAB:

@@ -1,0 +1,410 @@
+Clue/HISTORY.txt
+
+BUGS:
+
+TODO:
+* Computer Players.
+	- Better movement logic for computer players.
+	- More deduction rules in Dee Ducer.
+	- More/better speculation rules in Cy Borg.
+	- Continuous mode for semi-automated testing.
+	- Statistics mode for comparing performance of computer players?
+* Human Interface
+	- Extra general purpose notes area?
+	- Save/restore scroll/window defaults.
+	- Pause after each player's turn?
+	- Animate the computer player moves?
+	- Keep a "faded" image of the original suspect/weapon location?
+	- Undo/Redo for table scroll editing.
+* Better icons.
+* Icons in Messages trace cannot be written to pasteboard.
+* Help for the table scroll object.
+* Fix window defaults for second game.
+* Some way to visually break up text in Messages between turns.
+* Find panel for searching through the messages.
+* Network play.
+* Misc-ify.
+* Publish.
+
+*** These files are modified with every version: ****
+	* HISTORY.txt		-- This file.
+	* PACKAGE_NUMBER
+
+
+v21 Sat May 31 14:44:54 EDT 1997 zarnuk
+    Erik fiddled with the ClueHuman nib and scrunched it.
+    Anna Lyzer (hence Dee Ducer and Cy Borg) were revealing new
+	cards when they could have revealed previously revealed
+	cards.
+    Fixed bug: 'assert( g == x )' ClueAnnaLyzer.M:236 was failing due to
+	a rare bug in ClueCondArray::minCardsForPlayer().  (Used by Dee
+	Ducer and Cy Borg).
+    NOTE: PB make "depend" is broken for .M and .cc files.
+    Added more speculation to Cy Borg.  Cy Borg is slightly better than
+	Dee Ducer now.
+    Moved everything into RCS.
+    Fixed bug: ClueHuman sometimes restored pieces to saved locations
+    	on top of other pieces.
+    Info panel now reads the version number out of the PACKAGE_NUMBER file.
+
+	Changed Files:
+	* ClueAnnaLyzer.M
+        * ClueCondArray.{cc|h}
+	* ClueCyBorg.M
+        * ClueDefs.h
+	* ClueHuman.{M|nib}
+	* ClueInfo.{h|M|nib}
+	* ClueRules.rtfd
+	* ClueTrace.M
+	+ Makefile.dependencies
+	* Makefile
+	+ pack.sh
+	+ pack_binaries.sh
+	+ PACKAGE_NUMBER
+	* PB.project
+	+ unpack_binaries.sh
+
+
+v20 Mon May 19 18:44:40 EDT 1997 zarnuk
+    Implementing Cy Borg.
+    Added labels to rooms on board.
+    Removed grid from interior of rooms.
+    ClueHuman now starts out with the player's own piece on the
+	suspect pop-up to avoid dragging other pieces into the room.
+    Added divider rows to notebook.
+    Removed obsolete OK button.
+    Fixed the size of the app icon.
+    Improved? room icons.
+    Made the main nib localizable in order to add standard help.
+    Restored help.
+
+	Changed Files:
+	* ball-room.tiff
+	* billiard-room.tiff
+	* board.tiff
+	* Clue.{nib|tiff}
+	* ClueAnnaLyzer.{h|M}
+	* ClueBoard.nib
+	* ClueCyBorg.{h|M}
+	* ClueDeeDucer.{h|M}
+	* ClueHuman.{h|M|nib}
+	* ClueMessages.nib
+	* ClueMgr.{h|M}
+	* ClueRules.rtfd
+	* conservatory.tiff
+	* dining-room.tiff
+	+ English.lproj
+	+ English.lproj/Help
+	* hall.tiff
+	* kitchen.tiff
+	* library.tiff
+	* lounge.tiff
+	* Makefile
+	* PB.project
+	* rope.tiff
+	* study.tiff
+
+
+v19 Sun May 11 02:48:58 EDT 1997 zarnuk
+    Fixed bug: suspect/weapon popups were broken.
+    Added more deduction rules to Dee Ducer (and Cy Borg by inheritance).
+
+	Changed Files:
+	* ClueCondArray.{cc|h}
+	* ClueDeeDucer.M
+	* ClueHuman.M
+
+
+v18 Sat May 10 01:51:29 EDT 1997 zarnuk
+    Renamed "Silent Sam" --> "Cy Lent"
+    Added "Cy Borg" (still under construction).
+    Simplified some code in ClueHuman.M
+    Now displays icons in message trace.
+    Added startup messages to trace.
+
+	Changed Files:
+	* ClueAnnaLyzer.M
+	* ClueBeaGinner.M
+	+ ClueCyBorg.{h|M}
+	+ ClueCyLent.{h|M}
+	* ClueDeeDucer.M
+	* ClueHuman.M
+	* ClueMessages.{h|M|nib}
+	* ClueMgr.M
+	* CluePlayer.{h|M}
+	* ClueRandyMizer.M
+	* ClueRules.rtfd
+	* ClueSetup.{M|nib}
+	- ClueSilentSam.{h|M}
+	* ClueTrace.{h|M}
+	* PB.project
+	* Makefile
+
+
+v17 Fri May  9 18:26:04 EDT 1997 zarnuk
+    Trivial wording changes to rules.
+    Fixed erik's right-mouse-menu new-game bug.
+    Tuned the suspect tiffs a little.  Made their outlines darker so that
+	they are easier to see when they are in rooms with similar color,
+	and when they are on their own starting squares.
+    Straightened out the main nib.  Forget what NeXT guidelines say.
+	They are wrong.  Humans work better with broad and shallow menu
+	structures, not narrow and deep ones.  Besides, this is not a
+	document-oriented program.  The game submenu was pointless and
+	annoying.
+    Fixed major bugs: Now checks to make sure that you can roll and move
+	before enabling the roll button.  Now checks to see whether there
+	are any legal squares to move to for the given die roll.
+    Fixed major bug: If there is no legal move (no passage, can't stay,
+	can't roll), then it presents a special message and enables the
+	"Stay" button, but this does not let the player make a suggestion
+	there.
+    Fixed major bug: Pressing "skip" for a suggestion would leave the
+	"pre-selected" suspect and weapon in the room instead of restoring
+	them to their correct location.
+    Fixed the printing bugs.
+
+	Changed Files:
+	* Clue.nib
+	* ClueBoard.{M|nib}
+	* ClueMap.{cc|h}
+	* ClueMessages.M
+	* ClueMgr.M
+	* ClueRules.M
+	* Rules.rtfd
+	* all suspect tiffs.
+
+
+v16 Fri May  9 03:43:08 EDT 1997 sunshine
+    Fixed wording in rules.
+    Slight reworking of main menu.  Removed "Help" item for now since there
+	is no help.  (Can easily be re-added later if needed.)
+    Fixed bug: ClueMessages was leaking a ClueTrace.
+    ClueBoard now closes its window before freeing it.
+
+	Changed Files:
+	* Clue.nib
+	* ClueBoard.{h|M}
+	* ClueMessages.M
+	* ClueRules.rtfd
+
+
+v15 Fri May  9 02:19:08 EDT 1997 zarnuk
+    Folded-out the pause after making a suggestion.
+    Now saves/restores the location of suspects/weapons when making
+	suggestions.
+    Fixed drop-on-top bug.
+    Fixed latent bug: players are returned to their starting position
+	if they make an incorrect accusation.  This moves them out
+	of the corridors, and prevents them from blocking the movement
+	of the other players.
+    Erikz changez:
+    Improved wording/formatting of rules.  Added more detailed description.
+    Rules now load from a file.
+
+	Changed Files:
+	* Clue.nib
+	* ClueBoardView.{h|M}
+	* ClueHuman.{h|M|nib}
+	* ClueMgr.M
+	* ClueRules.{h|M|nib}
+	- ClueRules.rtf
+	+ ClueRules.rtfd
+
+v14 Thu May  8 00:20:26 EDT 1997 zarnuk/sunshine
+    Removed green background from weapon tiffs.
+    Fixed bug: ClueHuman suggest pop-ups were not initialized
+	properly when loaded from nibs.
+    Eric added up/down cursor keys and single-click to edit to the
+	table scroll on the ClueHuman window -- much nicer so far.
+    Fixed bug: ClueHuman did not force player to move after rolling die.
+    Fixed bug: failed assertion `goal_room != CLUE_CARD_MAX'.
+    Can now drag suspect and weapon into room.
+
+	Changed Files:
+	* Clue.nib
+	* ClueComputer.M
+	* ClueHuman.{h|M}
+	* ClueMessages.nib
+	* ClueMgr.M
+	+ ClueRules.{h|M|nib|rts}
+	* ClueSetup.{h|M|nib}
+	* PB.project
+	* Makefile
+	* candlestick.tiff
+	* knife.tiff
+	* lead-pipe.tiff
+	* revolver.tiff
+	* rope.tiff
+	* wrench.tiff
+
+v13 Wed Apr 30 01:46:23 EDT 1997 zarnuk
+    Migrated can-stay logic to CluePlayer.  ClueHuman now uses it.
+    Isolated Button(Pop) category from ClueSetup.M for general use.
+    Converted ClueHuman to use tags instead of strings for popups.
+    ClueHuman now enforced to make legal suggestions.
+    Fixed bug: ClueMgr was not allowing an accusation if the player
+	did not (or could not) make a suggestion.
+    ClueMgr now moves the weapon to the suggested room.
+    Adjusted initial nib locations of windows.
+
+	Changed Files:
+	* ClueBoard.nib
+	+ ClueButton.{h|M}
+	* ClueComputer.{h|M}
+	* ClueHuman.{h|M|nib}
+	* ClueMessages.nib
+	* ClueMgr.M
+	* CluePlayer.{h|M}
+	* PB.project
+	* Makefile
+
+v12 Sun Apr 27 23:51:57 EDT 1997 zarnuk
+    Added movement to BeaGinner, AnnaLyzer and DeeDucer.
+    Cleaned up some initial window sizes/locations.
+
+	Changed Files:
+	* ClueAnnaLyzer.{h|M}
+	* ClueBeaGinner.{h|M}
+	* ClueBoard.nib
+	* ClueComputer.{h|M}
+	* ClueDeeDucer.{h|M}
+	* ClueMessages.nib
+	* ClueRandyMizer.{h|M}
+
+v11 Thu Apr 24 21:52:48 EDT 1997 zarnuk
+    Updating copyright notices.
+    More work on implementing movement.
+    Coordinates for one of the dining-room doors was wrong.
+    Fixed some bugs in ClueMap::calcLegal() and do_calc().
+    Renamed "Rash Annul" -> "Bea Ginner"
+    Randy Mizer now implements movement.
+
+	Changed Files:
+	+ ClueBeaGinner.{h|M}
+	* ClueBoard.{h|M}
+	* ClueBoardView.{h|M}
+	* ClueDefs.{h|cc}
+	* ClueHuman.{h|M|nib}
+	* ClueMap.{cc|h}
+	* ClueMgr.{h|M}
+	- ClueNotebook.{h|M|nib}
+	* CluePlayer.{h|M}
+	* ClueRandyMizer.{h|M}
+	- ClueRashAnnul.{h|M}
+	* ClueSetup.{M|nib}
+	+ die[1-6].tiff
+	* Makefile
+	* PB.project
+
+v10 Mon Apr 21 18:42:30 EDT 1997 zarnuk
+    Greenish -> bluish highlight for visual feeback.
+    Maybe fixed the drag-off-window crasher bug.
+    Migrated some specialized ClueSolution methods out of ClueDefs.h
+	and into the clients.
+    Re-ordered suspects to match order-of-play.
+    Added stub code for Mgr <-> Player move dialogue.
+
+	Changed Files:
+	* ClueAnnaLyzer.M
+	* ClueBoardView.M
+	* ClueCondArray.cc
+	* ClueDefs.{cc|h}
+	* ClueHuman.nib
+	+ ClueMap.{cc|h}
+	* ClueMgr.{h|M}
+	* CluePlayer.{h|M}
+	* ClueSetup.{M|nib}
+	* several tiffs.
+
+v9 Mon Apr 21 16:09:40 EDT 1997 sunshine
+    Added feedback during dragging.  (The code is as ugly as sin right
+    now.  It needs a lot of cleanup and more support facilities.)
+
+	Changed Files:
+	+ ClueCoordArray.{h|cc}
+	* ClueHuman.M
+	* ClueBoardView.{h|M}
+	* Makefile
+	* PB.project
+
+v8 Sun Apr 20 17:45:40 EDT 1997 sunshine
+    Added initial board display.
+
+	Changed Files:
+	+ board.tiff
+	* ClueBoard.{h|M|nib}
+	+ ClueBoardView.{h|M}
+	* ClueDefs.{h|cc}
+	* ClueHuman.{h|M|nib}
+	* ClueMgr.{h|M}
+	* PB.project
+	* Makefile
+
+v7 Sun Apr 20 10:53:32 EDT 1997 zarnuk
+    Added Rash Annul.
+    Broke up Anna Lyzer, spawned Dee Ducer.
+
+	Changed Files:
+	+ ClueCardPicker.{cc|h}
+	+ ClueCondArray.{cc|h}
+	* ClueDefs.{cc|h}
+	* CluePlayer.{h|M}
+	+ ClueRashAnnul.{h|M}
+	* ClueSetup.M
+	+ ClueUpdateStack.{cc|h}
+	* Makefile
+	* PB.project
+
+v6 Fri Apr 18 20:00:42 EDT 1997 zarnuk
+    Now uses card-specific icons in the Notebook scroll.
+    Restored the notes column to the Notebook scroll.
+    Restored tag-order sorting to the Notebook scroll.
+    Restored player-reveals messages to the trace.
+
+v5 Thu Apr 17 18:56:01 EDT 1997 zarnuk
+    Improved (?) the interface.
+    Notebook integrated with ClueHuman nib.
+    Messages isolated from ClueHuman nib.
+    Messages now auto-launch with each game.
+    Notebook scroll pre-initialized for the player.
+    Added category icons to the Notebook scroll.
+    Added -setFrameAutosaveName: to Messages and ClueHuman windows.
+    ClueHuman no longer pauses between each player.
+
+	Changed Files:
+	* ClueHuman.{h|M|nib}
+	* ClueMgr.M
+
+v4 Thu Apr 17 14:29:42 EDT 1997 zarnuk
+    Implemented Anna Lyzer.
+
+	Changed Files:
+	+ ClueAnnaLyzer.{h|M}
+	+ ClueSetup.M
+	* PB.project
+	* Makefile
+
+v3 Mon Apr 14 22:47:44 EDT 1997 zarnuk
+    Fixed v1 bug: "abortEditing sent to freed object".
+    Fixed v1 bug: Setup: peacock popup was used twice, scarlet popup none.
+    Fixed v2 bug: Let the player continue making suggestions even after
+	making a false accusation.
+
+	Changed Files:
+	* ClueMgr.M
+	* ClueNotebook.M
+	* ClueSetup.M
+
+v2 Sun Apr 13 13:02:35 EDT 1997 zarnuk
+    Added Messages... menu item.
+    Made it non-modal.
+
+v1 Sun Apr 13 11:51:07 EDT 1997 zarnuk
+    Initial version.
+    Runs modally.
+    No icons.
+    No board.
+    No movement.
+    Computer players: "SilentSam", "RandyMizer"
+    No RCS yet.

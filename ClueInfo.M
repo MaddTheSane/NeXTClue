@@ -6,8 +6,11 @@
 // Copyright (C), 1997, Paul McCarthy.  All rights reserved.
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
-// $Id: ClueInfo.M,v 1.3 97/05/31 16:15:03 zarnuk Exp Locker: zarnuk $
+// $Id: ClueInfo.M,v 1.4 97/06/27 10:39:47 zarnuk Exp Locker: zarnuk $
 // $Log:	ClueInfo.M,v $
+//  Revision 1.4  97/06/27  10:39:47  zarnuk
+//  v23 -- Added releaseField.
+//  
 //  Revision 1.3  97/05/31  16:15:03  zarnuk
 //  Makes key so that cmd-w will close the window.
 //-----------------------------------------------------------------------------
@@ -57,7 +60,7 @@ extern "C" {
 	    ver = "open?";
 	}
 
-    [buildField setStringValue:ver];
+    [fld setStringValue:ver];
     }
 
 

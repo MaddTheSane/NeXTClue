@@ -6,8 +6,11 @@
 // Copyright (C), 1997, Paul McCarthy and Eric Sunshine.  All rights reserved.
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
-// $Id: ClueHuman.M,v 1.1 97/05/31 10:09:45 zarnuk Exp Locker: zarnuk $
+// $Id: ClueHuman.M,v 1.2 97/05/31 12:53:32 zarnuk Exp Locker: zarnuk $
 // $Log:	ClueHuman.M,v $
+//  Revision 1.2  97/05/31  12:53:32  zarnuk
+//  v21: Fixed bug sometimes restored pieces on top of other pieces.
+//  
 //  Revision 1.1  97/05/31  10:09:45  zarnuk
 //  v21
 //-----------------------------------------------------------------------------
@@ -187,8 +190,6 @@ ClueFilter( unsigned short c, int flags, unsigned short cset )
 	}
 
     [self separatorRow:row tag:(CLUE_CARD_COUNT << 1) name:"notes"];
-
-    [scroll sortRows];
     }
 
 
@@ -288,6 +289,10 @@ ClueFilter( unsigned short c, int flags, unsigned short cset )
 		[self editNext:NO row:row col:col];
 	    else if ([scroll getNext:NO editRow:&row andCol:&col])
 		[scroll editCellAt:row:col];
+	    break;
+	case NX_RETURN:
+	    [scroll selectText:self];
+	    [scroll sendAction];
 	    break;
 	}
     }

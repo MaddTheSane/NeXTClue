@@ -6,8 +6,10 @@
 // Copyright (C), 1997, Paul McCarthy and Eric Sunshine.  All rights reserved.
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
-// $Id$
-// $Log$
+// $Id: ClueHuman.M,v 1.1 97/05/31 10:09:45 zarnuk Exp Locker: zarnuk $
+// $Log:	ClueHuman.M,v $
+//  Revision 1.1  97/05/31  10:09:45  zarnuk
+//  v21
 //-----------------------------------------------------------------------------
 #import "ClueHuman.h"
 #import	"ClueBoardView.h"
@@ -366,12 +368,24 @@ ClueFilter( unsigned short c, int flags, unsigned short cset )
     }
 
 
+- (void) restorePiece:(ClueCard)piece to:(ClueCoord)pos
+    {
+    if ([clueMgr pieceAt:pos] != CLUE_CARD_MAX)
+	{
+	ClueCard const room = ClueRoomAt( pos );
+	assert( room != CLUE_CARD_MAX );
+	pos = [clueMgr roomCoord:room];
+	}
+    [clueMgr movePiece:piece to:pos];
+    }
+
+
 - skipPressed:sender
     {
     if (!forAccuse)		// Suggestion skipped.
 	{			// Restore suspect / weapon.
-	[clueMgr movePiece:suspectID to:suspectPos];
-	[clueMgr movePiece:weaponID to:weaponPos];
+	[self restorePiece:suspectID to:suspectPos];
+	[self restorePiece:weaponID to:weaponPos];
 	}
     wasDisproved = YES;		// Suppress "nobody disproved".
     [messageField setStringValueNoCopy: MAKE_ACCUSATION];
@@ -412,7 +426,7 @@ ClueFilter( unsigned short c, int flags, unsigned short cset )
 	ClueCard const x = ClueCard( [suspectPop selectedTag] );
 	if (x != suspectID)
 	    {
-	    [clueMgr movePiece:suspectID to:suspectPos];
+	    [self restorePiece:suspectID to:suspectPos];
 	    suspectID = x;
 	    [self movePiece:suspectID toRoom:currRoom savePos:&suspectPos];
 	    }
@@ -428,7 +442,7 @@ ClueFilter( unsigned short c, int flags, unsigned short cset )
 	ClueCard const x = ClueCard( [weaponPop selectedTag] );
 	if (x != weaponID)
 	    {
-	    [clueMgr movePiece:weaponID to:weaponPos];
+	    [self restorePiece:weaponID to:weaponPos];
 	    weaponID = x;
 	    [self movePiece:weaponID toRoom:currRoom savePos:&weaponPos];
 	    }
@@ -670,7 +684,7 @@ ClueFilter( unsigned short c, int flags, unsigned short cset )
 	    {
 	    if (piece != suspectID)
 		{
-		[clueMgr movePiece:suspectID to:suspectPos];
+		[self restorePiece:suspectID to:suspectPos];
 		suspectID = piece;
 		suspectPos = oldPos;
 		[suspectPop selectTag:int(piece)];
@@ -680,7 +694,7 @@ ClueFilter( unsigned short c, int flags, unsigned short cset )
 	    {
 	    if (piece != weaponID)
 		{
-		[clueMgr movePiece:weaponID to:weaponPos];
+		[self restorePiece:weaponID to:weaponPos];
 		weaponID = piece;
 		weaponPos = oldPos;
 		[weaponPop selectTag:int(piece)];

@@ -31,6 +31,22 @@ TODO:
 	* PACKAGE_NUMBER
 
 
+v22 Sat May 31 16:24:24 EDT 1997 zarnuk
+    Fixed up PB files.  I purged a lot of junk files from the directory
+	in v21, but PB still had references to some of them.
+    Info panel now makes key when ordered front, so that cmd-w will
+	close it.
+    Repackaged tiffs so that they are read-only.
+
+	Changed Files:
+	* ClueInfo.M
+	* Makefile
+	* PB.project
+	- room.tiff
+	- suspect.tiff
+	- weapon.tiff
+
+
 v21 Sat May 31 15:49:05 EDT 1997 zarnuk
     Erik fiddled with the ClueHuman nib and scrunched it.
     Anna Lyzer (hence Dee Ducer and Cy Borg) were revealing new

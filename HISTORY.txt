@@ -24,11 +24,48 @@ TODO:
 * Find panel for searching through the messages.
 * Network play.
 * Misc-ify.
-* Publish.
+
+* This program is published at:
+	- http://www.peak.org/next/submissions
+	- ftp.next.peak.org
 
 *** These files are modified with every version: ****
 	* HISTORY.txt		-- This file.
 	* PACKAGE_NUMBER
+	- RELEASE_NUMBER	-- If this version will be published.
+
+
+********************************************
+***  Release 1.0  **************************
+***  v23 published at ftp.next.peak.org  ***
+********************************************
+
+v23 Fri Jun 27 10:30:54 EDT 1997 zarnuk
+    Turned off auto-sort on table scroll.
+    Eric changed the table scroll to retain first responder after the
+	user presses RETURN.
+    Added some notes to ClueCondArray.cc
+    Cody cooked up some more cool suspect icons.
+    Reversed the order of the text-name/icon pairs in the trace.
+    Added freeware notice to Info panel.
+    Added release number to info panel.
+
+	Changed Files:
+	* ClueHuman.{M|nib}
+	* ClueInfo.{h|M|nib}
+	* ClueCondArray.cc
+	* ClueRules.rtfd
+	* ClueTrace.M
+	* Makefile
+	* PB.project
+	+ README
+	+ RELEASE_NUMBER
+	* green.tiff
+	* mustard.tiff
+	* peacock.tiff
+	* plum.tiff
+	* scarlet.tiff
+	* white.tiff
 
 
 v22 Sat May 31 16:24:24 EDT 1997 zarnuk

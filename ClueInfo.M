@@ -6,8 +6,11 @@
 // Copyright (C), 1997, Paul McCarthy.  All rights reserved.
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
-// $Id: ClueInfo.M,v 1.1 97/05/31 10:10:48 zarnuk Exp Locker: zarnuk $
+// $Id: ClueInfo.M,v 1.2 97/05/31 14:05:50 zarnuk Exp Locker: zarnuk $
 // $Log:	ClueInfo.M,v $
+//  Revision 1.2  97/05/31  14:05:50  zarnuk
+//  v21: Now reads version number from PACKAGE_NUMBER file.
+//  
 //  Revision 1.1  97/05/31  10:10:48  zarnuk
 //-----------------------------------------------------------------------------
 #import "ClueInfo.h"
@@ -62,9 +65,9 @@ static char const PKGFILE[] = "PACKAGE_NUMBER";
     }
 
 
-- orderFront:sender
+- makeKeyAndOrderFront:sender
     {
-    return [window orderFront:sender];
+    return [window makeKeyAndOrderFront:sender];
     }
 
 
@@ -73,7 +76,7 @@ static char const PKGFILE[] = "PACKAGE_NUMBER";
     static ClueInfo* instance = 0;
     if (instance == 0)
 	instance = [[self alloc] init];
-    [instance orderFront:self];
+    [instance makeKeyAndOrderFront:self];
     return self;
     }
 

@@ -4,6 +4,10 @@ This program is published at:
 	- http://www.peak.org/next
 	- ftp.next.peak.org:/pub/next/apps/games
 
+The source code is published at:
+	- ftp.next.peak.org:/pub/next/sourcelibrary
+
+
 BUGS:
 
 TODO:
@@ -32,7 +36,6 @@ TODO:
 * Network play.
 * Misc-ify.
 * Document architecture.
-* Center the text on the info panel better.
 
 
 NOTES:
@@ -71,6 +74,20 @@ NOTES:
 	* RELEASE_NUMBER
 
 HISTORY:
+
+****************************************
+***  Source Code Release 1.0  (v25)  ***
+****************************************
+
+v25 Sun Sep 21 00:45:12 EDT 1997 zarnuk
+    Converted to Misc version of table scroll.
+
+	Changed Files:
+	* ClueHuman.{h|M|nib}
+	* Makefile
+	* PB.project
+	+ README_ABOUT_SOURCE_CODE
+
 
 v24 Sun Sep 21 00:20:43 EDT 1997 zarnuk
     Auto-sort was not actually turned off.

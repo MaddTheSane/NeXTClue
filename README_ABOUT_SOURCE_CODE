@@ -1,0 +1,53 @@
+Copyright 1997, Paul McCarthy and Eric Sunshine.
+
+   From: "Paul McCarthy" <zarnuk@mcgh.org>
+   Date: Sep 21st, 1997
+Subject: Clue Source Code.
+
+Clue is a NEXTSTEP implementation of the Parker Brothers' board game.
+
+Clue is "freeware".  You may use and enjoy this program for free.  This 
+package contains the source code for the Clue program.  You may examine, use 
+and modify the source code for private, non-commercial purposes free of 
+charge.  You may make and distribute unmodified copies of this source code 
+for free provided that: (a) the source code is distributed in its entirety 
+without modification, and (b) no fee of any kind is collected for the 
+distribution of the source code.  
+
+You may not distribute modified versions of the Clue program.
+You may not distribute modified versions of the source code.
+You may not distribute versions of the Clue program constructed from
+modified versions of the source code.
+
+These restrictions are for the protection of all.
+
+If you would like some or all of your private modifications incorporated
+in the officially published version of the Clue program, submit the
+modified version of the source code to:
+
+	"Paul McCarthy" <zarnuk@mcgh.org>
+
+Credit will be given to all contributors for whatever contributions are
+included in officially published versions of the Clue program.  I do not
+want others taking credit for my work, and I will not take credit for the
+work of others.
+
+NOTE: The Clue program requires the MiscTableScroll palette, version 129
+or better.
+
+To install:
+cd ~/Source/Games                  # Wherever you install source code.
+gnutar xzf Clue.1.0.s.tar.gz       # Creates Clue
+cd Clue                            # Change to that directory
+co RCS/*                           # Check out the source code from RCS.
+./unpack_binaries.sh               # Unpack the nibs, tiffs, etc.
+
+No special permissions are required other than the ordinary permissions to 
+create files in a directory.  
+
+
+Paul McCarthy wrote the program.
+Eric Sunshine provided additional programming.
+Cody McCarthy drew the suspect icons.
+
+Comments to: "Paul McCarthy" <zarnuk@mcgh.org>

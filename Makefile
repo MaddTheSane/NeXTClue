@@ -68,9 +68,9 @@ DEBUG_LIBS = $(LIBS)
 PROF_LIBS = $(LIBS)
 
 
-HEADER_PATHS = -I/homes/zarnuk/Source/Palettes/MCGHTableScroll\
+HEADER_PATHS = -I/Net/charge/homes/zarnuk/Source/Palettes/MCGHTableScroll\
                -I/LocalLibrary/include/mcgh -I/usr/local/include/mcgh
-LIBRARY_PATHS = -L/homes/zarnuk/Source/Palettes/MCGHTableScroll\
+LIBRARY_PATHS = -L/Net/charge/homes/zarnuk/Source/Palettes/MCGHTableScroll\
                 -L/LocalLibrary/lib -L/usr/local/lib
 
 

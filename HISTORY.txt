@@ -8,19 +8,21 @@ BUGS:
 
 TODO:
 * Computer Players.
-	- Better movement logic for computer players.
+	- Better movement planning for computer players.
 	- More deduction rules in Dee Ducer.
 	- More/better speculation rules in Cy Borg.
 	- Continuous mode for semi-automated testing.
 	- Statistics mode for comparing performance of computer players?
 	- Steer away from repeated identical suggestions.
+	- Animate the computer player moves?
 * Human Interface
 	- Extra general purpose notes area?
 	- Save/restore scroll/window defaults.
 	- Pause after each player's turn?
-	- Animate the computer player moves?
 	- Keep a "faded" image of the original suspect/weapon location?
 	- Undo/Redo for table scroll editing.
+	- Describe current location when it is the human's turn to move,
+	  especially if the human was moved by another player's suggestion.
 * Better icons.
 * Icons in Messages trace cannot be written to pasteboard.
 * Help for the table scroll object.
@@ -29,6 +31,8 @@ TODO:
 * Find panel for searching through the messages.
 * Network play.
 * Misc-ify.
+* Document architecture.
+* Center the text on the info panel better.
 
 
 NOTES:
@@ -67,6 +71,20 @@ NOTES:
 	* RELEASE_NUMBER
 
 HISTORY:
+
+v24 Sun Sep 21 00:20:43 EDT 1997 zarnuk
+    Auto-sort was not actually turned off.
+    Changed the paths in the PB.project file so that I can perform
+	the final link on charm, where I have the quad-fat libraries.
+    ClueInfo was not setting the release field properly.
+    Centered text on info panel better.
+
+	Changed Files:
+	* ClueHuman.nib
+	* ClueInfo.{M|nib}
+	* PB.project
+	* Makefile
+
 
 ****************************
 ***  Release 1.0  (v23)  ***

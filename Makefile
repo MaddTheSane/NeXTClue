@@ -63,15 +63,14 @@ SOURCEMODE = 444
 
 ICONSECTIONS =	-sectcreate __ICON app Clue.tiff
 
-LIBS = -lMCGHTableScroll -lMedia_s -lNeXT_s -lIndexing_s
+LIBS = -lMiscTableScroll -lMedia_s -lNeXT_s -lIndexing_s
 DEBUG_LIBS = $(LIBS)
 PROF_LIBS = $(LIBS)
 
 
-HEADER_PATHS = -I/Net/charge/homes/zarnuk/Source/Palettes/MCGHTableScroll\
-               -I/LocalLibrary/include/mcgh -I/usr/local/include/mcgh
-LIBRARY_PATHS = -L/Net/charge/homes/zarnuk/Source/Palettes/MCGHTableScroll\
-                -L/LocalLibrary/lib -L/usr/local/lib
+HEADER_PATHS = -I/LocalDeveloper/Headers
+LIBRARY_PATHS = -L/LocalDeveloper/Libraries
+PB_CFLAGS = -Wwrite-strings -Werror
 
 
 -include Makefile.preamble

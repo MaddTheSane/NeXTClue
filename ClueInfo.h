@@ -8,17 +8,20 @@
 // Copyright (C), 1997, Paul McCarthy.  All rights reserved.
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
-// $Id$
-// $Log$
+// $Id: ClueInfo.h,v 1.1 97/05/31 10:10:50 zarnuk Exp Locker: zarnuk $
+// $Log:	ClueInfo.h,v $
+//  Revision 1.1  97/05/31  10:10:50  zarnuk
+//  v21
 //-----------------------------------------------------------------------------
 extern "Objective-C" {
 #import <objc/Object.h>
 }
-@class Window;
+@class TextField, Window;
 
 @interface ClueInfo:Object
     {
     Window*	window;
+    TextField*	versionField;
     }
 + launch;
 @end

@@ -25,7 +25,7 @@ GLOBAL_RESOURCES = Clue.nib ClueBoard.nib ClueHuman.nib ClueInfo.nib\
                    lounge.tiff mustard.tiff peacock.tiff plum.tiff\
                    revolver.tiff rope.tiff scarlet.tiff study.tiff\
                    white.tiff wrench.tiff ClueRules.rtfd HISTORY.txt\
-                   PACKAGE_NUMBER
+                   PACKAGE_NUMBER README RELEASE_NUMBER
 
 HFILES = ClueAnnaLyzer.h ClueBeaGinner.h ClueBoard.h ClueBoardView.h\
          ClueButton.h ClueCardPicker.h ClueComputer.h ClueCondArray.h\

@@ -23,17 +23,16 @@ GLOBAL_RESOURCES = Clue.nib ClueBoard.nib ClueHuman.nib ClueInfo.nib\
                    die6.tiff dining-room.tiff green.tiff hall.tiff\
                    kitchen.tiff knife.tiff lead-pipe.tiff library.tiff\
                    lounge.tiff mustard.tiff peacock.tiff plum.tiff\
-                   revolver.tiff room.tiff rope.tiff scarlet.tiff\
-                   study.tiff suspect.tiff weapon.tiff white.tiff\
-                   wrench.tiff ClueRules.rtfd HISTORY.txt\
+                   revolver.tiff rope.tiff scarlet.tiff study.tiff\
+                   white.tiff wrench.tiff ClueRules.rtfd HISTORY.txt\
                    PACKAGE_NUMBER
 
 HFILES = ClueAnnaLyzer.h ClueBeaGinner.h ClueBoard.h ClueBoardView.h\
          ClueButton.h ClueCardPicker.h ClueComputer.h ClueCondArray.h\
-         ClueCoordArray.h ClueCyLent.h ClueDeeDucer.h ClueDefs.h\
-         ClueHuman.h ClueInfo.h ClueLoadNib.h ClueMap.h ClueMessages.h\
-         ClueMgr.h CluePlayer.h ClueRandyMizer.h ClueRules.h\
-         ClueSetup.h ClueTrace.h ClueUpdateStack.h ClueCyBorg.h
+         ClueCoordArray.h ClueCyBorg.h ClueCyLent.h ClueDeeDucer.h\
+         ClueDefs.h ClueHuman.h ClueInfo.h ClueLoadNib.h ClueMap.h\
+         ClueMessages.h ClueMgr.h CluePlayer.h ClueRandyMizer.h\
+         ClueRules.h ClueSetup.h ClueTrace.h ClueUpdateStack.h
 
 OTHERLINKED = ClueAnnaLyzer.M ClueBeaGinner.M ClueBoard.M\
               ClueBoardView.M ClueButton.M ClueCardPicker.cc\

@@ -1,5 +1,9 @@
 Clue/HISTORY.txt
 
+This program is published at:
+	- http://www.peak.org/next
+	- ftp.next.peak.org:/pub/next/apps/games
+
 BUGS:
 
 TODO:
@@ -9,6 +13,7 @@ TODO:
 	- More/better speculation rules in Cy Borg.
 	- Continuous mode for semi-automated testing.
 	- Statistics mode for comparing performance of computer players?
+	- Steer away from repeated identical suggestions.
 * Human Interface
 	- Extra general purpose notes area?
 	- Save/restore scroll/window defaults.
@@ -25,30 +30,57 @@ TODO:
 * Network play.
 * Misc-ify.
 
-* This program is published at:
-	- http://www.peak.org/next/submissions
-	- ftp.next.peak.org
 
-*** These files are modified with every version: ****
+NOTES:
+* To unpack a source code package:
+	unix> gnutar xzvf Clue.{version}.tar.gz
+	unix> cd Clue
+	unix> co RCS/*
+	unix> ./unpack_binaries.sh
+
+* To create a source code package:
+	Run pack.sh
+	Do a build with the new package to validate it.
+
+* To release a public version of the executable:
+	Update the RELEASE_NUMBER and README files appropriately.
+	Create the source code package.
+	PB> "Build" quad-fat: m68k, i386, hppa, sparc.
+	PB> "Install"
+	unix> gnutar czvf Clue.{release}.NIHS.b.tar.gz Clue.app
+	unix> ftp ftp.next.peak.org
+	ftp> login as anonymous
+	ftp> cd /pub/next/submissions
+	ftp> bin
+	ftp> put Clue.{release}.NIHS.b.tar.gz
+	ftp> put Clue/README Clue.{release}.README
+	ftp> close
+	ftp> bye
+	Mail> Send notification to next-ftp@peak.org
+
+* These files are modified with every version:
 	* HISTORY.txt		-- This file.
 	* PACKAGE_NUMBER
-	- RELEASE_NUMBER	-- If this version will be published.
 
+* These files are modified with every release
+	* README
+	* RELEASE_NUMBER
 
-********************************************
-***  Release 1.0  **************************
-***  v23 published at ftp.next.peak.org  ***
-********************************************
+HISTORY:
 
-v23 Fri Jun 27 10:30:54 EDT 1997 zarnuk
+****************************
+***  Release 1.0  (v23)  ***
+****************************
+
+v23 Fri Jun 27 12:27:56 EDT 1997 zarnuk
+    Published as release 1.0.
     Turned off auto-sort on table scroll.
-    Eric changed the table scroll to retain first responder after the
-	user presses RETURN.
     Added some notes to ClueCondArray.cc
-    Cody cooked up some more cool suspect icons.
     Reversed the order of the text-name/icon pairs in the trace.
     Added freeware notice to Info panel.
     Added release number to info panel.
+    Eric: table scroll retains first responder after pressing RETURN.
+    Cody: cooked up cool suspect icons.
 
 	Changed Files:
 	* ClueHuman.{M|nib}

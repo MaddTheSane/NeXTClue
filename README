@@ -1,0 +1,32 @@
+Copyright 1997, Paul McCarthy and Eric Sunshine.
+
+   From: "Paul McCarthy" <zarnuk@mcgh.org>
+   Date: June 27th, 1997
+Subject: Clue 1.0
+
+Clue is a NeXTstep implementation of the Parker Brothers' board game.
+
+Clue is "freeware".  You may use and enjoy this program for free.  You may
+make and distribute unmodified copies of this program for free provided
+that: (a) the program is distributed in its entirety without modification,
+and (b) no fee of any kind is collected for the distribution of the program.
+
+To install:
+cd /Games                               # Wherever you install games.
+gnutar xzf Clue.1.0.NIHS.b.tar.gz       # Creates Clue.app
+
+No special permissions are required other than the ordinary permissions to 
+create files in a directory.  
+
+This package contains only the binary executable.  The program uses a 
+private "pre-release" version of the MiscTableScroll object which we have 
+not published yet.  I will probably release the source code in a separate 
+distribution after the appropriate version of the MiscTableScroll object is 
+publicly available, 
+
+
+Paul McCarthy wrote the program.
+Eric Sunshine provided additional programming.
+Cody McCarthy drew the suspect icons.
+
+Comments to: "Paul McCarthy" <zarnuk@mcgh.org>

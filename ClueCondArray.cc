@@ -4,11 +4,24 @@
 //	List of conditional deductions exposed during play for use by the
 //	ClueDeeDucer computer player.
 //
+// NOTES:
+//	* minCardsForPlayer() can be upgraded to determine if there is a
+//	unique solution -- in which case the conditionals can be converted
+//	into definite HOLDS / NOT_HOLDS settings.
+//
+//	* I discovered another deduction rule that can be added:  If two
+//	players, p1 and p2 both have the same two-card conditional c1, c2
+//	(ex: scarlet, knife), then no other players can be holding c1 and
+//	c2, and c1 and c2 cannot be in the solution.
+//
 // Copyright (C), 1997, Paul McCarthy.  All rights reserved.
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
-// $Id$
-// $Log$
+// $Id: ClueCondArray.cc,v 1.1 97/05/31 10:08:29 zarnuk Exp Locker: zarnuk $
+// $Log:	ClueCondArray.cc,v $
+//  Revision 1.1  97/05/31  10:08:29  zarnuk
+//  First Revision.
+//  
 //-----------------------------------------------------------------------------
 #ifdef __GNUC__
 #pragma implementation

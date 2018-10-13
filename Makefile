@@ -34,13 +34,13 @@ HFILES = ClueAnnaLyzer.h ClueBeaGinner.h ClueBoard.h ClueBoardView.h\
          ClueMessages.h ClueMgr.h CluePlayer.h ClueRandyMizer.h\
          ClueRules.h ClueSetup.h ClueTrace.h ClueUpdateStack.h
 
-OTHERLINKED = ClueAnnaLyzer.M ClueBeaGinner.M ClueBoard.M\
-              ClueBoardView.M ClueButton.M ClueCardPicker.cc\
-              ClueComputer.M ClueCondArray.cc ClueCoordArray.cc\
-              ClueCyBorg.M ClueCyLent.M ClueDeeDucer.M ClueDefs.cc\
-              ClueHuman.M ClueInfo.M ClueLoadNib.M ClueMap.cc\
-              ClueMessages.M ClueMgr.M CluePlayer.M ClueRandyMizer.M\
-              ClueRules.M ClueSetup.M ClueTrace.M ClueUpdateStack.cc
+OTHERLINKED = ClueAnnaLyzer.mm ClueBeaGinner.mm ClueBoard.mm\
+              ClueBoardView.mm ClueButton.mm ClueCardPicker.cc\
+              ClueComputer.mm ClueCondArray.cc ClueCoordArray.cc\
+              ClueCyBorg.mm ClueCyLent.mm ClueDeeDucer.mm ClueDefs.cc\
+              ClueHuman.mm ClueInfo.mm ClueLoadNib.mm ClueMap.cc\
+              ClueMessages.mm ClueMgr.mm CluePlayer.mm ClueRandyMizer.mm\
+              ClueRules.mm ClueSetup.mm ClueTrace.mm ClueUpdateStack.cc
 
 MFILES = Clue_main.m
 

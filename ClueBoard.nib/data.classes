@@ -1,0 +1,3 @@
+ClueBoard = {OUTLETS = {boardView = boardView; window = window; }; SUPERCLASS = Object; };
+FirstResponder = {ACTIONS = {}; SUPERCLASS = Object; };
+ClueBoardView = {SUPERCLASS = View; };

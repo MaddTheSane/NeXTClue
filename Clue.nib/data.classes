@@ -1,0 +1,10 @@
+ClueMgr = {
+    ACTIONS = {
+	"appInfo:" = "appInfo:"; 
+	"newGame:" = "newGame:"; 
+	"showRules:" = "showRules:"; 
+    }; 
+    OUTLETS = {}; 
+    SUPERCLASS = Object; 
+};
+FirstResponder = {ACTIONS = {"print:" = "print:"; }; SUPERCLASS = Object; };

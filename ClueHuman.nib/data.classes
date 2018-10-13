@@ -1,0 +1,32 @@
+ClueHuman = {
+    ACTIONS = {
+	"accusePressed:" = "accusePressed:"; 
+	"passagePressed:" = "passagePressed:"; 
+	"revealPressed:" = "revealPressed:"; 
+	"rollPressed:" = "rollPressed:"; 
+	"skipPressed:" = "skipPressed:"; 
+	"stayPressed:" = "stayPressed:"; 
+	"suggestPressed:" = "suggestPressed:"; 
+	"suspectSnap:" = "suspectSnap:"; 
+	"weaponSnap:" = "weaponSnap:"; 
+    }; 
+    OUTLETS = {
+	accuseButton = accuseButton; 
+	dieButton = dieButton; 
+	messageField = messageField; 
+	passageButton = passageButton; 
+	revealButton = revealButton; 
+	revealMatrix = revealMatrix; 
+	rollButton = rollButton; 
+	roomPop = roomPop; 
+	scroll = scroll; 
+	skipButton = skipButton; 
+	stayButton = stayButton; 
+	suggestButton = suggestButton; 
+	suspectPop = suspectPop; 
+	weaponPop = weaponPop; 
+	window = window; 
+    }; 
+    SUPERCLASS = Object; 
+};
+FirstResponder = {ACTIONS = {}; SUPERCLASS = Object; };

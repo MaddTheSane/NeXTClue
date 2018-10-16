@@ -1,0 +1,12 @@
+{
+    IBClasses = (
+        {
+            CLASS = ClueRules; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {text = id; window = id; }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }
+    ); 
+    IBVersion = 1; 
+}

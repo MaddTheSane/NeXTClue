@@ -1,0 +1,24 @@
+{
+    IBClasses =     (
+                {
+            CLASS = ClueBoard;
+            LANGUAGE = ObjC;
+            OUTLETS =             {
+                boardView = id;
+                window = id;
+            };
+            SUPERCLASS = NSObject;
+        },
+                {
+            CLASS = ClueBoardView;
+            LANGUAGE = ObjC;
+            SUPERCLASS = NSView;
+        },
+                {
+            CLASS = FirstResponder;
+            LANGUAGE = ObjC;
+            SUPERCLASS = NSObject;
+        }
+    );
+    IBVersion = 1;
+}

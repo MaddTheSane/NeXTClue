@@ -2,3 +2,5 @@
 xcuserdata/
 build/
 Clue.app/
+*.nib~/
+CONVERSION/

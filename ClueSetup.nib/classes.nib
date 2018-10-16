@@ -1,0 +1,29 @@
+{
+    IBClasses =     (
+                {
+            ACTIONS =             {
+                cancelPressed = id;
+                okPressed = id;
+                revertPressed = id;
+            };
+            CLASS = ClueSetup;
+            LANGUAGE = ObjC;
+            OUTLETS =             {
+                greenPop = id;
+                mustardPop = id;
+                peacockPop = id;
+                plumPop = id;
+                scarletPop = id;
+                whitePop = id;
+                window = id;
+            };
+            SUPERCLASS = NSObject;
+        },
+                {
+            CLASS = FirstResponder;
+            LANGUAGE = ObjC;
+            SUPERCLASS = NSObject;
+        }
+    );
+    IBVersion = 1;
+}

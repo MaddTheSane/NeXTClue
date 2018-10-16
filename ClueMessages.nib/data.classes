@@ -1,2 +1,0 @@
-FirstResponder = {ACTIONS = {}; SUPERCLASS = Object; };
-ClueMessages = {OUTLETS = {text = text; window = window; }; SUPERCLASS = Object; };

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.18"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -21,18 +21,17 @@
         <window title="New Game" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="59" userLabel="Panel" customClass="Panel">
             <windowStyleMask key="styleMask" titled="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="416" y="314" width="225" height="212"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1058"/>
+            <rect key="contentRect" x="416" y="314" width="249" height="221"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
             <view key="contentView" id="75">
-                <rect key="frame" x="0.0" y="0.0" width="225" height="212"/>
+                <rect key="frame" x="0.0" y="0.0" width="249" height="229"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <popUpButton verticalHuggingPriority="750" imageHugsTitle="YES" id="36">
-                        <rect key="frame" x="11" y="183" width="119" height="20"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <popUpButtonCell key="cell" type="push" title="Not Playing" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="border" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="35" id="94">
+                    <popUpButton verticalHuggingPriority="750" imageHugsTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="36">
+                        <rect key="frame" x="17" y="188" width="101" height="22"/>
+                        <popUpButtonCell key="cell" type="push" title="Not Playing" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="truncatingTail" state="on" borderStyle="border" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="35" id="94">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" size="12" name="Helvetica"/>
+                            <font key="font" metaFont="smallSystem"/>
                             <menu key="menu" title="OtherViews" id="70">
                                 <items>
                                     <menuItem title="Not Playing" state="on" id="35"/>
@@ -47,12 +46,11 @@
                             </menu>
                         </popUpButtonCell>
                     </popUpButton>
-                    <button verticalHuggingPriority="750" imageHugsTitle="YES" id="63">
-                        <rect key="frame" x="162" y="7" width="56" height="24"/>
-                        <autoresizingMask key="autoresizingMask"/>
+                    <button verticalHuggingPriority="750" imageHugsTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="63">
+                        <rect key="frame" x="176" y="13" width="59" height="32"/>
                         <buttonCell key="cell" type="push" title="OK" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="98">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" size="12" name="Helvetica"/>
+                            <font key="font" metaFont="system"/>
                             <string key="keyEquivalent" base64-UTF8="YES">
 DQ
 </string>
@@ -61,34 +59,34 @@ DQ
                             <action selector="okPressed:" target="-2" id="82"/>
                         </connections>
                     </button>
-                    <button verticalHuggingPriority="750" imageHugsTitle="YES" id="39">
-                        <rect key="frame" x="10" y="7" width="56" height="24"/>
-                        <autoresizingMask key="autoresizingMask"/>
+                    <button verticalHuggingPriority="750" imageHugsTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="39">
+                        <rect key="frame" x="14" y="13" width="82" height="32"/>
                         <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="95">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" size="12" name="Helvetica"/>
+                            <font key="font" metaFont="system"/>
+                            <string key="keyEquivalent" base64-UTF8="YES">
+Gw
+</string>
                         </buttonCell>
                         <connections>
                             <action selector="cancelPressed:" target="-2" id="83"/>
                         </connections>
                     </button>
-                    <button verticalHuggingPriority="750" imageHugsTitle="YES" id="65">
-                        <rect key="frame" x="86" y="7" width="56" height="24"/>
-                        <autoresizingMask key="autoresizingMask"/>
+                    <button verticalHuggingPriority="750" imageHugsTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="65">
+                        <rect key="frame" x="96" y="13" width="80" height="32"/>
                         <buttonCell key="cell" type="push" title="Revert" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="99">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" size="12" name="Helvetica"/>
+                            <font key="font" metaFont="system"/>
                         </buttonCell>
                         <connections>
                             <action selector="revertPressed:" target="-2" id="84"/>
                         </connections>
                     </button>
-                    <popUpButton verticalHuggingPriority="750" imageHugsTitle="YES" id="20">
-                        <rect key="frame" x="11" y="154" width="119" height="20"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <popUpButtonCell key="cell" type="push" title="Not Playing" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="border" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="18" id="92">
+                    <popUpButton verticalHuggingPriority="750" imageHugsTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="20">
+                        <rect key="frame" x="17" y="162" width="101" height="22"/>
+                        <popUpButtonCell key="cell" type="push" title="Not Playing" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="truncatingTail" state="on" borderStyle="border" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="18" id="92">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" size="12" name="Helvetica"/>
+                            <font key="font" metaFont="smallSystem"/>
                             <menu key="menu" title="OtherViews" id="52">
                                 <items>
                                     <menuItem title="Not Playing" state="on" id="18"/>
@@ -103,12 +101,11 @@ DQ
                             </menu>
                         </popUpButtonCell>
                     </popUpButton>
-                    <popUpButton verticalHuggingPriority="750" imageHugsTitle="YES" id="67">
-                        <rect key="frame" x="11" y="125" width="119" height="20"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <popUpButtonCell key="cell" type="push" title="Not Playing" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="border" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="17" id="100">
+                    <popUpButton verticalHuggingPriority="750" imageHugsTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="67">
+                        <rect key="frame" x="17" y="136" width="101" height="22"/>
+                        <popUpButtonCell key="cell" type="push" title="Not Playing" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="truncatingTail" state="on" borderStyle="border" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="17" id="100">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" size="12" name="Helvetica"/>
+                            <font key="font" metaFont="smallSystem"/>
                             <menu key="menu" title="OtherViews" id="4">
                                 <items>
                                     <menuItem title="Not Playing" state="on" id="17"/>
@@ -123,12 +120,11 @@ DQ
                             </menu>
                         </popUpButtonCell>
                     </popUpButton>
-                    <popUpButton verticalHuggingPriority="750" imageHugsTitle="YES" id="61">
-                        <rect key="frame" x="11" y="96" width="119" height="20"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <popUpButtonCell key="cell" type="push" title="Not Playing" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="border" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="72" id="96">
+                    <popUpButton verticalHuggingPriority="750" imageHugsTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="61">
+                        <rect key="frame" x="17" y="110" width="101" height="22"/>
+                        <popUpButtonCell key="cell" type="push" title="Not Playing" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="truncatingTail" state="on" borderStyle="border" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="72" id="96">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" size="12" name="Helvetica"/>
+                            <font key="font" metaFont="smallSystem"/>
                             <menu key="menu" title="OtherViews" id="28">
                                 <items>
                                     <menuItem title="Not Playing" state="on" id="72"/>
@@ -143,12 +139,11 @@ DQ
                             </menu>
                         </popUpButtonCell>
                     </popUpButton>
-                    <popUpButton verticalHuggingPriority="750" imageHugsTitle="YES" id="62">
-                        <rect key="frame" x="11" y="67" width="119" height="20"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <popUpButtonCell key="cell" type="push" title="Not Playing" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="border" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="7" id="97">
+                    <popUpButton verticalHuggingPriority="750" imageHugsTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="62">
+                        <rect key="frame" x="17" y="84" width="101" height="22"/>
+                        <popUpButtonCell key="cell" type="push" title="Not Playing" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="truncatingTail" state="on" borderStyle="border" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="7" id="97">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" size="12" name="Helvetica"/>
+                            <font key="font" metaFont="smallSystem"/>
                             <menu key="menu" title="OtherViews" id="32">
                                 <items>
                                     <menuItem title="Not Playing" state="on" id="7"/>
@@ -163,12 +158,11 @@ DQ
                             </menu>
                         </popUpButtonCell>
                     </popUpButton>
-                    <popUpButton verticalHuggingPriority="750" imageHugsTitle="YES" id="24">
-                        <rect key="frame" x="11" y="38" width="119" height="20"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <popUpButtonCell key="cell" type="push" title="Not Playing" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="border" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="48" id="93">
+                    <popUpButton verticalHuggingPriority="750" imageHugsTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="24">
+                        <rect key="frame" x="17" y="58" width="101" height="22"/>
+                        <popUpButtonCell key="cell" type="push" title="Not Playing" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="truncatingTail" state="on" borderStyle="border" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="48" id="93">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" size="12" name="Helvetica"/>
+                            <font key="font" metaFont="smallSystem"/>
                             <menu key="menu" title="OtherViews" id="11">
                                 <items>
                                     <menuItem title="Not Playing" state="on" id="48"/>
@@ -183,65 +177,100 @@ DQ
                             </menu>
                         </popUpButtonCell>
                     </popUpButton>
-                    <textField verticalHuggingPriority="750" id="VGx-pt-B5F">
-                        <rect key="frame" x="138" y="183" width="82" height="17"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <textFieldCell key="cell" state="on" alignment="left" title="Miss Scarlet" id="6">
-                            <font key="font" size="12" name="Helvetica"/>
+                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="VGx-pt-B5F">
+                        <rect key="frame" x="121" y="193" width="69" height="14"/>
+                        <textFieldCell key="cell" controlSize="small" state="on" alignment="left" title="Miss Scarlet" id="6">
+                            <font key="font" metaFont="smallSystem"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField verticalHuggingPriority="750" id="178-I4-jXf">
-                        <rect key="frame" x="138" y="154" width="82" height="17"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <textFieldCell key="cell" state="on" alignment="left" tag="1" title="Col. Mustard" id="43">
-                            <font key="font" size="12" name="Helvetica"/>
+                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="178-I4-jXf">
+                        <rect key="frame" x="121" y="167" width="71" height="14"/>
+                        <textFieldCell key="cell" controlSize="small" state="on" alignment="left" tag="1" title="Col. Mustard" id="43">
+                            <font key="font" metaFont="smallSystem"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField verticalHuggingPriority="750" id="xuc-mm-arf">
-                        <rect key="frame" x="138" y="125" width="82" height="17"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <textFieldCell key="cell" state="on" alignment="left" tag="2" title="Mrs. White" id="15">
-                            <font key="font" size="12" name="Helvetica"/>
+                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="xuc-mm-arf">
+                        <rect key="frame" x="121" y="141" width="61" height="14"/>
+                        <textFieldCell key="cell" controlSize="small" state="on" alignment="left" tag="2" title="Mrs. White" id="15">
+                            <font key="font" metaFont="smallSystem"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField verticalHuggingPriority="750" id="nmD-w0-8uk">
-                        <rect key="frame" x="138" y="96" width="82" height="17"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <textFieldCell key="cell" state="on" alignment="left" tag="3" title="Mr. Green" id="57">
-                            <font key="font" size="12" name="Helvetica"/>
+                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="nmD-w0-8uk">
+                        <rect key="frame" x="121" y="115" width="56" height="14"/>
+                        <textFieldCell key="cell" controlSize="small" state="on" alignment="left" tag="3" title="Mr. Green" id="57">
+                            <font key="font" metaFont="smallSystem"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField verticalHuggingPriority="750" id="48f-Md-u70">
-                        <rect key="frame" x="138" y="67" width="82" height="17"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <textFieldCell key="cell" state="on" alignment="left" tag="4" title="Mrs. Peacock" id="5">
-                            <font key="font" size="12" name="Helvetica"/>
+                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="48f-Md-u70">
+                        <rect key="frame" x="121" y="89" width="75" height="14"/>
+                        <textFieldCell key="cell" controlSize="small" state="on" alignment="left" tag="4" title="Mrs. Peacock" id="5">
+                            <font key="font" metaFont="smallSystem"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField verticalHuggingPriority="750" id="81I-ac-swG">
-                        <rect key="frame" x="138" y="38" width="82" height="17"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <textFieldCell key="cell" state="on" alignment="left" tag="5" title="Prof. Plum" id="40">
-                            <font key="font" size="12" name="Helvetica"/>
+                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="81I-ac-swG">
+                        <rect key="frame" x="121" y="63" width="58" height="14"/>
+                        <textFieldCell key="cell" controlSize="small" state="on" alignment="left" tag="5" title="Prof. Plum" id="40">
+                            <font key="font" metaFont="smallSystem"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
                 </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="63" secondAttribute="trailing" constant="20" symbolic="YES" id="0Ae-vp-viZ"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="48f-Md-u70" secondAttribute="trailing" constant="20" symbolic="YES" id="0US-U5-ttf"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="178-I4-jXf" secondAttribute="trailing" constant="20" symbolic="YES" id="0mK-cp-n6a"/>
+                    <constraint firstItem="61" firstAttribute="top" secondItem="67" secondAttribute="bottom" constant="8" symbolic="YES" id="0nk-6K-BAs"/>
+                    <constraint firstItem="81I-ac-swG" firstAttribute="firstBaseline" secondItem="24" secondAttribute="firstBaseline" id="1SQ-aX-ycN"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="xuc-mm-arf" secondAttribute="trailing" constant="20" symbolic="YES" id="2KL-sz-Mpo"/>
+                    <constraint firstItem="48f-Md-u70" firstAttribute="leading" secondItem="VGx-pt-B5F" secondAttribute="leading" id="9S3-Z1-Od2"/>
+                    <constraint firstItem="61" firstAttribute="leading" secondItem="36" secondAttribute="leading" id="BmS-5x-hGG"/>
+                    <constraint firstItem="178-I4-jXf" firstAttribute="firstBaseline" secondItem="20" secondAttribute="firstBaseline" id="Bs3-mY-5Jk"/>
+                    <constraint firstItem="24" firstAttribute="leading" secondItem="36" secondAttribute="leading" id="CO5-9H-nLN"/>
+                    <constraint firstItem="65" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="39" secondAttribute="trailing" constant="12" symbolic="YES" id="D3B-en-l79"/>
+                    <constraint firstItem="62" firstAttribute="top" secondItem="61" secondAttribute="bottom" constant="8" symbolic="YES" id="H9k-46-EQe"/>
+                    <constraint firstItem="36" firstAttribute="leading" secondItem="75" secondAttribute="leading" constant="20" symbolic="YES" id="MCg-Zt-wdh"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="VGx-pt-B5F" secondAttribute="trailing" constant="20" symbolic="YES" id="QqL-7O-8yv"/>
+                    <constraint firstItem="63" firstAttribute="firstBaseline" secondItem="39" secondAttribute="firstBaseline" id="Uf8-9v-ygQ"/>
+                    <constraint firstItem="39" firstAttribute="top" secondItem="24" secondAttribute="bottom" constant="20" symbolic="YES" id="WM2-eh-Y53"/>
+                    <constraint firstItem="65" firstAttribute="firstBaseline" secondItem="39" secondAttribute="firstBaseline" id="Z2N-FW-hqK"/>
+                    <constraint firstAttribute="bottom" secondItem="63" secondAttribute="bottom" constant="20" symbolic="YES" id="ZAK-s3-tPt"/>
+                    <constraint firstItem="48f-Md-u70" firstAttribute="firstBaseline" secondItem="62" secondAttribute="firstBaseline" id="ZU4-5A-t49"/>
+                    <constraint firstItem="xuc-mm-arf" firstAttribute="firstBaseline" secondItem="67" secondAttribute="firstBaseline" id="dTq-xx-9d7"/>
+                    <constraint firstItem="xuc-mm-arf" firstAttribute="leading" secondItem="VGx-pt-B5F" secondAttribute="leading" id="eX1-5Z-vPm"/>
+                    <constraint firstItem="67" firstAttribute="leading" secondItem="36" secondAttribute="leading" id="env-E1-Q3x"/>
+                    <constraint firstItem="67" firstAttribute="top" secondItem="20" secondAttribute="bottom" constant="8" symbolic="YES" id="ewK-PM-Joc"/>
+                    <constraint firstItem="20" firstAttribute="leading" secondItem="36" secondAttribute="leading" id="h4l-qN-wYa"/>
+                    <constraint firstItem="VGx-pt-B5F" firstAttribute="firstBaseline" secondItem="36" secondAttribute="firstBaseline" id="hE0-QK-vIM"/>
+                    <constraint firstItem="nmD-w0-8uk" firstAttribute="leading" secondItem="VGx-pt-B5F" secondAttribute="leading" id="hMc-7W-Fwq"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="nmD-w0-8uk" secondAttribute="trailing" constant="20" symbolic="YES" id="mBK-Qj-JzS"/>
+                    <constraint firstItem="20" firstAttribute="top" secondItem="36" secondAttribute="bottom" constant="8" symbolic="YES" id="mb9-xa-FXX"/>
+                    <constraint firstItem="81I-ac-swG" firstAttribute="leading" secondItem="VGx-pt-B5F" secondAttribute="leading" id="nNa-wY-M9S"/>
+                    <constraint firstItem="63" firstAttribute="leading" secondItem="65" secondAttribute="trailing" constant="12" symbolic="YES" id="ot0-kV-Sa6"/>
+                    <constraint firstItem="36" firstAttribute="top" secondItem="75" secondAttribute="top" constant="20" symbolic="YES" id="p67-Wr-QBg"/>
+                    <constraint firstItem="nmD-w0-8uk" firstAttribute="firstBaseline" secondItem="61" secondAttribute="firstBaseline" id="pHf-7h-Zj8"/>
+                    <constraint firstItem="62" firstAttribute="leading" secondItem="36" secondAttribute="leading" id="q7w-f7-OD0"/>
+                    <constraint firstItem="VGx-pt-B5F" firstAttribute="leading" secondItem="36" secondAttribute="trailing" constant="8" symbolic="YES" id="r6o-04-IdN"/>
+                    <constraint firstItem="24" firstAttribute="top" secondItem="62" secondAttribute="bottom" constant="8" symbolic="YES" id="svB-Av-EtZ"/>
+                    <constraint firstItem="39" firstAttribute="leading" secondItem="75" secondAttribute="leading" constant="20" symbolic="YES" id="vaL-gQ-qMU"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="81I-ac-swG" secondAttribute="trailing" constant="20" symbolic="YES" id="x4D-SL-Wzi"/>
+                    <constraint firstItem="178-I4-jXf" firstAttribute="leading" secondItem="VGx-pt-B5F" secondAttribute="leading" id="zMq-0s-aKG"/>
+                </constraints>
             </view>
             <connections>
                 <outlet property="delegate" destination="-2" id="81"/>
             </connections>
+            <point key="canvasLocation" x="144.5" y="154.5"/>
         </window>
     </objects>
 </document>

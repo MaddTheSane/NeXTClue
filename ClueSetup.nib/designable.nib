@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.18"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="ClueSetup">
+            <connections>
+                <outlet property="greenPop" destination="61" id="86"/>
+                <outlet property="mustardPop" destination="20" id="87"/>
+                <outlet property="peacockPop" destination="62" id="88"/>
+                <outlet property="plumPop" destination="24" id="89"/>
+                <outlet property="scarletPop" destination="36" id="85"/>
+                <outlet property="whitePop" destination="67" id="90"/>
+                <outlet property="window" destination="59" id="80"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application"/>
+        <window title="New Game" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="59" userLabel="Panel" customClass="Panel">
+            <windowStyleMask key="styleMask" titled="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="416" y="314" width="225" height="212"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1058"/>
+            <view key="contentView" id="75">
+                <rect key="frame" x="0.0" y="0.0" width="225" height="212"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <popUpButton verticalHuggingPriority="750" imageHugsTitle="YES" id="36">
+                        <rect key="frame" x="11" y="183" width="119" height="20"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <popUpButtonCell key="cell" type="push" title="Not Playing" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="border" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" id="94">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" size="12" name="Helvetica"/>
+                            <menu key="menu" title="OtherViews" id="70">
+                                <items>
+                                    <menuItem title="Not Playing" state="on" id="35"/>
+                                    <menuItem title="Human" id="73"/>
+                                    <menuItem title="Cy Lent" id="37"/>
+                                    <menuItem title="Randy Mizer" id="77"/>
+                                    <menuItem title="Bea Ginner" id="38"/>
+                                    <menuItem title="Anna Lyzer" id="79"/>
+                                    <menuItem title="Dee Ducer" id="33"/>
+                                    <menuItem title="Cy Borg" id="34"/>
+                                </items>
+                            </menu>
+                        </popUpButtonCell>
+                    </popUpButton>
+                    <matrix verticalHuggingPriority="750" mode="track" allowsEmptySelection="NO" autosizesCells="NO" id="2">
+                        <rect key="frame" x="138" y="38" width="82" height="162"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <size key="cellSize" width="82" height="17"/>
+                        <size key="intercellSpacing" width="4" height="12"/>
+                        <textFieldCell key="prototype" state="on" alignment="left" title="Not Playing" id="101">
+                            <font key="font" size="12" name="Helvetica"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                        <cells>
+                            <column>
+                                <textFieldCell state="on" alignment="left" title="Miss Scarlet" id="6">
+                                    <font key="font" size="12" name="Helvetica"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                                <textFieldCell state="on" alignment="left" tag="1" title="Col. Mustard" id="43">
+                                    <font key="font" size="12" name="Helvetica"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                                <textFieldCell state="on" alignment="left" tag="2" title="Mrs. White" id="15">
+                                    <font key="font" size="12" name="Helvetica"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                                <textFieldCell state="on" alignment="left" tag="3" title="Mr. Green" id="57">
+                                    <font key="font" size="12" name="Helvetica"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                                <textFieldCell state="on" alignment="left" tag="4" title="Mrs. Peacock" id="5">
+                                    <font key="font" size="12" name="Helvetica"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                                <textFieldCell state="on" alignment="left" tag="5" title="Prof. Plum" id="40">
+                                    <font key="font" size="12" name="Helvetica"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </column>
+                        </cells>
+                    </matrix>
+                    <button verticalHuggingPriority="750" imageHugsTitle="YES" id="63">
+                        <rect key="frame" x="162" y="7" width="56" height="24"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <buttonCell key="cell" type="push" title="OK" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="98">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" size="12" name="Helvetica"/>
+                            <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                        </buttonCell>
+                        <connections>
+                            <action selector="okPressed:" target="-2" id="82"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" imageHugsTitle="YES" id="39">
+                        <rect key="frame" x="10" y="7" width="56" height="24"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="95">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" size="12" name="Helvetica"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="cancelPressed:" target="-2" id="83"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" imageHugsTitle="YES" id="65">
+                        <rect key="frame" x="86" y="7" width="56" height="24"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <buttonCell key="cell" type="push" title="Revert" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="99">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" size="12" name="Helvetica"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="revertPressed:" target="-2" id="84"/>
+                        </connections>
+                    </button>
+                    <popUpButton verticalHuggingPriority="750" imageHugsTitle="YES" id="20">
+                        <rect key="frame" x="11" y="154" width="119" height="20"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <popUpButtonCell key="cell" type="push" title="Not Playing" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="border" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" id="92">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" size="12" name="Helvetica"/>
+                            <menu key="menu" title="OtherViews" id="52">
+                                <items>
+                                    <menuItem title="Not Playing" state="on" id="18"/>
+                                    <menuItem title="Human" id="45"/>
+                                    <menuItem title="Cy Lent" id="9"/>
+                                    <menuItem title="Randy Mizer" id="50"/>
+                                    <menuItem title="Bea Ginner" id="10"/>
+                                    <menuItem title="Anna Lyzer" id="51"/>
+                                    <menuItem title="Dee Ducer" id="14"/>
+                                    <menuItem title="Cy Borg" id="55"/>
+                                </items>
+                            </menu>
+                        </popUpButtonCell>
+                    </popUpButton>
+                    <popUpButton verticalHuggingPriority="750" imageHugsTitle="YES" id="67">
+                        <rect key="frame" x="11" y="125" width="119" height="20"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <popUpButtonCell key="cell" type="push" title="Not Playing" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="border" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" id="100">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" size="12" name="Helvetica"/>
+                            <menu key="menu" title="OtherViews" id="4">
+                                <items>
+                                    <menuItem title="Not Playing" state="on" id="17"/>
+                                    <menuItem title="Human" id="78"/>
+                                    <menuItem title="Cy Lent" id="41"/>
+                                    <menuItem title="Randy Mizer" id="3"/>
+                                    <menuItem title="Bea Ginner" id="42"/>
+                                    <menuItem title="Anna Lyzer" id="46"/>
+                                    <menuItem title="Dee Ducer" id="23"/>
+                                    <menuItem title="Cy Borg" id="64"/>
+                                </items>
+                            </menu>
+                        </popUpButtonCell>
+                    </popUpButton>
+                    <popUpButton verticalHuggingPriority="750" imageHugsTitle="YES" id="61">
+                        <rect key="frame" x="11" y="96" width="119" height="20"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <popUpButtonCell key="cell" type="push" title="Not Playing" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="border" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" id="96">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" size="12" name="Helvetica"/>
+                            <menu key="menu" title="OtherViews" id="28">
+                                <items>
+                                    <menuItem title="Not Playing" state="on" id="72"/>
+                                    <menuItem title="Human" id="21"/>
+                                    <menuItem title="Cy Lent" id="60"/>
+                                    <menuItem title="Randy Mizer" id="26"/>
+                                    <menuItem title="Bea Ginner" id="68"/>
+                                    <menuItem title="Anna Lyzer" id="27"/>
+                                    <menuItem title="Dee Ducer" id="69"/>
+                                    <menuItem title="Cy Borg" id="30"/>
+                                </items>
+                            </menu>
+                        </popUpButtonCell>
+                    </popUpButton>
+                    <popUpButton verticalHuggingPriority="750" imageHugsTitle="YES" id="62">
+                        <rect key="frame" x="11" y="67" width="119" height="20"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <popUpButtonCell key="cell" type="push" title="Not Playing" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="border" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" id="97">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" size="12" name="Helvetica"/>
+                            <menu key="menu" title="OtherViews" id="32">
+                                <items>
+                                    <menuItem title="Not Playing" state="on" id="7"/>
+                                    <menuItem title="Human" id="47"/>
+                                    <menuItem title="Cy Lent" id="12"/>
+                                    <menuItem title="Randy Mizer" id="53"/>
+                                    <menuItem title="Bea Ginner" id="13"/>
+                                    <menuItem title="Anna Lyzer" id="54"/>
+                                    <menuItem title="Dee Ducer" id="16"/>
+                                    <menuItem title="Cy Borg" id="58"/>
+                                </items>
+                            </menu>
+                        </popUpButtonCell>
+                    </popUpButton>
+                    <popUpButton verticalHuggingPriority="750" imageHugsTitle="YES" id="24">
+                        <rect key="frame" x="11" y="38" width="119" height="20"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <popUpButtonCell key="cell" type="push" title="Not Playing" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="border" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" id="93">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" size="12" name="Helvetica"/>
+                            <menu key="menu" title="OtherViews" id="11">
+                                <items>
+                                    <menuItem title="Not Playing" state="on" id="48"/>
+                                    <menuItem title="Human" id="74"/>
+                                    <menuItem title="Cy Lent" id="56"/>
+                                    <menuItem title="Randy Mizer" id="29"/>
+                                    <menuItem title="Bea Ginner" id="8"/>
+                                    <menuItem title="Anna Lyzer" id="25"/>
+                                    <menuItem title="Dee Ducer" id="66"/>
+                                    <menuItem title="Cy Borg" id="22"/>
+                                </items>
+                            </menu>
+                        </popUpButtonCell>
+                    </popUpButton>
+                </subviews>
+            </view>
+            <connections>
+                <outlet property="delegate" destination="-2" id="81"/>
+            </connections>
+        </window>
+    </objects>
+</document>

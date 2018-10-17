@@ -8,35 +8,38 @@
 // Copyright (C), 1997, Paul McCarthy and Eric Sunshine.  All rights reserved.
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
-// $Id: ClueHuman.h,v 1.1 97/05/31 10:09:48 zarnuk Exp Locker: zarnuk $
+// $Id: ClueHuman.h,v 1.2 97/09/21 01:27:27 zarnuk Exp $
 // $Log:	ClueHuman.h,v $
+//  Revision 1.2  97/09/21  01:27:27  zarnuk
+//  v25 -- Converted to Misc version of table scroll.
+//  
 //  Revision 1.1  97/05/31  10:09:48  zarnuk
 //  v21
 //-----------------------------------------------------------------------------
 #import	"CluePlayer.h"
 
-@class Button, Matrix, Text, TextField, Window;
+@class NSButton, NSMatrix, NSText, NSTextField, NSWindow;
 @class MiscTableScroll;
 class ClueMap;
 
 @interface ClueHuman:CluePlayer
 	{
-	Window*		window;
+	NSWindow*		window;
 	MiscTableScroll* scroll;
-	TextField*	messageField;
-	Matrix*		revealMatrix;
-	Button*		stayButton;
-	Button*		passageButton;
-	Button*		rollButton;
-	Button*		dieButton;
-	Button*		revealButton;
-	Button*		suspectPop;
-	Button*		weaponPop;
-	Button*		roomPop;
-	Button*		skipButton;
-	Button*		suggestButton;
-	Button*		accuseButton;
-	Text*		fieldEditor;
+	NSTextField*	messageField;
+	NSMatrix*		revealMatrix;
+	NSButton*		stayButton;
+	NSButton*		passageButton;
+	NSButton*		rollButton;
+	NSButton*		dieButton;
+	NSButton*		revealButton;
+	NSButton*		suspectPop;
+	NSButton*		weaponPop;
+	NSButton*		roomPop;
+	NSButton*		skipButton;
+	NSButton*		suggestButton;
+	NSButton*		accuseButton;
+	NSText*		fieldEditor;
 	ClueMap*	map;
 	ClueSolution	suggestion;
 	ClueCard	currRoom;

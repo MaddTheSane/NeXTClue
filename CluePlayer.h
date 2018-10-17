@@ -13,17 +13,20 @@
 // Copyright (C), 1997, Paul McCarthy and Eric Sunshine.  All rights reserved.
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
-// $Id$
-// $Log$
+// $Id: CluePlayer.h,v 1.1 97/05/31 10:12:18 zarnuk Exp $
+// $Log:	CluePlayer.h,v $
+//  Revision 1.1  97/05/31  10:12:18  zarnuk
+//  v21
+//  
 //-----------------------------------------------------------------------------
 extern "Objective-C" {
-#import <objc/Object.h>
+#import <Foundation/NSObject.h>
 }
 #import	"ClueDefs.h"
 
 @class ClueMgr;
 
-@interface CluePlayer : Object
+@interface CluePlayer : NSObject
 	{
 	int		player_id;
 	int		num_players;

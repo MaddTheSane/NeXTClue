@@ -8,24 +8,27 @@
 // Copyright (C), 1997, Paul McCarthy and Eric Sunshine.  All rights reserved.
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
-// $Id$
-// $Log$
+// $Id: ClueBoard.h,v 1.1 97/05/31 10:06:55 zarnuk Exp $
+// $Log:	ClueBoard.h,v $
+//  Revision 1.1  97/05/31  10:06:55  zarnuk
+//  First Revision.
+//  
 //-----------------------------------------------------------------------------
 extern "Objective-C" {
-#import <objc/Object.h>
+#import <Foundation/NSObject.h>
 }
 #import "ClueDefs.h"
-@class ClueBoardView, ClueMgr, Window;
+@class ClueBoardView, ClueMgr, NSWindow;
 
-@interface ClueBoard : Object
+@interface ClueBoard : NSObject
     {
     ClueBoardView* boardView;
     ClueMgr* clueMgr;
-    Window* window;
+    NSWindow* window;
     }
 
 - (id)initWithMgr:(ClueMgr*)mgr;
-- (id)free;
+- (void)dealloc;
 - (void)orderFront;
 - (void)movePiece:(ClueCard)piece
 	from:(ClueCoord)old_pos to:(ClueCoord)new_pos;

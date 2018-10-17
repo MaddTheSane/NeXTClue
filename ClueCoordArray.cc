@@ -6,8 +6,11 @@
 // Copyright (C), 1997, Paul McCarthy and Eric Sunshine.  All rights reserved.
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
-// $Id$
-// $Log$
+// $Id: ClueCoordArray.cc,v 1.1 97/05/31 10:09:27 zarnuk Exp $
+// $Log:	ClueCoordArray.cc,v $
+//  Revision 1.1  97/05/31  10:09:27  zarnuk
+//  v21
+//  
 //-----------------------------------------------------------------------------
 #ifdef __GNUC__
 #pragma implementation

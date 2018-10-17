@@ -9,8 +9,11 @@
 // Copyright (C), 1997, Paul McCarthy.  All rights reserved.
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
-// $Id$
-// $Log$
+// $Id: ClueAnnaLyzer.M,v 1.1 97/05/31 10:06:23 zarnuk Exp $
+// $Log:	ClueAnnaLyzer.M,v $
+//  Revision 1.1  97/05/31  10:06:23  zarnuk
+//  First Revision.
+//  
 //-----------------------------------------------------------------------------
 #import "ClueAnnaLyzer.h"
 #import "ClueCardPicker.h"
@@ -45,7 +48,7 @@ inline bool complete( ClueSolution const& s )
     FILE* output = stdout;
     int const NUM_PLAYERS = [self numPlayers];
 
-    fprintf( output, "\n\%s:%d\n", [[self class] name], [self playerID] + 1 );
+    fprintf( output, "\n\%s:%d\n", [[[self class] name] cString], [self playerID] + 1 );
 
     fprintf( output, "solution:" );
     for (int i = 0; i < CLUE_CATEGORY_COUNT; i++)
@@ -284,18 +287,14 @@ inline bool complete( ClueSolution const& s )
 // earlyInit
 //-----------------------------------------------------------------------------
 - (void) earlyInit
-    {
-    // Hook for subclasses to perform early initializations.
-    }
+    {}
 
 
 //-----------------------------------------------------------------------------
 // lateInit
 //-----------------------------------------------------------------------------
 - (void) lateInit
-    {
-    // Hook for subclasses to perform late initializations.
-    }
+    {}
 
 
 //-----------------------------------------------------------------------------

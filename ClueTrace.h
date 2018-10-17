@@ -9,22 +9,25 @@
 // Copyright (C), 1997, Paul McCarthy.  All rights reserved.
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
-// $Id$
-// $Log$
+// $Id: ClueTrace.h,v 1.1 97/05/31 10:13:05 zarnuk Exp $
+// $Log:	ClueTrace.h,v $
+//  Revision 1.1  97/05/31  10:13:05  zarnuk
+//  v21
+//  
 //-----------------------------------------------------------------------------
 extern "Objective-C" {
-#import <objc/Object.h>
+#import <Foundation/NSObject.h>
 }
 #import	"ClueDefs.h"
 
-@class Text;
+@class NSText;
 
-@interface ClueTrace : Object
+@interface ClueTrace : NSObject
     {
-    Text*	text;
+    NSText*	text;
     }
 
-- initText:(Text*)text;
+- initText:(NSText*)text;
 - (void) appendText:(char const*)s;
 - (void) appendIcon:(char const*)s;
 - (void) appendPiece:(ClueCard)x;

@@ -6,21 +6,26 @@
 // Copyright (C), 1997, Paul McCarthy and Eric Sunshine.  All rights reserved.
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
-// $Id$
-// $Log$
+// $Id: ClueBoard.M,v 1.1 97/05/31 10:06:46 zarnuk Exp $
+// $Log:	ClueBoard.M,v $
+//  Revision 1.1  97/05/31  10:06:46  zarnuk
+//  First Revision.
+//  
 //-----------------------------------------------------------------------------
 #import "ClueBoard.h"
 #import "ClueBoardView.h"
 #import "ClueLoadNib.h"
 extern "Objective-C" {
-#import <appkit/Window.h>
+#import <AppKit/NSWindow.h>
 }
 
 @implementation ClueBoard
 
 - (ClueBoardView*) boardView { return boardView; }
 - (void) orderFront { [window orderFront:self]; }
-- (id) print:(id)sender { [boardView printPSCode:self]; return self; }
+#warning PrintingConversion:  printPSCode: has been renamed to print:.  Rename this method?
+- (void)print:(id)sender { [boardView print:self];
+}
 
 //-----------------------------------------------------------------------------
 // movePiece:from:to:
@@ -41,7 +46,7 @@ extern "Objective-C" {
     clueMgr = mgr;
     ClueLoadNib( self );
     [boardView setClueMgr:mgr];
-    [window setFrameAutosaveName:"ClueBoard"];
+    [window setFrameAutosaveName:@"ClueBoard"];
     return self;
     }
 
@@ -49,11 +54,11 @@ extern "Objective-C" {
 //-----------------------------------------------------------------------------
 // free
 //-----------------------------------------------------------------------------
-- (id)free
+- (void)dealloc
     {
     [window close];
-    [window free];
-    return [super free];
+    [window release];
+    { [super dealloc]; return; };
     }
 
 @end

@@ -6,16 +6,19 @@
 // Copyright (C), 1997, Paul McCarthy.  All rights reserved.
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
-// $Id$
-// $Log$
+// $Id: ClueMessages.M,v 1.1 97/05/31 10:11:03 zarnuk Exp $
+// $Log:	ClueMessages.M,v $
+//  Revision 1.1  97/05/31  10:11:03  zarnuk
+//  v21
+//  
 //-----------------------------------------------------------------------------
 #import "ClueMessages.h"
 #import "ClueTrace.h"
 #import	"ClueLoadNib.h"
 
 extern "Objective-C" {
-#import <appkit/Text.h>
-#import <appkit/Panel.h>
+#import <AppKit/NSText.h>
+#import <AppKit/NSPanel.h>
 }
 
 
@@ -24,22 +27,22 @@ extern "Objective-C" {
 //-----------------------------------------------------------------------------
 // print:
 //-----------------------------------------------------------------------------
-- (id) print: (id) sender
+#warning PrintingConversion:  printPSCode: has been renamed to print:.  Rename this method?
+- (void)print:(id)sender
     {
-    [text printPSCode:self];
-    return self;
-    }
+    [text print:self];
+}
 
 
 //-----------------------------------------------------------------------------
 // free
 //-----------------------------------------------------------------------------
-- free
+- (void)dealloc
     {
-    [trace free];
+    [trace release];
     [window close];
-    [window free];
-    return [super free];
+    [window release];
+    { [super dealloc]; return; };
     }
 
 
@@ -51,7 +54,7 @@ extern "Objective-C" {
     [super init];
     ClueLoadNib( self );
     [window setWorksWhenModal:YES];
-    [window setFrameAutosaveName:"MessagesWindow"];
+    [window setFrameAutosaveName:@"MessagesWindow"];
     trace = [[ClueTrace alloc] initText:text];
     return self;
     }
@@ -60,11 +63,10 @@ extern "Objective-C" {
 //-----------------------------------------------------------------------------
 // orderFront:
 //-----------------------------------------------------------------------------
-- orderFront:sender
+- (void)orderFront:(id)sender
     {
     [window orderFront:sender];
-    return self;
-    }
+}
 
 
 - (ClueTrace*) getTrace		{ return trace; }

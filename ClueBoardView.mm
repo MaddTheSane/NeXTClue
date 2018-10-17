@@ -9,21 +9,24 @@
 // *FIXME* This implementation is total ugliness! (puke)
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
-// $Id$
-// $Log$
+// $Id: ClueBoardView.M,v 1.1 97/05/31 10:07:32 zarnuk Exp $
+// $Log:	ClueBoardView.M,v $
+//  Revision 1.1  97/05/31  10:07:32  zarnuk
+//  First Revision.
+//  
 //-----------------------------------------------------------------------------
 #import "ClueBoardView.h"
 #import "ClueCoordArray.h"
 #import	"ClueMap.h"
 #import "ClueMgr.h"
 extern "Objective-C" {
-#import <appkit/Application.h>
-#import <appkit/NXImage.h>
+#import <AppKit/NSApplication.h>
+#import <AppKit/NSImage.h>
 }
 extern "C" {
 #import <assert.h>
 #import <string.h>	// memset()
-#import <dpsclient/psops.h>
+#import <AppKit/psops.h>
 }
 
 static char const* const BOARD_IMAGE = "board";
@@ -33,7 +36,7 @@ struct CL_RegionRel
 	{
 	int width;
 	int height;
-	NXImage* image;
+	NSImage* image;
 	};
 
 struct CL_RegionAbs
@@ -46,8 +49,8 @@ struct CL_RegionAbs
 static CL_RegionAbs REGIONS[ CLUE_ROW_MAX ][ CLUE_COL_MAX ];
 
 static inline float absval( float x ) { return (x < 0 ? -x : x ); }
-static inline BOOL isSlop( NXEvent const* e1, NXEvent const* e2,
-			   float const slop )
+static inline BOOL isSlop(NSEvent *const* e1,NSEvent *const* e2,
+			   float const slop)
     {
     return (absval(e1->location.x - e2->location.x) <= slop &&
 	    absval(e1->location.y - e2->location.y) <= slop);
@@ -73,12 +76,12 @@ static inline bool is_same_region( char c_old, char c_new )
 		{{ 0, -1 }, { 0, 1 }, { -1, 0 }, { 1, 0 }};
     int const NUM_NEIGHBORS = sizeof(NEIGHBORS) / sizeof(NEIGHBORS[0]);
 
-    NXRect r = {{ 0, 0 }, { TILE_SIZE, TILE_SIZE }};
-    NXImage* unit_image = [[NXImage alloc] initSize:&r.size];
+    NSRect r = {{ 0, 0 }, { TILE_SIZE, TILE_SIZE }};
+    NSImage* unit_image = [[NSImage alloc] initWithSize:r.size];
     [unit_image lockFocus];
-    NXSetColor( NXConvertRGBAToColor(0,0,1,0.5) );
+    [[NSColor colorWithCalibratedRed:0 green:0 blue:1 alpha:0.5] set];
 //      NXSetColor( NXConvertRGBAToColor(0,1,0,0.40) );
-    NXRectFill( &r );
+    NSRectFill(r);
     [unit_image unlockFocus];
 
     CL_RegionRel* unit_region = new CL_RegionRel;
@@ -154,7 +157,7 @@ static inline bool is_same_region( char c_old, char c_new )
 		    r.origin.x = r.origin.y = 0;
 		    r.size.width = width * TILE_SIZE;
 		    r.size.height = height * TILE_SIZE;
-		    NXImage* image = [[NXImage alloc] initSize:&r.size];
+		    NSImage* image = [[NSImage alloc] initWithSize:r.size];
 
 		    CL_RegionRel* region = new CL_RegionRel;
 		    region->width = width;
@@ -162,16 +165,16 @@ static inline bool is_same_region( char c_old, char c_new )
 		    region->image = image;
 
 		    [image lockFocus];
-		    NXSetColor( NX_COLORCLEAR );
-		    NXRectFill( &r );
+		    [[NSColor clearColor] set];
+		    NSRectFill(r);
 		    for (k = 0; k < n; k++)
 			{
 			coord = list[k];
 			int row_origin = height + row_min - coord.row - 1;
 			int col_origin = coord.col - col_min;
-			NXPoint const pt = { col_origin * TILE_SIZE,
+			NSPoint const pt = { col_origin * TILE_SIZE,
 					     row_origin * TILE_SIZE };
-			[unit_image composite:NX_COPY toPoint:&pt];
+			[unit_image compositeToPoint:pt operation:NSCompositeCopy];
 
 			CL_RegionAbs& reg = REGIONS[coord.row][coord.col];
 			reg.origin.row = row_max;
@@ -186,51 +189,54 @@ static inline bool is_same_region( char c_old, char c_new )
 	}
     }
 
-+ (id)initialize
++ (void)initialize
     {
     if (self == [ClueBoardView class])
 	[self initRegions];
-    return self;
+    return;
     }
 
-- (id)initFrame:(NXRect const*)rect
+- (id)initWithFrame:(NSRect)rect
     {
-    [super initFrame:rect];
+    [super initWithFrame:rect];
+#error ViewConversion: 'setClipping:' is obsolete. Views always clip to their bounds. Use PSinitclip instead.
     [self setClipping:NO];
+#error ViewConversion: View's 'setOpaque:' is obsolete; you must override 'isOpaque' instead of setting externally (if sent to text, 'setDrawsBackground:' can be used to eliminate background gray; if sent to NSImageRep, it's OK)
     [self setOpaque:YES];
-    [self registerForDraggedTypes:&CLUE_CARD_PBTYPE count:1];
-    background = [NXImage findImageNamed:BOARD_IMAGE];
+    [self registerForDraggedTypes:[NSArray arrayWithObject:[NSString stringWithCString:CLUE_CARD_PBTYPE]]];
+    background = [NSImage imageNamed:[NSString stringWithCString:BOARD_IMAGE]];
     for (int i = 0; i < CLUE_SUSPECT_COUNT + CLUE_WEAPON_COUNT; i++)
-	pieces[i] = [NXImage findImageNamed:ClueCardName(ClueCard(i))];
+	pieces[i] = [NSImage imageNamed:[NSString stringWithCString:ClueCardName(ClueCard(i))]];
     dragging = NO;
-    fade = [[NXImage allocFromZone:[self zone]] init];
+    fade = [[NSImage allocWithZone:[self zone]] init];
     return self;
     }
 
-- (id)free
+- (void)dealloc
     {
     // Don't free 'background' or 'pieces; -- they are shared/named images.
     [self unregisterDraggedTypes];
-    [fade free];
-    return [super free];
+    [fade release];
+    { [super dealloc]; return; };
     }
 
-- (BOOL)acceptsFirstMouse
+#warning ViewConversion: 'acceptsFirstMouse:' (used to be 'acceptsFirstMouse') now takes the event as an arg
+- (BOOL)acceptsFirstMouse:(NSEvent *)theEvent
     {
     return YES;
     }
 
-- (NXPoint)pointAtCoord:(ClueCoord)coord
+- (NSPoint)pointAtCoord:(ClueCoord)coord
     {
-    NXPoint p;
+    NSPoint p;
     p.x = coord.col * TILE_SIZE;
     p.y = (CLUE_ROW_MAX - coord.row - 1) * TILE_SIZE;
     return p;
     }
 
-- (NXRect)rectAtCoord:(ClueCoord)coord
+- (NSRect)rectAtCoord:(ClueCoord)coord
     {
-    NXRect r;
+    NSRect r;
     r.origin = [self pointAtCoord:coord];
     r.size.width = TILE_SIZE;
     r.size.height = TILE_SIZE;
@@ -239,15 +245,15 @@ static inline bool is_same_region( char c_old, char c_new )
 
 - (void)displayAt:(ClueCoord)coord
     {
-    NXRect const r = [self rectAtCoord:coord];
-    [self display:&r:1];
+    NSRect const r = [self rectAtCoord:coord];
+    [self displayRect:r];
     }
 
 // *NOTE*
 // The board image is actually 1 pixel wider and higher than it needs to be
 // to contain the grid (the extra pixel is used for a black border), hence
 // the conditionals.
-- (ClueCoord)coordAtPoint:(NXPoint)pt
+- (ClueCoord)coordAtPoint:(NSPoint)pt
     {
     ClueCoord coord;
     coord.col = int( pt.x / TILE_SIZE );
@@ -259,12 +265,12 @@ static inline bool is_same_region( char c_old, char c_new )
     return coord;
     }
 
-- (NXPoint)originAtCoord:(ClueCoord)coord forSize:(NXSize)size
+- (NSPoint)originAtCoord:(ClueCoord)coord forSize:(NSSize)size
     {
     assert( size.width < TILE_SIZE );
     assert( size.height < TILE_SIZE );
-    NXRect r = [self rectAtCoord:coord];
-    NXPoint p;
+    NSRect r = [self rectAtCoord:coord];
+    NSPoint p;
     p.x = r.origin.x + (r.size.width - size.width) / 2.0;
     p.y = r.origin.y + (r.size.height - size.height) / 2.0;
     return p;
@@ -281,40 +287,40 @@ static inline bool is_same_region( char c_old, char c_new )
     return CLUE_CARD_MAX;
     }
 
-- (void)drawPieces:(NXRect const*)draw_rect
+- (void)drawPieces:(NSRect const*)draw_rect
     {
     for (int i = 0; i < CLUE_SUSPECT_COUNT + CLUE_WEAPON_COUNT; i++)
 	{
 	ClueCoord const coord = [clueMgr pieceLocation:(ClueCard)i];
-	NXRect const r = [self rectAtCoord:coord];
-	if (NXIntersectsRect( draw_rect, &r ))
+	NSRect const r = [self rectAtCoord:coord];
+	if (!NSIsEmptyRect(NSIntersectionRect(*draw_rect , r)))
 	    {
-	    NXSize s; [pieces[i] getSize:&s];
-	    NXPoint const p = [self originAtCoord:coord forSize:s];
+	    NSSize s; s = [pieces[i] size];
+	    NSPoint const p = [self originAtCoord:coord forSize:s];
 	    if (dragging &&
 		dragSource.row == coord.row && dragSource.col == coord.col)
-		[fade composite:NX_SOVER toPoint:&p];
+		[fade compositeToPoint:p operation:NSCompositeSourceOver];
 	    else
-		[pieces[i] composite:NX_SOVER toPoint:&p];
+		[pieces[i] compositeToPoint:p operation:NSCompositeSourceOver];
 	    }
 	}
     }
 
-- (id)drawSelf:(NXRect const*)rects :(int)nrects
+#warning RectConversion: drawRect:(NSRect)rects (used to be drawSelf:(NXRect const*)rects :(int)nrects) no longer takes an array of rects
+- (void)drawRect:(NSRect)rects
     {
-    [background composite:NX_COPY fromRect:rects toPoint:&rects->origin];
-    [self drawPieces:rects];
-    return self;
-    }
+    [background compositeToPoint:rects.origin fromRect:rects operation:NSCompositeCopy];
+    [self drawPieces:&rects];
+}
 
 - (void)setClueMgr:(ClueMgr*)p
     {
     clueMgr = p;
     }
 
-- (NXDragOperation)draggingSourceOperationMaskForLocal:(BOOL)flag
+- (unsigned int)draggingSourceOperationMaskForLocal:(BOOL)flag
     {
-    return NX_DragOperationGeneric;
+    return NSDragOperationGeneric;
     }
 
 - (BOOL)ignoreModifierKeysWhileDragging
@@ -322,23 +328,23 @@ static inline bool is_same_region( char c_old, char c_new )
     return YES;
     }
 
-- (void)fadeOut:(NXImage*)i at:(ClueCoord)coord
+- (void)fadeOut:(NSImage*)i at:(ClueCoord)coord
     {
     dragging = YES;
     dragSource = coord;
 
-    NXSize s; [i getSize:&s];
-    [fade setSize:&s];
+    NSSize s; s = [i size];
+    [fade setSize:s];
 
     [fade lockFocus];
-    NXRect r = {{ 0, 0 }, { s.width, s.height }};
-    NXSetColor( NXConvertRGBAToColor(1,1,1,0.5) );
-    NXRectFill( &r );
-    NXPoint const zero = {0,0};
-    [i composite:NX_DATOP toPoint:&zero];
+    NSRect r = {{ 0, 0 }, { s.width, s.height }};
+    [[NSColor colorWithCalibratedRed:1 green:1 blue:1 alpha:0.5] set];
+    NSRectFill(r);
+    NSPoint const zero = {0,0};
+    [i compositeToPoint:zero operation:NSCompositeDestinationAtop];
     [fade unlockFocus];
     r = [self rectAtCoord:coord];
-    [self display:&r:1];
+    [self displayRect:r];
     }
 
 - (void)fadeInAt:(ClueCoord)coord
@@ -352,76 +358,74 @@ static inline bool is_same_region( char c_old, char c_new )
     {
     [self displayAt:old_pos];
     [self displayAt:new_pos];
-    [window flushWindow];
+    [[self window] flushWindow];
     }
 
 
-- (void)performDrag:(NXEvent*)downEvent at:(ClueCoord)coord
-    dragEvent:(NXEvent*)dragEvent
+- (void)performDrag:(NSEvent *)downEvent at:(ClueCoord)coord
+    dragEvent:(NSEvent *)dragEvent
     {
     ClueCard const piece = [self pieceAtCoord:coord];
     assert( piece < CLUE_CARD_MAX );
-    NXImage* const i = pieces[ piece ];
-    NXSize s; [i getSize:&s];
-    NXPoint origin = [self originAtCoord:coord forSize:s];
-    NXPoint offset = {0,0};
-    if (dragEvent != 0 && dragEvent->type == NX_MOUSEDRAGGED)
+    NSImage* const i = pieces[ piece ];
+    NSSize s; s = [i size];
+    NSPoint origin = [self originAtCoord:coord forSize:s];
+    NSPoint offset = {0,0};
+    if (dragEvent != 0 && dragEvent->type == NSLeftMouseDragged)
 	{
-	offset.x = dragEvent->location.x - downEvent->location.x;
-	offset.y = dragEvent->location.y - downEvent->location.y;
+	offset.x = dragEvent->location.x - [downEvent locationInWindow].x;
+	offset.y = dragEvent->location.y - [downEvent locationInWindow].y;
 	}
     
-    Pasteboard* pb = [Pasteboard newName:NXDragPboard];
-    [pb declareTypes:&CLUE_CARD_PBTYPE num:1 owner:0];
-    [pb writeType:CLUE_CARD_PBTYPE data:(char const*)&piece
-		length:sizeof(piece)];
+    NSPasteboard* pb = [NSPasteboard pasteboardWithName:NSDragPboard];
+    [pb declareTypes:[NSArray arrayWithObject:[NSString stringWithCString:CLUE_CARD_PBTYPE]] owner:0];
+    [pb setData:[NSData dataWithBytes:(char const*)&piece length:sizeof(piece)] forType:[NSString stringWithCString:CLUE_CARD_PBTYPE]];
     
     [self fadeOut:i at:coord];
-    [self dragImage:i at:&origin offset:&offset
-		event:downEvent pasteboard:pb source:self slideBack:YES];
+    [self dragImage:i at:origin offset:NSMakeSize((&offset)->x,(&offset)->y) event:downEvent pasteboard:pb source:self slideBack:YES];
     [self fadeInAt:coord];
     }
 
-- (void)awaitDrag:(NXEvent*)p at:(ClueCoord)coord
+- (void)awaitDrag:(NSEvent *)p at:(ClueCoord)coord
     {
     float const DELAY = 0.25;
     float const SLOP = 4.0;
-    int const WANTED = (NX_MOUSEUPMASK | NX_MOUSEDRAGGEDMASK);
+    int const WANTED = (NSLeftMouseUpMask | NSLeftMouseDraggedMask);
 
-    NXEvent mouseDown = *p;
-    NXEvent* event;
-    NXEvent peeker;
+    NSEvent *mouseDown = p;
+    NSEvent *event;
+    NSEvent *peeker;
+#error EventConversion: addToEventMask:WANTED: is obsolete; you no longer need to use the eventMask methods; for mouse moved events, see 'setAcceptsMouseMovedEvents:'
     int oldMask = [[self window] addToEventMask:WANTED];
 
     do	{
-	event = [NXApp peekNextEvent:WANTED into:&peeker waitFor:DELAY
-		threshold:NX_MODALRESPTHRESHOLD];
-	if (event != 0 && event->type == NX_MOUSEDRAGGED)
-	    event = [NXApp getNextEvent:NX_MOUSEDRAGGEDMASK];
-	} while (event != 0 && event->type == NX_MOUSEDRAGGED && 
-		isSlop( event, &mouseDown, SLOP ));
+	event = (peeker = [[self window] nextEventMatchingMask:WANTED untilDate:[NSDate dateWithTimeIntervalSinceNow:DELAY] inMode:NSEventTrackingRunLoopMode dequeue:NO]);
+	if (event != 0 && [event type] == NSLeftMouseDragged)
+	    event = [[self window] nextEventMatchingMask:NSLeftMouseDraggedMask];
+	} while (event != 0 && [event type] == NSLeftMouseDragged && 
+		isSlop( event, mouseDown, SLOP ));
 
+#error EventConversion: setEventMask:oldMask: is obsolete; you no longer need to use the eventMask methods; for mouse moved events, see 'setAcceptsMouseMovedEvents:'
     [[self window] setEventMask:oldMask];
 
-    if (event == 0 || event->type == NX_MOUSEDRAGGED)
-	[self performDrag:&mouseDown at:coord dragEvent:event];
+    if (event == 0 || [event type] == NSLeftMouseDragged)
+	[self performDrag:mouseDown at:coord dragEvent:event];
     }
 
-- (BOOL)canPerformDrag:(NXEvent const*)p at:(ClueCoord)coord
+- (BOOL)canPerformDrag:(NSEvent *)p at:(ClueCoord)coord
     {
     ClueCard const piece = [self pieceAtCoord:coord];
     return piece < CLUE_CARD_MAX && draggable != 0 && draggable[piece];
     }
 
-- (id) mouseDown:(NXEvent*)ev
+- (void)mouseDown:(NSEvent *)ev 
     {
-    NXPoint pt = ev->location;
-    [self convertPoint:&pt fromView:0];
+    NSPoint pt = [ev locationInWindow];
+    pt = [self convertPoint:pt fromView:0];
     ClueCoord const coord = [self coordAtPoint:pt];
     if ([self canPerformDrag:ev at:coord])
 	[self awaitDrag:ev at:coord];
-    return self;
-    }
+}
 
 - (void)unhighlight
     {
@@ -430,18 +434,18 @@ static inline bool is_same_region( char c_old, char c_new )
 	highlighting = NO;
 	CL_RegionAbs const& reg =
 		REGIONS[highlightCoord.row][highlightCoord.col];
-	NXRect r;
+	NSRect r;
 	r.origin = [self pointAtCoord:reg.origin];
 	r.size.width = reg.region->width * TILE_SIZE;
 	r.size.height = reg.region->height * TILE_SIZE;
-	[self display:&r:1];
+	[self displayRect:r];
 	}
     }
 
-- (NXDragOperation)highlightUnder:(id<NXDraggingInfo>)sender
+- (unsigned int)highlightUnder:(id<NSDraggingInfo>)sender
     {
-    NXPoint pt = [sender draggingLocation];
-    [self convertPoint:&pt fromView:0];
+    NSPoint pt = [sender draggingLocation];
+    pt = [self convertPoint:pt fromView:0];
     ClueCoord const coord = [self coordAtPoint:pt];
     CL_RegionAbs const& r = REGIONS[coord.row][coord.col];
 
@@ -462,55 +466,56 @@ static inline bool is_same_region( char c_old, char c_new )
 	    {
 	    highlighting = YES;
 	    highlightCoord = coord;
-	    NXPoint pt = [self pointAtCoord:r.origin];
+	    NSPoint pt = [self pointAtCoord:r.origin];
 	    [self lockFocus];
-	    [r.region->image composite:NX_SOVER toPoint:&pt];
+	    [r.region->image compositeToPoint:pt operation:NSCompositeSourceOver];
 	    [self unlockFocus];
 	    [[self window] flushWindow];
 	    }
 	}
 
-    return (ok ? NX_DragOperationGeneric : NX_DragOperationNone);
+    return (ok ? NSDragOperationGeneric : NSDragOperationNone);
     }
 
-- (NXDragOperation)draggingEntered:(id<NXDraggingInfo>)sender
+- (unsigned int)draggingEntered:(id<NSDraggingInfo>)sender
     {
     return [self highlightUnder:sender];
     }
 
-- (id)draggingExited:(id <NXDraggingInfo>)sender
+- (void)draggingExited:(id <NSDraggingInfo>)sender
     {
     [self unhighlight];
-    return self;
-    }
+}
 
-- (NXDragOperation)draggingUpdated:(id<NXDraggingInfo>)sender
+- (unsigned int)draggingUpdated:(id<NSDraggingInfo>)sender
     {
     return [self highlightUnder:sender];
     }
 
-- (BOOL)prepareForDragOperation:(id<NXDraggingInfo>)sender
+- (BOOL)prepareForDragOperation:(id<NSDraggingInfo>)sender
     {
     [self unhighlight];
     return YES;
     }
 
-- (BOOL)performDragOperation:(id<NXDraggingInfo>)sender
+- (BOOL)performDragOperation:(id<NSDraggingInfo>)sender
     {
-    NXPoint pt = [sender draggingLocation];
-    [self convertPoint:&pt fromView:0];
+    NSPoint pt = [sender draggingLocation];
+    pt = [self convertPoint:pt fromView:0];
     ClueCoord const coord = [self coordAtPoint:pt];
 
-    Pasteboard* pb = [sender draggingPasteboard];
+    NSPasteboard* pb = [sender draggingPasteboard];
     assert( pb != 0 );
-    char const* type = [pb findAvailableTypeFrom:&CLUE_CARD_PBTYPE num:1];
+    char const* type = [[pb availableTypeFromArray:[NSArray arrayWithObject:[NSString stringWithCString:CLUE_CARD_PBTYPE]]] cString];
     assert( type != 0 );
 
     char* p;
     int len;
-    [pb readType:CLUE_CARD_PBTYPE data:&p length:&len];
+#error StreamConversion: 'dataForType:' (used to be 'readType:data:length:') returns an NSData instance
+    &p = [pb dataForType:[NSString stringWithCString:CLUE_CARD_PBTYPE]];
     assert( len == sizeof(ClueCard) );
     ClueCard const piece = *((ClueCard const*) p);
+#error StreamConversion: 'deallocatePasteboardData:length:' no longer exists and never needs to be called
     [pb deallocatePasteboardData:p length:len];
 
     ClueCoord const oldPos = [clueMgr pieceLocation:piece];
@@ -527,10 +532,10 @@ static inline bool is_same_region( char c_old, char c_new )
     return YES;
     }
 
-- (id)concludeDragOperation:(id<NXDraggingInfo>)sender
+- (void)concludeDragOperation:(id<NSDraggingInfo>)sender
     {
-    return self;
-    }
+    
+}
 
 
 //-----------------------------------------------------------------------------
@@ -541,7 +546,7 @@ static inline bool is_same_region( char c_old, char c_new )
     draggable = v;
     map = a_map;
     client = a_client;
-    [window makeKeyAndOrderFront:self];
+    [[self window] makeKeyAndOrderFront:self];
     }
 
 @end

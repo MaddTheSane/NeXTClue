@@ -8,13 +8,17 @@
 // Copyright (C), 1997, Paul McCarthy.  All rights reserved.
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
-// $Id$
-// $Log$
+// $Id: ClueComputer.h,v 1.1 97/05/31 10:08:11 zarnuk Exp $
+// $Log:	ClueComputer.h,v $
+//  Revision 1.1  97/05/31  10:08:11  zarnuk
+//  First Revision.
+//  
 //-----------------------------------------------------------------------------
 #import "CluePlayer.h"
 
 @interface ClueComputer : CluePlayer
 	{
+	
 	}
 
 - initPlayer:(int)playerID numPlayers:(int)numPlayers

@@ -8,8 +8,11 @@
 // Copyright (C), 1997, Paul McCarthy.  All rights reserved.
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
-// $Id$
-// $Log$
+// $Id: ClueCyBorg.h,v 1.1 97/05/31 10:10:34 zarnuk Exp $
+// $Log:	ClueCyBorg.h,v $
+//  Revision 1.1  97/05/31  10:10:34  zarnuk
+//  v21
+//  
 //-----------------------------------------------------------------------------
 #import "ClueDeeDucer.h"
 
@@ -23,7 +26,7 @@ class ClueHistory;
 	BOOL did_init;
 	}
 
-- free;
+- (void)dealloc;
 - (void) earlyInit;
 - (void) lateInit;
 

@@ -8,21 +8,24 @@
 // Copyright (C), 1997, Paul McCarthy.  All rights reserved.
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
-// $Id: ClueInfo.h,v 1.2 97/05/31 14:06:16 zarnuk Exp Locker: zarnuk $
+// $Id: ClueInfo.h,v 1.3 97/06/27 10:38:16 zarnuk Exp $
 // $Log:	ClueInfo.h,v $
+//  Revision 1.3  97/06/27  10:38:16  zarnuk
+//  v23 -- Added releaseField.
+//  
 //  Revision 1.2  97/05/31  14:06:16  zarnuk
 //  v21: Added buildField.
 //-----------------------------------------------------------------------------
 extern "Objective-C" {
-#import <objc/Object.h>
+#import <Foundation/NSObject.h>
 }
-@class TextField, Window;
+@class NSTextField, NSWindow;
 
-@interface ClueInfo:Object
+@interface ClueInfo:NSObject
     {
-    Window*	window;
-    TextField*	buildField;
-    TextField*	releaseField;
+    NSWindow*	window;
+    NSTextField*	buildField;
+    NSTextField*	releaseField;
     }
 + launch;
 @end

@@ -8,11 +8,14 @@
 // Copyright (C), 1997, Paul McCarthy and Eric Sunshine.  All rights reserved.
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
-// $Id$
-// $Log$
+// $Id: ClueMgr.h,v 1.1 97/05/31 10:12:26 zarnuk Exp $
+// $Log:	ClueMgr.h,v $
+//  Revision 1.1  97/05/31  10:12:26  zarnuk
+//  v21
+//  
 //-----------------------------------------------------------------------------
 extern "Objective-C" {
-#import <objc/Object.h>
+#import <Foundation/NSObject.h>
 }
 #import	"ClueDefs.h"
 
@@ -49,7 +52,7 @@ struct CluePlayerRec
 
 
 
-@interface ClueMgr : Object
+@interface ClueMgr : NSObject
 	{
 	ClueState state;		// Indicates message that we expect.
 	int player_id;			// Current player.

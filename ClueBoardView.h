@@ -9,23 +9,26 @@
 // Copyright (C), 1997, Paul McCarthy and Eric Sunshine.  All rights reserved.
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
-// $Id$
-// $Log$
+// $Id: ClueBoardView.h,v 1.1 97/05/31 10:07:34 zarnuk Exp $
+// $Log:	ClueBoardView.h,v $
+//  Revision 1.1  97/05/31  10:07:34  zarnuk
+//  First Revision.
+//  
 //-----------------------------------------------------------------------------
 extern "Objective-C" {
-#import <appkit/View.h>
+#import <AppKit/NSView.h>
 }
 #import "ClueDefs.h"
-@class ClueMgr, NXImage;
+@class ClueMgr, NSImage;
 
 class ClueMap;
 
-@interface ClueBoardView : View
+@interface ClueBoardView : NSView
     {
-    NXImage* background;
+    NSImage* background;
     ClueMgr* clueMgr;
-    NXImage* pieces[ CLUE_SUSPECT_COUNT + CLUE_WEAPON_COUNT ];
-    NXImage* fade;
+    NSImage* pieces[ CLUE_SUSPECT_COUNT + CLUE_WEAPON_COUNT ];
+    NSImage* fade;
     BOOL dragging;
     ClueCoord dragSource;
     BOOL highlighting;
@@ -35,9 +38,10 @@ class ClueMap;
     id client;
     }
 
-- (id)initFrame:(NXRect const*)rect;
-- (id)free;
-- (id)drawSelf:(NXRect const*)rects :(int)nrects;
+- (id)initWithFrame:(NSRect)rect;
+- (void)dealloc;
+#warning RectConversion: drawRect:(NSRect)rects (used to be drawSelf:(NXRect const*)rects :(int)nrects) no longer takes an array of rects
+- (void)drawRect:(NSRect)rects;
 - (void)setClueMgr:(ClueMgr*)mgr;
 - (void) movePiece:(ClueCard)piece
 	from:(ClueCoord)old_pos to:(ClueCoord)new_pos;

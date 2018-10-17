@@ -6,15 +6,18 @@
 // Copyright (C), 1997, Paul McCarthy.  All rights reserved.
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
-// $Id$
-// $Log$
+// $Id: ClueLoadNib.M,v 1.1 97/05/31 10:11:18 zarnuk Exp $
+// $Log:	ClueLoadNib.M,v $
+//  Revision 1.1  97/05/31  10:11:18  zarnuk
+//  v21
+//  
 //-----------------------------------------------------------------------------
 #import	"ClueLoadNib.h"
 
 extern "Objective-C" {
-#import	<objc/NXBundle.h>
-#import	<appkit/Application.h>
-#import	<appkit/Panel.h>
+#import	<Foundation/NSBundle.h>
+#import	<AppKit/NSApplication.h>
+#import	<AppKit/NSPanel.h>
 }
 
 extern "C" {
@@ -28,18 +31,19 @@ extern "C" {
 //-----------------------------------------------------------------------------
 void ClueLoadNib( id obj )
     {
-    char const* name = [[obj class] name];
+    char const* name = [[[obj class] name] cString];
     char buff[ FILENAME_MAX ];
 
-    if ([[NXBundle mainBundle] getPath:buff forResource:name ofType:"nib"] == 0)
+#error StringConversion: This call to -[NXBundle getPath:forResource:ofType:] has been converted to the similar NSBundle method.  The conversion has been made assuming that the variable called buff will be changed into an (NSString *).  You must change the type of the variable called buff by hand.
+    if (buff = [[NSBundle mainBundle] pathForResource:[NSString stringWithCString:name] ofType:@"nib"] == 0)
 	{
-	NXRunAlertPanel( "Fatal", "Cannot locate %s.nib", "OK",0,0, name );
+	NSRunAlertPanel(@"Fatal", @"Cannot locate %s.nib", @"OK", nil, nil, name);
 	exit(3);
 	}
 
-    if ([NXApp loadNibFile:buff owner:obj withNames:NO] == 0)
+    if ([NSBundle loadNibFile:[NSString stringWithCString:buff] externalNameTable:[NSDictionary dictionaryWithObjectsAndKeys:obj, @"NSOwner", nil] withZone:[obj zone]] == 0)
 	{
-	NXRunAlertPanel( "Fatal", "Cannot load %s", "OK",0,0, buff );
+	NSRunAlertPanel(@"Fatal", @"Cannot load %s", @"OK", nil, nil, buff);
 	exit(3);
 	}
     }

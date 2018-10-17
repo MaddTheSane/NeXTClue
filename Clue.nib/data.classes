@@ -1,10 +1,6 @@
-ClueMgr = {
-    ACTIONS = {
-	"appInfo:" = "appInfo:"; 
-	"newGame:" = "newGame:"; 
-	"showRules:" = "showRules:"; 
-    }; 
+"ClueMgr" = {
+    ACTIONS = {"appInfo:" = id; "newGame:" = id; "showRules:" = id; }; 
     OUTLETS = {}; 
     SUPERCLASS = Object; 
 };
-FirstResponder = {ACTIONS = {"print:" = "print:"; }; SUPERCLASS = Object; };
+"FirstResponder" = {ACTIONS = {"print:" = id; }; OUTLETS = {}; SUPERCLASS = NSObject; };

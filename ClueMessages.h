@@ -9,25 +9,28 @@
 // Copyright (C), 1997, Paul McCarthy.  All rights reserved.
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
-// $Id$
-// $Log$
+// $Id: ClueMessages.h,v 1.1 97/05/31 10:11:06 zarnuk Exp $
+// $Log:	ClueMessages.h,v $
+//  Revision 1.1  97/05/31  10:11:06  zarnuk
+//  v21
+//  
 //-----------------------------------------------------------------------------
 extern "Objective-C" {
-#import <objc/Object.h>
+#import <Foundation/NSObject.h>
 }
 #import	"ClueDefs.h"
 
 @class ClueTrace;
-@class Text,Panel;
+@class NSText,NSPanel;
 
-@interface ClueMessages:Object
+@interface ClueMessages:NSObject
     {
-    Panel*	window;
-    Text*	text;
+    NSPanel*	window;
+    NSText*	text;
     ClueTrace*	trace;
     }
 - init;
-- orderFront:sender;
+- (void)orderFront:(id)sender;
 - (ClueTrace*) getTrace;
 @end
 

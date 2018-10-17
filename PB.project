@@ -15,7 +15,7 @@ FILESTABLE = {
     OTHER_LINKED = (ClueAnnaLyzer.M, ClueBeaGinner.M, ClueBoard.M, ClueBoardView.M, ClueButton.M, ClueCardPicker.cc, ClueComputer.M, ClueCondArray.cc, ClueCoordArray.cc, ClueCyBorg.M, ClueCyLent.M, ClueDeeDucer.M, ClueDefs.cc, ClueHuman.M, ClueInfo.M, ClueLoadNib.M, ClueMap.cc, ClueMessages.M, ClueMgr.M, CluePlayer.M, ClueRandyMizer.M, ClueRules.M, ClueSetup.M, ClueTrace.M, ClueUpdateStack.cc);
     M_FILES = (Clue_main.m);
 };
-APPCLASS = Application;
+APPCLASS = NSApplication;
 MAINNIB = Clue;
 LINKEROPTIONS = "";
 DOCEXTENSIONS = ();

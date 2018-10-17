@@ -6,8 +6,11 @@
 // Copyright (C), 1997, Paul McCarthy.  All rights reserved.
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
-// $Id: ClueInfo.M,v 1.4 97/06/27 10:39:47 zarnuk Exp Locker: zarnuk $
+// $Id: ClueInfo.M,v 1.5 97/07/09 23:29:52 zarnuk Exp $
 // $Log:	ClueInfo.M,v $
+//  Revision 1.5  97/07/09  23:29:52  zarnuk
+//  v24 -- Fixed bug: format:field:file: was always setting buildField.
+//  
 //  Revision 1.4  97/06/27  10:39:47  zarnuk
 //  v23 -- Added releaseField.
 //  
@@ -18,9 +21,9 @@
 #import "ClueLoadNib.h"
 
 extern "Objective-C" {
-#import	<appkit/TextField.h>
-#import	<appkit/Panel.h>
-#import	<objc/NXBundle.h>
+#import	<AppKit/NSTextField.h>
+#import	<AppKit/NSPanel.h>
+#import	<Foundation/NSBundle.h>
 }
 
 extern "C" {
@@ -34,14 +37,15 @@ extern "C" {
 //-----------------------------------------------------------------------------
 // format:field:file:
 //-----------------------------------------------------------------------------
-- (void) format:(char const*)fmt field:(TextField*)fld file:(char const*)file
+- (void) format:(char const*)fmt field:(NSTextField*)fld file:(char const*)file
     {
     char path[ FILENAME_MAX ];
     char write_buff[ 256 ];
 
     char const* ver = "find?";
 
-    if ([[NXBundle mainBundle] getPath:path forResource:file ofType:""])
+#error StringConversion: This call to -[NXBundle getPath:forResource:ofType:] has been converted to the similar NSBundle method.  The conversion has been made assuming that the variable called path will be changed into an (NSString *).  You must change the type of the variable called path by hand.
+    if (path = [[NSBundle mainBundle] pathForResource:[NSString stringWithCString:file] ofType:@""])
 	{
 	FILE* fp;
 	if ((fp = fopen( path, "r" )) != 0)
@@ -60,7 +64,7 @@ extern "C" {
 	    ver = "open?";
 	}
 
-    [fld setStringValue:ver];
+    [fld setStringValue:[NSString stringWithCString:ver]];
     }
 
 
@@ -82,9 +86,10 @@ extern "C" {
 //-----------------------------------------------------------------------------
 // makeKeyAndOrderFront:
 //-----------------------------------------------------------------------------
-- (id) makeKeyAndOrderFront:(id)sender
+- (void)makeKeyAndOrderFront:(id)sender
     {
-    return [window makeKeyAndOrderFront:sender];
+    [window makeKeyAndOrderFront:sender];
+    return window;
     }
 
 

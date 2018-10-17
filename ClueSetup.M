@@ -6,8 +6,11 @@
 // Copyright (C), 1997, Paul McCarthy.  All rights reserved.
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
-// $Id$
-// $Log$
+// $Id: ClueSetup.M,v 1.1 97/05/31 10:12:38 zarnuk Exp $
+// $Log:	ClueSetup.M,v $
+//  Revision 1.1  97/05/31  10:12:38  zarnuk
+//  v21
+//  
 //-----------------------------------------------------------------------------
 #import "ClueSetup.h"
 #import	"ClueButton.h"
@@ -22,9 +25,9 @@
 #import "ClueRandyMizer.h"
 
 extern "Objective-C" {
-#import	<defaults/defaults.h>
-#import	<appkit/Application.h>
-#import	<appkit/Panel.h>
+#import <Foundation/NSUserDefaults.h>
+#import	<AppKit/NSApplication.h>
+#import	<AppKit/NSPanel.h>
 }
 
 enum	{
@@ -89,7 +92,8 @@ int const OK_PRESSED		= 1;
     BOOL ok = NO;
     int v[ 6 ];
 
-    char const* s = NXGetDefaultValue( DEF_OWNER, DEF_NAME );
+#warning DefaultsConversion: This used to be a call to NXGetDefaultValue with the owner DEF_OWNER.  If the owner was different from your applications name, you may need to modify this code.
+    char const* s = [[[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithCString:DEF_NAME]] cString];
 
     if (s != 0 &&
 	sscanf( s, "%d %d %d %d %d %d", v+0,v+1,v+2,v+3,v+4,v+5 ) == 6)
@@ -132,14 +136,14 @@ int const OK_PRESSED		= 1;
 //-----------------------------------------------------------------------------
 // +initialize
 //-----------------------------------------------------------------------------
-+ initialize
++ (void)initialize
     {
     if (self == [ClueSetup class])
 	{
 	[self initChoices];
 	[self getDefaults];
 	}
-    return self;
+    return;
     }
 
 
@@ -182,9 +186,7 @@ int const OK_PRESSED		= 1;
 
     if (n < CLUE_NUM_PLAYERS_MIN)
 	{
-	NXRunAlertPanel( "Too Few",
-		"There must be at least %d active players.",
-		"OK",0,0, CLUE_NUM_PLAYERS_MIN );
+	NSRunAlertPanel(@"Too Few", @"There must be at least %d active players.", @"OK", nil, nil, CLUE_NUM_PLAYERS_MIN);
 	}
     else
 	{
@@ -202,8 +204,9 @@ int const OK_PRESSED		= 1;
 	    }
 	char buff[ 64 ];
 	sprintf( buff, "%d %d %d %d %d %d", v[0],v[1],v[2],v[3],v[4],v[5] );
-	NXWriteDefault( DEF_OWNER, DEF_NAME, buff );
-	[NXApp stopModal: OK_PRESSED];
+#warning DefaultsConversion: [<NSUserDefaults> setObject:...forKey:...] used to be NXWriteDefault(DEF_OWNER, DEF_NAME, buff). Defaults will be synchronized within 30 seconds after this change.  For immediate synchronization, call '-synchronize'. Also note that the first argument of NXWriteDefault is now ignored; to write into a domain other than the apps default, see the NSUserDefaults API.
+	[[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithCString:buff] forKey:[NSString stringWithCString:DEF_NAME]];
+	[NSApp stopModalWithCode:OK_PRESSED];
 	}
 
     return self;
@@ -215,7 +218,7 @@ int const OK_PRESSED		= 1;
 //-----------------------------------------------------------------------------
 - cancelPressed:sender
     {
-    [NXApp stopModal: CANCEL_PRESSED];
+    [NSApp stopModalWithCode:CANCEL_PRESSED];
     return self;
     }
 
@@ -227,7 +230,7 @@ int const OK_PRESSED		= 1;
     {
     [self revert];
     [window makeKeyAndOrderFront:self];
-    int const rc = [NXApp runModalFor:window];
+    int const rc = [NSApp runModalForWindow:window];
     [window close];
     return rc == OK_PRESSED;
     }

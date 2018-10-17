@@ -1,18 +1,14 @@
-FirstResponder = {ACTIONS = {}; SUPERCLASS = Object; };
-ClueSetup = {
-    ACTIONS = {
-	"cancelPressed:" = "cancelPressed:"; 
-	"okPressed:" = "okPressed:"; 
-	"revertPressed:" = "revertPressed:"; 
-    }; 
+"ClueSetup" = {
+    ACTIONS = {"cancelPressed:" = id; "okPressed:" = id; "revertPressed:" = id; }; 
     OUTLETS = {
-	greenPop = greenPop; 
-	mustardPop = mustardPop; 
-	peacockPop = peacockPop; 
-	plumPop = plumPop; 
-	scarletPop = scarletPop; 
-	whitePop = whitePop; 
-	window = window; 
+        greenPop = id; 
+        mustardPop = id; 
+        peacockPop = id; 
+        plumPop = id; 
+        scarletPop = id; 
+        whitePop = id; 
+        window = id; 
     }; 
     SUPERCLASS = Object; 
 };
+"FirstResponder" = {ACTIONS = {}; OUTLETS = {}; SUPERCLASS = NSObject; };

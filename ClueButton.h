@@ -9,14 +9,17 @@
 // Copyright (C), 1997, Paul McCarthy.  All rights reserved.
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
-// $Id$
-// $Log$
+// $Id: ClueButton.h,v 1.1 97/05/31 10:07:25 zarnuk Exp $
+// $Log:	ClueButton.h,v $
+//  Revision 1.1  97/05/31  10:07:25  zarnuk
+//  First Revision.
+//  
 //-----------------------------------------------------------------------------
 extern "Objective-C" {
-#import	<appkit/Button.h>
+#import	<AppKit/NSButton.h>
 }
 
-@interface Button(Pop)
+@interface NSButton(Pop)
 - (void) selectTag:(int)x;
 - (int) selectedTag;
 @end

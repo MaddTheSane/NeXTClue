@@ -7,8 +7,12 @@
 // Copyright (C), 1997, Paul McCarthy.  All rights reserved.
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
-// $Id: ClueTrace.M,v 1.1 97/05/31 10:13:04 zarnuk Exp Locker: zarnuk $
+// $Id: ClueTrace.M,v 1.2 97/06/27 08:52:02 zarnuk Exp $
 // $Log:	ClueTrace.M,v $
+//  Revision 1.2  97/06/27  08:52:02  zarnuk
+//  v23 -- reversed the order of name+icon pairs.  Icons now come
+//  after the name.
+//  
 //  Revision 1.1  97/05/31  10:13:04  zarnuk
 //  v21
 //  
@@ -17,8 +21,8 @@
 #import	"ClueLoadNib.h"
 
 extern "Objective-C" {
-#import <appkit/Text.h>
-#import <appkit/Cell.h>
+#import <AppKit/NSText.h>
+#import <AppKit/NSCell.h>
 }
 
 extern "C" {
@@ -31,7 +35,7 @@ extern "C" {
 //-----------------------------------------------------------------------------
 // initText:
 //-----------------------------------------------------------------------------
-- initText:(Text*)obj
+- initText:(NSText*)obj
     {
     [super init];
     text = obj;
@@ -44,16 +48,16 @@ extern "C" {
 //-----------------------------------------------------------------------------
 - (void) appendText:(char const*)s
     {
-    int const n = [text charLength];
-    [text setSel:n:n];
-    [text replaceSel:s];
+    int const n = [[text text] length];
+    [text setSelectionStart:n end:n];
+    [text replaceSel:[NSString stringWithCString:s]];
     }
 
 - (void) appendIcon:(char const*)s
     {
-    Cell* cell = [[Cell alloc] initIconCell:s];
-    int const n = [text charLength];
-    [text setSel:n:n];
+    NSCell* cell = [[NSCell alloc] initImageCell:[NSImage imageNamed:[NSString stringWithCString:s]]];
+    int const n = [[text text] length];
+    [text setSelectionStart:n end:n];
     [text replaceSelWithCell:cell];
     }
 

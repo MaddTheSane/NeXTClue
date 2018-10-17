@@ -8,18 +8,21 @@
 // Copyright (C), 1997, Paul McCarthy.  All rights reserved.
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
-// $Id$
-// $Log$
+// $Id: ClueRules.h,v 1.1 97/05/31 10:11:58 zarnuk Exp $
+// $Log:	ClueRules.h,v $
+//  Revision 1.1  97/05/31  10:11:58  zarnuk
+//  v21
+//  
 //-----------------------------------------------------------------------------
 extern "Objective-C" {
-#import <objc/Object.h>
+#import <Foundation/NSObject.h>
 }
-@class Text, Window;
+@class NSText, NSWindow;
 
-@interface ClueRules : Object
+@interface ClueRules : NSObject
     {
-    Text* text;
-    Window* window;
+    NSText* text;
+    NSWindow* window;
     }
 + (void)launch;
 @end

@@ -8,27 +8,30 @@
 // Copyright (C), 1997, Paul McCarthy.  All rights reserved.
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
-// $Id$
-// $Log$
+// $Id: ClueSetup.h,v 1.1 97/05/31 10:12:40 zarnuk Exp $
+// $Log:	ClueSetup.h,v $
+//  Revision 1.1  97/05/31  10:12:40  zarnuk
+//  v21
+//  
 //-----------------------------------------------------------------------------
 extern "Objective-C" {
-#import <objc/Object.h>
+#import <Foundation/NSObject.h>
 }
 #import	"ClueDefs.h"
 
-@class Button;
-@class Window;
+@class NSButton;
+@class NSWindow;
 
-@interface ClueSetup:Object
+@interface ClueSetup:NSObject
     {
-    Window*	window;
-    Button*	mustardPop;
-    Button*	plumPop;
-    Button*	greenPop;
-    Button*	peacockPop;
-    Button*	scarletPop;
-    Button*	whitePop;
-    Button*	pops[ 6 ];
+    NSWindow*	window;
+    NSButton*	mustardPop;
+    NSButton*	plumPop;
+    NSButton*	greenPop;
+    NSButton*	peacockPop;
+    NSButton*	scarletPop;
+    NSButton*	whitePop;
+    NSButton*	pops[ 6 ];
     }
 
 + (BOOL) startNewGame;

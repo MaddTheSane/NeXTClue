@@ -17,8 +17,11 @@
 // Copyright (C), 1997, Paul McCarthy.  All rights reserved.
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
-// $Id: ClueCondArray.cc,v 1.1 97/05/31 10:08:29 zarnuk Exp Locker: zarnuk $
+// $Id: ClueCondArray.cc,v 1.2 97/06/27 08:50:59 zarnuk Exp $
 // $Log:	ClueCondArray.cc,v $
+//  Revision 1.2  97/06/27  08:50:59  zarnuk
+//  v23 -- Added some notes.
+//  
 //  Revision 1.1  97/05/31  10:08:29  zarnuk
 //  First Revision.
 //  

@@ -6,8 +6,11 @@
 // Copyright (C), 1997, Paul McCarthy and Eric Sunshine.  All rights reserved.
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
-// $Id$
-// $Log$
+// $Id: ClueMgr.M,v 1.1 97/05/31 10:12:24 zarnuk Exp $
+// $Log:	ClueMgr.M,v $
+//  Revision 1.1  97/05/31  10:12:24  zarnuk
+//  v21
+//  
 //-----------------------------------------------------------------------------
 #import	"ClueMgr.h"
 #import	"ClueBoard.h"
@@ -19,7 +22,7 @@
 #import	"ClueMessages.h"
 #import	"ClueTrace.h"
 extern "Objective-C" {
-#import <appkit/Application.h>
+#import <AppKit/NSApplication.h>
 }
 extern "C" {
 #import	<assert.h>
@@ -103,7 +106,7 @@ static void sort_hand( int start_pos, int n, ClueCard* deck )
 //-----------------------------------------------------------------------------
 - (void) delayed:(SEL)aSel
     {
-    [self perform:aSel with:0 afterDelay:0 cancelPrevious:NO];
+    [self performSelector:aSel object:0 afterDelay:(0) / 1000.0];
     }
 
 
@@ -479,13 +482,13 @@ static void sort_hand( int start_pos, int n, ClueCard* deck )
     {
     for (int i = 0; i < CLUE_NUM_PLAYERS_MAX; i++)
 	{
-	[players[i].player free];
+	[players[i].player release];
 	players[i].player = 0;
 	}
-    [messages free];
+    [messages release];
     messages = 0;
     trace = 0;
-    [board free];
+    [board release];
     board = 0;
     }
 
@@ -580,7 +583,7 @@ static void sort_hand( int start_pos, int n, ClueCard* deck )
 - (void) launchBoard
     {
     if (board == 0)
-	board = [[ClueBoard allocFromZone:[self zone]] initWithMgr:self];
+	board = [[ClueBoard allocWithZone:[self zone]] initWithMgr:self];
     [board orderFront];
     }
 
@@ -691,11 +694,11 @@ static void sort_hand( int start_pos, int n, ClueCard* deck )
 //-----------------------------------------------------------------------------
 // +initialize
 //-----------------------------------------------------------------------------
-+ initialize
++ (void)initialize
     {
     SRANDOM( time(0) );
     CLUE_CARD_PBTYPE = NXUniqueString( "ClueCard(tm)" );
-    return self;
+    return;
     }
 
 @end

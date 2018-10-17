@@ -7,8 +7,11 @@
 // Copyright (C), 1997, Paul McCarthy.  All rights reserved.
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
-// $Id$
-// $Log$
+// $Id: ClueCardPicker.cc,v 1.1 97/05/31 10:07:58 zarnuk Exp $
+// $Log:	ClueCardPicker.cc,v $
+//  Revision 1.1  97/05/31  10:07:58  zarnuk
+//  First Revision.
+//  
 //-----------------------------------------------------------------------------
 #ifdef __GNUC__
 #pragma implementation

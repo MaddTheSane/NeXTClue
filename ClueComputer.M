@@ -6,8 +6,11 @@
 // Copyright (C), 1997, Paul McCarthy.  All rights reserved.
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
-// $Id$
-// $Log$
+// $Id: ClueComputer.M,v 1.1 97/05/31 10:08:06 zarnuk Exp $
+// $Log:	ClueComputer.M,v $
+//  Revision 1.1  97/05/31  10:08:06  zarnuk
+//  First Revision.
+//  
 //-----------------------------------------------------------------------------
 #import "ClueComputer.h"
 #import	"ClueCardPicker.h"

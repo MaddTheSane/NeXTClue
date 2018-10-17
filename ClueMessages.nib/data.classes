@@ -1,2 +1,2 @@
-FirstResponder = {ACTIONS = {}; SUPERCLASS = Object; };
-ClueMessages = {OUTLETS = {text = text; window = window; }; SUPERCLASS = Object; };
+"ClueMessages" = {ACTIONS = {}; OUTLETS = {text = id; window = id; }; SUPERCLASS = Object; };
+"FirstResponder" = {ACTIONS = {}; OUTLETS = {}; SUPERCLASS = NSObject; };

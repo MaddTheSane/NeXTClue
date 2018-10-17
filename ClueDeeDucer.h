@@ -8,8 +8,11 @@
 // Copyright (C), 1997, Paul McCarthy.  All rights reserved.
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
-// $Id$
-// $Log$
+// $Id: ClueDeeDucer.h,v 1.1 97/05/31 10:10:06 zarnuk Exp $
+// $Log:	ClueDeeDucer.h,v $
+//  Revision 1.1  97/05/31  10:10:06  zarnuk
+//  v21
+//  
 //-----------------------------------------------------------------------------
 #import "ClueAnnaLyzer.h"
 
@@ -20,7 +23,7 @@ class ClueCondArray;		// Array of conditional expressions.
 	ClueCondArray* cond_array;
 	}
 
-- free;
+- (void)dealloc;
 - (void) earlyInit;
 - (void) dump;
 - (void) stack:(ClueUpdateStack*)stack player:(int)p holdsCard:(ClueCard)c;

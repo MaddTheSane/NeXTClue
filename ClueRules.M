@@ -6,15 +6,18 @@
 // Copyright (C), 1997, Paul McCarthy and Eric Sunshine.  All rights reserved.
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
-// $Id$
-// $Log$
+// $Id: ClueRules.M,v 1.1 97/05/31 10:11:51 zarnuk Exp $
+// $Log:	ClueRules.M,v $
+//  Revision 1.1  97/05/31  10:11:51  zarnuk
+//  v21
+//  
 //-----------------------------------------------------------------------------
 #import "ClueRules.h"
 #import	"ClueLoadNib.h"
 extern "Objective-C" {
-#import <appkit/Text.h>
-#import <appkit/Window.h>
-#import <objc/NXBundle.h>
+#import <AppKit/NSText.h>
+#import <AppKit/NSWindow.h>
+#import <Foundation/NSBundle.h>
 }
 static char const RULES[] = "ClueRules";
 
@@ -23,11 +26,11 @@ static char const RULES[] = "ClueRules";
 //-----------------------------------------------------------------------------
 // print:
 //-----------------------------------------------------------------------------
-- (id) print:sender
+#warning PrintingConversion:  printPSCode: has been renamed to print:.  Rename this method?
+- (void)print:(id)sender
     {
-    [text printPSCode:self];
-    return self;
-    }
+    [text print:self];
+}
 
 
 //-----------------------------------------------------------------------------
@@ -36,10 +39,12 @@ static char const RULES[] = "ClueRules";
 - (void) loadRules
     {
     char buff[ FILENAME_MAX + 1 ];
-    id const bundle = [NXBundle bundleForClass:[self class]];
-    if (![bundle getPath:buff forResource:RULES ofType:"rtf"])
-	 [bundle getPath:buff forResource:RULES ofType:"rtfd"];
-    [text openRTFDFrom:buff];
+    id const bundle = [NSBundle bundleForClass:[self class]];
+#error StringConversion: This call to -[NXBundle getPath:forResource:ofType:] has been converted to the similar NSBundle method.  The conversion has been made assuming that the variable called buff will be changed into an (NSString *).  You must change the type of the variable called buff by hand.
+    if (((buff = [bundle pathForResource:[NSString stringWithCString:RULES] ofType:@"rtf"]) == nil))
+#error StringConversion: This call to -[NXBundle getPath:forResource:ofType:] has been converted to the similar NSBundle method.  The conversion has been made assuming that the variable called buff will be changed into an (NSString *).  You must change the type of the variable called buff by hand.
+	 buff = [bundle pathForResource:[NSString stringWithCString:RULES] ofType:@"rtfd"];
+    [text readRTFDFromFile:[NSString stringWithCString:buff]];
     }
 
 
@@ -51,7 +56,7 @@ static char const RULES[] = "ClueRules";
     [super init];
     ClueLoadNib( self );
     [self loadRules];
-    [window setFrameAutosaveName:"ClueRules"];
+    [window setFrameAutosaveName:@"ClueRules"];
     return self;
     }
 

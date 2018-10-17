@@ -1,5 +1,6 @@
-ClueInfo = {
-    OUTLETS = {buildField = buildField; releaseField = releaseField; window = window; }; 
+"ClueInfo" = {
+    ACTIONS = {}; 
+    OUTLETS = {buildField = id; releaseField = id; window = id; }; 
     SUPERCLASS = Object; 
 };
-FirstResponder = {ACTIONS = {}; SUPERCLASS = Object; };
+"FirstResponder" = {ACTIONS = {}; OUTLETS = {}; SUPERCLASS = NSObject; };

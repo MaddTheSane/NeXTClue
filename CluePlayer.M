@@ -6,14 +6,17 @@
 // Copyright (C), 1997, Paul McCarthy and Eric Sunshine.  All rights reserved.
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
-// $Id$
-// $Log$
+// $Id: CluePlayer.M,v 1.1 97/05/31 10:12:15 zarnuk Exp $
+// $Log:	CluePlayer.M,v $
+//  Revision 1.1  97/05/31  10:12:15  zarnuk
+//  v21
+//  
 //-----------------------------------------------------------------------------
 #import	"CluePlayer.h"
 #import	"ClueDefs.h"
 #import	"ClueMgr.h"
 extern "Objective-C" {
-#import	<appkit/Application.h>	// for perform:with:afterDelay:cancelPrevious:
+#import	<AppKit/NSApplication.h>	// for perform:with:afterDelay:cancelPrevious:
 }
 extern "C" {
 #import <string.h>	// memcpy
@@ -45,7 +48,7 @@ extern "C" {
 - (ClueCoord) location		{ return location; }
 - (ClueMgr*) clueMgr		{ return clueMgr; }
 
-- (char const*) playerName	{ return [[self class] name]; }
+- (char const*) playerName	{ return [[[self class] name] cString]; }
 
 - (BOOL) canAccuse		{ return YES; }
 - (BOOL) canSuggest		{ return YES; }
@@ -67,14 +70,14 @@ extern "C" {
 //-----------------------------//
 
 - (void) direct:(SEL)aSel
-    { [clueMgr perform:aSel with:self afterDelay:0 cancelPrevious:NO]; }
+    { [clueMgr performSelector:aSel object:self afterDelay:(0) / 1000.0]; }
 
 - (void) nextPlayerOk		{ [self direct:@selector(nextPlayerOk:)]; }
 - (void) revealOk		{ [self direct:@selector(revealOk:)]; }
 
 
 - (void) delayed:(SEL)aSel
-    { [self perform:aSel with:0 afterDelay:0 cancelPrevious:NO]; }
+    { [self performSelector:aSel object:0 afterDelay:(0) / 1000.0]; }
 
 
 - (void) cp_do_move:sender	{ [clueMgr moveTo:cp_coord ok:self]; }

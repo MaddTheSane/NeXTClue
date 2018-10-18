@@ -10,68 +10,39 @@
 		552B1E77217924780062E4CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 552B1E76217924780062E4CC /* Assets.xcassets */; };
 		552B1E87217925190062E4CC /* Help in Resources */ = {isa = PBXBuildFile; fileRef = 552B1E85217925190062E4CC /* Help */; };
 		552B1EE2217925790062E4CC /* ClueRules.mm in Sources */ = {isa = PBXBuildFile; fileRef = 552B1E89217925700062E4CC /* ClueRules.mm */; };
-		552B1EE3217925790062E4CC /* study.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 552B1E8A217925700062E4CC /* study.tiff */; };
 		552B1EE4217925790062E4CC /* ClueLoadNib.mm in Sources */ = {isa = PBXBuildFile; fileRef = 552B1E8C217925700062E4CC /* ClueLoadNib.mm */; };
-		552B1EE5217925790062E4CC /* lead-pipe.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 552B1E8D217925700062E4CC /* lead-pipe.tiff */; };
 		552B1EE6217925790062E4CC /* ClueRandyMizer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 552B1E90217925700062E4CC /* ClueRandyMizer.mm */; };
-		552B1EE7217925790062E4CC /* plum.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 552B1E93217925710062E4CC /* plum.tiff */; };
-		552B1EE8217925790062E4CC /* board.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 552B1E94217925710062E4CC /* board.tiff */; };
 		552B1EE9217925790062E4CC /* ClueCondArray.cc in Sources */ = {isa = PBXBuildFile; fileRef = 552B1E95217925710062E4CC /* ClueCondArray.cc */; };
 		552B1EEA217925790062E4CC /* ClueCyBorg.mm in Sources */ = {isa = PBXBuildFile; fileRef = 552B1E96217925710062E4CC /* ClueCyBorg.mm */; };
 		552B1EEB217925790062E4CC /* ClueDefs.cc in Sources */ = {isa = PBXBuildFile; fileRef = 552B1E97217925710062E4CC /* ClueDefs.cc */; };
 		552B1EEC217925790062E4CC /* ClueDeeDucer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 552B1E98217925710062E4CC /* ClueDeeDucer.mm */; };
 		552B1EED217925790062E4CC /* ClueHuman.mm in Sources */ = {isa = PBXBuildFile; fileRef = 552B1E9A217925710062E4CC /* ClueHuman.mm */; };
-		552B1EEE217925790062E4CC /* lounge.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 552B1E9C217925720062E4CC /* lounge.tiff */; };
 		552B1EEF217925790062E4CC /* ClueAnnaLyzer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 552B1E9D217925720062E4CC /* ClueAnnaLyzer.mm */; };
-		552B1EF0217925790062E4CC /* wrench.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 552B1E9E217925720062E4CC /* wrench.tiff */; };
-		552B1EF1217925790062E4CC /* library.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 552B1EA0217925720062E4CC /* library.tiff */; };
 		552B1EF2217925790062E4CC /* ClueRules.nib in Resources */ = {isa = PBXBuildFile; fileRef = 552B1EA2217925720062E4CC /* ClueRules.nib */; };
 		552B1EF3217925790062E4CC /* ClueInfo.nib in Resources */ = {isa = PBXBuildFile; fileRef = 552B1EA4217925720062E4CC /* ClueInfo.nib */; };
-		552B1EF4217925790062E4CC /* white.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 552B1EA5217925730062E4CC /* white.tiff */; };
-		552B1EF5217925790062E4CC /* die6.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 552B1EA6217925730062E4CC /* die6.tiff */; };
-		552B1EF6217925790062E4CC /* green.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 552B1EA7217925730062E4CC /* green.tiff */; };
-		552B1EF7217925790062E4CC /* knife.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 552B1EA8217925730062E4CC /* knife.tiff */; };
 		552B1EF8217925790062E4CC /* ClueButton.mm in Sources */ = {isa = PBXBuildFile; fileRef = 552B1EA9217925730062E4CC /* ClueButton.mm */; };
-		552B1EF9217925790062E4CC /* candlestick.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 552B1EAB217925730062E4CC /* candlestick.tiff */; };
 		552B1EFA217925790062E4CC /* ClueSetup.mm in Sources */ = {isa = PBXBuildFile; fileRef = 552B1EAC217925730062E4CC /* ClueSetup.mm */; };
-		552B1EFB217925790062E4CC /* die4.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 552B1EAE217925740062E4CC /* die4.tiff */; };
-		552B1EFC217925790062E4CC /* revolver.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 552B1EAF217925740062E4CC /* revolver.tiff */; };
-		552B1EFD217925790062E4CC /* die3.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 552B1EB0217925740062E4CC /* die3.tiff */; };
-		552B1EFE217925790062E4CC /* hall.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 552B1EB2217925740062E4CC /* hall.tiff */; };
 		552B1EFF217925790062E4CC /* ClueBoardView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 552B1EB4217925740062E4CC /* ClueBoardView.mm */; };
-		552B1F00217925790062E4CC /* die5.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 552B1EB5217925740062E4CC /* die5.tiff */; };
-		552B1F01217925790062E4CC /* kitchen.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 552B1EB6217925740062E4CC /* kitchen.tiff */; };
 		552B1F02217925790062E4CC /* ClueMessages.mm in Sources */ = {isa = PBXBuildFile; fileRef = 552B1EB7217925750062E4CC /* ClueMessages.mm */; };
 		552B1F03217925790062E4CC /* ClueBoard.mm in Sources */ = {isa = PBXBuildFile; fileRef = 552B1EB8217925750062E4CC /* ClueBoard.mm */; };
 		552B1F04217925790062E4CC /* ClueBeaGinner.mm in Sources */ = {isa = PBXBuildFile; fileRef = 552B1EB9217925750062E4CC /* ClueBeaGinner.mm */; };
 		552B1F05217925790062E4CC /* ClueBoard.nib in Resources */ = {isa = PBXBuildFile; fileRef = 552B1EBC217925750062E4CC /* ClueBoard.nib */; };
-		552B1F06217925790062E4CC /* Clue.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 552B1EBE217925750062E4CC /* Clue.tiff */; };
 		552B1F07217925790062E4CC /* ClueCoordArray.cc in Sources */ = {isa = PBXBuildFile; fileRef = 552B1EC0217925760062E4CC /* ClueCoordArray.cc */; };
 		552B1F08217925790062E4CC /* Clue.nib in Resources */ = {isa = PBXBuildFile; fileRef = 552B1EC1217925760062E4CC /* Clue.nib */; };
 		552B1F09217925790062E4CC /* ClueMessages.nib in Resources */ = {isa = PBXBuildFile; fileRef = 552B1EC2217925760062E4CC /* ClueMessages.nib */; };
 		552B1F0A217925790062E4CC /* ClueMgr.mm in Sources */ = {isa = PBXBuildFile; fileRef = 552B1EC3217925760062E4CC /* ClueMgr.mm */; };
 		552B1F0B217925790062E4CC /* ClueUpdateStack.cc in Sources */ = {isa = PBXBuildFile; fileRef = 552B1EC4217925760062E4CC /* ClueUpdateStack.cc */; };
-		552B1F0C217925790062E4CC /* conservatory.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 552B1EC6217925760062E4CC /* conservatory.tiff */; };
 		552B1F0D217925790062E4CC /* ClueHuman.nib in Resources */ = {isa = PBXBuildFile; fileRef = 552B1EC7217925760062E4CC /* ClueHuman.nib */; };
 		552B1F0E217925790062E4CC /* ClueComputer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 552B1EC8217925760062E4CC /* ClueComputer.mm */; };
 		552B1F0F217925790062E4CC /* ClueMap.cc in Sources */ = {isa = PBXBuildFile; fileRef = 552B1EC9217925770062E4CC /* ClueMap.cc */; };
 		552B1F10217925790062E4CC /* ClueSetup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 552B1ECA217925770062E4CC /* ClueSetup.xib */; };
 		552B1F11217925790062E4CC /* HISTORY.txt in Resources */ = {isa = PBXBuildFile; fileRef = 552B1ECB217925770062E4CC /* HISTORY.txt */; };
-		552B1F12217925790062E4CC /* mustard.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 552B1ECE217925770062E4CC /* mustard.tiff */; };
 		552B1F13217925790062E4CC /* Clue_main.m in Sources */ = {isa = PBXBuildFile; fileRef = 552B1ED0217925770062E4CC /* Clue_main.m */; };
-		552B1F14217925790062E4CC /* dining-room.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 552B1ED1217925770062E4CC /* dining-room.tiff */; };
-		552B1F15217925790062E4CC /* peacock.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 552B1ED2217925780062E4CC /* peacock.tiff */; };
-		552B1F16217925790062E4CC /* scarlet.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 552B1ED3217925780062E4CC /* scarlet.tiff */; };
-		552B1F17217925790062E4CC /* die1.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 552B1ED4217925780062E4CC /* die1.tiff */; };
-		552B1F18217925790062E4CC /* die2.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 552B1ED5217925780062E4CC /* die2.tiff */; };
 		552B1F19217925790062E4CC /* ClueCyLent.mm in Sources */ = {isa = PBXBuildFile; fileRef = 552B1ED6217925780062E4CC /* ClueCyLent.mm */; };
 		552B1F1A217925790062E4CC /* ClueInfo.mm in Sources */ = {isa = PBXBuildFile; fileRef = 552B1ED7217925780062E4CC /* ClueInfo.mm */; };
 		552B1F1B217925790062E4CC /* ClueCardPicker.cc in Sources */ = {isa = PBXBuildFile; fileRef = 552B1ED8217925780062E4CC /* ClueCardPicker.cc */; };
-		552B1F1C217925790062E4CC /* ball-room.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 552B1ED9217925780062E4CC /* ball-room.tiff */; };
 		552B1F1D217925790062E4CC /* ClueTrace.mm in Sources */ = {isa = PBXBuildFile; fileRef = 552B1EDB217925780062E4CC /* ClueTrace.mm */; };
 		552B1F1E217925790062E4CC /* PACKAGE_NUMBER in Resources */ = {isa = PBXBuildFile; fileRef = 552B1EDC217925790062E4CC /* PACKAGE_NUMBER */; };
-		552B1F1F217925790062E4CC /* rope.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 552B1EDD217925790062E4CC /* rope.tiff */; };
-		552B1F20217925790062E4CC /* billiard-room.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 552B1EDE217925790062E4CC /* billiard-room.tiff */; };
 		552B1F21217925790062E4CC /* ClueRules.rtfd in Resources */ = {isa = PBXBuildFile; fileRef = 552B1EE0217925790062E4CC /* ClueRules.rtfd */; };
 		552B1F22217925790062E4CC /* CluePlayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 552B1EE1217925790062E4CC /* CluePlayer.mm */; };
 		552B1F25217934650062E4CC /* RELEASE_NUMBER in Resources */ = {isa = PBXBuildFile; fileRef = 552B1F24217934650062E4CC /* RELEASE_NUMBER */; };
@@ -85,17 +56,13 @@
 		552B1E86217925190062E4CC /* en */ = {isa = PBXFileReference; lastKnownFileType = folder; name = en; path = en.lproj/Help; sourceTree = "<group>"; };
 		552B1E88217925700062E4CC /* ClueBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClueBoard.h; sourceTree = "<group>"; };
 		552B1E89217925700062E4CC /* ClueRules.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ClueRules.mm; sourceTree = "<group>"; };
-		552B1E8A217925700062E4CC /* study.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = study.tiff; sourceTree = "<group>"; };
 		552B1E8B217925700062E4CC /* ClueRandyMizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClueRandyMizer.h; sourceTree = "<group>"; };
 		552B1E8C217925700062E4CC /* ClueLoadNib.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ClueLoadNib.mm; sourceTree = "<group>"; };
-		552B1E8D217925700062E4CC /* lead-pipe.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = "lead-pipe.tiff"; sourceTree = "<group>"; };
 		552B1E8E217925700062E4CC /* ClueInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClueInfo.h; sourceTree = "<group>"; };
 		552B1E8F217925700062E4CC /* ClueButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClueButton.h; sourceTree = "<group>"; };
 		552B1E90217925700062E4CC /* ClueRandyMizer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ClueRandyMizer.mm; sourceTree = "<group>"; };
 		552B1E91217925700062E4CC /* ClueCondArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClueCondArray.h; sourceTree = "<group>"; };
 		552B1E92217925700062E4CC /* CluePlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CluePlayer.h; sourceTree = "<group>"; };
-		552B1E93217925710062E4CC /* plum.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = plum.tiff; sourceTree = "<group>"; };
-		552B1E94217925710062E4CC /* board.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = board.tiff; sourceTree = "<group>"; };
 		552B1E95217925710062E4CC /* ClueCondArray.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ClueCondArray.cc; sourceTree = "<group>"; };
 		552B1E96217925710062E4CC /* ClueCyBorg.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ClueCyBorg.mm; sourceTree = "<group>"; };
 		552B1E97217925710062E4CC /* ClueDefs.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ClueDefs.cc; sourceTree = "<group>"; };
@@ -103,33 +70,19 @@
 		552B1E99217925710062E4CC /* ClueComputer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClueComputer.h; sourceTree = "<group>"; };
 		552B1E9A217925710062E4CC /* ClueHuman.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ClueHuman.mm; sourceTree = "<group>"; };
 		552B1E9B217925710062E4CC /* ClueDeeDucer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClueDeeDucer.h; sourceTree = "<group>"; };
-		552B1E9C217925720062E4CC /* lounge.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = lounge.tiff; sourceTree = "<group>"; };
 		552B1E9D217925720062E4CC /* ClueAnnaLyzer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ClueAnnaLyzer.mm; sourceTree = "<group>"; };
-		552B1E9E217925720062E4CC /* wrench.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = wrench.tiff; sourceTree = "<group>"; };
 		552B1E9F217925720062E4CC /* ClueMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClueMap.h; sourceTree = "<group>"; };
-		552B1EA0217925720062E4CC /* library.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = library.tiff; sourceTree = "<group>"; };
 		552B1EA1217925720062E4CC /* ClueCoordArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClueCoordArray.h; sourceTree = "<group>"; };
 		552B1EA2217925720062E4CC /* ClueRules.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; path = ClueRules.nib; sourceTree = "<group>"; };
 		552B1EA3217925720062E4CC /* ClueAnnaLyzer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClueAnnaLyzer.h; sourceTree = "<group>"; };
 		552B1EA4217925720062E4CC /* ClueInfo.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; path = ClueInfo.nib; sourceTree = "<group>"; };
-		552B1EA5217925730062E4CC /* white.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = white.tiff; sourceTree = "<group>"; };
-		552B1EA6217925730062E4CC /* die6.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = die6.tiff; sourceTree = "<group>"; };
-		552B1EA7217925730062E4CC /* green.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = green.tiff; sourceTree = "<group>"; };
-		552B1EA8217925730062E4CC /* knife.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = knife.tiff; sourceTree = "<group>"; };
 		552B1EA9217925730062E4CC /* ClueButton.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ClueButton.mm; sourceTree = "<group>"; };
 		552B1EAA217925730062E4CC /* ClueDefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClueDefs.h; sourceTree = "<group>"; };
-		552B1EAB217925730062E4CC /* candlestick.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = candlestick.tiff; sourceTree = "<group>"; };
 		552B1EAC217925730062E4CC /* ClueSetup.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ClueSetup.mm; sourceTree = "<group>"; };
 		552B1EAD217925740062E4CC /* ClueCyBorg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClueCyBorg.h; sourceTree = "<group>"; };
-		552B1EAE217925740062E4CC /* die4.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = die4.tiff; sourceTree = "<group>"; };
-		552B1EAF217925740062E4CC /* revolver.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = revolver.tiff; sourceTree = "<group>"; };
-		552B1EB0217925740062E4CC /* die3.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = die3.tiff; sourceTree = "<group>"; };
 		552B1EB1217925740062E4CC /* ClueLoadNib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClueLoadNib.h; sourceTree = "<group>"; };
-		552B1EB2217925740062E4CC /* hall.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = hall.tiff; sourceTree = "<group>"; };
 		552B1EB3217925740062E4CC /* ClueRules.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClueRules.h; sourceTree = "<group>"; };
 		552B1EB4217925740062E4CC /* ClueBoardView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ClueBoardView.mm; sourceTree = "<group>"; };
-		552B1EB5217925740062E4CC /* die5.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = die5.tiff; sourceTree = "<group>"; };
-		552B1EB6217925740062E4CC /* kitchen.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = kitchen.tiff; sourceTree = "<group>"; };
 		552B1EB7217925750062E4CC /* ClueMessages.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ClueMessages.mm; sourceTree = "<group>"; };
 		552B1EB8217925750062E4CC /* ClueBoard.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ClueBoard.mm; sourceTree = "<group>"; };
 		552B1EB9217925750062E4CC /* ClueBeaGinner.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ClueBeaGinner.mm; sourceTree = "<group>"; };
@@ -137,7 +90,6 @@
 		552B1EBB217925750062E4CC /* ClueTrace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClueTrace.h; sourceTree = "<group>"; };
 		552B1EBC217925750062E4CC /* ClueBoard.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; path = ClueBoard.nib; sourceTree = "<group>"; };
 		552B1EBD217925750062E4CC /* ClueMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClueMgr.h; sourceTree = "<group>"; };
-		552B1EBE217925750062E4CC /* Clue.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = Clue.tiff; sourceTree = "<group>"; };
 		552B1EBF217925750062E4CC /* ClueHuman.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClueHuman.h; sourceTree = "<group>"; };
 		552B1EC0217925760062E4CC /* ClueCoordArray.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ClueCoordArray.cc; sourceTree = "<group>"; };
 		552B1EC1217925760062E4CC /* Clue.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; path = Clue.nib; sourceTree = "<group>"; };
@@ -145,7 +97,6 @@
 		552B1EC3217925760062E4CC /* ClueMgr.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ClueMgr.mm; sourceTree = "<group>"; };
 		552B1EC4217925760062E4CC /* ClueUpdateStack.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ClueUpdateStack.cc; sourceTree = "<group>"; };
 		552B1EC5217925760062E4CC /* ClueMessages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClueMessages.h; sourceTree = "<group>"; };
-		552B1EC6217925760062E4CC /* conservatory.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = conservatory.tiff; sourceTree = "<group>"; };
 		552B1EC7217925760062E4CC /* ClueHuman.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; path = ClueHuman.nib; sourceTree = "<group>"; };
 		552B1EC8217925760062E4CC /* ClueComputer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ClueComputer.mm; sourceTree = "<group>"; };
 		552B1EC9217925770062E4CC /* ClueMap.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ClueMap.cc; sourceTree = "<group>"; };
@@ -153,23 +104,14 @@
 		552B1ECB217925770062E4CC /* HISTORY.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HISTORY.txt; sourceTree = "<group>"; };
 		552B1ECC217925770062E4CC /* ClueBoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClueBoardView.h; sourceTree = "<group>"; };
 		552B1ECD217925770062E4CC /* ClueSetup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClueSetup.h; sourceTree = "<group>"; };
-		552B1ECE217925770062E4CC /* mustard.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = mustard.tiff; sourceTree = "<group>"; };
 		552B1ECF217925770062E4CC /* ClueCyLent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClueCyLent.h; sourceTree = "<group>"; };
 		552B1ED0217925770062E4CC /* Clue_main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Clue_main.m; sourceTree = "<group>"; };
-		552B1ED1217925770062E4CC /* dining-room.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = "dining-room.tiff"; sourceTree = "<group>"; };
-		552B1ED2217925780062E4CC /* peacock.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = peacock.tiff; sourceTree = "<group>"; };
-		552B1ED3217925780062E4CC /* scarlet.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = scarlet.tiff; sourceTree = "<group>"; };
-		552B1ED4217925780062E4CC /* die1.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = die1.tiff; sourceTree = "<group>"; };
-		552B1ED5217925780062E4CC /* die2.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = die2.tiff; sourceTree = "<group>"; };
 		552B1ED6217925780062E4CC /* ClueCyLent.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ClueCyLent.mm; sourceTree = "<group>"; };
 		552B1ED7217925780062E4CC /* ClueInfo.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ClueInfo.mm; sourceTree = "<group>"; };
 		552B1ED8217925780062E4CC /* ClueCardPicker.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ClueCardPicker.cc; sourceTree = "<group>"; };
-		552B1ED9217925780062E4CC /* ball-room.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = "ball-room.tiff"; sourceTree = "<group>"; };
 		552B1EDA217925780062E4CC /* ClueBeaGinner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClueBeaGinner.h; sourceTree = "<group>"; };
 		552B1EDB217925780062E4CC /* ClueTrace.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ClueTrace.mm; sourceTree = "<group>"; };
 		552B1EDC217925790062E4CC /* PACKAGE_NUMBER */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PACKAGE_NUMBER; sourceTree = "<group>"; };
-		552B1EDD217925790062E4CC /* rope.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = rope.tiff; sourceTree = "<group>"; };
-		552B1EDE217925790062E4CC /* billiard-room.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = "billiard-room.tiff"; sourceTree = "<group>"; };
 		552B1EDF217925790062E4CC /* ClueUpdateStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClueUpdateStack.h; sourceTree = "<group>"; };
 		552B1EE0217925790062E4CC /* ClueRules.rtfd */ = {isa = PBXFileReference; lastKnownFileType = wrapper.rtfd; path = ClueRules.rtfd; sourceTree = "<group>"; };
 		552B1EE1217925790062E4CC /* CluePlayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CluePlayer.mm; sourceTree = "<group>"; };
@@ -206,7 +148,6 @@
 		552B1E73217924760062E4CC /* NeXTClue */ = {
 			isa = PBXGroup;
 			children = (
-				552B1F232179257E0062E4CC /* Images */,
 				552B1ED0217925770062E4CC /* Clue_main.m */,
 				552B1EC1217925760062E4CC /* Clue.nib */,
 				552B1EA3217925720062E4CC /* ClueAnnaLyzer.h */,
@@ -278,42 +219,6 @@
 			sourceTree = "<group>";
 			usesTabs = 0;
 		};
-		552B1F232179257E0062E4CC /* Images */ = {
-			isa = PBXGroup;
-			children = (
-				552B1ED9217925780062E4CC /* ball-room.tiff */,
-				552B1EDE217925790062E4CC /* billiard-room.tiff */,
-				552B1E94217925710062E4CC /* board.tiff */,
-				552B1EAB217925730062E4CC /* candlestick.tiff */,
-				552B1EBE217925750062E4CC /* Clue.tiff */,
-				552B1EC6217925760062E4CC /* conservatory.tiff */,
-				552B1ED4217925780062E4CC /* die1.tiff */,
-				552B1ED5217925780062E4CC /* die2.tiff */,
-				552B1EB0217925740062E4CC /* die3.tiff */,
-				552B1EAE217925740062E4CC /* die4.tiff */,
-				552B1EB5217925740062E4CC /* die5.tiff */,
-				552B1EA6217925730062E4CC /* die6.tiff */,
-				552B1ED1217925770062E4CC /* dining-room.tiff */,
-				552B1EA7217925730062E4CC /* green.tiff */,
-				552B1EB2217925740062E4CC /* hall.tiff */,
-				552B1EB6217925740062E4CC /* kitchen.tiff */,
-				552B1EA8217925730062E4CC /* knife.tiff */,
-				552B1E8D217925700062E4CC /* lead-pipe.tiff */,
-				552B1EA0217925720062E4CC /* library.tiff */,
-				552B1E9C217925720062E4CC /* lounge.tiff */,
-				552B1ECE217925770062E4CC /* mustard.tiff */,
-				552B1ED2217925780062E4CC /* peacock.tiff */,
-				552B1E93217925710062E4CC /* plum.tiff */,
-				552B1EAF217925740062E4CC /* revolver.tiff */,
-				552B1EDD217925790062E4CC /* rope.tiff */,
-				552B1ED3217925780062E4CC /* scarlet.tiff */,
-				552B1E8A217925700062E4CC /* study.tiff */,
-				552B1EA5217925730062E4CC /* white.tiff */,
-				552B1E9E217925720062E4CC /* wrench.tiff */,
-			);
-			name = Images;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -374,47 +279,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				552B1F1E217925790062E4CC /* PACKAGE_NUMBER in Resources */,
-				552B1EF6217925790062E4CC /* green.tiff in Resources */,
-				552B1F06217925790062E4CC /* Clue.tiff in Resources */,
 				552B1F05217925790062E4CC /* ClueBoard.nib in Resources */,
-				552B1EFC217925790062E4CC /* revolver.tiff in Resources */,
 				552B1F21217925790062E4CC /* ClueRules.rtfd in Resources */,
-				552B1EE3217925790062E4CC /* study.tiff in Resources */,
-				552B1F17217925790062E4CC /* die1.tiff in Resources */,
-				552B1EF0217925790062E4CC /* wrench.tiff in Resources */,
-				552B1F0C217925790062E4CC /* conservatory.tiff in Resources */,
-				552B1F1F217925790062E4CC /* rope.tiff in Resources */,
 				552B1F25217934650062E4CC /* RELEASE_NUMBER in Resources */,
 				552B1F09217925790062E4CC /* ClueMessages.nib in Resources */,
-				552B1EEE217925790062E4CC /* lounge.tiff in Resources */,
-				552B1EF7217925790062E4CC /* knife.tiff in Resources */,
-				552B1F14217925790062E4CC /* dining-room.tiff in Resources */,
-				552B1EE8217925790062E4CC /* board.tiff in Resources */,
-				552B1F01217925790062E4CC /* kitchen.tiff in Resources */,
-				552B1F15217925790062E4CC /* peacock.tiff in Resources */,
-				552B1EFD217925790062E4CC /* die3.tiff in Resources */,
-				552B1F18217925790062E4CC /* die2.tiff in Resources */,
-				552B1F16217925790062E4CC /* scarlet.tiff in Resources */,
 				552B1E77217924780062E4CC /* Assets.xcassets in Resources */,
-				552B1EFB217925790062E4CC /* die4.tiff in Resources */,
 				552B1F11217925790062E4CC /* HISTORY.txt in Resources */,
-				552B1EE7217925790062E4CC /* plum.tiff in Resources */,
-				552B1EF4217925790062E4CC /* white.tiff in Resources */,
 				552B1EF2217925790062E4CC /* ClueRules.nib in Resources */,
-				552B1EFE217925790062E4CC /* hall.tiff in Resources */,
-				552B1EF5217925790062E4CC /* die6.tiff in Resources */,
 				552B1EF3217925790062E4CC /* ClueInfo.nib in Resources */,
 				552B1F10217925790062E4CC /* ClueSetup.xib in Resources */,
-				552B1F00217925790062E4CC /* die5.tiff in Resources */,
 				552B1F0D217925790062E4CC /* ClueHuman.nib in Resources */,
-				552B1F12217925790062E4CC /* mustard.tiff in Resources */,
-				552B1EF9217925790062E4CC /* candlestick.tiff in Resources */,
 				552B1F08217925790062E4CC /* Clue.nib in Resources */,
-				552B1EE5217925790062E4CC /* lead-pipe.tiff in Resources */,
 				552B1E87217925190062E4CC /* Help in Resources */,
-				552B1F1C217925790062E4CC /* ball-room.tiff in Resources */,
-				552B1F20217925790062E4CC /* billiard-room.tiff in Resources */,
-				552B1EF1217925790062E4CC /* library.tiff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

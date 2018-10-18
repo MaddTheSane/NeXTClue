@@ -23,19 +23,20 @@ extern "C" {
 
 @implementation CluePlayer
 
-- initPlayer:(int)playerID numPlayers:(int)numPlayers
-    numCards:(int)numCards cards:(ClueCard const*)i_cards
-       piece:(ClueCard)pieceID location:(ClueCoord)i_location
-     clueMgr:(ClueMgr*)mgr
+- (instancetype)initWithPlayer:(int)playerID playerCount:(int)numPlayers
+                     cardCount:(int)numCards cards:(ClueCard const*)i_cards
+                         piece:(ClueCard)pieceID location:(ClueCoord)i_location
+                   clueManager:(ClueMgr*)mgr
 {
-    [super init];
-    player_id = playerID;
-    num_players = numPlayers;
-    num_cards = numCards;
-    memcpy( cards, i_cards, numCards * sizeof(*cards) );
-    piece_id = pieceID;
-    location = i_location;
-    clueMgr = mgr;
+    if (self = [super init]) {
+        player_id = playerID;
+        num_players = numPlayers;
+        num_cards = numCards;
+        memcpy( cards, i_cards, numCards * sizeof(*cards) );
+        piece_id = pieceID;
+        location = i_location;
+        clueMgr = mgr;
+    }
     return self;
 }
 
@@ -47,7 +48,7 @@ extern "C" {
 - (ClueCoord) location		{ return location; }
 - (ClueMgr*) clueMgr		{ return clueMgr; }
 
-- (char const*) playerName	{ return [[[self class] name] cString]; }
+- (NSString*) playerName	{ return [self className]; }
 
 - (BOOL) canAccuse		{ return YES; }
 - (BOOL) canSuggest		{ return YES; }
@@ -139,18 +140,20 @@ extern "C" {
     int num_choices = 0;
     ClueCard choices[3];
     ClueCard card = CLUE_CARD_MAX;
-    for (int i = 0; i < num_cards; i++)
-    {
+    for (int i = 0; i < num_cards; i++) {
         ClueCard const x = cards[i];
-        if (solution->contains( x ))
+        if (solution->contains( x )) {
             choices[ num_choices++ ] = x;
+        }
     }
 
-    if (num_choices > 0)
-        if (num_choices == 1)
+    if (num_choices > 0) {
+        if (num_choices == 1) {
             card = choices[0];
-        else
+        } else {
             card = choices[ random_int(num_choices) ];
+        }
+    }
 
     [self reveal:card];
 }

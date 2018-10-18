@@ -27,18 +27,19 @@ extern "C" {
 //-----------------------------------------------------------------------------
 // initPlayer:numPlayers:numCards:cards:piece:location:clueMgr:
 //-----------------------------------------------------------------------------
-- initPlayer:(int)playerID numPlayers:(int)numPlayers
-	numCards:(int)numCards cards:(ClueCard const*)i_cards
-	piece:(ClueCard)pieceID location:(ClueCoord)i_location
-	clueMgr:(ClueMgr*)mgr
+- (instancetype)initWithPlayer:(int)playerID playerCount:(int)numPlayers
+                     cardCount:(int)numCards cards:(const ClueCard *)i_cards
+                         piece:(ClueCard)pieceID location:(ClueCoord)i_location
+                   clueManager:(ClueMgr *)mgr
 {
-    [super initPlayer:playerID numPlayers:numPlayers
-             numCards:numCards cards:i_cards
-                piece:pieceID location:i_location clueMgr:mgr];
+    if (self = [super initWithPlayer:playerID playerCount:numPlayers
+                           cardCount:numCards cards:i_cards
+                               piece:pieceID location:i_location clueManager:mgr]) {
 
-    last_room = ClueRoomAt( [self location] );
-    my_turn   = NO;
-    can_stay  = NO;
+        last_room = ClueRoomAt( [self location] );
+        my_turn   = NO;
+        can_stay  = NO;
+    }
 
     return self;
 }

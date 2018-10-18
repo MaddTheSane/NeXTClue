@@ -30,7 +30,7 @@ extern "C" {
 //-----------------------------------------------------------------------------
 void ClueLoadNib( id obj )
 {
-    NSString *name = [[obj class] name];
+    NSString *name = [obj className];
     NSString *buff;
 
     if ((buff = [[NSBundle mainBundle] pathForResource:name ofType:@"nib"]) == nil)

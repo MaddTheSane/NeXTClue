@@ -204,38 +204,39 @@ ClueFilter( unsigned short c, int flags, unsigned short cset )
 //-----------------------------------------------------------------------------
 // initPlayer:numPlayers:numCards:cards:piece:location:
 //-----------------------------------------------------------------------------
-- initPlayer:(int)playerID numPlayers:(int)numPlayers
-	numCards:(int)numCards cards:(ClueCard const*)i_cards
-	piece:(ClueCard)pieceID location:(ClueCoord)i_location
-	clueMgr:(ClueMgr*)mgr
+- (instancetype)initWithPlayer:(int)playerID playerCount:(int)numPlayers
+                     cardCount:(int)numCards cards:(ClueCard const*)i_cards
+                         piece:(ClueCard)pieceID location:(ClueCoord)i_location
+                   clueManager:(ClueMgr*)mgr
 {
-    [super initPlayer:playerID numPlayers:numPlayers
-             numCards:numCards cards:i_cards piece:pieceID
-             location:i_location clueMgr:mgr];
+    if (self = [super initWithPlayer:playerID playerCount:numPlayers
+                   cardCount:numCards cards:i_cards piece:pieceID
+                            location:i_location clueManager:mgr]) {
 
-    ClueLoadNib( self );
-    fieldEditor = [[NSText allocWithZone:[self zone]] init];
-    [fieldEditor setCharFilter:ClueFilter];
+        ClueLoadNib( self );
+        fieldEditor = [[NSText allocWithZone:[self zone]] init];
+        [fieldEditor setCharFilter:ClueFilter];
 
-    [suspectPop selectTag: [self pieceID]];
-    [weaponPop selectTag: CLUE_CARD_KNIFE];
-    [roomPop selectTag: CLUE_CARD_HALL];
+        [suspectPop selectTag: [self pieceID]];
+        [weaponPop selectTag: CLUE_CARD_KNIFE];
+        [roomPop selectTag: CLUE_CARD_HALL];
 
-    map = new ClueMap;
+        map = new ClueMap;
 
-    [window setFrameAutosaveName:@"ClueHumanWindow"];
+        [window setFrameAutosaveName:@"ClueHumanWindow"];
 
-    char buff[ 128 ];
-    char const* const piece_name = ClueCardName( pieceID );
-    sprintf( buff, "Player %d -- %s", playerID + 1, piece_name );
-    [window setTitle:[NSString stringWithCString:buff]];
+        char buff[ 128 ];
+        char const* const piece_name = ClueCardName( pieceID );
+        sprintf( buff, "Player %d -- %s", playerID + 1, piece_name );
+        [window setTitle:[NSString stringWithCString:buff]];
 
-    [self initScroll];
+        [self initScroll];
 
-    [messageField setStringValue:@"New Game"];
+        [messageField setStringValue:@"New Game"];
 
-    [window makeKeyAndOrderFront:self];
-
+        [window makeKeyAndOrderFront:self];
+    }
+    
     return self;
 }
 

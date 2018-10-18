@@ -518,8 +518,6 @@ static inline bool is_same_region( char c_old, char c_new )
     &p = [pb dataForType:[NSString stringWithCString:CLUE_CARD_PBTYPE]];
     assert( len == sizeof(ClueCard) );
     ClueCard const piece = *((ClueCard const*) p);
-#error StreamConversion: 'deallocatePasteboardData:length:' no longer exists and never needs to be called
-    [pb deallocatePasteboardData:p length:len];
     
     ClueCoord const oldPos = [clueMgr pieceLocation:piece];
     [clueMgr movePiece:piece to:coord];

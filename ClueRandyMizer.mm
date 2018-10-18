@@ -22,23 +22,23 @@
 //-----------------------------------------------------------------------------
 // initPlayer:numPlayers:numCards:cards:piece:location:
 //-----------------------------------------------------------------------------
-- initPlayer:(int)playerID numPlayers:(int)numPlayers
+- initWithPlayer:(int)playerID numberOfPlayers:(int)numPlayers
     numCards:(int)numCards cards:(ClueCard const*)i_cards
        piece:(ClueCard)pieceID location:(ClueCoord)i_location
      clueMgr:(ClueMgr*)mgr
 {
-    [super initPlayer:playerID numPlayers:numPlayers
-             numCards:numCards cards:i_cards
-                piece:pieceID location:i_location clueMgr:mgr];
+    if (self = [super initWithPlayer:playerID numberOfPlayers:numPlayers
+                       numberOfCards:numCards cards:i_cards
+                               piece:pieceID location:i_location clueManager:mgr]) {
 
-    for (int i = 0; i < CLUE_ROOM_COUNT; i++)
-    {
-        num_choices[i] = CLUE_CHOICE_COUNT;
-        for (int j = 0; j < CLUE_CHOICE_COUNT; j++)
-            choices[i][j] = j;
+        for (int i = 0; i < CLUE_ROOM_COUNT; i++) {
+            num_choices[i] = CLUE_CHOICE_COUNT;
+            for (int j = 0; j < CLUE_CHOICE_COUNT; j++)
+                choices[i][j] = j;
+        }
+
+        found_solution = NO;
     }
-
-    found_solution = NO;
 
     return self;
 }

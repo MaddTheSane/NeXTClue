@@ -45,10 +45,10 @@
     ClueSolution	cp_solution_buff;
 }
 
-- initPlayer:(int)playerID numPlayers:(int)numPlayers
-    numCards:(int)numCards cards:(ClueCard const*)cards
-       piece:(ClueCard)pieceID location:(ClueCoord)location
-     clueMgr:(ClueMgr*)clueMgr;
+- (instancetype)initWithPlayer:(int)playerID playerCount:(int)numPlayers
+                     cardCount:(int)numCards cards:(ClueCard const*)cards
+                         piece:(ClueCard)pieceID location:(ClueCoord)location
+                   clueManager:(ClueMgr*)mgr;
 
 - (int) playerID;
 - (int) numPlayers;

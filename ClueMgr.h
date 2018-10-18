@@ -15,7 +15,7 @@
 //  
 //-----------------------------------------------------------------------------
 
-#import <Foundation/NSObject.h>
+#import <Cocoa/Cocoa.h>
 #import	"ClueDefs.h"
 
 @class CluePlayer;

@@ -303,30 +303,31 @@ inline bool complete( ClueSolution const& s )
 //	num_known[] and grid[][] are initialized to 0 by the standard
 //	Objective-C [Object alloc].
 //-----------------------------------------------------------------------------
-- initPlayer:(int)playerID numPlayers:(int)numPlayers
-    numCards:(int)numCards cards:(ClueCard const*)i_cards
+- (instancetype)initWithPlayer:(int)playerID playerCount:(int)numPlayers
+    cardCount:(int)numCards cards:(ClueCard const*)i_cards
        piece:(ClueCard)pieceID location:(ClueCoord)i_location
-     clueMgr:(ClueMgr*)mgr
+     clueManager:(ClueMgr*)mgr
 {
     int i;
-    [super initPlayer:playerID numPlayers:numPlayers
-             numCards:numCards cards:i_cards
-                piece:pieceID location:i_location clueMgr:mgr];
+    if (self = [super initWithPlayer:playerID playerCount:numPlayers
+                           cardCount:numCards cards:i_cards
+                               piece:pieceID location:i_location clueManager:mgr]) {
 
-    [self earlyInit];
+        [self earlyInit];
 
-    solution.suspect() = CLUE_CARD_MAX;
-    solution.weapon() = CLUE_CARD_MAX;
-    solution.room() = CLUE_CARD_MAX;
+        solution.suspect() = CLUE_CARD_MAX;
+        solution.weapon() = CLUE_CARD_MAX;
+        solution.room() = CLUE_CARD_MAX;
 
-    for (i = 0; i < CLUE_CARD_COUNT; i++)
-        card_to_player[i] = PLAYER_UNKNOWN;
+        for (i = 0; i < CLUE_CARD_COUNT; i++)
+            card_to_player[i] = PLAYER_UNKNOWN;
 
-    [self initNumDealt];
-    [self initGrid];
+        [self initNumDealt];
+        [self initGrid];
 
-    [self lateInit];
-
+        [self lateInit];
+    }
+    
     return self;
 }
 

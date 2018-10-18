@@ -26,10 +26,10 @@ int const CLUE_CHOICE_COUNT = CLUE_SUSPECT_COUNT * CLUE_WEAPON_COUNT;
     BOOL found_solution;
 }
 
-- initPlayer:(int)playerID numPlayers:(int)numPlayers
-    numCards:(int)numCards cards:(ClueCard const*)cards
-       piece:(ClueCard)pieceID location:(ClueCoord)location
-     clueMgr:(ClueMgr*)mgr;
+- (instancetype)initWithPlayer:(int)playerID playerCount:(int)numPlayers
+                     cardCount:(int)numCards cards:(ClueCard const*)cards
+                         piece:(ClueCard)pieceID location:(ClueCoord)location
+                   clueManager:(ClueMgr*)mgr;
 
 - (void) nobodyDisproves:(ClueSolution const*)buff;
 

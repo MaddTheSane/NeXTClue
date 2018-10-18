@@ -148,12 +148,9 @@
 		552B1E73217924760062E4CC /* NeXTClue */ = {
 			isa = PBXGroup;
 			children = (
+				55B4366821795233005ABAA2 /* AIs */,
 				552B1ED0217925770062E4CC /* Clue_main.m */,
 				552B1EC1217925760062E4CC /* Clue.xib */,
-				552B1EA3217925720062E4CC /* ClueAnnaLyzer.h */,
-				552B1E9D217925720062E4CC /* ClueAnnaLyzer.mm */,
-				552B1EDA217925780062E4CC /* ClueBeaGinner.h */,
-				552B1EB9217925750062E4CC /* ClueBeaGinner.mm */,
 				552B1E88217925700062E4CC /* ClueBoard.h */,
 				552B1EB8217925750062E4CC /* ClueBoard.mm */,
 				552B1EBC217925750062E4CC /* ClueBoard.xib */,
@@ -163,18 +160,10 @@
 				552B1EA9217925730062E4CC /* ClueButton.mm */,
 				552B1ED8217925780062E4CC /* ClueCardPicker.cc */,
 				552B1EBA217925750062E4CC /* ClueCardPicker.h */,
-				552B1E99217925710062E4CC /* ClueComputer.h */,
-				552B1EC8217925760062E4CC /* ClueComputer.mm */,
 				552B1E95217925710062E4CC /* ClueCondArray.cc */,
 				552B1E91217925700062E4CC /* ClueCondArray.h */,
 				552B1EC0217925760062E4CC /* ClueCoordArray.cc */,
 				552B1EA1217925720062E4CC /* ClueCoordArray.h */,
-				552B1EAD217925740062E4CC /* ClueCyBorg.h */,
-				552B1E96217925710062E4CC /* ClueCyBorg.mm */,
-				552B1ECF217925770062E4CC /* ClueCyLent.h */,
-				552B1ED6217925780062E4CC /* ClueCyLent.mm */,
-				552B1E9B217925710062E4CC /* ClueDeeDucer.h */,
-				552B1E98217925710062E4CC /* ClueDeeDucer.mm */,
 				552B1E97217925710062E4CC /* ClueDefs.cc */,
 				552B1EAA217925730062E4CC /* ClueDefs.h */,
 				552B1EBF217925750062E4CC /* ClueHuman.h */,
@@ -194,8 +183,6 @@
 				552B1EC3217925760062E4CC /* ClueMgr.mm */,
 				552B1E92217925700062E4CC /* CluePlayer.h */,
 				552B1EE1217925790062E4CC /* CluePlayer.mm */,
-				552B1E8B217925700062E4CC /* ClueRandyMizer.h */,
-				552B1E90217925700062E4CC /* ClueRandyMizer.mm */,
 				552B1EB3217925740062E4CC /* ClueRules.h */,
 				552B1E89217925700062E4CC /* ClueRules.mm */,
 				552B1EA2217925720062E4CC /* ClueRules.xib */,
@@ -218,6 +205,27 @@
 			name = NeXTClue;
 			sourceTree = "<group>";
 			usesTabs = 0;
+		};
+		55B4366821795233005ABAA2 /* AIs */ = {
+			isa = PBXGroup;
+			children = (
+				552B1EA3217925720062E4CC /* ClueAnnaLyzer.h */,
+				552B1E9D217925720062E4CC /* ClueAnnaLyzer.mm */,
+				552B1EDA217925780062E4CC /* ClueBeaGinner.h */,
+				552B1EB9217925750062E4CC /* ClueBeaGinner.mm */,
+				552B1E99217925710062E4CC /* ClueComputer.h */,
+				552B1EC8217925760062E4CC /* ClueComputer.mm */,
+				552B1EAD217925740062E4CC /* ClueCyBorg.h */,
+				552B1E96217925710062E4CC /* ClueCyBorg.mm */,
+				552B1ECF217925770062E4CC /* ClueCyLent.h */,
+				552B1ED6217925780062E4CC /* ClueCyLent.mm */,
+				552B1E9B217925710062E4CC /* ClueDeeDucer.h */,
+				552B1E98217925710062E4CC /* ClueDeeDucer.mm */,
+				552B1E8B217925700062E4CC /* ClueRandyMizer.h */,
+				552B1E90217925700062E4CC /* ClueRandyMizer.mm */,
+			);
+			name = AIs;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 

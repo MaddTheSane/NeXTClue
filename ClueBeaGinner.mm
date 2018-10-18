@@ -48,26 +48,27 @@ extern "C" {
 //-----------------------------------------------------------------------------
 // initPlayer:numPlayers:numCards:cards:piece:location:
 //-----------------------------------------------------------------------------
-- initPlayer:(int)playerID numPlayers:(int)numPlayers
-	numCards:(int)numCards cards:(ClueCard const*)i_cards
+- initWithPlayer:(int)playerID playerCount:(int)numPlayers
+	cardCount:(int)numCards cards:(ClueCard const*)i_cards
 	piece:(ClueCard)pieceID location:(ClueCoord)i_location
-	clueMgr:(ClueMgr*)mgr
+	clueManager:(ClueMgr*)mgr
 {
-    [super initPlayer:playerID numPlayers:numPlayers
-             numCards:numCards cards:i_cards
-                piece:pieceID location:i_location clueMgr:mgr];
+    if (self = [super initWithPlayer:playerID playerCount:numPlayers
+                           cardCount:numCards cards:i_cards
+                               piece:pieceID location:i_location clueManager:mgr]) {
 
-    [self init_category: CLUE_SUSPECT_FIRST : CLUE_SUSPECT_LAST
-                       :&num_suspects :suspects
-                       :&num_held_suspects :held_suspects];
+        [self init_category: CLUE_SUSPECT_FIRST : CLUE_SUSPECT_LAST
+                           :&num_suspects :suspects
+                           :&num_held_suspects :held_suspects];
 
-    [self init_category: CLUE_WEAPON_FIRST : CLUE_WEAPON_LAST
-                       :&num_weapons :weapons
-                       :&num_held_weapons :held_weapons];
+        [self init_category: CLUE_WEAPON_FIRST : CLUE_WEAPON_LAST
+                           :&num_weapons :weapons
+                           :&num_held_weapons :held_weapons];
 
-    [self init_category: CLUE_ROOM_FIRST : CLUE_ROOM_LAST
-                       :&num_rooms :rooms
-                       :&num_held_rooms :held_rooms];
+        [self init_category: CLUE_ROOM_FIRST : CLUE_ROOM_LAST
+                           :&num_rooms :rooms
+                           :&num_held_rooms :held_rooms];
+    }
 
     return self;
 }

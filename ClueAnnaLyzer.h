@@ -43,10 +43,10 @@ int const PLAYER_SOLUTION = -2;
     int suggestor_id;		// Player making current suggestion.
 }
 
-- initPlayer:(int)playerID numPlayers:(int)numPlayers
-	numCards:(int)numCards cards:(ClueCard const*)cards
-	   piece:(ClueCard)pieceID location:(ClueCoord)location
-	 clueMgr:(ClueMgr*)mgr;
+- (instancetype)initWithPlayer:(int)playerID playerCount:(int)numPlayers
+                     cardCount:(int)numCards cards:(ClueCard const*)cards
+                         piece:(ClueCard)pieceID location:(ClueCoord)location
+                   clueManager:(ClueMgr*)mgr;
 
 - (void) player:(int)playerID cannotDisprove:(ClueSolution const*)buff;
 - (void) player:(int)playerID reveals:(ClueCard)card;

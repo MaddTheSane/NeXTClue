@@ -24,22 +24,22 @@ class ClueMap;
 
 @interface ClueHuman:CluePlayer
 {
-    NSWindow*		window;
-    MiscTableScroll* scroll;
-    NSTextField*	messageField;
-    NSMatrix*		revealMatrix;
-    NSButton*		stayButton;
-    NSButton*		passageButton;
-    NSButton*		rollButton;
-    NSButton*		dieButton;
-    NSButton*		revealButton;
-    NSButton*		suspectPop;
-    NSButton*		weaponPop;
-    NSButton*		roomPop;
-    NSButton*		skipButton;
-    NSButton*		suggestButton;
-    NSButton*		accuseButton;
-    NSText*		fieldEditor;
+    IBOutlet NSWindow*		window;
+    IBOutlet MiscTableScroll* scroll;
+    IBOutlet NSTextField*	messageField;
+    IBOutlet NSMatrix*		revealMatrix;
+    IBOutlet NSButton*		stayButton;
+    IBOutlet NSButton*		passageButton;
+    IBOutlet NSButton*		rollButton;
+    IBOutlet NSButton*		dieButton;
+    IBOutlet NSButton*		revealButton;
+    IBOutlet NSButton*		suspectPop;
+    IBOutlet NSButton*		weaponPop;
+    IBOutlet NSButton*		roomPop;
+    IBOutlet NSButton*		skipButton;
+    IBOutlet NSButton*		suggestButton;
+    IBOutlet NSButton*		accuseButton;
+    IBOutlet NSText*		fieldEditor;
     ClueMap*	map;
     ClueSolution	suggestion;
     ClueCard	currRoom;
@@ -54,10 +54,10 @@ class ClueMap;
     BOOL		wasDisproved;
 }
 
-- initPlayer:(int)playerID numPlayers:(int)numPlayers
-    numCards:(int)numCards cards:(ClueCard const*)cards
-       piece:(ClueCard)pieceID location:(ClueCoord)location
-     clueMgr:(ClueMgr*)mgr;
+- (instancetype)initWithPlayer:(int)playerID playerCount:(int)numPlayers
+                     cardCount:(int)numCards cards:(ClueCard const*)cards
+                         piece:(ClueCard)pieceID location:(ClueCoord)location
+                   clueManager:(ClueMgr*)mgr;
 
 - (BOOL) isHuman;
 

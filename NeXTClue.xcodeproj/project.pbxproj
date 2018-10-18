@@ -74,6 +74,7 @@
 		552B1F20217925790062E4CC /* billiard-room.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 552B1EDE217925790062E4CC /* billiard-room.tiff */; };
 		552B1F21217925790062E4CC /* ClueRules.rtfd in Resources */ = {isa = PBXBuildFile; fileRef = 552B1EE0217925790062E4CC /* ClueRules.rtfd */; };
 		552B1F22217925790062E4CC /* CluePlayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 552B1EE1217925790062E4CC /* CluePlayer.mm */; };
+		552B1F25217934650062E4CC /* RELEASE_NUMBER in Resources */ = {isa = PBXBuildFile; fileRef = 552B1F24217934650062E4CC /* RELEASE_NUMBER */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -172,6 +173,7 @@
 		552B1EDF217925790062E4CC /* ClueUpdateStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClueUpdateStack.h; sourceTree = "<group>"; };
 		552B1EE0217925790062E4CC /* ClueRules.rtfd */ = {isa = PBXFileReference; lastKnownFileType = wrapper.rtfd; path = ClueRules.rtfd; sourceTree = "<group>"; };
 		552B1EE1217925790062E4CC /* CluePlayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CluePlayer.mm; sourceTree = "<group>"; };
+		552B1F24217934650062E4CC /* RELEASE_NUMBER */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = RELEASE_NUMBER; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -266,6 +268,7 @@
 				552B1EDF217925790062E4CC /* ClueUpdateStack.h */,
 				552B1ECB217925770062E4CC /* HISTORY.txt */,
 				552B1EDC217925790062E4CC /* PACKAGE_NUMBER */,
+				552B1F24217934650062E4CC /* RELEASE_NUMBER */,
 				552B1E85217925190062E4CC /* Help */,
 				552B1E76217924780062E4CC /* Assets.xcassets */,
 				552B1E7B217924780062E4CC /* Info.plist */,
@@ -381,6 +384,7 @@
 				552B1EF0217925790062E4CC /* wrench.tiff in Resources */,
 				552B1F0C217925790062E4CC /* conservatory.tiff in Resources */,
 				552B1F1F217925790062E4CC /* rope.tiff in Resources */,
+				552B1F25217934650062E4CC /* RELEASE_NUMBER in Resources */,
 				552B1F09217925790062E4CC /* ClueMessages.nib in Resources */,
 				552B1EEE217925790062E4CC /* lounge.tiff in Resources */,
 				552B1EF7217925790062E4CC /* knife.tiff in Resources */,

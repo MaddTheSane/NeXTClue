@@ -21,9 +21,8 @@
 //  v21
 //  
 //-----------------------------------------------------------------------------
-extern "Objective-C" {
+
 #import <objc/objc.h>		// for 'id'
-}
 
 void ClueLoadNib( id obj );
 

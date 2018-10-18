@@ -21,9 +21,8 @@
 #import	"ClueSetup.h"
 #import	"ClueMessages.h"
 #import	"ClueTrace.h"
-extern "Objective-C" {
 #import <AppKit/NSApplication.h>
-}
+
 extern "C" {
 #import	<assert.h>
 #import <stdio.h>
@@ -600,7 +599,7 @@ static void sort_hand( int start_pos, int n, ClueCard* deck )
     for (i = 0; i < num_players; i++)
 	{
 	CluePlayerRec const& r = players[i];
-	char const* const s = [r.player playerName];
+	NSString *s = [r.player playerName];
 	[trace player:i piece:r.piece_id name:s numCards:r.hand_length];
 	}
 
@@ -697,7 +696,7 @@ static void sort_hand( int start_pos, int n, ClueCard* deck )
 + (void)initialize
     {
     SRANDOM( time(0) );
-    CLUE_CARD_PBTYPE = NXUniqueString( "ClueCard(tm)" );
+    CLUE_CARD_PBTYPE = NXUniqueString( "com.github.MaddTheSane.NeXTClue.ClueCard" );
     return;
     }
 

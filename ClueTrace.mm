@@ -19,11 +19,9 @@
 //-----------------------------------------------------------------------------
 #import "ClueTrace.h"
 #import	"ClueLoadNib.h"
-
-extern "Objective-C" {
 #import <AppKit/NSText.h>
 #import <AppKit/NSCell.h>
-}
+#import <AppKit/AppKit.h>
 
 extern "C" {
 #import <stdio.h>
@@ -35,9 +33,9 @@ extern "C" {
 //-----------------------------------------------------------------------------
 // initText:
 //-----------------------------------------------------------------------------
-- initText:(NSText*)obj
+- initWithText:(NSText*)obj
     {
-    [super init];
+    self = [super init];
     text = obj;
     return self;
     }
@@ -46,53 +44,57 @@ extern "C" {
 //-----------------------------------------------------------------------------
 // appendText:
 //-----------------------------------------------------------------------------
-- (void) appendText:(char const*)s
+- (void) appendText:(NSString*)s
     {
-    int const n = [[text text] length];
-    [text setSelectionStart:n end:n];
-    [text replaceSel:[NSString stringWithCString:s]];
+    NSInteger const n = [[text string] length];
+    [text setSelectedRange:NSMakeRange(n, 0)];
+    [text replaceCharactersInRange:NSMakeRange(n, 0) withString:s];
     }
 
-- (void) appendIcon:(char const*)s
+- (void) appendIcon:(NSString*)s
     {
-    NSCell* cell = [[NSCell alloc] initImageCell:[NSImage imageNamed:[NSString stringWithCString:s]]];
-    int const n = [[text text] length];
-    [text setSelectionStart:n end:n];
-    [text replaceSelWithCell:cell];
+    NSTextAttachmentCell* cell = [[NSTextAttachmentCell alloc] initImageCell:[NSImage imageNamed:s]];
+    NSTextAttachment *attachment = [[NSTextAttachment alloc] init];
+    [attachment setAttachmentCell: cell ];
+    NSAttributedString *attrStr = [NSAttributedString attributedStringWithAttachment:attachment];
+    [cell release];
+    [attachment release];
+    NSData *ourData = [attrStr RTFDFromRange:NSMakeRange(0, attrStr.length) documentAttributes:@{NSDocumentTypeDocumentAttribute: NSRTFDTextDocumentType}];
+    NSInteger const n = [[text string] length];
+    [text setSelectedRange:NSMakeRange(n, 0)];
+    [text replaceCharactersInRange:NSMakeRange(n, 0) withRTFD:ourData];
     }
 
 - (void) appendPiece:(ClueCard)x
     {
-    char const* const s = ClueCardName(x);
-    [self appendText:" "];
+    NSString *s = @(ClueCardName(x));
+    [self appendText:@" "];
     [self appendText:s];
-    [self appendText:" "];
+    [self appendText:@" "];
     [self appendIcon:s];
-    [self appendText:"  "];
+    [self appendText:@"  "];
     }
 
 
-- (void) fancyPlayer:(int)player action:(char const*)action
+- (void) fancyPlayer:(int)player action:(NSString*)action
 	solution:(ClueSolution const*)x
     {
-    char buff[256];
-    sprintf( buff, "player %d %s: ", player+1, action );
-    [self appendText:buff];
+    [self appendText:[NSString stringWithFormat:@"player %d %@: ", player+1, action]];
     for (int i = 0; i < CLUE_CATEGORY_COUNT; i++)
 	[self appendPiece:x->v[i]];
     }
 
 - (void) player:(int)playerID accuses:(ClueSolution const*)x wins:(BOOL)wins
     {
-    [self fancyPlayer:playerID action:"accuses" solution:x];
-    [self appendText:(wins ? "and wins.\n\n" : "and loses.\n\n")];
-    [text scrollSelToVisible];
+    [self fancyPlayer:playerID action:@"accuses" solution:x];
+    [self appendText:(wins ? @"and wins.\n\n" : @"and loses.\n\n")];
+    [text scrollRangeToVisible:[text selectedRange]];
     }
 
 - (void) player:(int)playerID suggests:(ClueSolution const*)x
     {
-    [self fancyPlayer:playerID action:"suggests" solution:x];
-    [self appendText:"\n"];
+    [self fancyPlayer:playerID action:@"suggests" solution:x];
+    [self appendText:@"\n"];
     }
 
 - (char const*) format:(ClueSolution const*)x
@@ -105,80 +107,68 @@ extern "C" {
     return buff;
     }
 
-- (void) message:(char const*)msg solution:(ClueSolution const*)x
+- (void) message:(NSString*)msg solution:(ClueSolution const*)x
     {
-    char buff[256];
-    sprintf( buff, "%s: %s\n", msg, [self format:x] );
-    [self appendText:buff];
+    [self appendText:[NSString stringWithFormat:@"%@: %s\n", msg, [self format:x]]];
     }
 
-- (void) player:(int)playerID action:(char const*)a
+- (void) player:(int)playerID action:(NSString*)a
 	solution:(ClueSolution const*)x
     {
-    char buff[256];
-    sprintf( buff, "player %d %s", playerID + 1, a );
-    [self message:buff solution:x];
+    [self message:[NSString stringWithFormat:@"player %d %@", playerID + 1, a] solution:x];
     }
 
 - (void) player:(int)playerID cannotDisprove:(ClueSolution const*)x
     {
-    [self player:playerID action:"cannot disprove" solution:x];
+    [self player:playerID action:@"cannot disprove" solution:x];
     }
 
 - (void) player:(int)playerID disproves:(ClueSolution const*)x
     {
-    [self player:playerID action:"disproves" solution:x];
-    [self appendText:"\n"];
-    [text scrollSelToVisible];
+    [self player:playerID action:@"disproves" solution:x];
+    [self appendText:@"\n"];
+    [text scrollRangeToVisible:[text selectedRange]];
     }
 
 
 - (void) nobodyDisproves:(ClueSolution const*)x
     {
-    [self message:"nobody disproves" solution:x];
-    [self appendText:"\n"];
-    [text scrollSelToVisible];
+    [self message:@"nobody disproves" solution:x];
+    [self appendText:@"\n"];
+    [text scrollRangeToVisible:[text selectedRange]];
     }
 
 
 - (void) player:(int)p reveals:(ClueCard)card
     {
-    char buff[128];
-    sprintf( buff, "player %d reveals ", p+1 );
-    [self appendText:buff];
+    [self appendText:[NSString stringWithFormat:@"player %d reveals ", p+1]];
     [self appendPiece:card];
-    [self appendText:"\n\n"];
-    [text scrollSelToVisible];
+    [self appendText:@"\n\n"];
+    [text scrollRangeToVisible:[text selectedRange]];
     }
 
 
 - (void) newGameNumPlayers:(int)n
     {
-    char buff[128];
-    sprintf( buff, "New game: %d players.\n", n );
-    [self appendText:buff];
+    [self appendText:[NSString stringWithFormat:@"New game: %d players.\n", n]];
     }
 
 
-- (void) player:(int)p piece:(ClueCard)c name:(char const*)s numCards:(int)n
+- (void) player:(int)p piece:(ClueCard)c name:(NSString*)s numCards:(int)n
     {
-    char buff[128];
-    sprintf( buff, "player %d: %s, %d cards, piece: ", p+1, s, n );
-    [self appendText:buff];
+    [self appendText:[NSString stringWithFormat:@"player %d: %@, %d cards, piece: ", p+1, s, n]];
     [self appendPiece:c];
-    [self appendText:"\n"];
+    [self appendText:@"\n"];
     }
 
 
 - (void) player:(int)p num:(int)n cards:(ClueCard const*)cards
     {
-    char buff[128];
-    sprintf( buff, "\nplayer %d: hand: ", p+1 );
-    [self appendText:buff];
+    [self appendText:[NSString stringWithFormat:@"\nplayer %d: hand: ", p+1]];
     for (int i = 0; i < n; i++)
 	[self appendPiece:cards[i]];
-    [self appendText:"\n\n"];
-    [text scrollSelToVisible];
+    [self appendText:@"\n\n"];
+    [text scrollRangeToVisible:[text selectedRange]];
     }
 
 @end

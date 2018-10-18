@@ -97,7 +97,7 @@ extern "C" {
 //-----------------------------------------------------------------------------
 - (void) stack:(ClueUpdateStack*)stack player:(int)p holdsCard:(ClueCard)c
     {
-    cond_array.holds( p, c );
+    cond_array->holds( p, c );
     [self fillCheckPlayer:p stack:stack];
     [super stack:stack player:p holdsCard:c];
     }
@@ -108,7 +108,7 @@ extern "C" {
 //-----------------------------------------------------------------------------
 - (void) stack:(ClueUpdateStack*)stack player:(int)p notHoldsCard:(ClueCard)c
     {
-    cond_array.not_holds( *stack, p, c );
+    cond_array->not_holds( *stack, p, c );
     [super stack:stack player:p notHoldsCard:c];
     }
 
@@ -159,7 +159,7 @@ extern "C" {
 		[self player:p holds:YES card:the_card];
 	    else
 		{
-		cond_array.add( p, tmp );
+		cond_array->add( p, tmp );
 		[self fillCheckPlayer:p stack:0];
 		}
 	    }
@@ -175,7 +175,7 @@ extern "C" {
 - (int) scoreUnknown:(int)card
     {
     int score = [super scoreUnknown:card];
-    score -= cond_array.countContains( ClueCard(card) );
+    score -= cond_array->countContains( ClueCard(card) );
 
     return score;
     }

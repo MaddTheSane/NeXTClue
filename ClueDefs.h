@@ -18,10 +18,10 @@
 //  
 //-----------------------------------------------------------------------------
 
-#import <objc/hashtable.h>	// NXAtom
+#import <objc/hashtable2.h>	// NXAtom
 #include <cstdlib>
 
-//extern NXAtom CLUE_CARD_PBTYPE;
+extern NXAtom CLUE_CARD_PBTYPE;
 
 enum ClueCategory
 	{

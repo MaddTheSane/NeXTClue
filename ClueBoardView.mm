@@ -19,14 +19,14 @@
 #import "ClueCoordArray.h"
 #import	"ClueMap.h"
 #import "ClueMgr.h"
-extern "Objective-C" {
 #import <AppKit/NSApplication.h>
 #import <AppKit/NSImage.h>
-}
+#import <AppKit/NSColor.h>
+
 extern "C" {
 #import <assert.h>
 #import <string.h>	// memset()
-#import <AppKit/psops.h>
+//#import <AppKit/psops.h>
 }
 
 static char const* const BOARD_IMAGE = "board";
@@ -201,8 +201,6 @@ static inline bool is_same_region( char c_old, char c_new )
     [super initWithFrame:rect];
 #error ViewConversion: 'setClipping:' is obsolete. Views always clip to their bounds. Use PSinitclip instead.
     [self setClipping:NO];
-#error ViewConversion: View's 'setOpaque:' is obsolete; you must override 'isOpaque' instead of setting externally (if sent to text, 'setDrawsBackground:' can be used to eliminate background gray; if sent to NSImageRep, it's OK)
-    [self setOpaque:YES];
     [self registerForDraggedTypes:[NSArray arrayWithObject:[NSString stringWithCString:CLUE_CARD_PBTYPE]]];
     background = [NSImage imageNamed:[NSString stringWithCString:BOARD_IMAGE]];
     for (int i = 0; i < CLUE_SUSPECT_COUNT + CLUE_WEAPON_COUNT; i++)
@@ -211,6 +209,11 @@ static inline bool is_same_region( char c_old, char c_new )
     fade = [[NSImage allocWithZone:[self zone]] init];
     return self;
     }
+
+- (BOOL)isOpaque
+{
+    return YES;
+}
 
 - (void)dealloc
     {

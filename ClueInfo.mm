@@ -35,18 +35,17 @@ extern "C" {
 //-----------------------------------------------------------------------------
 // format:field:file:
 //-----------------------------------------------------------------------------
-- (void) format:(char const*)fmt field:(NSTextField*)fld file:(char const*)file
+- (void) format:(char const*)fmt field:(NSTextField*)fld file:(NSString*)file
     {
-    char path[ FILENAME_MAX ];
+    NSString *path;
     char write_buff[ 256 ];
 
     char const* ver = "find?";
 
-#error StringConversion: This call to -[NXBundle getPath:forResource:ofType:] has been converted to the similar NSBundle method.  The conversion has been made assuming that the variable called path will be changed into an (NSString *).  You must change the type of the variable called path by hand.
-    if (path = [[NSBundle mainBundle] pathForResource:[NSString stringWithCString:file] ofType:@""])
+    if ((path = [[NSBundle mainBundle] pathForResource:file ofType:@""]))
 	{
 	FILE* fp;
-	if ((fp = fopen( path, "r" )) != 0)
+	if ((fp = fopen( path.fileSystemRepresentation, "r" )) != 0)
 	    {
 	    char read_buff[ 256 ];
 	    if (fscanf( fp, "%s", read_buff ) == 1)
@@ -74,8 +73,8 @@ extern "C" {
     [super init];
     ClueLoadNib( self );
 
-    [self format:"Release %s" field:releaseField file:"RELEASE_NUMBER"];
-    [self format:"Build %s" field:buildField file:"PACKAGE_NUMBER"];
+    [self format:"Release %s" field:releaseField file:@"RELEASE_NUMBER"];
+    [self format:"Build %s" field:buildField file:@"PACKAGE_NUMBER"];
 
     return self;
     }

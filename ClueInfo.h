@@ -16,9 +16,9 @@
 //  Revision 1.2  97/05/31  14:06:16  zarnuk
 //  v21: Added buildField.
 //-----------------------------------------------------------------------------
-extern "Objective-C" {
+
 #import <Foundation/NSObject.h>
-}
+
 @class NSTextField, NSWindow;
 
 @interface ClueInfo:NSObject

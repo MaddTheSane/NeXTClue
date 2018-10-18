@@ -26,12 +26,12 @@
     NSText*	text;
     }
 
-- initText:(NSText*)text;
-- (void) appendText:(char const*)s;
-- (void) appendIcon:(char const*)s;
+- (instancetype)initWithText:(NSText*)text;
+- (void) appendText:(NSString*)s;
+- (void) appendIcon:(NSString*)s;
 - (void) appendPiece:(ClueCard)x;
 - (void) newGameNumPlayers:(int)n;
-- (void) player:(int)p piece:(ClueCard)c name:(char const*)s numCards:(int)n;
+- (void) player:(int)p piece:(ClueCard)c name:(NSString*)s numCards:(int)n;
 - (void) player:(int)p num:(int)n cards:(ClueCard const*)cards;
 - (void) player:(int)playerID accuses:(ClueSolution const*)buff wins:(BOOL)wins;
 - (void) player:(int)playerID suggests:(ClueSolution const*)buff;

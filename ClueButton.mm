@@ -15,12 +15,10 @@
 //-----------------------------------------------------------------------------
 #import	"ClueButton.h"
 
-extern "Objective-C" {
 #import	<AppKit/NSButton.h>
 #import	<AppKit/NSButtonCell.h>
 #import	<AppKit/NSMatrix.h>
 #import	<AppKit/NSPopUpButton.h>
-}
 
 @implementation NSButton(Pop)
 

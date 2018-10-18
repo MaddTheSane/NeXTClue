@@ -15,7 +15,7 @@
 #import "ClueCyLent.h"
 
 @implementation ClueCyLent
-- (char const*) playerName	{ return "Cy Lent"; }
+- (NSString*) playerName	{ return @"Cy Lent"; }
 - (BOOL) canAccuse		{ return NO; }
 - (BOOL) canSuggest		{ return NO; }
 @end

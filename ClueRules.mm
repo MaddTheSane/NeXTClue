@@ -14,12 +14,11 @@
 //-----------------------------------------------------------------------------
 #import "ClueRules.h"
 #import	"ClueLoadNib.h"
-extern "Objective-C" {
 #import <AppKit/NSText.h>
 #import <AppKit/NSWindow.h>
 #import <Foundation/NSBundle.h>
-}
-static char const RULES[] = "ClueRules";
+
+static NSString * const RULES = @"ClueRules";
 
 @implementation ClueRules
 
@@ -38,13 +37,11 @@ static char const RULES[] = "ClueRules";
 //-----------------------------------------------------------------------------
 - (void) loadRules
     {
-    char buff[ FILENAME_MAX + 1 ];
+    NSString *buff;
     id const bundle = [NSBundle bundleForClass:[self class]];
-#error StringConversion: This call to -[NXBundle getPath:forResource:ofType:] has been converted to the similar NSBundle method.  The conversion has been made assuming that the variable called buff will be changed into an (NSString *).  You must change the type of the variable called buff by hand.
-    if (((buff = [bundle pathForResource:[NSString stringWithCString:RULES] ofType:@"rtf"]) == nil))
-#error StringConversion: This call to -[NXBundle getPath:forResource:ofType:] has been converted to the similar NSBundle method.  The conversion has been made assuming that the variable called buff will be changed into an (NSString *).  You must change the type of the variable called buff by hand.
-	 buff = [bundle pathForResource:[NSString stringWithCString:RULES] ofType:@"rtfd"];
-    [text readRTFDFromFile:[NSString stringWithCString:buff]];
+    if ((buff = [bundle pathForResource:RULES ofType:@"rtf"]) == nil)
+	 buff = [bundle pathForResource:RULES ofType:@"rtfd"];
+    [text readRTFDFromFile:buff];
     }
 
 

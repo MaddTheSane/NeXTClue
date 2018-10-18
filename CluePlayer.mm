@@ -15,9 +15,8 @@
 #import	"CluePlayer.h"
 #import	"ClueDefs.h"
 #import	"ClueMgr.h"
-extern "Objective-C" {
+
 #import	<AppKit/NSApplication.h>	// for perform:with:afterDelay:cancelPrevious:
-}
 extern "C" {
 #import <string.h>	// memcpy
 }

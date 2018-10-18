@@ -15,10 +15,10 @@
 //  First Revision.
 //  
 //-----------------------------------------------------------------------------
-extern "Objective-C" {
+
 #import <AppKit/NSView.h>
-}
 #import "ClueDefs.h"
+
 @class ClueMgr, NSImage;
 
 class ClueMap;
@@ -38,9 +38,7 @@ class ClueMap;
     id client;
     }
 
-- (id)initWithFrame:(NSRect)rect;
-- (void)dealloc;
-#warning RectConversion: drawRect:(NSRect)rects (used to be drawSelf:(NXRect const*)rects :(int)nrects) no longer takes an array of rects
+- (instancetype)initWithFrame:(NSRect)rect;
 - (void)drawRect:(NSRect)rects;
 - (void)setClueMgr:(ClueMgr*)mgr;
 - (void) movePiece:(ClueCard)piece

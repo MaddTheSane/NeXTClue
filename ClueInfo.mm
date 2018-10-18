@@ -20,11 +20,9 @@
 #import "ClueInfo.h"
 #import "ClueLoadNib.h"
 
-extern "Objective-C" {
 #import	<AppKit/NSTextField.h>
 #import	<AppKit/NSPanel.h>
 #import	<Foundation/NSBundle.h>
-}
 
 extern "C" {
 #import	<stdio.h>		// FILENAME_MAX, fopen(), etc.
@@ -64,7 +62,7 @@ extern "C" {
 	    ver = "open?";
 	}
 
-    [fld setStringValue:[NSString stringWithCString:ver]];
+    [fld setStringValue:@(ver)];
     }
 
 
@@ -89,7 +87,6 @@ extern "C" {
 - (void)makeKeyAndOrderFront:(id)sender
     {
     [window makeKeyAndOrderFront:sender];
-    return window;
     }
 
 

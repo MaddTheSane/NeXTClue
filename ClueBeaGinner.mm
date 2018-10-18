@@ -21,7 +21,7 @@ extern "C" {
 
 @implementation ClueBeaGinner
 
-- (char const*) playerName	{ return "Bea Ginner"; }
+- (NSString*) playerName	{ return @"Bea Ginner"; }
 
 //-----------------------------------------------------------------------------
 // init_category::::::

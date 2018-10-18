@@ -14,10 +14,10 @@
 //  First Revision.
 //  
 //-----------------------------------------------------------------------------
-extern "Objective-C" {
+
 #import <Foundation/NSObject.h>
-}
 #import "ClueDefs.h"
+
 @class ClueBoardView, ClueMgr, NSWindow;
 
 @interface ClueBoard : NSObject
@@ -28,7 +28,6 @@ extern "Objective-C" {
     }
 
 - (id)initWithMgr:(ClueMgr*)mgr;
-- (void)dealloc;
 - (void)orderFront;
 - (void)movePiece:(ClueCard)piece
 	from:(ClueCoord)old_pos to:(ClueCoord)new_pos;

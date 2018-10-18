@@ -23,7 +23,7 @@ extern "C" {
 
 @implementation ClueDeeDucer
 
-- (char const*) playerName	{ return "Dee Ducer"; }
+- (NSString*) playerName	{ return @"Dee Ducer"; }
 
 //-----------------------------------------------------------------------------
 // free
@@ -41,7 +41,7 @@ extern "C" {
 - (void) dump
     {
     [super dump];
-    cond_array.dump();
+    cond_array->dump();
     }
 
 
@@ -53,7 +53,7 @@ extern "C" {
     int const num_unknown = num_dealt[p] - num_known[p];
     if (num_unknown > 0)
 	{
-	int const num_conds = cond_array.countForPlayer( p );
+    int const num_conds = cond_array->countForPlayer( p );
 	if (num_conds > 0 && num_conds >= num_unknown)
 	    {
 	    unsigned int blanks = 0;
@@ -64,7 +64,7 @@ extern "C" {
 		if (*g == GRID_BLANK)
 		    blanks |= b;
 	
-	    unsigned int const conds = cond_array.cardsForPlayer( p );
+        unsigned int const conds = cond_array->cardsForPlayer( p );
 
 	    // Every cond-card should be "blank".
 	    assert( (conds & blanks) == conds );
@@ -72,7 +72,7 @@ extern "C" {
 	    blanks &= ~conds;
 	    if (blanks != 0)
 		{
-		int const min_conds = cond_array.minCardsForPlayer( p );
+        int const min_conds = cond_array->minCardsForPlayer( p );
 		if (min_conds >= num_unknown)
 		    {
 		    b = 1;

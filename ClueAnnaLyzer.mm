@@ -18,6 +18,7 @@
 #import "ClueAnnaLyzer.h"
 #import "ClueCardPicker.h"
 #import "ClueUpdateStack.h"
+#import <Foundation/Foundation.h>
 
 extern "C" {
 #import	<assert.h>
@@ -38,7 +39,7 @@ inline bool complete( ClueSolution const& s )
 
 
 @implementation ClueAnnaLyzer
-- (char const*) playerName	{ return "Anna Lyzer"; }
+- (NSString*) playerName	{ return @"Anna Lyzer"; }
 
 //-----------------------------------------------------------------------------
 // dump
@@ -48,7 +49,7 @@ inline bool complete( ClueSolution const& s )
     FILE* output = stdout;
     int const NUM_PLAYERS = [self numPlayers];
 
-    fprintf( output, "\n\%s:%d\n", [[[self class] name] cString], [self playerID] + 1 );
+    fprintf( output, "\n\%s:%d\n", [(NSString*)[[self class] name] UTF8String], [self playerID] + 1 );
 
     fprintf( output, "solution:" );
     for (int i = 0; i < CLUE_CATEGORY_COUNT; i++)
@@ -112,7 +113,7 @@ inline bool complete( ClueSolution const& s )
 
     for (int i = 0; i < NUM_PLAYERS; i++)	// NOTE *1*
 	if (i != p && grid[i][c] == GRID_BLANK)
-	    stack.push( i, false, c );
+		stack->push( i, false, c );
 
     if (++num_known[p] == num_dealt[p])		// NOTE *2*
 	[self stack:stack fillPlayer:p holds:NO];
@@ -191,7 +192,7 @@ inline bool complete( ClueSolution const& s )
 	if (n == 1)
 	    for (int p = 0; p < NUM_PLAYERS; p++)
 		if (grid[p][the_card] == GRID_BLANK)
-		    stack.push( p, false, ClueCard(the_card) );
+			stack->push( p, false, ClueCard(the_card) );
 	}
     else						// Category solved
 	{						// NOTE *5*
@@ -204,7 +205,7 @@ inline bool complete( ClueSolution const& s )
 		    if (grid[p][c] == GRID_BLANK)
 			{ x = p; n++; }
 		if (n == 1)
-		    stack.push( x, true, ClueCard(c) );	// NOTE *6*
+			stack->push( x, true, ClueCard(c) );	// NOTE *6*
 		}
 	}
     }

@@ -29,10 +29,10 @@
 #import	"ClueMap.h"
 #import	"ClueMgr.h"
 
-#import	<misckit/MiscTableScroll.h>
-#import	<misckit/MiscTableCell.h>
+//#import	<misckit/MiscTableScroll.h>
+//#import	<misckit/MiscTableCell.h>
+@class MiscTableCell;
 
-extern "Objective-C" {
 #import	<AppKit/NSApplication.h>
 #import	<AppKit/NSButton.h>
 #import	<AppKit/NSButtonCell.h>
@@ -41,7 +41,6 @@ extern "Objective-C" {
 #import <AppKit/NSText.h>
 #import	<AppKit/NSTextField.h>
 #import	<AppKit/NSWindow.h>
-}
 
 extern "C" {
 #import	<assert.h>
@@ -87,7 +86,7 @@ static unsigned short
 ClueFilter( unsigned short c, int flags, unsigned short cset )
     {
     enum { KEY_UP = 0xad, KEY_DOWN = 0xaf };
-    int const BAD = (NSControlKeyMask | NSAlternateKeyMask | NSCommandKeyMask);
+    NSEventModifierFlags const BAD = (NSControlKeyMask | NSAlternateKeyMask | NSCommandKeyMask);
     if ((flags & BAD) == 0 && cset == NX_SYMBOLSET)
 	{
 	if (c == KEY_UP)

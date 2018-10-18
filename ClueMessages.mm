@@ -16,10 +16,8 @@
 #import "ClueTrace.h"
 #import	"ClueLoadNib.h"
 
-extern "Objective-C" {
 #import <AppKit/NSText.h>
 #import <AppKit/NSPanel.h>
-}
 
 
 @implementation ClueMessages
@@ -51,7 +49,7 @@ extern "Objective-C" {
 //-----------------------------------------------------------------------------
 - init
     {
-    [super init];
+    self = [super init];
     ClueLoadNib( self );
     [window setWorksWhenModal:YES];
     [window setFrameAutosaveName:@"MessagesWindow"];

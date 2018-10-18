@@ -17,15 +17,11 @@
 //  v21
 //  
 //-----------------------------------------------------------------------------
-extern "Objective-C" {
+
 #import <objc/hashtable.h>	// NXAtom
-}
+#include <cstdlib>
 
-typedef int bool;
-#define	false 0
-#define	true (!false)
-
-extern NXAtom CLUE_CARD_PBTYPE;
+//extern NXAtom CLUE_CARD_PBTYPE;
 
 enum ClueCategory
 	{
@@ -260,10 +256,6 @@ extern int const CLUE_DISTANCE[ CLUE_ROOM_COUNT ][ CLUE_ROOM_COUNT ];
 
 #define	RANDOM()	random()
 #define	SRANDOM(N)	srandom(N)
-extern "C" {
-long random();
-void srandom( int seed );
-}
 
 //-----------------------------------------------------------------------------
 // random_int

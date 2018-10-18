@@ -17,7 +17,7 @@
 
 @implementation ClueRandyMizer
 
-- (char const*) playerName	{ return "Randy Mizer"; }
+- (NSString*) playerName	{ return @"Randy Mizer"; }
 
 //-----------------------------------------------------------------------------
 // initPlayer:numPlayers:numCards:cards:piece:location:

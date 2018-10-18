@@ -14,9 +14,8 @@
 //  v21
 //  
 //-----------------------------------------------------------------------------
-extern "Objective-C" {
+
 #import <Foundation/NSObject.h>
-}
 @class NSText, NSWindow;
 
 @interface ClueRules : NSObject

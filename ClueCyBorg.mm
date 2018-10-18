@@ -105,7 +105,7 @@ void ClueHistory::set_disproved_by( int p )
 //=============================================================================
 @implementation ClueCyBorg
 
-- (char const*) playerName	{ return "Cy Borg"; }
+- (NSString*) playerName	{ return @"Cy Borg"; }
 
 //-----------------------------------------------------------------------------
 // updateProb:player:card:

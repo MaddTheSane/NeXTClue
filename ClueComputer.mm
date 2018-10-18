@@ -115,7 +115,7 @@ extern "C" {
     ClueCoord dest = curr_pos;
     ClueCard goal_room;
 
-    if (can_stay && [self wantToStay:curr_room] ||
+    if ((can_stay && [self wantToStay:curr_room]) ||
 	(goal_room = [self chooseGoalRoom]) == CLUE_CARD_MAX)
 	dest = curr_pos;
 

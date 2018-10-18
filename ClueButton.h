@@ -15,9 +15,8 @@
 //  First Revision.
 //  
 //-----------------------------------------------------------------------------
-extern "Objective-C" {
+
 #import	<AppKit/NSButton.h>
-}
 
 @interface NSButton(Pop)
 - (void) selectTag:(int)x;

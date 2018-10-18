@@ -24,11 +24,9 @@
 #import	"ClueHuman.h"
 #import "ClueRandyMizer.h"
 
-extern "Objective-C" {
 #import <Foundation/NSUserDefaults.h>
 #import	<AppKit/NSApplication.h>
 #import	<AppKit/NSPanel.h>
-}
 
 enum	{
 	CHOICE_NOT_PLAYING,
@@ -230,7 +228,7 @@ int const OK_PRESSED		= 1;
     {
     [self revert];
     [window makeKeyAndOrderFront:self];
-    int const rc = [NSApp runModalForWindow:window];
+    NSModalResponse const rc = [NSApp runModalForWindow:window];
     [window close];
     return rc == OK_PRESSED;
     }

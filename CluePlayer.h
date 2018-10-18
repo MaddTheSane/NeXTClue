@@ -19,9 +19,9 @@
 //  v21
 //  
 //-----------------------------------------------------------------------------
-extern "Objective-C" {
+
 #import <Foundation/NSObject.h>
-}
+
 #import	"ClueDefs.h"
 
 @class ClueMgr;
@@ -57,7 +57,7 @@ extern "Objective-C" {
 - (ClueCard) pieceID;
 - (ClueCoord) location;
 - (ClueMgr*) clueMgr;
-- (char const*) playerName;
+- (NSString*) playerName;
 
 - (BOOL) canAccuse;		// Default = YES.
 - (BOOL) canSuggest;		// Default = YES.

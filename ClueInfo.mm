@@ -22,6 +22,8 @@
 
 #import	<AppKit/NSTextField.h>
 #import	<AppKit/NSPanel.h>
+#import <AppKit/NSWindow.h>
+#import <AppKit/NSTextField.h>
 #import	<Foundation/NSBundle.h>
 
 extern "C" {

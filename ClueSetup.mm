@@ -24,9 +24,7 @@
 #import	"ClueHuman.h"
 #import "ClueRandyMizer.h"
 
-#import <Foundation/NSUserDefaults.h>
-#import	<AppKit/NSApplication.h>
-#import	<AppKit/NSPanel.h>
+#import <Cocoa/Cocoa.h>
 
 enum {
     CHOICE_NOT_PLAYING,
@@ -48,8 +46,7 @@ static ClueCard PLAYER_PIECE[ CLUE_NUM_PLAYERS_MAX ];
 static int PIECE_CHOICE[ CLUE_NUM_PLAYERS_MAX ];
 
 
-static char const DEF_OWNER[] = "Clue";
-static char const DEF_NAME[] = "ClueSetup";
+static NSString * const DEF_NAME = @"ClueSetup";
 
 int const CANCEL_PRESSED	= 0;
 int const OK_PRESSED		= 1;
@@ -90,8 +87,7 @@ int const OK_PRESSED		= 1;
     BOOL ok = NO;
     int v[ 6 ];
 
-#warning DefaultsConversion: This used to be a call to NXGetDefaultValue with the owner DEF_OWNER.  If the owner was different from your applications name, you may need to modify this code.
-    char const* s = [[[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithCString:DEF_NAME]] cString];
+    char const* s = [[[NSUserDefaults standardUserDefaults] objectForKey:DEF_NAME] cString];
 
     if (s != 0 &&
         sscanf( s, "%d %d %d %d %d %d", v+0,v+1,v+2,v+3,v+4,v+5 ) == 6)
@@ -158,18 +154,17 @@ int const OK_PRESSED		= 1;
 //-----------------------------------------------------------------------------
 // revertPressed:
 //-----------------------------------------------------------------------------
-- revertPressed:sender
+- (IBAction)revertPressed:sender
 {
     [self revert];
-    [window display];
-    return self;
+    [window setViewsNeedDisplay:YES];
 }
 
 
 //-----------------------------------------------------------------------------
 // okPressed:
 //-----------------------------------------------------------------------------
-- okPressed:sender
+- (IBAction)okPressed:sender
 {
     int v[ 6 ];
     
@@ -202,22 +197,18 @@ int const OK_PRESSED		= 1;
         }
         char buff[ 64 ];
         sprintf( buff, "%d %d %d %d %d %d", v[0],v[1],v[2],v[3],v[4],v[5] );
-#warning DefaultsConversion: [<NSUserDefaults> setObject:...forKey:...] used to be NXWriteDefault(DEF_OWNER, DEF_NAME, buff). Defaults will be synchronized within 30 seconds after this change.  For immediate synchronization, call '-synchronize'. Also note that the first argument of NXWriteDefault is now ignored; to write into a domain other than the apps default, see the NSUserDefaults API.
-        [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithCString:buff] forKey:[NSString stringWithCString:DEF_NAME]];
+        [[NSUserDefaults standardUserDefaults] setObject:@(buff) forKey:DEF_NAME];
         [NSApp stopModalWithCode:OK_PRESSED];
     }
-    
-    return self;
 }
 
 
 //-----------------------------------------------------------------------------
 // cancelPressed:
 //-----------------------------------------------------------------------------
-- cancelPressed:sender
+- (IBAction)cancelPressed:sender
 {
     [NSApp stopModalWithCode:CANCEL_PRESSED];
-    return self;
 }
 
 
@@ -250,6 +241,7 @@ int const OK_PRESSED		= 1;
     return self;
 }
 
+//- didloadnib
 
 //-----------------------------------------------------------------------------
 // +startNewGame

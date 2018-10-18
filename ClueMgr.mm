@@ -662,31 +662,28 @@ static void sort_hand( int start_pos, int n, ClueCard* deck )
 //-----------------------------------------------------------------------------
 // newGame:
 //-----------------------------------------------------------------------------
-- newGame:sender
+- (IBAction)newGame:sender
 {
     // Need to let the Menu close before starting the modal new game panel.
     [self delayed:@selector(doNewGame:)];
-    return self;
 }
 
 
 //-----------------------------------------------------------------------------
 // appInfo:
 //-----------------------------------------------------------------------------
-- appInfo:sender
+- (IBAction)appInfo:sender
 {
     [ClueInfo launch];
-    return self;
 }
 
 
 //-----------------------------------------------------------------------------
 // showRules:
 //-----------------------------------------------------------------------------
-- showRules:sender
+- (IBAction)showRules:sender
 {
     [ClueRules launch];
-    return self;
 }
 
 

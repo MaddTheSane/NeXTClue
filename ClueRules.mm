@@ -15,6 +15,7 @@
 #import "ClueRules.h"
 #import	"ClueLoadNib.h"
 #import <AppKit/NSText.h>
+#import <AppKit/NSTextView.h>
 #import <AppKit/NSWindow.h>
 #import <Foundation/NSBundle.h>
 

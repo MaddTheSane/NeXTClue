@@ -22,9 +22,9 @@
 
 @interface ClueBoard : NSObject
 {
-    ClueBoardView* boardView;
+    IBOutlet ClueBoardView* boardView;
     ClueMgr* clueMgr;
-    NSWindow* window;
+    IBOutlet NSWindow* window;
 }
 
 - (id)initWithMgr:(ClueMgr*)mgr;

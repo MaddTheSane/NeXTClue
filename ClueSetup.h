@@ -16,20 +16,19 @@
 //-----------------------------------------------------------------------------
 
 #import <Foundation/NSObject.h>
+#import <AppKit/NSWindow.h>
+#import <AppKit/NSButton.h>
 #import	"ClueDefs.h"
-
-@class NSButton;
-@class NSWindow;
 
 @interface ClueSetup:NSObject
 {
-    NSWindow*	window;
-    NSButton*	mustardPop;
-    NSButton*	plumPop;
-    NSButton*	greenPop;
-    NSButton*	peacockPop;
-    NSButton*	scarletPop;
-    NSButton*	whitePop;
+    IBOutlet NSWindow*	window;
+    IBOutlet NSButton*	mustardPop;
+    IBOutlet NSButton*	plumPop;
+    IBOutlet NSButton*	greenPop;
+    IBOutlet NSButton*	peacockPop;
+    IBOutlet NSButton*	scarletPop;
+    IBOutlet NSButton*	whitePop;
     NSButton*	pops[ 6 ];
 }
 

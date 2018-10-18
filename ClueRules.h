@@ -16,12 +16,12 @@
 //-----------------------------------------------------------------------------
 
 #import <Foundation/NSObject.h>
-@class NSText, NSWindow;
+@class NSTextView, NSWindow;
 
 @interface ClueRules : NSObject
 {
-    NSText* text;
-    NSWindow* window;
+    IBOutlet NSTextView* text;
+    IBOutlet NSWindow* window;
 }
 + (void)launch;
 @end

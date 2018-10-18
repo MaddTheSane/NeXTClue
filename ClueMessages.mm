@@ -17,6 +17,7 @@
 #import	"ClueLoadNib.h"
 
 #import <AppKit/NSText.h>
+#import <AppKit/NSTextView.h>
 #import <AppKit/NSPanel.h>
 
 
@@ -53,7 +54,7 @@
     ClueLoadNib( self );
     [window setWorksWhenModal:YES];
     [window setFrameAutosaveName:@"MessagesWindow"];
-    trace = [[ClueTrace alloc] initText:text];
+    trace = [[ClueTrace alloc] initWithText:text];
     return self;
 }
 

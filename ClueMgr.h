@@ -51,7 +51,7 @@ struct CluePlayerRec
 
 
 
-@interface ClueMgr : NSObject
+@interface ClueMgr : NSObject <NSApplicationDelegate>
 {
     ClueState state;		// Indicates message that we expect.
     int player_id;			// Current player.
@@ -69,9 +69,9 @@ struct CluePlayerRec
     BOOL stillPlaying;
 }
 
-- newGame:sender;
-- showRules:sender;
-- appInfo:sender;
+- (IBAction)newGame:sender;
+- (IBAction)showRules:sender;
+- (IBAction)appInfo:sender;
 
 - (ClueBoardView*) boardView;
 - (ClueCoord) pieceLocation:(ClueCard)piece;

@@ -15,18 +15,17 @@
 //  v21
 //  
 //-----------------------------------------------------------------------------
-extern "Objective-C" {
+
 #import <Foundation/NSObject.h>
-}
 #import	"ClueDefs.h"
 
 @class ClueTrace;
-@class NSText,NSPanel;
+@class NSTextView,NSPanel;
 
 @interface ClueMessages:NSObject
 {
-    NSPanel*	window;
-    NSText*	text;
+    IBOutlet NSPanel*	    window;
+    IBOutlet NSTextView*    text;
     ClueTrace*	trace;
 }
 - init;

@@ -23,9 +23,9 @@
 
 @interface ClueInfo:NSObject
 {
-    NSWindow*	window;
-    NSTextField*	buildField;
-    NSTextField*	releaseField;
+    IBOutlet NSWindow*	window;
+    IBOutlet NSTextField*	buildField;
+    IBOutlet NSTextField*	releaseField;
 }
 + launch;
 @end

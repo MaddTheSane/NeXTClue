@@ -19,9 +19,9 @@
 class ClueCondArray;		// Array of conditional expressions.
 
 @interface ClueDeeDucer : ClueAnnaLyzer
-	{
+{
 	ClueCondArray* cond_array;
-	}
+}
 
 - (void)dealloc;
 - (void) earlyInit;

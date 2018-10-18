@@ -27,28 +27,28 @@
 @class ClueMgr;
 
 @interface CluePlayer : NSObject
-	{
-	int		player_id;
-	int		num_players;
-	int		num_cards;
-	ClueCard	cards[ CLUE_NUM_CARDS_MAX ];
-	ClueCard	piece_id;
-	ClueCoord	location;
-	ClueMgr*	clueMgr;
-	ClueCard	last_room;	// Room at end of last turn.
-	BOOL		my_turn;	// This player's turn.
-	BOOL		can_stay;	// Can stay and make suggestion.
+{
+    int		player_id;
+    int		num_players;
+    int		num_cards;
+    ClueCard	cards[ CLUE_NUM_CARDS_MAX ];
+    ClueCard	piece_id;
+    ClueCoord	location;
+    ClueMgr*	clueMgr;
+    ClueCard	last_room;	// Room at end of last turn.
+    BOOL		my_turn;	// This player's turn.
+    BOOL		can_stay;	// Can stay and make suggestion.
 @private
-	ClueCard	cp_card;
-	ClueCoord	cp_coord;
-	ClueSolution*	cp_solution_ptr;
-	ClueSolution	cp_solution_buff;
-	}
+    ClueCard	cp_card;
+    ClueCoord	cp_coord;
+    ClueSolution*	cp_solution_ptr;
+    ClueSolution	cp_solution_buff;
+}
 
 - initPlayer:(int)playerID numPlayers:(int)numPlayers
-	numCards:(int)numCards cards:(ClueCard const*)cards
-	piece:(ClueCard)pieceID location:(ClueCoord)location
-	clueMgr:(ClueMgr*)clueMgr;
+    numCards:(int)numCards cards:(ClueCard const*)cards
+       piece:(ClueCard)pieceID location:(ClueCoord)location
+     clueMgr:(ClueMgr*)clueMgr;
 
 - (int) playerID;
 - (int) numPlayers;

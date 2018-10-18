@@ -29,19 +29,19 @@ extern "C" {
 // ClueLoadNib
 //-----------------------------------------------------------------------------
 void ClueLoadNib( id obj )
-    {
+{
     NSString *name = [[obj class] name];
     NSString *buff;
 
     if ((buff = [[NSBundle mainBundle] pathForResource:name ofType:@"nib"]) == nil)
-	{
-	NSRunAlertPanel(@"Fatal", @"Cannot locate %@.nib", @"OK", nil, nil, name);
-	exit(3);
-	}
+    {
+        NSRunAlertPanel(@"Fatal", @"Cannot locate %@.nib", @"OK", nil, nil, name);
+        exit(3);
+    }
 
     if ([NSBundle loadNibNamed:buff owner:obj] == 0)
-	{
-	NSRunAlertPanel(@"Fatal", @"Cannot load %@", @"OK", nil, nil, buff);
-	exit(3);
-	}
+    {
+        NSRunAlertPanel(@"Fatal", @"Cannot load %@", @"OK", nil, nil, buff);
+        exit(3);
     }
+}

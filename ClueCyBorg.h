@@ -19,12 +19,12 @@
 class ClueHistory;
 
 @interface ClueCyBorg : ClueDeeDucer
-	{
-	float probs[ CLUE_NUM_PLAYERS_MAX + 1 ][ CLUE_CARD_COUNT ];
-	BOOL nailed[ CLUE_CARD_COUNT ];
-	ClueHistory* history;
-	BOOL did_init;
-	}
+{
+    float probs[ CLUE_NUM_PLAYERS_MAX + 1 ][ CLUE_CARD_COUNT ];
+    BOOL nailed[ CLUE_CARD_COUNT ];
+    ClueHistory* history;
+    BOOL did_init;
+}
 
 - (void)dealloc;
 - (void) earlyInit;

@@ -32,33 +32,33 @@ extern "Objective-C" {
 //-----------------------------------------------------------------------------
 - (void)movePiece:(ClueCard)piece
     from:(ClueCoord)old_pos to:(ClueCoord)new_pos
-    {
+{
     [boardView movePiece:piece from:old_pos to:new_pos];
-    }
+}
 
 
 //-----------------------------------------------------------------------------
 // initWithMgr:
 //-----------------------------------------------------------------------------
 - (id)initWithMgr:(ClueMgr*)mgr
-    {
+{
     [super init];
     clueMgr = mgr;
     ClueLoadNib( self );
     [boardView setClueMgr:mgr];
     [window setFrameAutosaveName:@"ClueBoard"];
     return self;
-    }
+}
 
 
 //-----------------------------------------------------------------------------
 // free
 //-----------------------------------------------------------------------------
 - (void)dealloc
-    {
+{
     [window close];
     [window release];
     { [super dealloc]; return; };
-    }
+}
 
 @end

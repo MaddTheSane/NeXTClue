@@ -24,7 +24,7 @@
 class ClueMap;
 
 @interface ClueBoardView : NSView
-    {
+{
     NSImage* background;
     ClueMgr* clueMgr;
     NSImage* pieces[ CLUE_SUSPECT_COUNT + CLUE_WEAPON_COUNT ];
@@ -36,7 +36,7 @@ class ClueMap;
     bool const* draggable;
     ClueMap const* map;
     id client;
-    }
+}
 
 - (instancetype)initWithFrame:(NSRect)rect;
 - (void)drawRect:(NSRect)rects;

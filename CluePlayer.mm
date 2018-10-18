@@ -24,10 +24,10 @@ extern "C" {
 @implementation CluePlayer
 
 - initPlayer:(int)playerID numPlayers:(int)numPlayers
-	numCards:(int)numCards cards:(ClueCard const*)i_cards
-	piece:(ClueCard)pieceID location:(ClueCoord)i_location
-	clueMgr:(ClueMgr*)mgr
-    {
+    numCards:(int)numCards cards:(ClueCard const*)i_cards
+       piece:(ClueCard)pieceID location:(ClueCoord)i_location
+     clueMgr:(ClueMgr*)mgr
+{
     [super init];
     player_id = playerID;
     num_players = numPlayers;
@@ -37,7 +37,7 @@ extern "C" {
     location = i_location;
     clueMgr = mgr;
     return self;
-    }
+}
 
 - (int) playerID		{ return player_id; }
 - (int) numPlayers		{ return num_players; }
@@ -54,14 +54,14 @@ extern "C" {
 - (BOOL) isHuman		{ return NO; }
 
 - (BOOL) amHoldingCard:(ClueCard)card
-    {
+{
     ClueCard const* c = [self cards];
     ClueCard const* const clim = c + [self numCards];
     for ( ; c < clim; c++)
-	if (*c == card)
-	    return YES;
+        if (*c == card)
+            return YES;
     return NO;
-    }
+}
 
 
 //-----------------------------//
@@ -69,53 +69,53 @@ extern "C" {
 //-----------------------------//
 
 - (void) direct:(SEL)aSel
-    { [clueMgr performSelector:aSel object:self afterDelay:(0) / 1000.0]; }
+{ [clueMgr performSelector:aSel object:self afterDelay:(0) / 1000.0]; }
 
 - (void) nextPlayerOk		{ [self direct:@selector(nextPlayerOk:)]; }
 - (void) revealOk		{ [self direct:@selector(revealOk:)]; }
 
 
 - (void) delayed:(SEL)aSel
-    { [self performSelector:aSel object:0 afterDelay:(0) / 1000.0]; }
+{ [self performSelector:aSel object:0 afterDelay:(0) / 1000.0]; }
 
 
 - (void) cp_do_move:sender	{ [clueMgr moveTo:cp_coord ok:self]; }
 - (void) moveTo:(ClueCoord)coord
-	{ cp_coord = coord; [self delayed:@selector(cp_do_move:)]; }
+{ cp_coord = coord; [self delayed:@selector(cp_do_move:)]; }
 
 
 - (void) cp_do_reveal:sender	{ [clueMgr reveal:cp_card ok:self]; }
 - (void) reveal:(ClueCard)x
-	{ cp_card = x; [self delayed:@selector(cp_do_reveal:)]; }
+{ cp_card = x; [self delayed:@selector(cp_do_reveal:)]; }
 
 
 
 
 - (void) cp_set_solution:(ClueSolution const*)x
-    {
+{
     if (x == 0)
-	cp_solution_ptr = 0;
+        cp_solution_ptr = 0;
     else
-	{
-	cp_solution_buff = *x;
-	cp_solution_ptr = &cp_solution_buff;
-	}
+    {
+        cp_solution_buff = *x;
+        cp_solution_ptr = &cp_solution_buff;
     }
+}
 
 - (void) cp_do_suggest:sender	{ [clueMgr suggest:cp_solution_ptr ok:self]; }
 - (void) suggest:(ClueSolution const*)x
-    {
+{
     [self cp_set_solution:x];
     [self delayed:@selector(cp_do_suggest:)];
-    }
+}
 
 
 - (void) cp_do_accuse:sender	{ [clueMgr accuse:cp_solution_ptr ok:self]; }
 - (void) accuse:(ClueSolution const*)x
-    {
+{
     [self cp_set_solution:x];
     [self delayed:@selector(cp_do_accuse:)];
-    }
+}
 
 
 
@@ -135,51 +135,51 @@ extern "C" {
 - (void) makeAccusation				{ [self accuse:0]; }
 
 - (void) disprove:(ClueSolution const*)solution forPlayer:(int)playerID
-    {
+{
     int num_choices = 0;
     ClueCard choices[3];
     ClueCard card = CLUE_CARD_MAX;
     for (int i = 0; i < num_cards; i++)
-	{
-	ClueCard const x = cards[i];
-	if (solution->contains( x ))
-	    choices[ num_choices++ ] = x;
-	}
+    {
+        ClueCard const x = cards[i];
+        if (solution->contains( x ))
+            choices[ num_choices++ ] = x;
+    }
 
     if (num_choices > 0)
-	if (num_choices == 1)
-	    card = choices[0];
-	else
-	    card = choices[ random_int(num_choices) ];
+        if (num_choices == 1)
+            card = choices[0];
+        else
+            card = choices[ random_int(num_choices) ];
 
     [self reveal:card];
-    }
+}
 
 
 - (void) nextPlayer:(int)x
-    {
+{
     BOOL const was_my_turn = my_turn;
     my_turn = (x == [self playerID]);
 
     if (was_my_turn && !my_turn)	// End of my turn.
-	{
-	last_room = ClueRoomAt( [self location] );
-	can_stay = NO;
-	}
+    {
+        last_room = ClueRoomAt( [self location] );
+        can_stay = NO;
+    }
 
     [self nextPlayerOk];
-    }
+}
 
 
 - (void) player:(int)y suggests:(ClueSolution const*)p
-    {
+{
     if (!my_turn &&
-	p->suspect() == [self pieceID] &&
-	p->room() != last_room)
-	{
-	last_room = CLUE_CARD_MAX;
-	can_stay = YES;
-	}
+        p->suspect() == [self pieceID] &&
+        p->room() != last_room)
+    {
+        last_room = CLUE_CARD_MAX;
+        can_stay = YES;
     }
+}
 
 @end

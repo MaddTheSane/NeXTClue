@@ -19,10 +19,10 @@
 @class NSText, NSWindow;
 
 @interface ClueRules : NSObject
-    {
+{
     NSText* text;
     NSWindow* window;
-    }
+}
 + (void)launch;
 @end
 

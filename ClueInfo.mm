@@ -36,40 +36,40 @@ extern "C" {
 // format:field:file:
 //-----------------------------------------------------------------------------
 - (void) format:(char const*)fmt field:(NSTextField*)fld file:(NSString*)file
-    {
+{
     NSString *path;
     char write_buff[ 256 ];
 
     char const* ver = "find?";
 
     if ((path = [[NSBundle mainBundle] pathForResource:file ofType:@""]))
-	{
-	FILE* fp;
-	if ((fp = fopen( path.fileSystemRepresentation, "r" )) != 0)
-	    {
-	    char read_buff[ 256 ];
-	    if (fscanf( fp, "%s", read_buff ) == 1)
-		{
-		sprintf( write_buff, fmt, read_buff );
-		ver = write_buff;
-		}
-	    else
-		ver = "parse?";
-	    fclose( fp );
-	    }
-	else
-	    ver = "open?";
-	}
+    {
+        FILE* fp;
+        if ((fp = fopen( path.fileSystemRepresentation, "r" )) != 0)
+        {
+            char read_buff[ 256 ];
+            if (fscanf( fp, "%s", read_buff ) == 1)
+            {
+                sprintf( write_buff, fmt, read_buff );
+                ver = write_buff;
+            }
+            else
+                ver = "parse?";
+            fclose( fp );
+        }
+        else
+            ver = "open?";
+    }
 
     [fld setStringValue:@(ver)];
-    }
+}
 
 
 //-----------------------------------------------------------------------------
 // init
 //-----------------------------------------------------------------------------
 - (id) init
-    {
+{
     [super init];
     ClueLoadNib( self );
 
@@ -77,28 +77,28 @@ extern "C" {
     [self format:"Build %s" field:buildField file:@"PACKAGE_NUMBER"];
 
     return self;
-    }
+}
 
 
 //-----------------------------------------------------------------------------
 // makeKeyAndOrderFront:
 //-----------------------------------------------------------------------------
 - (void)makeKeyAndOrderFront:(id)sender
-    {
+{
     [window makeKeyAndOrderFront:sender];
-    }
+}
 
 
 //-----------------------------------------------------------------------------
 // +launch
 //-----------------------------------------------------------------------------
 + (id) launch
-    {
+{
     static ClueInfo* instance = 0;
     if (instance == 0)
-	instance = [[self alloc] init];
+        instance = [[self alloc] init];
     [instance makeKeyAndOrderFront:self];
     return self;
-    }
+}
 
 @end

@@ -22,11 +22,11 @@
 @class NSTextField, NSWindow;
 
 @interface ClueInfo:NSObject
-    {
+{
     NSWindow*	window;
     NSTextField*	buildField;
     NSTextField*	releaseField;
-    }
+}
 + launch;
 @end
 

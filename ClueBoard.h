@@ -21,16 +21,16 @@
 @class ClueBoardView, ClueMgr, NSWindow;
 
 @interface ClueBoard : NSObject
-    {
+{
     ClueBoardView* boardView;
     ClueMgr* clueMgr;
     NSWindow* window;
-    }
+}
 
 - (id)initWithMgr:(ClueMgr*)mgr;
 - (void)orderFront;
 - (void)movePiece:(ClueCard)piece
-	from:(ClueCoord)old_pos to:(ClueCoord)new_pos;
+             from:(ClueCoord)old_pos to:(ClueCoord)new_pos;
 - (ClueBoardView*)boardView;
 
 @end

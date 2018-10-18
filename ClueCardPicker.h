@@ -21,19 +21,19 @@
 #import "ClueDefs.h"
 
 class ClueCardPicker
-	{
+{
 private:
-	struct Rec
-		{
-		int score;
-		ClueCard c;
-		};
-	int n;
-	Rec a[ CLUE_CARD_MAX ];
+    struct Rec
+    {
+        int score;
+        ClueCard c;
+    };
+    int n;
+    Rec a[ CLUE_CARD_MAX ];
 public:
-	ClueCardPicker(): n(0) {}
-	void add( int score, ClueCard c );
-	ClueCard choose() const;
-	};
+    ClueCardPicker(): n(0) {}
+    void add( int score, ClueCard c );
+    ClueCard choose() const;
+};
 
 #endif // __ClueCardPicker_h

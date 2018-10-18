@@ -20,23 +20,23 @@
 #include "ClueDefs.h"
 
 class ClueCoordArray
-	{
+{
 private:
-	int num_recs;
-	int max_recs;
-	ClueCoord* recs;
-	void expand();
+    int num_recs;
+    int max_recs;
+    ClueCoord* recs;
+    void expand();
 
 public:
-	ClueCoordArray();
-	~ClueCoordArray();
-	int count() const { return num_recs; }
-	bool is_empty() const { return num_recs == 0; }
-	void empty() { num_recs = 0; }
-	void append( ClueCoord const& );
-	void push( ClueCoord const& r ) { append(r); }
-	ClueCoord pop();
-	ClueCoord const& operator[]( int n ) const { return recs[n]; }
-	};
+    ClueCoordArray();
+    ~ClueCoordArray();
+    int count() const { return num_recs; }
+    bool is_empty() const { return num_recs == 0; }
+    void empty() { num_recs = 0; }
+    void append( ClueCoord const& );
+    void push( ClueCoord const& r ) { append(r); }
+    ClueCoord pop();
+    ClueCoord const& operator[]( int n ) const { return recs[n]; }
+};
 
 #endif // __ClueCoordArray_h

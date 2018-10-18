@@ -27,7 +27,7 @@ static NSString * const RULES = @"ClueRules";
 //-----------------------------------------------------------------------------
 #warning PrintingConversion:  printPSCode: has been renamed to print:.  Rename this method?
 - (void)print:(id)sender
-    {
+{
     [text print:self];
 }
 
@@ -36,44 +36,44 @@ static NSString * const RULES = @"ClueRules";
 // loadRules
 //-----------------------------------------------------------------------------
 - (void) loadRules
-    {
+{
     NSString *buff;
     id const bundle = [NSBundle bundleForClass:[self class]];
     if ((buff = [bundle pathForResource:RULES ofType:@"rtf"]) == nil)
-	 buff = [bundle pathForResource:RULES ofType:@"rtfd"];
+        buff = [bundle pathForResource:RULES ofType:@"rtfd"];
     [text readRTFDFromFile:buff];
-    }
+}
 
 
 //-----------------------------------------------------------------------------
 // init
 //-----------------------------------------------------------------------------
 - (id) init
-    {
+{
     [super init];
     ClueLoadNib( self );
     [self loadRules];
     [window setFrameAutosaveName:@"ClueRules"];
     return self;
-    }
+}
 
 
 //-----------------------------------------------------------------------------
 // launch
 //-----------------------------------------------------------------------------
 - (void) launch
-    {
+{
     [window makeKeyAndOrderFront:self];
-    }
+}
 
 
 //-----------------------------------------------------------------------------
 // +launch
 //-----------------------------------------------------------------------------
 + (void) launch
-    {
+{
     static ClueRules* obj = [[self alloc] init];
     [obj launch];
-    }
+}
 
 @end

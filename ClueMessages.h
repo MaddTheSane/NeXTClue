@@ -24,11 +24,11 @@ extern "Objective-C" {
 @class NSText,NSPanel;
 
 @interface ClueMessages:NSObject
-    {
+{
     NSPanel*	window;
     NSText*	text;
     ClueTrace*	trace;
-    }
+}
 - init;
 - (void)orderFront:(id)sender;
 - (ClueTrace*) getTrace;

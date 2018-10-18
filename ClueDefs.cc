@@ -149,7 +149,7 @@ extern int const CLUE_DISTANCE[ CLUE_ROOM_COUNT ][ CLUE_ROOM_COUNT ] =
 // ClueRoomCoord
 //-----------------------------------------------------------------------------
 ClueCoord ClueRoomCoord( ClueCard room )
-    {
+{
     assert( CLUE_ROOM_FIRST <= room && room <= CLUE_ROOM_LAST );
     unsigned int const n = room - CLUE_ROOM_FIRST;
 
@@ -162,139 +162,139 @@ ClueCoord ClueRoomCoord( ClueCard room )
 
     int r,c;
     do  {
-	int const x = random_int( lim );
-	c = box.left + x % ncols;
-	r = box.top + x / ncols;
-	}
+        int const x = random_int( lim );
+        c = box.left + x % ncols;
+        r = box.top + x / ncols;
+    }
     while (CLUE_BOARD[r][c] != room_char);
 
     ClueCoord coord = { r, c };
     return coord;
-    }
+}
 
 
 //-----------------------------------------------------------------------------
 // ClueRoomAt
 //-----------------------------------------------------------------------------
 ClueCard ClueRoomAt( ClueCoord pos )
-    {
+{
     if (ClueGoodCoord( pos ))
-	{
-	char const c = CLUE_BOARD[ pos.row ][ pos.col ];
-	if ('0' <= c && c <= '8')	// What about secret passage corners?
-	    return ClueCard( CLUE_ROOM_FIRST - '0' + c );
-	}
-    return CLUE_CARD_MAX;
+    {
+        char const c = CLUE_BOARD[ pos.row ][ pos.col ];
+        if ('0' <= c && c <= '8')	// What about secret passage corners?
+            return ClueCard( CLUE_ROOM_FIRST - '0' + c );
     }
+    return CLUE_CARD_MAX;
+}
 
 
 //-----------------------------------------------------------------------------
 // ClueDoorAt
 //-----------------------------------------------------------------------------
 ClueCard ClueDoorAt( ClueCoord pos )
-    {
+{
     for (int i = 0; i < CLUE_DOOR_COUNT; i++)
-	if (CLUE_DOOR[i].pos == pos)
-	    return CLUE_DOOR[i].room;
+        if (CLUE_DOOR[i].pos == pos)
+            return CLUE_DOOR[i].room;
     return CLUE_CARD_MAX;
-    }
+}
 
 
 //-----------------------------------------------------------------------------
 // ClueCorridorAt
 //-----------------------------------------------------------------------------
 bool ClueCorridorAt( ClueCoord pos )
-    {
+{
     return ClueGoodCoord( pos ) &&
-		ClueCorridorChar( CLUE_BOARD[ pos.row ][ pos.col ] );
-    }
+    ClueCorridorChar( CLUE_BOARD[ pos.row ][ pos.col ] );
+}
 
 
 //-----------------------------------------------------------------------------
 // ClueIllegalAt
 //-----------------------------------------------------------------------------
 bool ClueIllegalAt( ClueCoord pos )
-    {
+{
     return !ClueGoodCoord( pos ) ||
-	ClueIllegalChar( CLUE_BOARD[ pos.row ][ pos.col ] );
-    }
+    ClueIllegalChar( CLUE_BOARD[ pos.row ][ pos.col ] );
+}
 
 
 //-----------------------------------------------------------------------------
 // NAMES
 //-----------------------------------------------------------------------------
 static char const* const CLUE_NAMES[ CLUE_CARD_MAX + 1 ] =
-	{
-	"scarlet",
-	"mustard",
-	"white",
-	"green",
-	"peacock",
-	"plum",
-	"knife",
-	"candlestick",
-	"revolver",
-	"rope",
-	"lead-pipe",
-	"wrench",
-	"hall",
-	"lounge",
-	"dining-room",
-	"kitchen",
-	"ball-room",
-	"conservatory",
-	"billiard-room",
-	"library",
-	"study",
-	"error"
-	};
+{
+    "scarlet",
+    "mustard",
+    "white",
+    "green",
+    "peacock",
+    "plum",
+    "knife",
+    "candlestick",
+    "revolver",
+    "rope",
+    "lead-pipe",
+    "wrench",
+    "hall",
+    "lounge",
+    "dining-room",
+    "kitchen",
+    "ball-room",
+    "conservatory",
+    "billiard-room",
+    "library",
+    "study",
+    "error"
+};
 
 
 static char const* const CLUE_CATEGORY[ CLUE_CATEGORY_MAX + 1 ] =
-	{
-	"suspect",
-	"weapon",
-	"room",
-	"error"
-	};
+{
+    "suspect",
+    "weapon",
+    "room",
+    "error"
+};
 
 
 //-----------------------------------------------------------------------------
 // ClueCardName
 //-----------------------------------------------------------------------------
 char const* ClueCardName( ClueCard x )
-    {
+{
     return CLUE_NAMES[ x < CLUE_CARD_MAX ? x : CLUE_CARD_MAX ];
-    }
+}
 
 
 //-----------------------------------------------------------------------------
 // ClueCardFromName
 //-----------------------------------------------------------------------------
 ClueCard ClueCardFromName( char const* name )
-    {
+{
     unsigned int i;
     for (i = 0; i < (unsigned int) CLUE_CARD_MAX; i++)
-	if (strcmp( CLUE_NAMES[i], name ) == 0)
-	    return ClueCard(i);
+        if (strcmp( CLUE_NAMES[i], name ) == 0)
+            return ClueCard(i);
     return CLUE_CARD_MAX;
-    }
+}
 
 
 //-----------------------------------------------------------------------------
 // ClueCategoryName
 //-----------------------------------------------------------------------------
 char const* ClueCategoryName( ClueCategory x )
-    {
+{
     return CLUE_CATEGORY[ x < CLUE_CATEGORY_MAX ? x : CLUE_CATEGORY_MAX ];
-    }
+}
 
 
 //-----------------------------------------------------------------------------
 // ClueCardCategory
 //-----------------------------------------------------------------------------
 ClueCategory ClueCardCategory( ClueCard x )
-    {
+{
     ClueCategory rc = CLUE_CATEGORY_MAX;
 
     if (x <= CLUE_SUSPECT_LAST)		rc = CLUE_CATEGORY_SUSPECT;
@@ -302,4 +302,4 @@ ClueCategory ClueCardCategory( ClueCard x )
     else if (x <= CLUE_ROOM_LAST)	rc = CLUE_CATEGORY_ROOM;
 
     return rc;
-    }
+}

@@ -23,41 +23,41 @@
 class ClueMap;
 
 @interface ClueHuman:CluePlayer
-	{
-	NSWindow*		window;
-	MiscTableScroll* scroll;
-	NSTextField*	messageField;
-	NSMatrix*		revealMatrix;
-	NSButton*		stayButton;
-	NSButton*		passageButton;
-	NSButton*		rollButton;
-	NSButton*		dieButton;
-	NSButton*		revealButton;
-	NSButton*		suspectPop;
-	NSButton*		weaponPop;
-	NSButton*		roomPop;
-	NSButton*		skipButton;
-	NSButton*		suggestButton;
-	NSButton*		accuseButton;
-	NSText*		fieldEditor;
-	ClueMap*	map;
-	ClueSolution	suggestion;
-	ClueCard	currRoom;
-	ClueCard	passageRoom;
-	ClueCard	suspectID;
-	ClueCard	weaponID;
-	ClueCoord	suspectPos;	// Saved position before transferring.
-	ClueCoord	weaponPos;
-	bool		draggable[ CLUE_SUSPECT_COUNT + CLUE_WEAPON_COUNT ];
-	BOOL		forAccuse;
-	BOOL		forMove;
-	BOOL		wasDisproved;
-	}
+{
+    NSWindow*		window;
+    MiscTableScroll* scroll;
+    NSTextField*	messageField;
+    NSMatrix*		revealMatrix;
+    NSButton*		stayButton;
+    NSButton*		passageButton;
+    NSButton*		rollButton;
+    NSButton*		dieButton;
+    NSButton*		revealButton;
+    NSButton*		suspectPop;
+    NSButton*		weaponPop;
+    NSButton*		roomPop;
+    NSButton*		skipButton;
+    NSButton*		suggestButton;
+    NSButton*		accuseButton;
+    NSText*		fieldEditor;
+    ClueMap*	map;
+    ClueSolution	suggestion;
+    ClueCard	currRoom;
+    ClueCard	passageRoom;
+    ClueCard	suspectID;
+    ClueCard	weaponID;
+    ClueCoord	suspectPos;	// Saved position before transferring.
+    ClueCoord	weaponPos;
+    bool		draggable[ CLUE_SUSPECT_COUNT + CLUE_WEAPON_COUNT ];
+    BOOL		forAccuse;
+    BOOL		forMove;
+    BOOL		wasDisproved;
+}
 
 - initPlayer:(int)playerID numPlayers:(int)numPlayers
-	numCards:(int)numCards cards:(ClueCard const*)cards
-	piece:(ClueCard)pieceID location:(ClueCoord)location
-	clueMgr:(ClueMgr*)mgr;
+    numCards:(int)numCards cards:(ClueCard const*)cards
+       piece:(ClueCard)pieceID location:(ClueCoord)location
+     clueMgr:(ClueMgr*)mgr;
 
 - (BOOL) isHuman;
 

@@ -22,7 +22,7 @@
 @class NSWindow;
 
 @interface ClueSetup:NSObject
-    {
+{
     NSWindow*	window;
     NSButton*	mustardPop;
     NSButton*	plumPop;
@@ -31,7 +31,7 @@
     NSButton*	scarletPop;
     NSButton*	whitePop;
     NSButton*	pops[ 6 ];
-    }
+}
 
 + (BOOL) startNewGame;
 + (int) numPlayers;

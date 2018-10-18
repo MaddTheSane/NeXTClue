@@ -45,27 +45,27 @@ static ClueCoord const* const DELTA_LIM = DELTAS + NUM_DELTAS;
 //-----------------------------------------------------------------------------
 static void cook_map( int cooked[ CLUE_ROW_MAX ][ CLUE_COL_MAX ],
 			ClueCoordArray const& obstacles )
-    {
+{
     for (int r = 0; r < CLUE_ROW_MAX; r++)
-	for (int c = 0; c < CLUE_COL_MAX; c++)
-	    if (CLUE_BOARD[r][c] == CLUE_CHAR_CORRIDOR)
-		cooked[r][c] = CORRIDOR_CELL;
-	    else
-		cooked[r][c] = 0;
+        for (int c = 0; c < CLUE_COL_MAX; c++)
+            if (CLUE_BOARD[r][c] == CLUE_CHAR_CORRIDOR)
+                cooked[r][c] = CORRIDOR_CELL;
+            else
+                cooked[r][c] = 0;
 
     for (int j = 0; j < CLUE_DOOR_COUNT; j++)
-	{
-	ClueDoor const& door = CLUE_DOOR[j];
-	cooked[ door.pos.row ][ door.pos.col ] = (door.room + 1);
-	}
+    {
+        ClueDoor const& door = CLUE_DOOR[j];
+        cooked[ door.pos.row ][ door.pos.col ] = (door.room + 1);
+    }
 
     int const n = obstacles.count();
     for (int i = 0; i < n; i++)
-	{
-	ClueCoord const& pos = obstacles[i];
-	cooked[ pos.row ][ pos.col ] = 0;
-	}
+    {
+        ClueCoord const& pos = obstacles[i];
+        cooked[ pos.row ][ pos.col ] = 0;
     }
+}
 
 
 //-----------------------------------------------------------------------------
@@ -74,22 +74,22 @@ static void cook_map( int cooked[ CLUE_ROW_MAX ][ CLUE_COL_MAX ],
 //	their cells legal.
 //-----------------------------------------------------------------------------
 void ClueMap::add_rooms( int const reachable[] )
-    {
+{
     bool have_one = false;
     for (int i = 0; i < CLUE_ROOM_COUNT; i++)
-	if (reachable[i] != 0)
-	    { have_one = true; break; }
+        if (reachable[i] != 0)
+        { have_one = true; break; }
 
     if (have_one)
-	for (int r = 0; r < CLUE_ROW_MAX; r++)
-	    for (int c = 0; c < CLUE_COL_MAX; c++)
-		{
-		char const ch = CLUE_BOARD[r][c];
-		if (ClueRoomChar(ch) && 
-		    reachable[ ch - CLUE_CHAR_ROOM_FIRST ] != 0)
-		    map[r][c] = 1;
-		}
-    }
+        for (int r = 0; r < CLUE_ROW_MAX; r++)
+            for (int c = 0; c < CLUE_COL_MAX; c++)
+            {
+                char const ch = CLUE_BOARD[r][c];
+                if (ClueRoomChar(ch) &&
+                    reachable[ ch - CLUE_CHAR_ROOM_FIRST ] != 0)
+                    map[r][c] = 1;
+            }
+}
 
 
 //-----------------------------------------------------------------------------
@@ -100,7 +100,7 @@ void ClueMap::add_rooms( int const reachable[] )
 void ClueMap::do_calc( int cooked[ CLUE_ROW_MAX ][ CLUE_COL_MAX ],
 			int reachable_rooms[],
 			int die_roll, ClueCoord start_pos )
-    {
+{
     ClueCoord path_stack[ CLUE_PATH_MAX ];
     ClueCoord const* deltas_stack[ CLUE_PATH_MAX ];
 
@@ -115,48 +115,48 @@ void ClueMap::do_calc( int cooked[ CLUE_ROW_MAX ][ CLUE_COL_MAX ],
     cooked[ start_pos.row ][ start_pos.col ] = ~x;
 
     while (path > path_stack)
-	{
-	ClueCoord pos = *--path;		// stack pop.
-	ClueCoord const* delta = *--deltas;
-	int const x = ~(cooked[ pos.row ][ pos.col ]);
-	cooked[ pos.row ][ pos.col ] = x;
+    {
+        ClueCoord pos = *--path;		// stack pop.
+        ClueCoord const* delta = *--deltas;
+        int const x = ~(cooked[ pos.row ][ pos.col ]);
+        cooked[ pos.row ][ pos.col ] = x;
+        
+        if (n++ == 0)				// Used full die-roll.
+        {
+            map[ pos.row ][ pos.col ] = 1;
+        }
+        else
+        {
+            if (x != CORRIDOR_CELL)
+                reachable_rooms[ (x - 1 - CLUE_ROOM_FIRST) ] = 1;
 
-	if (n++ == 0)				// Used full die-roll.
-	    {
-	    map[ pos.row ][ pos.col ] = 1;
-	    }
-	else
-	    {
-	    if (x != CORRIDOR_CELL)
-		reachable_rooms[ (x - 1 - CLUE_ROOM_FIRST) ] = 1;
-
-	    while (delta > DELTAS)		// Next direction from pos...
-		{
-		delta--;
-    
-		ClueCoord next_pos;
-		next_pos.row = pos.row + delta->row;
-		next_pos.col = pos.col + delta->col;
-		if (ClueGoodCoord( next_pos ))
-		    {
-		    int const y = cooked[ next_pos.row ][ next_pos.col ];
-		    if (y > 0)			// Clear cell...
-			{
-			n--;
-			*(path++) = pos;	// Push pos back on stack.
-			*(deltas++) = delta;
-			cooked[ pos.row ][ pos.col ] = ~x;
-			n--;
-			*(path++) = next_pos;	// Push next pos onto stack.
-			*(deltas++) = DELTA_LIM;
-			cooked[ next_pos.row ][ next_pos.col ] = ~y;
-			break;			// break out of inner loop.
-			}
-		    }
-		}
-	    }
-	}
+            while (delta > DELTAS)		// Next direction from pos...
+            {
+                delta--;
+                
+                ClueCoord next_pos;
+                next_pos.row = pos.row + delta->row;
+                next_pos.col = pos.col + delta->col;
+                if (ClueGoodCoord( next_pos ))
+                {
+                    int const y = cooked[ next_pos.row ][ next_pos.col ];
+                    if (y > 0)			// Clear cell...
+                    {
+                        n--;
+                        *(path++) = pos;	// Push pos back on stack.
+                        *(deltas++) = delta;
+                        cooked[ pos.row ][ pos.col ] = ~x;
+                        n--;
+                        *(path++) = next_pos;	// Push next pos onto stack.
+                        *(deltas++) = DELTA_LIM;
+                        cooked[ next_pos.row ][ next_pos.col ] = ~y;
+                        break;			// break out of inner loop.
+                    }
+                }
+            }
+        }
     }
+}
 
 
 
@@ -166,7 +166,7 @@ void ClueMap::do_calc( int cooked[ CLUE_ROW_MAX ][ CLUE_COL_MAX ],
 bool ClueMap::calcLegal( int die_roll,
 			ClueCoord start_pos,
 			ClueCoordArray const& obstacles )
-    {
+{
     memset( map, 0, sizeof(map) );	// Initially, no spot is legal.
 
     int reachable_rooms[ CLUE_ROOM_COUNT ];
@@ -177,35 +177,35 @@ bool ClueMap::calcLegal( int die_roll,
 
     ClueCard const room = ClueRoomAt( start_pos );
     if (room == CLUE_CARD_MAX)		// Not in a room.
-	{				// First cell is not on path.
-	do_calc( cooked, reachable_rooms, die_roll + 1, start_pos );
-	}
+    {				// First cell is not on path.
+        do_calc( cooked, reachable_rooms, die_roll + 1, start_pos );
+    }
     else				// In a room.
-	{
-	for (int i = 0; i < CLUE_DOOR_COUNT; i++)
-	    {
-	    ClueDoor const door = CLUE_DOOR[i];
-	    if (door.room == room &&
-		cooked[ door.pos.row ][ door.pos.col ] > 0)
-		{
-		if (die_roll == 1)
-		    map[ door.pos.row ][ door.pos.col ] = 1;
-		else
-		    do_calc( cooked, reachable_rooms, die_roll, door.pos );
-		}
-	    }
-	reachable_rooms[ room - CLUE_ROOM_FIRST ] = 0;
-	}
+    {
+        for (int i = 0; i < CLUE_DOOR_COUNT; i++)
+        {
+            ClueDoor const door = CLUE_DOOR[i];
+            if (door.room == room &&
+                cooked[ door.pos.row ][ door.pos.col ] > 0)
+            {
+                if (die_roll == 1)
+                    map[ door.pos.row ][ door.pos.col ] = 1;
+                else
+                    do_calc( cooked, reachable_rooms, die_roll, door.pos );
+            }
+        }
+        reachable_rooms[ room - CLUE_ROOM_FIRST ] = 0;
+    }
 
     add_rooms( reachable_rooms );
 
     for (int r = 0; r < CLUE_ROW_MAX; r++)
-	for (int c = 0; c < CLUE_COL_MAX; c++)
-	    if (map[r][c] != 0)
-		return true;
+        for (int c = 0; c < CLUE_COL_MAX; c++)
+            if (map[r][c] != 0)
+                return true;
 
     return false;
-    }
+}
 
 
 
@@ -214,7 +214,7 @@ bool ClueMap::calcLegal( int die_roll,
 //-----------------------------------------------------------------------------
 void ClueMap::allSquaresInRoom( ClueCard room,
 				ClueCoordArray const& obstacles )
-    {
+{
     memset( map, 0, sizeof(map) );	// Initially, no spot is legal.
 
     int reachable_rooms[ CLUE_ROOM_COUNT ];
@@ -226,42 +226,42 @@ void ClueMap::allSquaresInRoom( ClueCard room,
 
     int const n = obstacles.count();
     for (int i = 0; i < n; i++)
-	{
-	ClueCoord const& pos = obstacles[i];
-	map[ pos.row ][ pos.col ] = 0;
-	}
+    {
+        ClueCoord const& pos = obstacles[i];
+        map[ pos.row ][ pos.col ] = 0;
     }
+}
 
 
 //-----------------------------------------------------------------------------
 // init_distance_map
 //-----------------------------------------------------------------------------
 void ClueMap::init_distance_map( ClueCoordArray const& obstacles )
-    {
+{
     for (int r = 0; r < CLUE_ROW_MAX; r++)
-	for (int c = 0; c < CLUE_COL_MAX; c++)
-	    {
-	    char const ch = CLUE_BOARD[r][c];
-	    if (ClueCorridorChar( ch ))
-		map[r][c] = 0;
-	    else
-		map[r][c] = INT_MAX;
-	    }
+        for (int c = 0; c < CLUE_COL_MAX; c++)
+        {
+            char const ch = CLUE_BOARD[r][c];
+            if (ClueCorridorChar( ch ))
+                map[r][c] = 0;
+            else
+                map[r][c] = INT_MAX;
+        }
 
     int const n = obstacles.count();
     for (int i = 0; i < n; i++)
-	{
-	ClueCoord const& pos = obstacles[i];
-	map[ pos.row ][ pos.col ] = INT_MAX;
-	}
+    {
+        ClueCoord const& pos = obstacles[i];
+        map[ pos.row ][ pos.col ] = INT_MAX;
     }
+}
 
 
 //-----------------------------------------------------------------------------
 // do_calc_distance
 //-----------------------------------------------------------------------------
 void ClueMap::do_calc_distance( ClueCoord start_pos )
-    {
+{
     ClueCoordArray x;
     ClueCoordArray y;
     ClueCoordArray* curr = &x;
@@ -270,87 +270,87 @@ void ClueMap::do_calc_distance( ClueCoord start_pos )
 
     ClueCard const room = ClueRoomAt( start_pos );
     if (room == CLUE_CARD_MAX)	// Not in a room
-	{
-	map[ start_pos.row ][ start_pos.col ] = distance;
-	next->push( start_pos );
-	}
+    {
+        map[ start_pos.row ][ start_pos.col ] = distance;
+        next->push( start_pos );
+    }
     else
-	{
-	distance++;
-	for (int i = 0; i < CLUE_DOOR_COUNT; i++)
-	    if (CLUE_DOOR[i].room == room)
-		{
-		ClueCoord const pos = CLUE_DOOR[i].pos;
-		map[ pos.row ][ pos.col ] = distance;
-		next->push( pos );
-		}
-	}
+    {
+        distance++;
+        for (int i = 0; i < CLUE_DOOR_COUNT; i++)
+            if (CLUE_DOOR[i].room == room)
+            {
+                ClueCoord const pos = CLUE_DOOR[i].pos;
+                map[ pos.row ][ pos.col ] = distance;
+                next->push( pos );
+            }
+    }
 
     do  {
-	distance++;
-	ClueCoordArray* temp = curr;
-	curr = next;
-	next = temp;
-	next->empty();
+        distance++;
+        ClueCoordArray* temp = curr;
+        curr = next;
+        next = temp;
+        next->empty();
 
-	while (curr->count() > 0)
-	    {
-	    ClueCoord pos = curr->pop();
-	    for (ClueCoord const* d = DELTAS; d < DELTA_LIM; d++)
-		{
-		ClueCoord next_pos;
-		next_pos.row = pos.row + d->row;
-		next_pos.col = pos.col + d->col;
-		if (ClueGoodCoord( next_pos ) &&
-		    map[ next_pos.row ][ next_pos.col ] == 0)
-		    {
-		    map[ next_pos.row ][ next_pos.col ] = distance;
-		    next->push( next_pos );
-		    }
-		}
-	    }
-	}
+        while (curr->count() > 0)
+        {
+            ClueCoord pos = curr->pop();
+            for (ClueCoord const* d = DELTAS; d < DELTA_LIM; d++)
+            {
+                ClueCoord next_pos;
+                next_pos.row = pos.row + d->row;
+                next_pos.col = pos.col + d->col;
+                if (ClueGoodCoord( next_pos ) &&
+                    map[ next_pos.row ][ next_pos.col ] == 0)
+                {
+                    map[ next_pos.row ][ next_pos.col ] = distance;
+                    next->push( next_pos );
+                }
+            }
+        }
+    }
     while (next->count() > 0);
 
     if (room == CLUE_CARD_MAX)
-	map[ start_pos.row ][ start_pos.col ] = 0;
-    }
+        map[ start_pos.row ][ start_pos.col ] = 0;
+}
 
 
 //-----------------------------------------------------------------------------
 // fix_distances
 //-----------------------------------------------------------------------------
 void ClueMap::fix_distances( int rooms[], ClueCoord start_pos )
-    {
+{
     for (int i = 0; i < CLUE_ROOM_COUNT; i++)
-	rooms[i] = INT_MAX;
+        rooms[i] = INT_MAX;
 
     ClueCard const start_room = ClueRoomAt( start_pos );
     if (start_room != CLUE_CARD_MAX)
-	rooms[ start_room - CLUE_ROOM_FIRST ] = 0;
+        rooms[ start_room - CLUE_ROOM_FIRST ] = 0;
 
     for (int j = 0; j < CLUE_DOOR_COUNT; j++)
-	{
-	int const r = CLUE_DOOR[j].room - CLUE_ROOM_FIRST;
-	ClueCoord const door = CLUE_DOOR[j].pos;
-	int const distance = map[ door.row ][ door.col ];
-	if (rooms[r] > distance)
-	    rooms[r] = distance;
-	}
+    {
+        int const r = CLUE_DOOR[j].room - CLUE_ROOM_FIRST;
+        ClueCoord const door = CLUE_DOOR[j].pos;
+        int const distance = map[ door.row ][ door.col ];
+        if (rooms[r] > distance)
+            rooms[r] = distance;
+    }
 
     for (int r = 0; r < CLUE_ROW_MAX; r++)
-	for (int c = 0; c < CLUE_COL_MAX; c++)
-	    {
-	    char const ch = CLUE_BOARD[r][c];
-	    if (ClueRoomChar( ch ))
-		map[r][c] = rooms[ ch - CLUE_CHAR_ROOM_FIRST ];
-	    else if (map[r][c] == 0)
-		map[r][c] = INT_MAX;
-	    }
+        for (int c = 0; c < CLUE_COL_MAX; c++)
+        {
+            char const ch = CLUE_BOARD[r][c];
+            if (ClueRoomChar( ch ))
+                map[r][c] = rooms[ ch - CLUE_CHAR_ROOM_FIRST ];
+            else if (map[r][c] == 0)
+                map[r][c] = INT_MAX;
+        }
 
     if (start_room == CLUE_CARD_MAX)
-	map[ start_pos.row ][ start_pos.col ] = 0;
-    }
+        map[ start_pos.row ][ start_pos.col ] = 0;
+}
 
 
 //-----------------------------------------------------------------------------
@@ -358,9 +358,9 @@ void ClueMap::fix_distances( int rooms[], ClueCoord start_pos )
 //-----------------------------------------------------------------------------
 void ClueMap::calcDistance( int rooms[], ClueCoord start_pos,
 				ClueCoordArray const& obstacles )
-    {
+{
     init_distance_map( obstacles );
     do_calc_distance( start_pos );
     fix_distances( rooms, start_pos );
-    }
+}
 

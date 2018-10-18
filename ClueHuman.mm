@@ -48,28 +48,28 @@ extern "C" {
 #import	<string.h>
 }
 
-enum	{
-	ICON_SLOT,
-	NAME_SLOT,
-	P1_SLOT,
-	P2_SLOT,
-	P3_SLOT,
-	P4_SLOT,
-	P5_SLOT,
-	P6_SLOT,
-	NOTES_SLOT,
-	MAX_SLOT
-	};
+enum {
+    ICON_SLOT,
+    NAME_SLOT,
+    P1_SLOT,
+    P2_SLOT,
+    P3_SLOT,
+    P4_SLOT,
+    P5_SLOT,
+    P6_SLOT,
+    NOTES_SLOT,
+    MAX_SLOT
+};
 
 static char const* const DIE_ICON[] =
-	{
-	"die1",
-	"die2",
-	"die3",
-	"die4",
-	"die5",
-	"die6"
-	};
+{
+    "die1",
+    "die2",
+    "die3",
+    "die4",
+    "die5",
+    "die6"
+};
 
 char const MAKE_ACCUSATION[] = "Make an accusation or skip.";
 
@@ -84,25 +84,25 @@ static BOOL VERTICAL_MOVEMENT = NO;
 //-----------------------------------------------------------------------------
 static unsigned short
 ClueFilter( unsigned short c, int flags, unsigned short cset )
-    {
+{
     enum { KEY_UP = 0xad, KEY_DOWN = 0xaf };
     NSEventModifierFlags const BAD = (NSControlKeyMask | NSAlternateKeyMask | NSCommandKeyMask);
     if ((flags & BAD) == 0 && cset == NX_SYMBOLSET)
-	{
-	if (c == KEY_UP)
-	    {
-	    VERTICAL_MOVEMENT = YES;
-	    return NSBacktabTextMovement;
-	    }
-	else if (c == KEY_DOWN)
-	    {
-	    VERTICAL_MOVEMENT = YES;
-	    return NSTabTextMovement;
-	    }
-	}
+    {
+        if (c == KEY_UP)
+        {
+            VERTICAL_MOVEMENT = YES;
+            return NSBacktabTextMovement;
+        }
+        else if (c == KEY_DOWN)
+        {
+            VERTICAL_MOVEMENT = YES;
+            return NSTabTextMovement;
+        }
+    }
     VERTICAL_MOVEMENT = NO;
     return NSFieldFilter( c, flags, cset );
-    }
+}
 
 
 //=============================================================================
@@ -121,21 +121,21 @@ ClueFilter( unsigned short c, int flags, unsigned short cset )
 // free
 //-----------------------------------------------------------------------------
 - (void)dealloc
-    {
+{
     delete map;
     [scroll abortEditing];
     [fieldEditor release];
     [window close];
     [window release];
     { [super dealloc]; return; };
-    }
+}
 
 
 //-----------------------------------------------------------------------------
 // separatorRow:tag:name:
 //-----------------------------------------------------------------------------
 - (void) separatorRow:(int)row tag:(int)tag name:(char const*)name
-    {
+{
     MiscTableCell* cell;
     cell = [scroll cellAtRow:row column:ICON_SLOT];
     [cell setTag:tag];
@@ -144,27 +144,27 @@ ClueFilter( unsigned short c, int flags, unsigned short cset )
     [cell setStringValue:[NSString stringWithCString:name]];
 
     for (int i = MAX_SLOT; i-- > 0; )
-	{
-	cell = [scroll cellAtRow:row column:i];
-	[cell setHighlightBackgroundColor:[NSColor darkGrayColor]];
-	[cell setBackgroundColor:[NSColor darkGrayColor]];
-	[cell setTextColor:[NSColor whiteColor]];
-	}
+    {
+        cell = [scroll cellAtRow:row column:i];
+        [cell setHighlightBackgroundColor:[NSColor darkGrayColor]];
+        [cell setBackgroundColor:[NSColor darkGrayColor]];
+        [cell setTextColor:[NSColor whiteColor]];
     }
+}
 
 
 //-----------------------------------------------------------------------------
 // initScroll
 //-----------------------------------------------------------------------------
 - (void) initScroll
-    {
+{
     int i;
     for (i = P1_SLOT; i <= NOTES_SLOT; i++)
-	{
-	id proto = [scroll colCellPrototype:i];
-	[proto setEditable:YES];
-	[proto setScrollable:YES];
-	}
+    {
+        id proto = [scroll colCellPrototype:i];
+        [proto setEditable:YES];
+        [proto setScrollable:YES];
+    }
 
     int const self_slot = int(P1_SLOT) + [self playerID];
 
@@ -172,33 +172,33 @@ ClueFilter( unsigned short c, int flags, unsigned short cset )
     [scroll renewRows:CLUE_CARD_COUNT + CLUE_CATEGORY_COUNT + 1];
     int row = 0;
     for (i = 0; i < CLUE_CARD_COUNT; i++,row++)
-	{
-	int const tag = ((i << 1) | 1);
-	ClueCard const card = ClueCard(i);
-	ClueCategory const cat = ClueCardCategory(card);
-	MiscTableCell* cell;
+    {
+        int const tag = ((i << 1) | 1);
+        ClueCard const card = ClueCard(i);
+        ClueCategory const cat = ClueCardCategory(card);
+        MiscTableCell* cell;
 
-	if (last_cat != cat)
-	    {
-	    last_cat = cat;
-	    int const x = (tag & ~1);	// Mask off low bit.
-	    [self separatorRow:row++ tag:x name:ClueCategoryName(cat)];
-	    }
+        if (last_cat != cat)
+        {
+            last_cat = cat;
+            int const x = (tag & ~1);	// Mask off low bit.
+            [self separatorRow:row++ tag:x name:ClueCategoryName(cat)];
+        }
 
-	cell = [scroll cellAtRow:row column:ICON_SLOT];
-	[cell setImage:[NSImage imageNamed:[NSString stringWithCString:ClueCardName(card)]]];
-	[cell setTag:tag];
+        cell = [scroll cellAtRow:row column:ICON_SLOT];
+        [cell setImage:[NSImage imageNamed:[NSString stringWithCString:ClueCardName(card)]]];
+        [cell setTag:tag];
 
-	cell = [scroll cellAtRow:row column:NAME_SLOT];
-	[cell setStringValue:[NSString stringWithCString:ClueCardName(card)]];
-	[cell setTag:tag];
+        cell = [scroll cellAtRow:row column:NAME_SLOT];
+        [cell setStringValue:[NSString stringWithCString:ClueCardName(card)]];
+        [cell setTag:tag];
 
-	char const* const s = ([self amHoldingCard:card] ? "x" : "-");
-	[[scroll cellAtRow:row column:self_slot] setStringValue:[NSString stringWithCString:s]];
-	}
+        char const* const s = ([self amHoldingCard:card] ? "x" : "-");
+        [[scroll cellAtRow:row column:self_slot] setStringValue:[NSString stringWithCString:s]];
+    }
 
     [self separatorRow:row tag:(CLUE_CARD_COUNT << 1) name:"notes"];
-    }
+}
 
 
 //-----------------------------------------------------------------------------
@@ -208,10 +208,10 @@ ClueFilter( unsigned short c, int flags, unsigned short cset )
 	numCards:(int)numCards cards:(ClueCard const*)i_cards
 	piece:(ClueCard)pieceID location:(ClueCoord)i_location
 	clueMgr:(ClueMgr*)mgr
-    {
+{
     [super initPlayer:playerID numPlayers:numPlayers
-	numCards:numCards cards:i_cards piece:pieceID
-	location:i_location clueMgr:mgr];
+             numCards:numCards cards:i_cards piece:pieceID
+             location:i_location clueMgr:mgr];
 
     ClueLoadNib( self );
     fieldEditor = [[NSText allocWithZone:[self zone]] init];
@@ -237,7 +237,7 @@ ClueFilter( unsigned short c, int flags, unsigned short cset )
     [window makeKeyAndOrderFront:self];
 
     return self;
-    }
+}
 
 
 //-----------------------------------------------------------------------------
@@ -245,25 +245,25 @@ ClueFilter( unsigned short c, int flags, unsigned short cset )
 //-----------------------------------------------------------------------------
 -  (BOOL)tableScroll:(MiscTableScroll*)ts
     canEdit:(NSEvent *)event at:(int)row :(int)col
-    {
+{
     return (col >= P1_SLOT);	// Edit on single-click allowed.
-    }
+}
 
 
 //-----------------------------------------------------------------------------
 // windowWillReturnFieldEditor:toObject:
 //-----------------------------------------------------------------------------
 - (id)windowWillReturnFieldEditor:(id)sender toObject:(id)client
-    {
+{
     return (client == scroll ? fieldEditor : 0);
-    }
+}
 
 
 //-----------------------------------------------------------------------------
 // editNext:row:col:
 //-----------------------------------------------------------------------------
 - (void)editNext:(BOOL)next row:(MiscCoord_P)p_row col:(MiscCoord_P)p_col
-    {
+{
     int const nrows = [scroll numRows];
     MiscCoord_V v_row = [scroll rowPosition:p_row];
 
@@ -273,8 +273,8 @@ ClueFilter( unsigned short c, int flags, unsigned short cset )
 
     p_row = [scroll rowAtPosition:v_row];
     if ([scroll canEdit:0 at:p_row:p_col])
-	[scroll editCellAt:p_row:p_col];
-    }
+        [scroll editCellAt:p_row:p_col];
+}
 
 
 //-----------------------------------------------------------------------------
@@ -282,41 +282,41 @@ ClueFilter( unsigned short c, int flags, unsigned short cset )
 //-----------------------------------------------------------------------------
 #warning NotificationConversion: 'textDidEndEditing:' used to be 'textDidEnd:'.  This conversion assumes this method is implemented or sent to a delegate of NSText.  If this method was implemented by a NSMatrix or NSTextField textDelegate, use the text notifications in NSControl.h.
 - (void)textDidEndEditing:(NSNotification *)notification
-    {
+{
 #warning NotificationConversion: if this notification was not posted by NSText (eg. was forwarded by NSMatrix or NSTextField from the field editor to their textDelegate), then the text object is found by [[notification userInfo] objectForKey:@"NSFieldEditor"] rather than [notification object]
     NSText *theText = [notification object];
     int whyEnd = [[[notification userInfo] objectForKey:@"NSTextMovement"] intValue];
     MiscCoord_P row = [scroll clickedRow];
     MiscCoord_P col = [scroll clickedCol];
     switch (whyEnd)
-	{
-	case NSTabTextMovement:
-	    if (VERTICAL_MOVEMENT)
-		[self editNext:YES row:row col:col];
-	    else if ([scroll getNext:YES editRow:&row andCol:&col])
-		[scroll editCellAt:row:col];
-	    break;
-	case NSBacktabTextMovement:
-	    if (VERTICAL_MOVEMENT)
-		[self editNext:NO row:row col:col];
-	    else if ([scroll getNext:NO editRow:&row andCol:&col])
-		[scroll editCellAt:row:col];
-	    break;
-	case NSReturnTextMovement:
-	    [scroll selectText:self];
-	    [scroll sendAction];
-	    break;
-	}
+    {
+        case NSTabTextMovement:
+            if (VERTICAL_MOVEMENT)
+                [self editNext:YES row:row col:col];
+            else if ([scroll getNext:YES editRow:&row andCol:&col])
+                [scroll editCellAt:row:col];
+            break;
+        case NSBacktabTextMovement:
+            if (VERTICAL_MOVEMENT)
+                [self editNext:NO row:row col:col];
+            else if ([scroll getNext:NO editRow:&row andCol:&col])
+                [scroll editCellAt:row:col];
+            break;
+        case NSReturnTextMovement:
+            [scroll selectText:self];
+            [scroll sendAction];
+            break;
     }
+}
 
 
 //-----------------------------------------------------------------------------
 // allowDrag
 //-----------------------------------------------------------------------------
 - (void) allowDrag
-    {
+{
     [[clueMgr boardView] allowDrag:draggable map:map for:self];
-    }
+}
 
 
 //=============================================================================
@@ -327,13 +327,13 @@ ClueFilter( unsigned short c, int flags, unsigned short cset )
 // player:accuses:wins:
 //-----------------------------------------------------------------------------
 - (void) player:(int)p accuses:(ClueSolution const*)buff wins:(BOOL)wins
-    {
+{
     if (p == [self playerID])
-	{
-	char const* s = (wins ? "You win!" : "You lose.");
-	[messageField setStringValue:[NSString stringWithCString:s]];
-	}
+    {
+        char const* s = (wins ? "You win!" : "You lose.");
+        [messageField setStringValue:[NSString stringWithCString:s]];
     }
+}
 
 
 //=============================================================================
@@ -344,14 +344,14 @@ ClueFilter( unsigned short c, int flags, unsigned short cset )
 // player:reveals:
 //-----------------------------------------------------------------------------
 - (void) player:(int)p reveals:(ClueCard)c
-    {
+{
     char buff[128];
     sprintf( buff, "player %d reveals %s.\n%s",
-	p+1, ClueCardName(c), MAKE_ACCUSATION );
+            p+1, ClueCardName(c), MAKE_ACCUSATION );
     [messageField setStringValue:[NSString stringWithCString:buff]];
     wasDisproved = YES;
     [self revealOk];
-    }
+}
 
 
 //=============================================================================
@@ -361,15 +361,15 @@ ClueFilter( unsigned short c, int flags, unsigned short cset )
 // finishSolution:
 //-----------------------------------------------------------------------------
 - (void) finishSolution:(BOOL)skip
-    {
+{
     ClueSolution* p = 0;
     if (!skip)
-	{
-	p = &suggestion;
-	p->suspect() = ClueCard( [suspectPop selectedTag] );
-	p->weapon() = ClueCard( [weaponPop selectedTag] );
-	p->room() = ClueCard( [roomPop selectedTag] );
-	}
+    {
+        p = &suggestion;
+        p->suspect() = ClueCard( [suspectPop selectedTag] );
+        p->weapon() = ClueCard( [weaponPop selectedTag] );
+        p->room() = ClueCard( [roomPop selectedTag] );
+    }
 
     [suggestButton setEnabled:NO];
     [accuseButton setEnabled:NO];
@@ -379,175 +379,175 @@ ClueFilter( unsigned short c, int flags, unsigned short cset )
     [roomPop setEnabled:NO];
 
     if (forAccuse)
-	[self accuse:p];
+        [self accuse:p];
     else
-	[self suggest:p];
-    }
+        [self suggest:p];
+}
 
 
 - (void) restorePiece:(ClueCard)piece to:(ClueCoord)pos
-    {
+{
     if ([clueMgr pieceAt:pos] != CLUE_CARD_MAX)
-	{
-	ClueCard const room = ClueRoomAt( pos );
-	assert( room != CLUE_CARD_MAX );
-	pos = [clueMgr roomCoord:room];
-	}
-    [clueMgr movePiece:piece to:pos];
+    {
+        ClueCard const room = ClueRoomAt( pos );
+        assert( room != CLUE_CARD_MAX );
+        pos = [clueMgr roomCoord:room];
     }
+    [clueMgr movePiece:piece to:pos];
+}
 
 
 - skipPressed:sender
-    {
+{
     if (!forAccuse)		// Suggestion skipped.
-	{			// Restore suspect / weapon.
-	[self restorePiece:suspectID to:suspectPos];
-	[self restorePiece:weaponID to:weaponPos];
-	}
+    {			// Restore suspect / weapon.
+        [self restorePiece:suspectID to:suspectPos];
+        [self restorePiece:weaponID to:weaponPos];
+    }
     wasDisproved = YES;		// Suppress "nobody disproved".
     [messageField setStringValue:[NSString stringWithCString:MAKE_ACCUSATION]];
     [self finishSolution:YES];
     return self;
-    }
+}
 
 
 - accusePressed:sender
-    {
+{
     [self finishSolution:NO];
     return self;
-    }
+}
 
 
 - suggestPressed:sender
-    {
+{
     [self finishSolution:NO];
     return self;
-    }
+}
 
 
 - (void) movePiece:(ClueCard)piece
-    toRoom:(ClueCard)room
-    savePos:(ClueCoord*)savePos
-    {
+            toRoom:(ClueCard)room
+           savePos:(ClueCoord*)savePos
+{
     ClueCoord const pos = [clueMgr pieceLocation:piece];
     *savePos = pos;
     if (ClueRoomAt( pos ) != room)
-	[clueMgr movePiece:piece to:[clueMgr roomCoord:room]];
-    }
+        [clueMgr movePiece:piece to:[clueMgr roomCoord:room]];
+}
 
 
 - suspectSnap:sender
-    {
+{
     if (!forAccuse)
-	{
-	ClueCard const x = ClueCard( [suspectPop selectedTag] );
-	if (x != suspectID)
-	    {
-	    [self restorePiece:suspectID to:suspectPos];
-	    suspectID = x;
-	    [self movePiece:suspectID toRoom:currRoom savePos:&suspectPos];
-	    }
-	}
-    return self;
+    {
+        ClueCard const x = ClueCard( [suspectPop selectedTag] );
+        if (x != suspectID)
+        {
+            [self restorePiece:suspectID to:suspectPos];
+            suspectID = x;
+            [self movePiece:suspectID toRoom:currRoom savePos:&suspectPos];
+        }
     }
+    return self;
+}
 
 
 - weaponSnap:sender
-    {
+{
     if (!forAccuse)
-	{
-	ClueCard const x = ClueCard( [weaponPop selectedTag] );
-	if (x != weaponID)
-	    {
-	    [self restorePiece:weaponID to:weaponPos];
-	    weaponID = x;
-	    [self movePiece:weaponID toRoom:currRoom savePos:&weaponPos];
-	    }
-	}
-    return self;
+    {
+        ClueCard const x = ClueCard( [weaponPop selectedTag] );
+        if (x != weaponID)
+        {
+            [self restorePiece:weaponID to:weaponPos];
+            weaponID = x;
+            [self movePiece:weaponID toRoom:currRoom savePos:&weaponPos];
+        }
     }
+    return self;
+}
 
 
 //-----------------------------------------------------------------------------
 // startSolution
 //-----------------------------------------------------------------------------
 - (void) startSolution
-    {
+{
     [skipButton setEnabled:YES];
     [suspectPop setEnabled:YES];
     [weaponPop setEnabled:YES];
     [window makeKeyAndOrderFront:self];
-    }
+}
 
 
 //-----------------------------------------------------------------------------
 // makeSuggestion
 //-----------------------------------------------------------------------------
 - (void) makeSuggestion
-    {
+{
     ClueCard const curr_room = ClueRoomAt( [self location] );
     if (curr_room != CLUE_CARD_MAX && curr_room != last_room)
-	{
-	wasDisproved = NO;
-	forAccuse = NO;
-	currRoom = curr_room;
-
-	[messageField setStringValue:@"Make a suggestion or skip."];
-	[suggestButton setEnabled:YES];
-	[roomPop selectTag: int(curr_room)];
-
-	suspectID = ClueCard( [suspectPop selectedTag] );
-	[self movePiece:suspectID toRoom:currRoom savePos:&suspectPos];
-
-	weaponID = ClueCard( [weaponPop selectedTag] );
-	[self movePiece:weaponID toRoom:currRoom savePos:&weaponPos];
-
-	[self startSolution];
-
-	ClueCoordArray obstacles;
-	map->allSquaresInRoom( curr_room, obstacles );
-
-	for (int i = 0; i < CLUE_SUSPECT_COUNT + CLUE_WEAPON_COUNT; i++)
-	    draggable[i] = true;
-
-	forMove = NO;
-	[self allowDrag];
-	}
-    else
-	{
-	wasDisproved = YES;	// Suppress "nobody disproved" message.
-	[messageField setStringValue:[NSString stringWithCString:MAKE_ACCUSATION]];
-	[self suggest:0];
-	}
+    {
+        wasDisproved = NO;
+        forAccuse = NO;
+        currRoom = curr_room;
+        
+        [messageField setStringValue:@"Make a suggestion or skip."];
+        [suggestButton setEnabled:YES];
+        [roomPop selectTag: int(curr_room)];
+        
+        suspectID = ClueCard( [suspectPop selectedTag] );
+        [self movePiece:suspectID toRoom:currRoom savePos:&suspectPos];
+        
+        weaponID = ClueCard( [weaponPop selectedTag] );
+        [self movePiece:weaponID toRoom:currRoom savePos:&weaponPos];
+        
+        [self startSolution];
+        
+        ClueCoordArray obstacles;
+        map->allSquaresInRoom( curr_room, obstacles );
+        
+        for (int i = 0; i < CLUE_SUSPECT_COUNT + CLUE_WEAPON_COUNT; i++)
+            draggable[i] = true;
+        
+        forMove = NO;
+        [self allowDrag];
     }
+    else
+    {
+        wasDisproved = YES;	// Suppress "nobody disproved" message.
+        [messageField setStringValue:[NSString stringWithCString:MAKE_ACCUSATION]];
+        [self suggest:0];
+    }
+}
 
 
 //-----------------------------------------------------------------------------
 // startAccuse
 //-----------------------------------------------------------------------------
 - (void) startAccuse
-    {
+{
     forAccuse = YES;
     [accuseButton setEnabled:YES];
     [roomPop setEnabled:YES];
     [self startSolution];
-    }
+}
 
 
 //-----------------------------------------------------------------------------
 // makeAccusation
 //-----------------------------------------------------------------------------
 - (void) makeAccusation
-    {
+{
     if (!wasDisproved)
-	{
-	char buff[ 128 ];
-	sprintf( buff, "Nobody can disprove your suggestion.\n%s",
-			MAKE_ACCUSATION );
-	[messageField setStringValue:[NSString stringWithCString:buff]];
-	}
-    [self startAccuse];
+    {
+        char buff[ 128 ];
+        sprintf( buff, "Nobody can disprove your suggestion.\n%s",
+                MAKE_ACCUSATION );
+        [messageField setStringValue:[NSString stringWithCString:buff]];
     }
+    [self startAccuse];
+}
 
 
 //=============================================================================
@@ -557,7 +557,7 @@ ClueFilter( unsigned short c, int flags, unsigned short cset )
 // revealPressed:
 //-----------------------------------------------------------------------------
 - revealPressed:sender
-    {
+{
     [revealButton setEnabled:NO];
     [revealMatrix setEnabled:NO];
 
@@ -567,69 +567,69 @@ ClueFilter( unsigned short c, int flags, unsigned short cset )
 
     [self reveal:x];
     return self;
-    }
+}
 
 
 //-----------------------------------------------------------------------------
 // setRevealCell:forCard:
 //-----------------------------------------------------------------------------
 - (void) setRevealCell:(int)row forCard:(ClueCard)x
-    {
+{
     NSButtonCell* cell = [revealMatrix cellAtRow:row column:0];
     [cell setEnabled:[self amHoldingCard:x]];
     [cell setTitle:[NSString stringWithCString:ClueCardName(x)]];
     [cell setTag:x];
     [cell setState:0];
-    }
+}
 
 
 //-----------------------------------------------------------------------------
 // fixRevealMatrix
 //-----------------------------------------------------------------------------
 - (void) fixRevealMatrix
-    {
+{
     [revealMatrix setAllowsEmptySelection:NO];
     for (int i = 0; i < 3; i++)
-	{
-	NSCell* cell = [revealMatrix cellAtRow:i column:0];
-	if ([cell isEnabled])
-	    {
-	    [cell setState:1];
-	    [revealMatrix selectCellAtRow:i column:0];
-	    break;
-	    }
-	}
-    [revealMatrix display];
+    {
+        NSCell* cell = [revealMatrix cellAtRow:i column:0];
+        if ([cell isEnabled])
+        {
+            [cell setState:1];
+            [revealMatrix selectCellAtRow:i column:0];
+            break;
+        }
     }
+    [revealMatrix display];
+}
 
 
 //-----------------------------------------------------------------------------
 // disprove:forPlayer:
 //-----------------------------------------------------------------------------
 - (void) disprove:(ClueSolution const*)solution forPlayer:(int)playerID
-    {
+{
     BOOL have_one = false;
     for (int i = 0; i < CLUE_CATEGORY_COUNT; i++)
-	if ([self amHoldingCard:solution->v[i]])
-	    { have_one = true; break; }
+        if ([self amHoldingCard:solution->v[i]])
+        { have_one = true; break; }
 
     if (have_one)
-	{
-	suggestion = *solution;
-	[messageField setStringValue:@"Reveal a card to disprove this suggestion."];
+    {
+        suggestion = *solution;
+        [messageField setStringValue:@"Reveal a card to disprove this suggestion."];
 
-	[revealButton setEnabled:YES];
-	[revealMatrix setEnabled:YES];
+        [revealButton setEnabled:YES];
+        [revealMatrix setEnabled:YES];
 
-	for (int i = 0; i < CLUE_CATEGORY_COUNT; i++)
-	    [self setRevealCell:i forCard:solution->v[i]];
+        for (int i = 0; i < CLUE_CATEGORY_COUNT; i++)
+            [self setRevealCell:i forCard:solution->v[i]];
 
-	[self fixRevealMatrix];
-	[window makeKeyAndOrderFront:self];
-	}
-    else
-	[self reveal:CLUE_CARD_MAX];
+        [self fixRevealMatrix];
+        [window makeKeyAndOrderFront:self];
     }
+    else
+        [self reveal:CLUE_CARD_MAX];
+}
 
 
 //=============================================================================
@@ -639,43 +639,43 @@ ClueFilter( unsigned short c, int flags, unsigned short cset )
 // disableMoveButtons
 //-----------------------------------------------------------------------------
 - (void) disableMoveButtons
-    {
+{
     [stayButton setEnabled:NO];
     [passageButton setEnabled:NO];
     [rollButton setEnabled:NO];
     [dieButton setEnabled:NO];
-    }
+}
 
 
 //-----------------------------------------------------------------------------
 // finishMove:
 //-----------------------------------------------------------------------------
 - (void) finishMove:(ClueCoord)coord
-    {
+{
     [self disableMoveButtons];
     [self moveTo:coord];
-    }
+}
 
 
 //-----------------------------------------------------------------------------
 // stayPressed:
 //-----------------------------------------------------------------------------
 - stayPressed:sender
-    {
+{
     [self finishMove:[self location]];
     return self;
-    }
+}
 
 
 //-----------------------------------------------------------------------------
 // passagePressed:
 //-----------------------------------------------------------------------------
 - passagePressed:sender
-    {
+{
     ClueCoord pos = [clueMgr roomCoord:passageRoom];
     [self finishMove:pos];
     return self;
-    }
+}
 
 
 //-----------------------------------------------------------------------------
@@ -683,63 +683,63 @@ ClueFilter( unsigned short c, int flags, unsigned short cset )
 //-----------------------------------------------------------------------------
 - (void) piece:(ClueCard)piece from:(ClueCoord)oldPos
 	droppedAt:(ClueCoord)newPos
-    {
+{
     if (forMove)
-	{
-	if (piece == [self pieceID] && map->isLegal( newPos ))
-	    {
-	    forMove = NO;
-	    [self moveTo:newPos];
-	    }
-	else
-	    [self allowDrag];
-	}
-    else
-	{
-	if (piece <= CLUE_SUSPECT_LAST)
-	    {
-	    if (piece != suspectID)
-		{
-		[self restorePiece:suspectID to:suspectPos];
-		suspectID = piece;
-		suspectPos = oldPos;
-		[suspectPop selectTag:int(piece)];
-		}
-	    }
-	else
-	    {
-	    if (piece != weaponID)
-		{
-		[self restorePiece:weaponID to:weaponPos];
-		weaponID = piece;
-		weaponPos = oldPos;
-		[weaponPop selectTag:int(piece)];
-		}
-	    }
-	[self allowDrag];
-	}
+    {
+        if (piece == [self pieceID] && map->isLegal( newPos ))
+        {
+            forMove = NO;
+            [self moveTo:newPos];
+        }
+        else
+            [self allowDrag];
     }
+    else
+    {
+        if (piece <= CLUE_SUSPECT_LAST)
+        {
+            if (piece != suspectID)
+            {
+                [self restorePiece:suspectID to:suspectPos];
+                suspectID = piece;
+                suspectPos = oldPos;
+                [suspectPop selectTag:int(piece)];
+            }
+        }
+        else
+        {
+            if (piece != weaponID)
+            {
+                [self restorePiece:weaponID to:weaponPos];
+                weaponID = piece;
+                weaponPos = oldPos;
+                [weaponPop selectTag:int(piece)];
+            }
+        }
+        [self allowDrag];
+    }
+}
 
 
 //-----------------------------------------------------------------------------
 // makeMapForRoll:
 //-----------------------------------------------------------------------------
 - (bool) makeMapForRoll:(int)die_roll
-    {
+{
     ClueCoordArray obstacles;
     int const self_piece = int([self pieceID]);
     for (int i = 0; i < CLUE_SUSPECT_COUNT; i++)
-	if (i != self_piece)
-	    obstacles.append( [clueMgr pieceLocation:ClueCard(i)] );
+        if (i != self_piece)
+            obstacles.append( [clueMgr pieceLocation:ClueCard(i)] );
     return map->calcLegal( die_roll, [self location], obstacles );
-    }
+}
 
 
 //-----------------------------------------------------------------------------
 // rollPressed:
 //-----------------------------------------------------------------------------
 - rollPressed:sender
-    {
+{
     [self disableMoveButtons];
 
     int const die_roll = [clueMgr rollDie];
@@ -748,17 +748,17 @@ ClueFilter( unsigned short c, int flags, unsigned short cset )
 
     char buff[128];
     if ([self makeMapForRoll:die_roll])
-	{
-	sprintf( buff, "You rolled %d.\nMove your piece.", die_roll );
-	}
+    {
+        sprintf( buff, "You rolled %d.\nMove your piece.", die_roll );
+    }
     else
-	{
-	int n = die_roll;
-	do { --n; assert( n != 0 ); }
-	while (![self makeMapForRoll:n]);
-	sprintf( buff, "You rolled %d, but can only use %d.\n"
-			"Move your piece.", die_roll, n );
-	}
+    {
+        int n = die_roll;
+        do { --n; assert( n != 0 ); }
+        while (![self makeMapForRoll:n]);
+        sprintf( buff, "You rolled %d, but can only use %d.\n"
+                "Move your piece.", die_roll, n );
+    }
     [messageField setStringValue:[NSString stringWithCString:buff]];
 
     memset( draggable, 0, sizeof(draggable) );
@@ -769,20 +769,20 @@ ClueFilter( unsigned short c, int flags, unsigned short cset )
     [self allowDrag];
 
     return self;
-    }
+}
 
 
 //-----------------------------------------------------------------------------
 // makeMove
 //-----------------------------------------------------------------------------
 - (void) makeMove
-    {
+{
     [stayButton setEnabled:can_stay];
 
     passageRoom = CLUE_CARD_MAX;
     ClueCard const room = ClueRoomAt( [self location] );
     if (room != CLUE_CARD_MAX)
-	passageRoom = CLUE_PASSAGE[ room - CLUE_ROOM_FIRST ];
+        passageRoom = CLUE_PASSAGE[ room - CLUE_ROOM_FIRST ];
     BOOL const has_passage = passageRoom != CLUE_CARD_MAX;
     [passageButton setEnabled:has_passage];
 
@@ -791,14 +791,14 @@ ClueFilter( unsigned short c, int flags, unsigned short cset )
     [dieButton setEnabled:can_roll];
 
     if (can_stay || has_passage || can_roll)
-	[messageField setStringValue:@"Your move."];
+        [messageField setStringValue:@"Your move."];
     else
-	{
-	[messageField setStringValue:@"No legal move.  Press stay."];
-	[stayButton setEnabled:YES];
-	}
-
-    [window makeKeyAndOrderFront:self];
+    {
+        [messageField setStringValue:@"No legal move.  Press stay."];
+        [stayButton setEnabled:YES];
     }
+    
+    [window makeKeyAndOrderFront:self];
+}
 
 @end

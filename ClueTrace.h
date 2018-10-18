@@ -22,9 +22,9 @@
 @class NSText;
 
 @interface ClueTrace : NSObject
-    {
+{
     NSText*	text;
-    }
+}
 
 - (instancetype)initWithText:(NSText*)text;
 - (void) appendText:(NSString*)s;

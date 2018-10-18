@@ -23,12 +23,12 @@
 @implementation NSButton(Pop)
 
 - (void) selectTag:(int)x
-    {
+{
 #warning PopUpConversion: Consider NSPopUpButton methods instead of using itemMatrix to access items in a pop-up list.
     NSMatrix* matrix = [self itemMatrix];
     [matrix selectCellWithTag:x];
     [self setTitle:[[matrix selectedCell] title]];
-    }
+}
 
 - (int) selectedTag
 #warning PopUpConversion: Consider NSPopUpButton methods instead of using itemMatrix to access items in a pop-up list.

@@ -27,7 +27,7 @@
 //-----------------------------------------------------------------------------
 #warning PrintingConversion:  printPSCode: has been renamed to print:.  Rename this method?
 - (void)print:(id)sender
-    {
+{
     [text print:self];
 }
 
@@ -36,33 +36,33 @@
 // free
 //-----------------------------------------------------------------------------
 - (void)dealloc
-    {
+{
     [trace release];
     [window close];
     [window release];
     { [super dealloc]; return; };
-    }
+}
 
 
 //-----------------------------------------------------------------------------
 // init
 //-----------------------------------------------------------------------------
 - init
-    {
+{
     self = [super init];
     ClueLoadNib( self );
     [window setWorksWhenModal:YES];
     [window setFrameAutosaveName:@"MessagesWindow"];
     trace = [[ClueTrace alloc] initText:text];
     return self;
-    }
+}
 
 
 //-----------------------------------------------------------------------------
 // orderFront:
 //-----------------------------------------------------------------------------
 - (void)orderFront:(id)sender
-    {
+{
     [window orderFront:sender];
 }
 

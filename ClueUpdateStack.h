@@ -21,22 +21,22 @@
 #import "ClueDefs.h"
 
 class ClueUpdateStack
-	{
+{
 private:
-	struct Rec
-		{
-		int p;		// player_id or one's complement to negate.
-		ClueCard c;	// card.
-		};
-	int num_recs;
-	int max_recs;
-	Rec* recs;
-	void expand();
+    struct Rec
+    {
+        int p;		// player_id or one's complement to negate.
+        ClueCard c;	// card.
+    };
+    int num_recs;
+    int max_recs;
+    Rec* recs;
+    void expand();
 public:
-	ClueUpdateStack();
-	~ClueUpdateStack();
-	void push( int p, bool holds, ClueCard c );
-	bool pop( int& p, bool& h, ClueCard& c );
-	};
+    ClueUpdateStack();
+    ~ClueUpdateStack();
+    void push( int p, bool holds, ClueCard c );
+    bool pop( int& p, bool& h, ClueCard& c );
+};
 
 #endif // __ClueUpdateStack_h

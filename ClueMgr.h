@@ -25,49 +25,49 @@
 @class ClueBoardView;
 
 enum ClueState
-	{
-	CLUE_STATE_NEW_GAME,		// Starting a new game
-	CLUE_STATE_NEXT_PLAYER,		// Waiting for nextPlayerOk:
-	CLUE_STATE_MOVE,		// Waiting for move...
-	CLUE_STATE_SUGGEST,		// Waiting for suggest:ok:
-	CLUE_STATE_REVEAL,		// Waiting for reveal:ok:
-	CLUE_STATE_REVEAL_OK,		// Waiting for revealOk:
-	CLUE_STATE_ACCUSE,		// Waiting for accuse:ok:
-	CLUE_STATE_GAME_OVER
-	};
+{
+    CLUE_STATE_NEW_GAME,		// Starting a new game
+    CLUE_STATE_NEXT_PLAYER,		// Waiting for nextPlayerOk:
+    CLUE_STATE_MOVE,		// Waiting for move...
+    CLUE_STATE_SUGGEST,		// Waiting for suggest:ok:
+    CLUE_STATE_REVEAL,		// Waiting for reveal:ok:
+    CLUE_STATE_REVEAL_OK,		// Waiting for revealOk:
+    CLUE_STATE_ACCUSE,		// Waiting for accuse:ok:
+    CLUE_STATE_GAME_OVER
+};
 
 
 struct CluePlayerRec
-	{
-	int		player_id;
-	ClueCard	piece_id;	// Identifies playing piece.
-	ClueCard	last_room;
-	int		hand_start;	// Index into deck.
-	int		hand_length;
-	CluePlayer*	player;
-	bool		can_stay;	// Dragged into room by an opponent.
-	bool		lost;
-	};
+{
+    int		player_id;
+    ClueCard	piece_id;	// Identifies playing piece.
+    ClueCard	last_room;
+    int		hand_start;	// Index into deck.
+    int		hand_length;
+    CluePlayer*	player;
+    bool		can_stay;	// Dragged into room by an opponent.
+    bool		lost;
+};
 
 
 
 @interface ClueMgr : NSObject
-	{
-	ClueState state;		// Indicates message that we expect.
-	int player_id;			// Current player.
-	int query_id;			// Index of waiting_for player.
-	CluePlayer* waiting_for;	// Player we are waiting to hear from.
-	int num_players;
-	ClueBoard* board;
-	ClueMessages* messages;
-	ClueTrace* trace;
-	ClueSolution suggestion;	// Current suggestion / accusation.
-	ClueSolution solution;
-	ClueCard deck[ CLUE_CARD_COUNT ];
-	CluePlayerRec players[ CLUE_NUM_PLAYERS_MAX ];
-	ClueCoord locations[ CLUE_SUSPECT_COUNT + CLUE_WEAPON_COUNT ];
-	BOOL stillPlaying;
-	}
+{
+    ClueState state;		// Indicates message that we expect.
+    int player_id;			// Current player.
+    int query_id;			// Index of waiting_for player.
+    CluePlayer* waiting_for;	// Player we are waiting to hear from.
+    int num_players;
+    ClueBoard* board;
+    ClueMessages* messages;
+    ClueTrace* trace;
+    ClueSolution suggestion;	// Current suggestion / accusation.
+    ClueSolution solution;
+    ClueCard deck[ CLUE_CARD_COUNT ];
+    CluePlayerRec players[ CLUE_NUM_PLAYERS_MAX ];
+    ClueCoord locations[ CLUE_SUSPECT_COUNT + CLUE_WEAPON_COUNT ];
+    BOOL stillPlaying;
+}
 
 - newGame:sender;
 - showRules:sender;

@@ -23,7 +23,6 @@ class ClueCondArray;		// Array of conditional expressions.
 	ClueCondArray* cond_array;
 }
 
-- (void)dealloc;
 - (void) earlyInit;
 - (void) dump;
 - (void) stack:(ClueUpdateStack*)stack player:(int)p holdsCard:(ClueCard)c;

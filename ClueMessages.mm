@@ -26,7 +26,6 @@
 //-----------------------------------------------------------------------------
 // print:
 //-----------------------------------------------------------------------------
-#warning PrintingConversion:  printPSCode: has been renamed to print:.  Rename this method?
 - (void)print:(id)sender
 {
     [text print:self];
@@ -41,7 +40,7 @@
     [trace release];
     [window close];
     [window release];
-    { [super dealloc]; return; };
+    [super dealloc];
 }
 
 

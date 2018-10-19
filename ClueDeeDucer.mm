@@ -31,7 +31,7 @@ extern "C" {
 - (void)dealloc
 {
     delete cond_array;
-    { [super dealloc]; return; };
+    [super dealloc];
 }
 
 

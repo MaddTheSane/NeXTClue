@@ -83,10 +83,10 @@ static BOOL VERTICAL_MOVEMENT = NO;
 // ClueFilter
 //-----------------------------------------------------------------------------
 static unsigned short
-ClueFilter( unsigned short c, int flags, unsigned short cset )
+ClueFilter( unsigned short c, NSEventModifierFlags flags, unsigned short cset )
 {
     enum { KEY_UP = 0xad, KEY_DOWN = 0xaf };
-    NSEventModifierFlags const BAD = (NSControlKeyMask | NSAlternateKeyMask | NSCommandKeyMask);
+    NSEventModifierFlags const BAD = (NSEventModifierFlagControl | NSEventModifierFlagOption | NSEventModifierFlagCommand);
     if ((flags & BAD) == 0 && cset == NX_SYMBOLSET)
     {
         if (c == KEY_UP)
@@ -113,7 +113,6 @@ ClueFilter( unsigned short c, int flags, unsigned short cset )
 - (BOOL) isHuman		{ return YES; }
 - (char const*) playerName	{ return "Human"; }
 
-#warning PrintingConversion:  printPSCode: has been renamed to print:.  Rename this method?
 - (void)print:(id)x	{ [window print:self];
 }
 
@@ -127,7 +126,7 @@ ClueFilter( unsigned short c, int flags, unsigned short cset )
     [fieldEditor release];
     [window close];
     [window release];
-    { [super dealloc]; return; };
+    [super dealloc];
 }
 
 

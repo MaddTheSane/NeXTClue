@@ -56,7 +56,7 @@
 {
     [window close];
     [window release];
-    { [super dealloc]; return; };
+    [super dealloc];
 }
 
 @end

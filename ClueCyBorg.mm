@@ -28,15 +28,15 @@ extern "C" {
 class ClueHistory
 {
 public:
-    int const NOT_SET = -1;
-    int const NOBODY = -2;
-private:
+    static int const NOT_SET = -1;
+    static int const NOBODY = -2;
     struct Rec
     {
-        int suggested_by;	// Player ID.
-        int disproved_by;	// Player ID, or NOT_SET, or NOBODY.
+        int suggested_by;    //!< Player ID.
+        int disproved_by;    //!< Player ID, or NOT_SET, or NOBODY.
         ClueSolution s;
     };
+private:
     int num_recs;
     int max_recs;
     Rec* recs;
@@ -390,7 +390,7 @@ void ClueHistory::set_disproved_by( int p )
 //-----------------------------------------------------------------------------
 // initProbsCategory:
 //-----------------------------------------------------------------------------
-- initProbsCategory:(int)cat
+- (void)initProbsCategory:(int)cat
 {
     assert( num_players > 1 );
 
@@ -403,14 +403,14 @@ void ClueHistory::set_disproved_by( int p )
     int ndealt = 0;
     int const self_id = [self playerID];
     int const* g = grid[ self_id ];
-    for (i = lo; i <= hi; i++)
-        if (g[i] == GRID_HOLDS)
-        {
+    for (i = lo; i <= hi; i++) {
+        if (g[i] == GRID_HOLDS) {
             ndealt++;
             for (j = 0; j <= num_players; j++)
                 probs[j][i] = 0;
             probs[self_id][i] = 1;
         }
+    }
 
     int const num_unknown = ncards - ndealt;
     assert( num_unknown > 0 );
@@ -418,21 +418,20 @@ void ClueHistory::set_disproved_by( int p )
     float soln_prob = 1;	// Probability card is in solution.
     float pone_prob = 0;	// Probability card is held by opponent.
 
-    if (num_unknown > 1)
-    {
+    if (num_unknown > 1) {
         soln_prob = 1.0 / float( num_unknown );
         pone_prob = (1.0 - soln_prob) / float( num_players - 1 );
     }
 
     g = grid[ self_id ];
-    for (i = lo; i <= hi; i++)
-        if (g[i] == GRID_NOT_HOLDS)
-        {
+    for (i = lo; i <= hi; i++) {
+        if (g[i] == GRID_NOT_HOLDS) {
             for (j = 0; j < num_players; j++)
                 probs[j][i] = pone_prob;
             probs[num_players][i] = soln_prob;
             probs[self_id][i] = 0;
         }
+    }
 }
 
 
@@ -442,8 +441,9 @@ void ClueHistory::set_disproved_by( int p )
 //-----------------------------------------------------------------------------
 - (void) initProbs
 {
-    for (int i = 0; i < CLUE_CATEGORY_COUNT; i++)
+    for (int i = 0; i < CLUE_CATEGORY_COUNT; i++) {
         [self initProbsCategory:i];
+    }
 }
 
 
@@ -475,7 +475,7 @@ void ClueHistory::set_disproved_by( int p )
 - (void)dealloc
 {
     delete history;
-    { [super dealloc]; return; };
+    [super dealloc];
 }
 
 //-----------------------------------------------------------------------------

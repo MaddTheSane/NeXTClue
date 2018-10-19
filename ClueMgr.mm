@@ -22,6 +22,7 @@
 #import	"ClueMessages.h"
 #import	"ClueTrace.h"
 #import <AppKit/NSApplication.h>
+#include <objc/hashtable2.h>
 
 extern "C" {
 #import	<assert.h>
@@ -693,8 +694,6 @@ static void sort_hand( int start_pos, int n, ClueCard* deck )
 + (void)initialize
 {
     SRANDOM( time(0) );
-    CLUE_CARD_PBTYPE = NXUniqueString( "com.github.MaddTheSane.NeXTClue.ClueCard" );
-    return;
 }
 
 @end

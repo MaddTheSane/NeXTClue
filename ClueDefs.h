@@ -21,7 +21,11 @@
 #import <objc/hashtable2.h>	// NXAtom
 #include <cstdlib>
 
-extern NXAtom CLUE_CARD_PBTYPE;
+#ifdef __OBJC__
+#import <AppKit/NSPasteboard.h>
+
+extern NSPasteboardType const CLUE_CARD_PBTYPE;
+#endif
 
 enum ClueCategory
 {

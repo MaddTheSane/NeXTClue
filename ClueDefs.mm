@@ -23,7 +23,7 @@ extern "C" {
 }
 
 
-NXAtom CLUE_CARD_PBTYPE = 0;
+NSPasteboardType const CLUE_CARD_PBTYPE = @"com.github.MaddTheSane.NeXTClue.ClueCard";
 
 
 ClueCategoryRange const CLUE_CATEGORY_RANGE[ CLUE_CATEGORY_COUNT ] =

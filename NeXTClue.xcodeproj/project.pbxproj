@@ -14,7 +14,7 @@
 		552B1EE6217925790062E4CC /* ClueRandyMizer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 552B1E90217925700062E4CC /* ClueRandyMizer.mm */; };
 		552B1EE9217925790062E4CC /* ClueCondArray.cc in Sources */ = {isa = PBXBuildFile; fileRef = 552B1E95217925710062E4CC /* ClueCondArray.cc */; };
 		552B1EEA217925790062E4CC /* ClueCyBorg.mm in Sources */ = {isa = PBXBuildFile; fileRef = 552B1E96217925710062E4CC /* ClueCyBorg.mm */; };
-		552B1EEB217925790062E4CC /* ClueDefs.cc in Sources */ = {isa = PBXBuildFile; fileRef = 552B1E97217925710062E4CC /* ClueDefs.cc */; };
+		552B1EEB217925790062E4CC /* ClueDefs.mm in Sources */ = {isa = PBXBuildFile; fileRef = 552B1E97217925710062E4CC /* ClueDefs.mm */; };
 		552B1EEC217925790062E4CC /* ClueDeeDucer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 552B1E98217925710062E4CC /* ClueDeeDucer.mm */; };
 		552B1EED217925790062E4CC /* ClueHuman.mm in Sources */ = {isa = PBXBuildFile; fileRef = 552B1E9A217925710062E4CC /* ClueHuman.mm */; };
 		552B1EEF217925790062E4CC /* ClueAnnaLyzer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 552B1E9D217925720062E4CC /* ClueAnnaLyzer.mm */; };
@@ -65,7 +65,7 @@
 		552B1E92217925700062E4CC /* CluePlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CluePlayer.h; sourceTree = "<group>"; };
 		552B1E95217925710062E4CC /* ClueCondArray.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ClueCondArray.cc; sourceTree = "<group>"; };
 		552B1E96217925710062E4CC /* ClueCyBorg.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ClueCyBorg.mm; sourceTree = "<group>"; };
-		552B1E97217925710062E4CC /* ClueDefs.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ClueDefs.cc; sourceTree = "<group>"; };
+		552B1E97217925710062E4CC /* ClueDefs.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ClueDefs.mm; sourceTree = "<group>"; };
 		552B1E98217925710062E4CC /* ClueDeeDucer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ClueDeeDucer.mm; sourceTree = "<group>"; };
 		552B1E99217925710062E4CC /* ClueComputer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClueComputer.h; sourceTree = "<group>"; };
 		552B1E9A217925710062E4CC /* ClueHuman.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ClueHuman.mm; sourceTree = "<group>"; };
@@ -164,7 +164,7 @@
 				552B1E91217925700062E4CC /* ClueCondArray.h */,
 				552B1EC0217925760062E4CC /* ClueCoordArray.cc */,
 				552B1EA1217925720062E4CC /* ClueCoordArray.h */,
-				552B1E97217925710062E4CC /* ClueDefs.cc */,
+				552B1E97217925710062E4CC /* ClueDefs.mm */,
 				552B1EAA217925730062E4CC /* ClueDefs.h */,
 				552B1EBF217925750062E4CC /* ClueHuman.h */,
 				552B1E9A217925710062E4CC /* ClueHuman.mm */,
@@ -209,12 +209,12 @@
 		55B4366821795233005ABAA2 /* AIs */ = {
 			isa = PBXGroup;
 			children = (
+				552B1E99217925710062E4CC /* ClueComputer.h */,
+				552B1EC8217925760062E4CC /* ClueComputer.mm */,
 				552B1EA3217925720062E4CC /* ClueAnnaLyzer.h */,
 				552B1E9D217925720062E4CC /* ClueAnnaLyzer.mm */,
 				552B1EDA217925780062E4CC /* ClueBeaGinner.h */,
 				552B1EB9217925750062E4CC /* ClueBeaGinner.mm */,
-				552B1E99217925710062E4CC /* ClueComputer.h */,
-				552B1EC8217925760062E4CC /* ClueComputer.mm */,
 				552B1EAD217925740062E4CC /* ClueCyBorg.h */,
 				552B1E96217925710062E4CC /* ClueCyBorg.mm */,
 				552B1ECF217925770062E4CC /* ClueCyLent.h */,
@@ -311,7 +311,7 @@
 			files = (
 				552B1EFF217925790062E4CC /* ClueBoardView.mm in Sources */,
 				552B1F22217925790062E4CC /* CluePlayer.mm in Sources */,
-				552B1EEB217925790062E4CC /* ClueDefs.cc in Sources */,
+				552B1EEB217925790062E4CC /* ClueDefs.mm in Sources */,
 				552B1F0B217925790062E4CC /* ClueUpdateStack.cc in Sources */,
 				552B1EEC217925790062E4CC /* ClueDeeDucer.mm in Sources */,
 				552B1EF8217925790062E4CC /* ClueButton.mm in Sources */,

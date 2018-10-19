@@ -19,9 +19,7 @@
 #import "ClueCoordArray.h"
 #import	"ClueMap.h"
 #import "ClueMgr.h"
-#import <AppKit/NSApplication.h>
-#import <AppKit/NSImage.h>
-#import <AppKit/NSColor.h>
+#import <Cocoa/Cocoa.h>
 
 extern "C" {
 #import <assert.h>
@@ -29,7 +27,7 @@ extern "C" {
 //#import <AppKit/psops.h>
 }
 
-static char const* const BOARD_IMAGE = "board";
+static NSString * const BOARD_IMAGE = @"board";
 int const TILE_SIZE = 20;
 
 struct CL_RegionRel
@@ -48,12 +46,11 @@ struct CL_RegionAbs
 
 static CL_RegionAbs REGIONS[ CLUE_ROW_MAX ][ CLUE_COL_MAX ];
 
-static inline float absval( float x ) { return (x < 0 ? -x : x ); }
-static inline BOOL isSlop(NSEvent *const* e1,NSEvent *const* e2,
-			   float const slop)
+static inline BOOL isSlop(NSEvent * e1,NSEvent * e2,
+			   CGFloat const slop)
 {
-    return (absval(e1->location.x - e2->location.x) <= slop &&
-            absval(e1->location.y - e2->location.y) <= slop);
+    return (fabs(e1.locationInWindow.x - e2.locationInWindow.x) <= slop &&
+            fabs(e1.locationInWindow.y - e2.locationInWindow.y) <= slop);
 }
 
 static inline bool is_regionable( char c )
@@ -172,9 +169,8 @@ static inline bool is_same_region( char c_old, char c_new )
                         coord = list[k];
                         int row_origin = height + row_min - coord.row - 1;
                         int col_origin = coord.col - col_min;
-                        NSPoint const pt = { col_origin * TILE_SIZE,
-                            row_origin * TILE_SIZE };
-                        [unit_image compositeToPoint:pt operation:NSCompositeCopy];
+                        NSPoint const pt = NSMakePoint(col_origin * TILE_SIZE, row_origin * TILE_SIZE);
+                        [unit_image compositeToPoint:pt operation:NSCompositingOperationCopy];
                         
                         CL_RegionAbs& reg = REGIONS[coord.row][coord.col];
                         reg.origin.row = row_max;
@@ -199,12 +195,10 @@ static inline bool is_same_region( char c_old, char c_new )
 - (id)initWithFrame:(NSRect)rect
 {
     [super initWithFrame:rect];
-#error ViewConversion: 'setClipping:' is obsolete. Views always clip to their bounds. Use PSinitclip instead.
-    [self setClipping:NO];
-    [self registerForDraggedTypes:[NSArray arrayWithObject:[NSString stringWithCString:CLUE_CARD_PBTYPE]]];
-    background = [NSImage imageNamed:[NSString stringWithCString:BOARD_IMAGE]];
+    [self registerForDraggedTypes:[NSArray arrayWithObject:CLUE_CARD_PBTYPE]];
+    background = [NSImage imageNamed:BOARD_IMAGE];
     for (int i = 0; i < CLUE_SUSPECT_COUNT + CLUE_WEAPON_COUNT; i++)
-        pieces[i] = [NSImage imageNamed:[NSString stringWithCString:ClueCardName(ClueCard(i))]];
+        pieces[i] = [NSImage imageNamed:@(ClueCardName(ClueCard(i)))];
     dragging = NO;
     fade = [[NSImage allocWithZone:[self zone]] init];
     return self;
@@ -220,10 +214,9 @@ static inline bool is_same_region( char c_old, char c_new )
     // Don't free 'background' or 'pieces; -- they are shared/named images.
     [self unregisterDraggedTypes];
     [fade release];
-    { [super dealloc]; return; };
+    [super dealloc];
 }
 
-#warning ViewConversion: 'acceptsFirstMouse:' (used to be 'acceptsFirstMouse') now takes the event as an arg
 - (BOOL)acceptsFirstMouse:(NSEvent *)theEvent
 {
     return YES;
@@ -309,10 +302,9 @@ static inline bool is_same_region( char c_old, char c_new )
     }
 }
 
-#warning RectConversion: drawRect:(NSRect)rects (used to be drawSelf:(NXRect const*)rects :(int)nrects) no longer takes an array of rects
 - (void)drawRect:(NSRect)rects
 {
-    [background compositeToPoint:rects.origin fromRect:rects operation:NSCompositeCopy];
+    [background drawAtPoint:rects.origin fromRect:rects operation:NSCompositingOperationCopy fraction:1];
     [self drawPieces:&rects];
 }
 
@@ -321,7 +313,7 @@ static inline bool is_same_region( char c_old, char c_new )
     clueMgr = p;
 }
 
-- (unsigned int)draggingSourceOperationMaskForLocal:(BOOL)flag
+- (NSDragOperation)draggingSourceOperationMaskForLocal:(BOOL)flag
 {
     return NSDragOperationGeneric;
 }
@@ -343,8 +335,7 @@ static inline bool is_same_region( char c_old, char c_new )
     NSRect r = {{ 0, 0 }, { s.width, s.height }};
     [[NSColor colorWithCalibratedRed:1 green:1 blue:1 alpha:0.5] set];
     NSRectFill(r);
-    NSPoint const zero = {0,0};
-    [i compositeToPoint:zero operation:NSCompositeDestinationAtop];
+    [i drawAtPoint:NSZeroPoint fromRect:NSZeroRect operation:NSCompositingOperationDestinationAtop fraction:1];
     [fade unlockFocus];
     r = [self rectAtCoord:coord];
     [self displayRect:r];
@@ -374,18 +365,18 @@ static inline bool is_same_region( char c_old, char c_new )
     NSSize s; s = [i size];
     NSPoint origin = [self originAtCoord:coord forSize:s];
     NSPoint offset = {0,0};
-    if (dragEvent != 0 && dragEvent->type == NSLeftMouseDragged)
+    if (dragEvent != 0 && dragEvent.type == NSEventTypeLeftMouseDragged)
     {
-        offset.x = dragEvent->location.x - [downEvent locationInWindow].x;
-        offset.y = dragEvent->location.y - [downEvent locationInWindow].y;
+        offset.x = dragEvent.locationInWindow.x - [downEvent locationInWindow].x;
+        offset.y = dragEvent.locationInWindow.y - [downEvent locationInWindow].y;
     }
     
-    NSPasteboard* pb = [NSPasteboard pasteboardWithName:NSDragPboard];
-    [pb declareTypes:[NSArray arrayWithObject:[NSString stringWithCString:CLUE_CARD_PBTYPE]] owner:0];
-    [pb setData:[NSData dataWithBytes:(char const*)&piece length:sizeof(piece)] forType:[NSString stringWithCString:CLUE_CARD_PBTYPE]];
+    NSPasteboard* pb = [NSPasteboard pasteboardWithName:NSPasteboardNameDrag];
+    [pb declareTypes:[NSArray arrayWithObject:CLUE_CARD_PBTYPE] owner:0];
+    [pb setData:[NSData dataWithBytes:(char const*)&piece length:sizeof(piece)] forType:CLUE_CARD_PBTYPE];
     
     [self fadeOut:i at:coord];
-    [self dragImage:i at:origin offset:NSMakeSize((&offset)->x,(&offset)->y) event:downEvent pasteboard:pb source:self slideBack:YES];
+    [self dragImage:i at:origin offset:NSMakeSize(offset.x, offset.y) event:downEvent pasteboard:pb source:self slideBack:YES];
     [self fadeInAt:coord];
 }
 
@@ -393,25 +384,25 @@ static inline bool is_same_region( char c_old, char c_new )
 {
     float const DELAY = 0.25;
     float const SLOP = 4.0;
-    int const WANTED = (NSLeftMouseUpMask | NSLeftMouseDraggedMask);
+    NSEventMask const WANTED = (NSEventMaskLeftMouseUp | NSEventMaskLeftMouseDragged);
 
     NSEvent *mouseDown = p;
     NSEvent *event;
     NSEvent *peeker;
-#error EventConversion: addToEventMask:WANTED: is obsolete; you no longer need to use the eventMask methods; for mouse moved events, see 'setAcceptsMouseMovedEvents:'
-    int oldMask = [[self window] addToEventMask:WANTED];
+//#error EventConversion: addToEventMask:WANTED: is obsolete; you no longer need to use the eventMask methods; for mouse moved events, see 'setAcceptsMouseMovedEvents:'
+//    int oldMask = [[self window] addToEventMask:WANTED];
 
     do	{
         event = (peeker = [[self window] nextEventMatchingMask:WANTED untilDate:[NSDate dateWithTimeIntervalSinceNow:DELAY] inMode:NSEventTrackingRunLoopMode dequeue:NO]);
-        if (event != 0 && [event type] == NSLeftMouseDragged)
-            event = [[self window] nextEventMatchingMask:NSLeftMouseDraggedMask];
-    } while (event != 0 && [event type] == NSLeftMouseDragged &&
+        if (event != 0 && [event type] == NSEventTypeLeftMouseDragged)
+            event = [[self window] nextEventMatchingMask:NSEventMaskLeftMouseDragged];
+    } while (event != 0 && [event type] == NSEventTypeLeftMouseDragged &&
              isSlop( event, mouseDown, SLOP ));
 
-#error EventConversion: setEventMask:oldMask: is obsolete; you no longer need to use the eventMask methods; for mouse moved events, see 'setAcceptsMouseMovedEvents:'
-    [[self window] setEventMask:oldMask];
+//#error EventConversion: setEventMask:oldMask: is obsolete; you no longer need to use the eventMask methods; for mouse moved events, see 'setAcceptsMouseMovedEvents:'
+//    [[self window] setEventMask:oldMask];
 
-    if (event == 0 || [event type] == NSLeftMouseDragged)
+    if (event == 0 || [event type] == NSEventTypeLeftMouseDragged)
         [self performDrag:mouseDown at:coord dragEvent:event];
 }
 
@@ -445,7 +436,7 @@ static inline bool is_same_region( char c_old, char c_new )
     }
 }
 
-- (unsigned int)highlightUnder:(id<NSDraggingInfo>)sender
+- (NSDragOperation)highlightUnder:(id<NSDraggingInfo>)sender
 {
     NSPoint pt = [sender draggingLocation];
     pt = [self convertPoint:pt fromView:0];
@@ -471,16 +462,16 @@ static inline bool is_same_region( char c_old, char c_new )
             highlightCoord = coord;
             NSPoint pt = [self pointAtCoord:r.origin];
             [self lockFocus];
-            [r.region->image compositeToPoint:pt operation:NSCompositeSourceOver];
+            [r.region->image compositeToPoint:pt operation:NSCompositingOperationSourceOver];
             [self unlockFocus];
-            [[self window] flushWindow];
+            //[[self window] flushWindow];
         }
     }
     
     return (ok ? NSDragOperationGeneric : NSDragOperationNone);
 }
 
-- (unsigned int)draggingEntered:(id<NSDraggingInfo>)sender
+- (NSDragOperation)draggingEntered:(id<NSDraggingInfo>)sender
 {
     return [self highlightUnder:sender];
 }
@@ -490,7 +481,7 @@ static inline bool is_same_region( char c_old, char c_new )
     [self unhighlight];
 }
 
-- (unsigned int)draggingUpdated:(id<NSDraggingInfo>)sender
+- (NSDragOperation)draggingUpdated:(id<NSDraggingInfo>)sender
 {
     return [self highlightUnder:sender];
 }
@@ -509,15 +500,13 @@ static inline bool is_same_region( char c_old, char c_new )
     
     NSPasteboard* pb = [sender draggingPasteboard];
     assert( pb != 0 );
-    char const* type = [[pb availableTypeFromArray:[NSArray arrayWithObject:[NSString stringWithCString:CLUE_CARD_PBTYPE]]] cString];
+    NSPasteboardType type = [pb availableTypeFromArray:[NSArray arrayWithObject:CLUE_CARD_PBTYPE]];
     assert( type != 0 );
     
-    char* p;
-    int len;
-#error StreamConversion: 'dataForType:' (used to be 'readType:data:length:') returns an NSData instance
-    &p = [pb dataForType:[NSString stringWithCString:CLUE_CARD_PBTYPE]];
-    assert( len == sizeof(ClueCard) );
-    ClueCard const piece = *((ClueCard const*) p);
+    NSData* p;
+    p = [pb dataForType:CLUE_CARD_PBTYPE];
+    assert( p.length == sizeof(ClueCard) );
+    ClueCard const piece = *((ClueCard const*) p.bytes);
     
     ClueCoord const oldPos = [clueMgr pieceLocation:piece];
     [clueMgr movePiece:piece to:coord];

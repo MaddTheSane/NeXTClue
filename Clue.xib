@@ -119,7 +119,7 @@
                 </menuItem>
                 <menuItem title="Help" id="B2M-ys-LZ5">
                     <modifierMask key="keyEquivalentModifierMask"/>
-                    <menu key="submenu" title="Help" id="nRU-MJ-JFz">
+                    <menu key="submenu" title="Help" systemMenu="help" id="nRU-MJ-JFz">
                         <items>
                             <menuItem title="NeXTClue Help" keyEquivalent="?" id="12">
                                 <connections>

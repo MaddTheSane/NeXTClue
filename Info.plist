@@ -27,7 +27,7 @@
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2018 C.W. Betts. All rights reserved.</string>
 	<key>NSMainNibFile</key>
-	<string>MainMenu</string>
+	<string>Clue</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
 </dict>

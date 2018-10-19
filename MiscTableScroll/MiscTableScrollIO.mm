@@ -43,6 +43,7 @@
 #import "MiscTableScrollPrivate.h"
 #import "MiscTableView.h"
 #import <AppKit/NSClipView.h>
+#import <AppKit/NSColor.h>
 
 @implementation MiscTableScroll(IO)
 
@@ -70,7 +71,7 @@
 	[decoder decodeValueOfObjCType:@encode(char*) at:&cstr];
 	if (cstr != 0)
 	    {
-	    s = [NSString stringWithCString:cstr];
+	    s = @(cstr);
 	    NSZoneFree( [decoder objectZone], cstr );
 	    }
 	}
@@ -190,7 +191,7 @@
 	}
 
     if (p->border == 0)
-	p->border = new( NSZoneMalloc( [self zone], sizeof(*(p->border)) ) )
+	p->border = new
 			MiscTableBorder( MISC_ROW_BORDER );
     p->border->initWithCoder( decoder, ver );
     }
@@ -235,7 +236,7 @@
 //-----------------------------------------------------------------------------
 - (id)initWithCoder:(NSCoder*)decoder
     {
-    [self superInitWithCoder:decoder];
+    self = [super initWithCoder:decoder];
     NSString* class_name = [[MiscTableScroll class] description];
     int const ver = [decoder versionForClassName:class_name];
     if (((unsigned int)ver) > ((unsigned int)MISC_TS_VERSION))

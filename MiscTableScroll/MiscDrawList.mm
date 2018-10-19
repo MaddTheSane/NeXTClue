@@ -168,7 +168,7 @@ void MiscDrawList::Rec::draw_text( MiscLineWrapper& lw ) const
     lw.setText( text );
     lw.setRect( text_rect );
     lw.setCharWrap( flags & 1 );
-    lw.setAlignment( flags >> 1 );
+    lw.setAlignment( NSTextAlignment(flags >> 1) );
     lw.draw();
     }
 

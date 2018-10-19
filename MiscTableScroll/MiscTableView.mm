@@ -58,6 +58,8 @@
 #import <AppKit/NSApplication.h>
 #import <AppKit/NSControl.h>	// Control-text notifications
 #import <AppKit/NSText.h>
+#import <AppKit/NSGraphicsContext.h>
+#import <AppKit/NSWindow.h>
 //#import <AppKit/psops.h>
 #include <cmath>	// floor()
 
@@ -549,7 +551,7 @@ static int extract_rect( int* map, int nc, int nr,
     BOOL const need_clip = ([[self subviews] count] != 0);
     if (need_clip)
 	{
-	PSgsave();
+	[NSGraphicsContext saveGraphicsState];
 	NSRectClip( nsrect );
 	}
 
@@ -699,7 +701,7 @@ static int extract_rect( int* map, int nc, int nr,
 	}
 
     if (need_clip)
-	PSgrestore();
+	[NSGraphicsContext restoreGraphicsState];
     }
 
 
@@ -960,7 +962,7 @@ static int extract_rect( int* map, int nc, int nr,
 //-----------------------------------------------------------------------------
 - (void)mouseDown:(NSEvent*)p
     {
-    unsigned int const WANTED =
+    NSEventMask const WANTED =
 		(NSLeftMouseUpMask | NSLeftMouseDraggedMask | NSPeriodicMask);
 
     id const scroll = [self scroll];

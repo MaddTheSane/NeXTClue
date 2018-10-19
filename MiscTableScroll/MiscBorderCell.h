@@ -39,9 +39,9 @@
 @class NSImage;
 
 @interface MiscBorderCell : NSTableHeaderCell
-    {
+{
     NSImage* toggleImage;
-    }
+}
 
 - (void)setToggleImage:(NSImage*)image;
 

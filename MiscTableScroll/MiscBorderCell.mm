@@ -45,111 +45,111 @@ int const RESIZE_WIDTH = 4; // Resize zone to right of "toggle" image.
 // -setToggleImage:
 //-----------------------------------------------------------------------------
 - (void)setToggleImage:(NSImage*)p
-    {
+{
     if (p != toggleImage)
-	{
-	[toggleImage release];
-	toggleImage = [p retain];
-	}
+    {
+        [toggleImage release];
+        toggleImage = [p retain];
     }
+}
 
 
 //-----------------------------------------------------------------------------
 // -initBorderCell
 //-----------------------------------------------------------------------------
 - (void)initBorderCell
-    {
+{
     toggleImage = 0;
     [self setBordered:YES];
     [self setWraps:NO];
     [self setAlignment:NSCenterTextAlignment];
-    }
+}
 
 
 //-----------------------------------------------------------------------------
 // -initTextCell:
 //-----------------------------------------------------------------------------
 - (id)initTextCell:(NSString*)s
-    {
+{
     [super initTextCell:s];
     [self initBorderCell];
     return self;
-    }
+}
 
 
 //-----------------------------------------------------------------------------
 // -initImageCell:
 //-----------------------------------------------------------------------------
 - (id)initImageCell:(NSImage*)p
-    {
+{
     [super initImageCell:p];
     [self initBorderCell];
     return self;
-    }
+}
 
 
 //-----------------------------------------------------------------------------
 // -cellSizeForBounds:
 //-----------------------------------------------------------------------------
 - (NSSize)cellSizeForBounds:(NSRect)aRect
-    {
+{
     NSSize s = [super cellSizeForBounds:aRect];
     if (toggleImage != 0)
-	s.width += [toggleImage size].width;
+        s.width += [toggleImage size].width;
     return s;
-    }
+}
 
 
 //-----------------------------------------------------------------------------
 // -drawInteriorWithFrame:inView: -- Assumes the view is flipped.
 //-----------------------------------------------------------------------------
 - (void)drawInteriorWithFrame:(NSRect)r inView:(NSView*)v
-    {
+{
     if (toggleImage != 0)
-	{
-	NSSize sz = [toggleImage size];
-	NSPoint pt = { NSMaxX(r) - RESIZE_WIDTH, NSMaxY(r) };
+    {
+        NSSize sz = [toggleImage size];
+        NSPoint pt = { NSMaxX(r) - RESIZE_WIDTH, NSMaxY(r) };
 
-	float const max_height = floor( NSHeight(r) );
-	float const max_width = floor( NSWidth(r) - RESIZE_WIDTH );
+        float const max_height = floor( NSHeight(r) );
+        float const max_width = floor( NSWidth(r) - RESIZE_WIDTH );
 
-	BOOL const too_high = sz.height > max_height;
-	BOOL const too_wide = sz.width > max_width;
-	if (too_high || too_wide)
-	    {
-	    NSRect q = { {0,0}, {sz.width, sz.height} };
-	    if (too_high)
-		{
-		q.size.height = max_height;
-		q.origin.y = floor( (sz.height - max_height) / 2 );
-		}
-	    else
-		{
-		// Center image vertically.
-		pt.y = floor( pt.y - ((max_height - sz.height) / 2) );
-		}
-	    if (too_wide)
-		{
-		q.size.width = max_width;
-		q.origin.x = floor( (sz.width - max_width) / 2 );
-		}
-	    sz = q.size;
-	    pt.x -= sz.width;
-	    [toggleImage compositeToPoint:pt fromRect:q
-				operation:NSCompositeSourceOver];
-	    }
-	else
-	    {
-	    // Center image vertically.
-	    pt.y = floor( pt.y - ((max_height - sz.height) / 2) );
-	    pt.x -= sz.width;
-	    [toggleImage compositeToPoint:pt operation:NSCompositeSourceOver];
-	    }
+        BOOL const too_high = sz.height > max_height;
+        BOOL const too_wide = sz.width > max_width;
+        if (too_high || too_wide)
+        {
+            NSRect q = { {0,0}, {sz.width, sz.height} };
+            if (too_high)
+            {
+                q.size.height = max_height;
+                q.origin.y = floor( (sz.height - max_height) / 2 );
+            }
+            else
+            {
+                // Center image vertically.
+                pt.y = floor( pt.y - ((max_height - sz.height) / 2) );
+            }
+            if (too_wide)
+            {
+                q.size.width = max_width;
+                q.origin.x = floor( (sz.width - max_width) / 2 );
+            }
+            sz = q.size;
+            pt.x -= sz.width;
+            [toggleImage compositeToPoint:pt fromRect:q
+                                operation:NSCompositeSourceOver];
+        }
+        else
+        {
+            // Center image vertically.
+            pt.y = floor( pt.y - ((max_height - sz.height) / 2) );
+            pt.x -= sz.width;
+            [toggleImage compositeToPoint:pt operation:NSCompositeSourceOver];
+        }
 
-	r.size.width -= (sz.width + RESIZE_WIDTH);
-	}
+        r.size.width -= (sz.width + RESIZE_WIDTH);
+    }
 
     [super drawInteriorWithFrame:r inView:v];
-    }
+}
 
 @end

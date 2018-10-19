@@ -31,8 +31,6 @@
 #import <AppKit/NSView.h>
 
 @interface MiscTableWell : NSView
-    {
-    }
 
 - initWithFrame:(NSRect)frameRect;
 - (BOOL) isOpaque;

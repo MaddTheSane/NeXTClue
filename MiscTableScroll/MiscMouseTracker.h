@@ -43,9 +43,9 @@ class MiscTableBorder;
 @class NSEvent;
 
 @interface MiscMouseTracker : NSObject
-    {
+{
     MiscTableBorder* border;
-    }
+}
 
 - (id)initBorder:(MiscTableBorder*)border;
 - (void)mouseDown:(NSEvent*)event atPos:(MiscCoord_V)pos;

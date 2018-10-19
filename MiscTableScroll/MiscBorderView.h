@@ -43,7 +43,7 @@ class MiscTableBorder;
 enum MiscBorderViewType { MISC_COL_BORDER_VIEW, MISC_ROW_BORDER_VIEW };
 
 @interface MiscBorderView : NSView
-    {
+{
     MiscTableScroll*	scroll;
     MiscTableBorder*	info;
     MiscBorderCell*	theCell;
@@ -51,7 +51,7 @@ enum MiscBorderViewType { MISC_COL_BORDER_VIEW, MISC_ROW_BORDER_VIEW };
     MiscSparseSet*	oldSel;
     MiscCoord_V		togglePos;
     BOOL		isHorz;
-    }
+}
 
 - (id)initWithFrame:(NSRect)frameRect
      scroll:(MiscTableScroll*)scroll

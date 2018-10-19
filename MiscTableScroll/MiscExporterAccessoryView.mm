@@ -49,29 +49,29 @@
 
 - (NSView*)view { return [window contentView]; }
 - (MiscExportFormat)format
-	{ return MiscExportFormat( [[formatPop selectedItem] tag] ); }
+{ return MiscExportFormat( [[formatPop selectedItem] tag] ); }
 - (MiscExportTitleMode)rowTitleMode;
-	{ return MiscExportTitleMode( [[rowTitlePop selectedItem] tag] ); }
+{ return MiscExportTitleMode( [[rowTitlePop selectedItem] tag] ); }
 - (MiscExportTitleMode)columnTitleMode;
-	{ return MiscExportTitleMode( [[colTitlePop selectedItem] tag] ); }
+{ return MiscExportTitleMode( [[colTitlePop selectedItem] tag] ); }
 - (MiscExportGridMode)rowGrid;
-	{ return MiscExportGridMode( [[rowGridPop selectedItem] tag] ); }
+{ return MiscExportGridMode( [[rowGridPop selectedItem] tag] ); }
 - (MiscExportGridMode)colGrid;
-	{ return MiscExportGridMode( [[colGridPop selectedItem] tag] ); }
+{ return MiscExportGridMode( [[colGridPop selectedItem] tag] ); }
 
 
 //-----------------------------------------------------------------------------
 // - select:itemWithTag: -- If 'tag' not found then selects item 0.
 //-----------------------------------------------------------------------------
 - (void)select:(NSPopUpButton*)popup itemWithTag:(int)tag
-    {
+{
     unsigned int i = [popup numberOfItems];
     NSParameterAssert( i != 0 );
     while (i-- > 1)
-	if (tag == [[popup itemAtIndex:i] tag])
-	    break;
+        if (tag == [[popup itemAtIndex:i] tag])
+            break;
     [popup selectItemAtIndex:i];
-    }
+}
 
 
 //-----------------------------------------------------------------------------
@@ -83,7 +83,7 @@
     colTitle:(MiscExportTitleMode)colTitle
     rowGrid:(MiscExportGridMode)rowGrid
     colGrid:(MiscExportGridMode)colGrid
-    {
+{
     [super init];
     [NSBundle loadNibNamed:@"MiscExporterAccessoryView" owner:self];
     [self select:formatPop   itemWithTag:format  ];
@@ -92,16 +92,16 @@
     [self select:rowGridPop  itemWithTag:rowGrid ];
     [self select:colGridPop  itemWithTag:colGrid ];
     return self;
-    }
+}
 
 
 //-----------------------------------------------------------------------------
 // -dealloc
 //-----------------------------------------------------------------------------
 - (void)dealloc
-    {
+{
     [window release];
     [super dealloc];
-    }
+}
 
 @end

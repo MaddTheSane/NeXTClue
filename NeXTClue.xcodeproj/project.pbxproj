@@ -522,6 +522,7 @@
 			);
 			path = MiscTableScroll;
 			sourceTree = "<group>";
+			usesTabs = 0;
 		};
 /* End PBXGroup section */
 

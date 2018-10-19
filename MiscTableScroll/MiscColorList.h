@@ -38,7 +38,7 @@
 @class NSMutableArray;
 
 struct MiscColorList
-	{
+{
 private:
 	NSMutableArray* colors;
 	MiscColorList( MiscColorList const& ) {}	// No copy constructor.
@@ -51,6 +51,6 @@ public:
 	NSColor* nth( int n ) const	{ return [colors objectAtIndex:n]; }
 	NSColor* operator[]( int n ) const { return nth(n); }
 	int store( NSColor* );
-	};
+};
 
 #endif // __MiscColorList_h

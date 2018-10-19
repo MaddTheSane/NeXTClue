@@ -43,29 +43,29 @@
 // - initWithFrame:
 //-----------------------------------------------------------------------------
 - (id)initWithFrame:(NSRect)frameRect
-    {
+{
     [super initWithFrame:frameRect];
     theCell = [[MiscBorderCell allocWithZone:[self zone]] initTextCell:@""];
     return self;
-    }
+}
 
 
 //-----------------------------------------------------------------------------
 // - dealloc
 //-----------------------------------------------------------------------------
 - (void)dealloc
-    {
+{
     [theCell release];
     [super dealloc];
-    }
+}
 
 
 //-----------------------------------------------------------------------------
 // - drawRect:
 //-----------------------------------------------------------------------------
 - (void)drawRect:(NSRect)rect
-    {
+{
     [theCell drawWithFrame:[self bounds] inView:self];
-    }
+}
 
 @end

@@ -43,7 +43,7 @@
 #import <Foundation/NSObject.h>
 
 class MiscDelegateFlags
-    {
+{
 public:
     enum Selector
 	{
@@ -114,6 +114,6 @@ public:
 
     static SEL selToObjc( Selector );
     static Selector objcToSel( SEL );	// Returns BAD_DEL_ENUM if not found.
-    };
+};
 
 #endif // __MiscDelegateFlags_h

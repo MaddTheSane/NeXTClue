@@ -48,24 +48,24 @@ class MiscSparseSet;
 class MiscTableBorder;
 
 struct MiscTSPageBreak
-    {
+{
     MiscPixels		offset;
     MiscPixels		size;
     MiscCoord_V		first;	// One's comp if started on earlier page.
     MiscCoord_V		last;	// One's comp if ends on later page.
-    };
+};
 
 struct MiscTSPageImages
-    {
+{
     NSImage*		page_header;
     NSImage*		page_footer;
     NSImage*		col_titles;
     NSImage*		row_titles;
     NSImage*		corner_view;
-    };
+};
 
 struct MiscTablePages
-    {
+{
     MiscTablePrintInfo	info;
     MiscTSPageBreak*	col_breaks;
     MiscTSPageBreak*	row_breaks;
@@ -79,11 +79,11 @@ struct MiscTablePages
     float		page_footer_height;
     float		col_titles_height;
     float		row_titles_width;
-    };
+};
 
 
 @interface MiscTableView : NSView
-    {
+{
     MiscTableBorder*	colBorder;
     MiscTableBorder*	rowBorder;
     MiscBorderType	trackerBorder;
@@ -93,7 +93,7 @@ struct MiscTablePages
     MiscTablePages*	pages;
     unsigned int	inhibitCursor;
     MiscCoord_V		cursorSlot;
-    }
+}
 
 - (id)initWithFrame:(NSRect)r
 	scroll:(MiscTableScroll*)s

@@ -38,20 +38,20 @@
 @class NSColor;
 
 struct MiscRectList
-	{
+{
 private:
-	int num_rects;
-	int max_rects;
-	NSRect*	rects;
-	MiscRectList( MiscRectList const& ) {}		// No copy constructor.
-	void operator=( MiscRectList const& ) {}	// No assign operator.
+    int num_rects;
+    int max_rects;
+    NSRect*	rects;
+    MiscRectList( MiscRectList const& ) {}		// No copy constructor.
+    void operator=( MiscRectList const& ) {}	// No assign operator.
 public:
-	MiscRectList();
-	~MiscRectList();
-	int count() const	{ return num_rects; }
-	void empty()		{ num_rects = 0; }
-	void append( NSRect r );
-	void draw( NSColor* c );
-	};
+    MiscRectList();
+    ~MiscRectList();
+    int count() const	{ return num_rects; }
+    void empty()		{ num_rects = 0; }
+    void append( NSRect r );
+    void draw( NSColor* c );
+};
 
 #endif // __MiscRectList_h

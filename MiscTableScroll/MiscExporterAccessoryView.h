@@ -39,7 +39,7 @@
 @class NSBox, NSPopUpButton, NSView, NSWindow;
 
 @interface MiscExporterAccessoryView : NSObject
-	{
+{
 	NSWindow*	window;
 	NSPopUpButton*	formatPop;
 	NSPopUpButton*	rowTitlePop;
@@ -51,7 +51,7 @@
 	NSBox*		colTitleBox;
 	NSBox*		rowGridBox;
 	NSBox*		colGridBox;
-	}
+}
 
 - (MiscExporterAccessoryView*)
 	initWithFormat:(MiscExportFormat)format

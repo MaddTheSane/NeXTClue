@@ -34,9 +34,9 @@
 @class MiscBorderCell;
 
 @interface MiscCornerView : NSView
-    {
+{
     MiscBorderCell* theCell;
-    }
+}
 
 - (NSString*)title;
 - (void)setTitle:(NSString*)s;

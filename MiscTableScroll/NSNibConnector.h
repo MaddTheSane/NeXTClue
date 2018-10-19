@@ -60,11 +60,11 @@
 #define NSNibControlConnector NSIBControlConnector
 
 @interface NSNibConnector : NSObject<IBConnectors>
-    {
+{
     id source;
     id destination;
     NSString* label;
-    }
+}
 
 - (id)initWithCoder:(NSCoder*)coder;
 - (void)encodeWithCoder:(NSCoder*)coder;

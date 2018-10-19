@@ -296,7 +296,7 @@ clip_exit:
 //-----------------------------------------------------------------------------
 - (void)getImages:(MiscTSPageImages*)img
 	info:(MiscTablePrintInfo const*)info
-    {
+{
     img->page_header = 0;
     img->page_footer = 0;
     img->col_titles = 0;
@@ -304,57 +304,57 @@ clip_exit:
     img->corner_view = 0;
 
     if (pages->pageHeader != 0)
-	{
-	[self sendNotification:MiscTableScrollWillPrintPageHeaderNotification
-	    withView:pages->pageHeader info:info];
-	// FIXME: Need to shrink/grow/center/position.
-	img->page_header = [[self getImageForView:pages->pageHeader] retain];
-	}
+    {
+        [self sendNotification:MiscTableScrollWillPrintPageHeaderNotification
+                      withView:pages->pageHeader info:info];
+        // FIXME: Need to shrink/grow/center/position.
+        img->page_header = [[self getImageForView:pages->pageHeader] retain];
+    }
 
     if (pages->pageFooter != 0)
-	{
-	[self sendNotification:MiscTableScrollWillPrintPageFooterNotification
-	    withView:pages->pageFooter info:info];
-	// FIXME: Need to shrink/grow/center/position.
-	img->page_footer = [[self getImageForView:pages->pageFooter] retain];
-	}
+    {
+        [self sendNotification:MiscTableScrollWillPrintPageFooterNotification
+                      withView:pages->pageFooter info:info];
+        // FIXME: Need to shrink/grow/center/position.
+        img->page_footer = [[self getImageForView:pages->pageFooter] retain];
+    }
 
     if (pages->colTitles != 0)
-	{
-	NSRect r = info->print_rect;
-	r.origin.y = 0;
-	r.size.height = pages->col_titles_height;
-	img->col_titles =
-		[[self getImageForView:pages->colTitles inRect:r] retain];
-	}
+    {
+        NSRect r = info->print_rect;
+        r.origin.y = 0;
+        r.size.height = pages->col_titles_height;
+        img->col_titles =
+        [[self getImageForView:pages->colTitles inRect:r] retain];
+    }
 
     if (pages->rowTitles != 0)
-	{
-	NSRect r = info->print_rect;
-	r.origin.x = 0;
-	r.size.width = pages->row_titles_width;
-	img->row_titles =
-		[[self getImageForView:pages->rowTitles inRect:r] retain];
-	}
+    {
+        NSRect r = info->print_rect;
+        r.origin.x = 0;
+        r.size.width = pages->row_titles_width;
+        img->row_titles =
+        [[self getImageForView:pages->rowTitles inRect:r] retain];
+    }
 
     if (pages->cornerView != 0)
-	{
-	NSRect r;
-	r.origin.x = 0;
-	r.origin.y = 0;
-	r.size.width = pages->row_titles_width;
-	r.size.height = pages->col_titles_height;
-	img->corner_view =
-		[[self getImageForView:pages->cornerView inRect:r] retain];
-	}
+    {
+        NSRect r;
+        r.origin.x = 0;
+        r.origin.y = 0;
+        r.size.width = pages->row_titles_width;
+        r.size.height = pages->col_titles_height;
+        img->corner_view =
+        [[self getImageForView:pages->cornerView inRect:r] retain];
     }
+}
 
 
 //-----------------------------------------------------------------------------
 // calcPages
 //-----------------------------------------------------------------------------
 - (void)calcPages
-    {
+{
     id const scroll = [self scroll];
 
     pages = new MiscTablePages;
@@ -367,9 +367,9 @@ clip_exit:
     pages->colTitles = [scroll colTitles];
     pages->rowTitles = [scroll rowTitles];
     if (pages->colTitles != 0 && pages->rowTitles != 0)
-	pages->cornerView = [scroll cornerView];
+        pages->cornerView = [scroll cornerView];
     else
-	pages->cornerView = 0;
+        pages->cornerView = 0;
     pages->col_titles_height = [scroll columnTitlesHeight];
     pages->row_titles_width  = [scroll rowTitlesWidth ];
 
@@ -382,11 +382,11 @@ clip_exit:
     NSSize const paperSize = [printInfo paperSize];
 
     float page_width = paperSize.width -
-			[printInfo leftMargin] - [printInfo rightMargin];
+    [printInfo leftMargin] - [printInfo rightMargin];
     float page_height = paperSize.height -
-			[printInfo topMargin] - [printInfo bottomMargin] -
-			pages->page_header_height -
-			pages->page_footer_height;
+    [printInfo topMargin] - [printInfo bottomMargin] -
+    pages->page_header_height -
+    pages->page_footer_height;
 
     int const hPagination = [printInfo horizontalPagination];
     int const vPagination = [printInfo verticalPagination];
@@ -396,41 +396,41 @@ clip_exit:
     BOOL isScaled = NO;	double scaleFactor = 1.0;
 
     if (hPagination == NSFitPagination && total_width > page_width)
-	{
-	hScaled = YES;
-	hScaler = double(page_width) / double(total_width);
-	}
+    {
+        hScaled = YES;
+        hScaler = double(page_width) / double(total_width);
+    }
 
     if (vPagination == NSFitPagination && total_height > page_height)
-	{
-	vScaled = YES;
-	vScaler = double(page_height) / double(total_height);
-	}
+    {
+        vScaled = YES;
+        vScaler = double(page_height) / double(total_height);
+    }
 
     if (hScaled || vScaled)
-	{
-	isScaled = YES;
-	if (vScaler < hScaler)
-	    scaleFactor = vScaler;
-	else
-	    scaleFactor = hScaler;
-	}
+    {
+        isScaled = YES;
+        if (vScaler < hScaler)
+            scaleFactor = vScaler;
+        else
+            scaleFactor = hScaler;
+    }
 
     float const EPSILON = 0.0001;
     float pScaler = 1.0;
     id val = [[printInfo dictionary] objectForKey:NSPrintScalingFactor];
     if (val != 0)
-	pScaler = [val floatValue];
+        pScaler = [val floatValue];
     if (pScaler < (1.0 - EPSILON) || (1.0 + EPSILON) < pScaler)
-	{
-	if (isScaled)
-	    scaleFactor *= pScaler;
-	else
-	    {
-	    scaleFactor = pScaler;
-	    isScaled = YES;
-	    }
-	}
+    {
+        if (isScaled)
+            scaleFactor *= pScaler;
+        else
+        {
+            scaleFactor = pScaler;
+            isScaled = YES;
+        }
+    }
 
     pages->info.is_scaled = isScaled;
     pages->info.scale_factor = scaleFactor;
@@ -439,10 +439,10 @@ clip_exit:
     float scaled_page_height = page_height;
 
     if (isScaled)
-	{
-	scaled_page_width = double(page_width) / scaleFactor;
-	scaled_page_height = double(page_height) / scaleFactor;
-	}
+    {
+        scaled_page_width = double(page_width) / scaleFactor;
+        scaled_page_height = double(page_height) / scaleFactor;
+    }
 
     scaled_page_width -= pages->row_titles_width;
     scaled_page_height -= pages->col_titles_height;
@@ -454,12 +454,12 @@ clip_exit:
     int nrows = 1;
 
     if (hPagination != NSClipPagination && scroll_width > scaled_page_width)
-	ncols = [self numPagesForBorder:MISC_COL_BORDER
-			pageSize:scaled_page_width];
+        ncols = [self numPagesForBorder:MISC_COL_BORDER
+                               pageSize:scaled_page_width];
 
     if (vPagination != NSClipPagination && scroll_height > scaled_page_height)
-	nrows = [self numPagesForBorder:MISC_ROW_BORDER
-			pageSize:scaled_page_height];
+        nrows = [self numPagesForBorder:MISC_ROW_BORDER
+                               pageSize:scaled_page_height];
 
     NSParameterAssert( nrows > 0 );  NSParameterAssert( ncols > 0 );
 
@@ -469,27 +469,27 @@ clip_exit:
     //--- Allocate arrays -------------------------------------------------
 
     pages->col_breaks = (MiscTSPageBreak*)
-			malloc( (ncols + nrows) * sizeof(MiscTSPageBreak) );
+    malloc( (ncols + nrows) * sizeof(MiscTSPageBreak) );
     pages->row_breaks = pages->col_breaks + ncols;
 
     MiscTSPageImages* images = (MiscTSPageImages*)
-			malloc( npages * sizeof(*images) );
+    malloc( npages * sizeof(*images) );
     pages->images = images;
 
 
     //--- Prepare print rectangles and border images ----------------------
 
     [self border:MISC_COL_BORDER
-	    pageSize:scaled_page_width
-	    numPages:ncols
-	    clip:(hPagination == NSClipPagination)
-	    calcBreaks:pages->col_breaks];
+        pageSize:scaled_page_width
+        numPages:ncols
+            clip:(hPagination == NSClipPagination)
+      calcBreaks:pages->col_breaks];
 
     [self border:MISC_ROW_BORDER
-	    pageSize:scaled_page_height
-	    numPages:nrows
-	    clip:(vPagination == NSClipPagination)
-	    calcBreaks:pages->row_breaks];
+        pageSize:scaled_page_height
+        numPages:nrows
+            clip:(vPagination == NSClipPagination)
+      calcBreaks:pages->row_breaks];
 
 
     MiscTablePrintInfo& info = pages->info;
@@ -504,114 +504,114 @@ clip_exit:
     MiscTSPageImages* img = images;
     MiscTSPageBreak const* rbk = pages->row_breaks;
     for (int r = 0; r < nrows; r++,rbk++)
-	{
-	info.print_rect.origin.y = rbk->offset;
-	info.print_rect.size.height = rbk->size;
-	info.first_print_row = rbk->first;
-	info.last_print_row = rbk->last;
-
-	MiscTSPageBreak const* cbk = pages->col_breaks;
-	for (int c = 0; c < ncols; c++,cbk++,img++)
-	    {
-	    info.print_rect.origin.x = cbk->offset;
-	    info.print_rect.size.width = cbk->size;
-	    info.first_print_col = cbk->first;
-	    info.last_print_col = cbk->last;
-	    info.print_page = ++pg;
-
-	    [self getImages:img info:&info];
-	    }
-	}
+    {
+        info.print_rect.origin.y = rbk->offset;
+        info.print_rect.size.height = rbk->size;
+        info.first_print_row = rbk->first;
+        info.last_print_row = rbk->last;
+        
+        MiscTSPageBreak const* cbk = pages->col_breaks;
+        for (int c = 0; c < ncols; c++,cbk++,img++)
+        {
+            info.print_rect.origin.x = cbk->offset;
+            info.print_rect.size.width = cbk->size;
+            info.first_print_col = cbk->first;
+            info.last_print_col = cbk->last;
+            info.print_page = ++pg;
+            
+            [self getImages:img info:&info];
+        }
     }
+}
 
 
 //-----------------------------------------------------------------------------
 // freePages
 //-----------------------------------------------------------------------------
 - (void)freePages
-    {
+{
     if (pages != 0)
-	{
-	if (pages->col_breaks != 0)
-	    {
-	    free( pages->col_breaks );
-	    pages->col_breaks = 0;
-	    }
-	if (pages->images != 0)
-	    {
-	    for (int i = pages->info.num_print_pages; i-- > 0; )
-		{
-		MiscTSPageImages const& img = pages->images[i];
-		if (img.page_header != 0) [img.page_header release];
-		if (img.page_footer != 0) [img.page_footer release];
-		if (img.col_titles  != 0) [img.col_titles  release];
-		if (img.row_titles  != 0) [img.row_titles  release];
-		if (img.corner_view != 0) [img.corner_view release];
-		}
-	    free( pages->images );
-	    pages->images = 0;
-	    }
-	delete pages;
-	pages = 0;
-	}
+    {
+        if (pages->col_breaks != 0)
+        {
+            free( pages->col_breaks );
+            pages->col_breaks = 0;
+        }
+        if (pages->images != 0)
+        {
+            for (int i = pages->info.num_print_pages; i-- > 0; )
+            {
+                MiscTSPageImages const& img = pages->images[i];
+                if (img.page_header != 0) [img.page_header release];
+                if (img.page_footer != 0) [img.page_footer release];
+                if (img.col_titles  != 0) [img.col_titles  release];
+                if (img.row_titles  != 0) [img.row_titles  release];
+                if (img.corner_view != 0) [img.corner_view release];
+            }
+            free( pages->images );
+            pages->images = 0;
+        }
+        delete pages;
+        pages = 0;
     }
+}
 
 
 //-----------------------------------------------------------------------------
 // print:
 //-----------------------------------------------------------------------------
 - (void)print:(id)sender
-    {
+{
     id const scroll = [self scroll];
     [[NSNotificationCenter defaultCenter] postNotificationName:
-	MiscTableScrollWillPrintNotification object:scroll];
+     MiscTableScrollWillPrintNotification object:scroll];
 
     [self superPrint:sender];
     [self freePages];
 
     [[NSNotificationCenter defaultCenter] postNotificationName:
-	MiscTableScrollDidPrintNotification object:scroll];
-    }
+     MiscTableScrollDidPrintNotification object:scroll];
+}
 
 
 //-----------------------------------------------------------------------------
 // knowsPagesFirst:last:
 //-----------------------------------------------------------------------------
 - (BOOL)knowsPagesFirst:(int*)first last:(int*)last
-    {
+{
     NSParameterAssert( pages == 0 );
     [self calcPages];
     *first = 1;
     *last = pages->info.num_print_pages;
     return YES;
-    }
+}
 
 
 //-----------------------------------------------------------------------------
 // rectForPage:
 //-----------------------------------------------------------------------------
 - (NSRect)rectForPage:(int)n
-    {
+{
     NSParameterAssert( pages != 0 );
     MiscTablePrintInfo const& info = pages->info;
     if (0 < n && n <= info.num_print_pages)
-	{
-	n--;
-	int const r = (n / info.num_print_cols);
-	int const c = (n % info.num_print_cols);
-	MiscTSPageBreak const& cbk = pages->col_breaks[c];
-	MiscTSPageBreak const& rbk = pages->row_breaks[r];
-	return NSMakeRect( cbk.offset, rbk.offset, cbk.size, rbk.size );
-	}
-    return NSZeroRect;
+    {
+        n--;
+        int const r = (n / info.num_print_cols);
+        int const c = (n % info.num_print_cols);
+        MiscTSPageBreak const& cbk = pages->col_breaks[c];
+        MiscTSPageBreak const& rbk = pages->row_breaks[r];
+        return NSMakeRect( cbk.offset, rbk.offset, cbk.size, rbk.size );
     }
+    return NSZeroRect;
+}
 
 
 //-----------------------------------------------------------------------------
 // locationOfPrintRect:
 //-----------------------------------------------------------------------------
 - (NSPoint)locationOfPrintRect:(NSRect)rect
-    {
+{
     NSPrintInfo* printInfo = [[NSPrintOperation currentOperation] printInfo];
     NSSize const paperSize = [printInfo paperSize];
     float ml = [printInfo leftMargin];
@@ -633,56 +633,56 @@ clip_exit:
 
     MiscTablePrintInfo const& info = pages->info;
     if (info.is_scaled)
-	{
-	float const k = info.scale_factor;
-	x /= k;
-	y /= k;
-	h /= k;
-	w /= k;
-	ml /= k;
-	mr /= k;
-	mt /= k;
-	mb /= k;
-	}
+    {
+        float const k = info.scale_factor;
+        x /= k;
+        y /= k;
+        h /= k;
+        w /= k;
+        ml /= k;
+        mr /= k;
+        mt /= k;
+        mb /= k;
+    }
 
     NSPoint pt = NSMakePoint( x + ml + tw, y + h - mt - rh - hh - th );
 
     if ([printInfo isHorizontallyCentered])
-	{
-	float dx = w - ml - mr - tw - rw;
-	if (dx > 0)
-	    pt.x += dx / 2;
-	}
+    {
+        float dx = w - ml - mr - tw - rw;
+        if (dx > 0)
+            pt.x += dx / 2;
+    }
 
     if ([printInfo isVerticallyCentered])
-	{
-	float dy = h - mt - mb - th - rh;
-	if (dy > 0)
-	    pt.y -= dy / 2;
-	}
+    {
+        float dy = h - mt - mb - th - rh;
+        if (dy > 0)
+            pt.y -= dy / 2;
+    }
 
     return pt;
-    }
+}
 
 
 //-----------------------------------------------------------------------------
 // drawImage:at:
 //-----------------------------------------------------------------------------
 - (void)drawImage:(NSImage*)img at:(NSPoint)pt
-    {
+{
     NSRect r;
     r.size = [img size];
     r.origin.x = pt.x;
     r.origin.y = pt.y - r.size.height;
     [img drawRepresentation:[[img representations] lastObject] inRect:r];
-    }
+}
 
 
 //-----------------------------------------------------------------------------
 // drawPageBorderWithSize:
 //-----------------------------------------------------------------------------
 - (void)drawPageBorderWithSize:(NSSize)borderSize
-    {
+{
     NSParameterAssert( pages != 0 );
     MiscTablePrintInfo const& info = pages->info;
 
@@ -705,75 +705,75 @@ clip_exit:
     float right = page_origin.x + page_size.width - mr;
 
     if (info.is_scaled)
-	{
-	float const k = info.scale_factor;
-	PSscale( k, k );
-	bottom /= k;
-	top /= k;
-	left /= k;
-	right /= k;
-	}
+    {
+        float const k = info.scale_factor;
+        PSscale( k, k );
+        bottom /= k;
+        top /= k;
+        left /= k;
+        right /= k;
+    }
 
     if (img.page_header != 0)
-	{
-	[self drawImage:img.page_header at:NSMakePoint(top, left)];
-	top -= pages->page_header_height;
-	}
+    {
+        [self drawImage:img.page_header at:NSMakePoint(top, left)];
+        top -= pages->page_header_height;
+    }
 
     if (img.page_footer != 0)
-	{
-	bottom += pages->page_footer_height;
-	[self drawImage:img.page_footer at:NSMakePoint(left, bottom)];
-	}
+    {
+        bottom += pages->page_footer_height;
+        [self drawImage:img.page_footer at:NSMakePoint(left, bottom)];
+    }
 
     float dx = 0;
     float dy = 0;
 
     if ([printInfo isHorizontallyCentered])
-	{
-	int const c = (n % info.num_print_cols);
-	dx = right - left - pages->row_titles_width
-			- pages->col_breaks[c].size;
-	if (dx > 0)
-	    dx /= 2;
-	else
-	    dx = 0;
-	}
+    {
+        int const c = (n % info.num_print_cols);
+        dx = right - left - pages->row_titles_width
+        - pages->col_breaks[c].size;
+        if (dx > 0)
+            dx /= 2;
+        else
+            dx = 0;
+    }
 
     if ([printInfo isVerticallyCentered])
-	{
-	int const r = (n / info.num_print_cols);
-	dy = top - bottom - pages->col_titles_height
-			- pages->row_breaks[r].size;
-	if (dy > 0)
-	    dy /= 2;
-	else
-	    dy = 0;
-	}
+    {
+        int const r = (n / info.num_print_cols);
+        dy = top - bottom - pages->col_titles_height
+        - pages->row_breaks[r].size;
+        if (dy > 0)
+            dy /= 2;
+        else
+            dy = 0;
+    }
 
     if (img.corner_view != 0)
-	{
-	NSPoint pt;
-	pt.x = left + dx;
-	pt.y = top - dy;
-	[self drawImage:img.corner_view at:pt];
-	}
+    {
+        NSPoint pt;
+        pt.x = left + dx;
+        pt.y = top - dy;
+        [self drawImage:img.corner_view at:pt];
+    }
 
     if (img.row_titles != 0)
-	{
-	NSPoint pt;
-	pt.x = left + dx;
-	pt.y = top - pages->col_titles_height - dy;
-	[self drawImage:img.row_titles at:pt];
-	}
+    {
+        NSPoint pt;
+        pt.x = left + dx;
+        pt.y = top - pages->col_titles_height - dy;
+        [self drawImage:img.row_titles at:pt];
+    }
 
     if (img.col_titles != 0)
-	{
-	NSPoint pt;
-	pt.x = left + pages->row_titles_width + dx;
-	pt.y = top - dy;
-	[self drawImage:img.col_titles at:pt];
-	}
+    {
+        NSPoint pt;
+        pt.x = left + pages->row_titles_width + dx;
+        pt.y = top - dy;
+        [self drawImage:img.col_titles at:pt];
     }
+}
 
 @end

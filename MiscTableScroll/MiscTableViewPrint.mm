@@ -686,7 +686,7 @@ clip_exit:
     NSParameterAssert( pages != 0 );
     MiscTablePrintInfo const& info = pages->info;
 
-    int n = [[NSPrintOperation currentOperation] currentPage] - 1;
+    NSInteger n = [[NSPrintOperation currentOperation] currentPage] - 1;
     NSParameterAssert( 0 <= n );
     NSParameterAssert( n < info.num_print_pages );
     MiscTSPageImages const& img = pages->images[n];

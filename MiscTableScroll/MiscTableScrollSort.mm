@@ -174,7 +174,7 @@ static int cmp_str( int r1, int c1, int r2, int c2,
 // cmp_int
 //-----------------------------------------------------------------------------
 static int cmp_int( int r1, int c1, int r2, int c2,
-                   MiscEntrySortInfo const* p, MiscSlotSortInfo const* q )
+                   MiscEntrySortInfo const* p, MiscSlotSortInfo* q )
 {
     int const x1 = cell_int(r1,c1,p,q);
     int const x2 = cell_int(r2,c2,p,q);
@@ -190,7 +190,7 @@ static int cmp_int( int r1, int c1, int r2, int c2,
 // cmp_uint
 //-----------------------------------------------------------------------------
 static int cmp_uint( int r1, int c1, int r2, int c2,
-                    MiscEntrySortInfo const* p, MiscSlotSortInfo const* q )
+                    MiscEntrySortInfo const* p, MiscSlotSortInfo * q )
 {
     unsigned int const x1 = (unsigned int) cell_int(r1,c1,p,q);
     unsigned int const x2 = (unsigned int) cell_int(r2,c2,p,q);
@@ -206,7 +206,7 @@ static int cmp_uint( int r1, int c1, int r2, int c2,
 // cmp_float
 //-----------------------------------------------------------------------------
 static int cmp_float( int r1, int c1, int r2, int c2,
-                     MiscEntrySortInfo const* p, MiscSlotSortInfo const* q )
+                     MiscEntrySortInfo const* p, MiscSlotSortInfo * q )
 {
     float const x1 = cell_float(r1,c1,p,q);
     float const x2 = cell_float(r2,c2,p,q);
@@ -222,7 +222,7 @@ static int cmp_float( int r1, int c1, int r2, int c2,
 // cmp_double
 //-----------------------------------------------------------------------------
 static int cmp_double( int r1, int c1, int r2, int c2,
-                      MiscEntrySortInfo const* p, MiscSlotSortInfo const* q )
+                      MiscEntrySortInfo const* p, MiscSlotSortInfo * q )
 {
     double const x1 = cell_double(r1,c1,p,q);
     double const x2 = cell_double(r2,c2,p,q);
@@ -238,7 +238,7 @@ static int cmp_double( int r1, int c1, int r2, int c2,
 // cmp_skip
 //-----------------------------------------------------------------------------
 static int cmp_skip( int,int,int,int,
-                    MiscEntrySortInfo const*, MiscSlotSortInfo const*)
+                    MiscEntrySortInfo const*, MiscSlotSortInfo *)
 {
     return 0;
 }

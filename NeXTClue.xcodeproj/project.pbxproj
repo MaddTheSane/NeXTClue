@@ -131,6 +131,8 @@
 		55B4372421797609005ABAA2 /* MiscBorderView.h in Headers */ = {isa = PBXBuildFile; fileRef = 55B436D121797608005ABAA2 /* MiscBorderView.h */; };
 		55B4372521797609005ABAA2 /* MiscTableViewPrint.mm in Sources */ = {isa = PBXBuildFile; fileRef = 55B436D221797608005ABAA2 /* MiscTableViewPrint.mm */; };
 		55B4372721797A4F005ABAA2 /* NSNibConnector.h in Headers */ = {isa = PBXBuildFile; fileRef = 55B4372621797A4F005ABAA2 /* NSNibConnector.h */; };
+		55B4372A2179AB7A005ABAA2 /* License.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 55B437282179AB7A005ABAA2 /* License.rtf */; };
+		55B4372B2179AB7A005ABAA2 /* License_Notes.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 55B437292179AB7A005ABAA2 /* License_Notes.rtf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -310,6 +312,8 @@
 		55B436D121797608005ABAA2 /* MiscBorderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiscBorderView.h; sourceTree = "<group>"; };
 		55B436D221797608005ABAA2 /* MiscTableViewPrint.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MiscTableViewPrint.mm; sourceTree = "<group>"; };
 		55B4372621797A4F005ABAA2 /* NSNibConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSNibConnector.h; sourceTree = "<group>"; };
+		55B437282179AB7A005ABAA2 /* License.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = License.rtf; sourceTree = "<group>"; };
+		55B437292179AB7A005ABAA2 /* License_Notes.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = License_Notes.rtf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -432,6 +436,8 @@
 		55B4366F2179756C005ABAA2 /* MiscTableScroll */ = {
 			isa = PBXGroup;
 			children = (
+				55B437292179AB7A005ABAA2 /* License_Notes.rtf */,
+				55B437282179AB7A005ABAA2 /* License.rtf */,
 				55B436CF21797608005ABAA2 /* MiscBorderCell.h */,
 				55B436C621797607005ABAA2 /* MiscBorderCell.mm */,
 				55B436D121797608005ABAA2 /* MiscBorderView.h */,
@@ -677,6 +683,8 @@
 				55B4370721797608005ABAA2 /* MiscHorzResizeCursor.tiff in Resources */,
 				55B436D821797608005ABAA2 /* MiscTableViewPS.psw in Resources */,
 				55B436E021797608005ABAA2 /* MiscSlotDragCursor.tiff in Resources */,
+				55B4372A2179AB7A005ABAA2 /* License.rtf in Resources */,
+				55B4372B2179AB7A005ABAA2 /* License_Notes.rtf in Resources */,
 				55B4370D21797608005ABAA2 /* MiscSortDescend.tiff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

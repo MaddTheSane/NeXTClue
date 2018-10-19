@@ -19,9 +19,6 @@
 //-----------------------------------------------------------------------------
 #import "ClueTrace.h"
 #import	"ClueLoadNib.h"
-#import <AppKit/NSText.h>
-#import <AppKit/NSCell.h>
-#import <AppKit/AppKit.h>
 
 extern "C" {
 #import <stdio.h>

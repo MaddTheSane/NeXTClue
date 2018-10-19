@@ -16,10 +16,10 @@
 //  
 //-----------------------------------------------------------------------------
 
-#import <AppKit/NSView.h>
+#import <Cocoa/Cocoa.h>
 #import "ClueDefs.h"
 
-@class ClueMgr, NSImage;
+@class ClueMgr;
 
 class ClueMap;
 

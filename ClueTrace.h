@@ -16,10 +16,8 @@
 //  
 //-----------------------------------------------------------------------------
 
-#import <Foundation/NSObject.h>
+#import <Cocoa/Cocoa.h>
 #import	"ClueDefs.h"
-
-@class NSText;
 
 @interface ClueTrace : NSObject
 {

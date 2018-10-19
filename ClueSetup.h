@@ -15,9 +15,7 @@
 //  
 //-----------------------------------------------------------------------------
 
-#import <Foundation/NSObject.h>
-#import <AppKit/NSWindow.h>
-#import <AppKit/NSPopUpButton.h>
+#import <Cocoa/Cocoa.h>
 #import	"ClueDefs.h"
 
 @interface ClueSetup:NSObject

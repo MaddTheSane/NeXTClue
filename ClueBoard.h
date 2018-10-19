@@ -15,10 +15,10 @@
 //  
 //-----------------------------------------------------------------------------
 
-#import <Foundation/NSObject.h>
+#import <Cocoa/Cocoa.h>
 #import "ClueDefs.h"
 
-@class ClueBoardView, ClueMgr, NSWindow;
+@class ClueBoardView, ClueMgr;
 
 @interface ClueBoard : NSObject
 {

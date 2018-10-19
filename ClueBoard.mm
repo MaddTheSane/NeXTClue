@@ -15,7 +15,6 @@
 #import "ClueBoard.h"
 #import "ClueBoardView.h"
 #import "ClueLoadNib.h"
-#import <AppKit/NSWindow.h>
 
 @implementation ClueBoard
 

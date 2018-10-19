@@ -22,7 +22,7 @@
 //  
 //-----------------------------------------------------------------------------
 
-#import <objc/objc.h>		// for 'id'
+#import <Cocoa/Cocoa.h>
 
 void ClueLoadNib( id obj );
 

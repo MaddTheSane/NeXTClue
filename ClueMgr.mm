@@ -21,7 +21,6 @@
 #import	"ClueSetup.h"
 #import	"ClueMessages.h"
 #import	"ClueTrace.h"
-#import <Cocoa/Cocoa.h>
 
 extern "C" {
 #import	<assert.h>

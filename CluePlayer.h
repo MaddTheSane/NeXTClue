@@ -20,7 +20,7 @@
 //  
 //-----------------------------------------------------------------------------
 
-#import <Foundation/NSObject.h>
+#import <Foundation/Foundation.h>
 
 #import	"ClueDefs.h"
 

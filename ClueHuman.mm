@@ -32,14 +32,7 @@
 //#import	<misckit/MiscTableCell.h>
 @class MiscTableCell;
 
-#import	<AppKit/NSApplication.h>
-#import	<AppKit/NSButton.h>
-#import	<AppKit/NSButtonCell.h>
-#import	<AppKit/NSMatrix.h>
-#import	<AppKit/NSImage.h>
-#import <AppKit/NSText.h>
-#import	<AppKit/NSTextField.h>
-#import	<AppKit/NSWindow.h>
+#import <Cocoa/Cocoa.h>
 
 extern "C" {
 #import	<assert.h>

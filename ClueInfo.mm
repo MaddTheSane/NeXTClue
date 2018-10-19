@@ -20,12 +20,6 @@
 #import "ClueInfo.h"
 #import "ClueLoadNib.h"
 
-#import	<AppKit/NSTextField.h>
-#import	<AppKit/NSPanel.h>
-#import <AppKit/NSWindow.h>
-#import <AppKit/NSTextField.h>
-#import	<Foundation/NSBundle.h>
-
 extern "C" {
 #import	<stdio.h>		// FILENAME_MAX, fopen(), etc.
 #import	<stdlib.h>		// exit()

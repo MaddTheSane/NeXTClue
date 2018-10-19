@@ -16,10 +16,6 @@
 #import "ClueTrace.h"
 #import	"ClueLoadNib.h"
 
-#import <AppKit/NSText.h>
-#import <AppKit/NSTextView.h>
-#import <AppKit/NSPanel.h>
-
 
 @implementation ClueMessages
 

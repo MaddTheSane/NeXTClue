@@ -17,9 +17,7 @@
 //  v21: Added buildField.
 //-----------------------------------------------------------------------------
 
-#import <Foundation/NSObject.h>
-
-@class NSTextField, NSWindow;
+#import <Cocoa/Cocoa.h>
 
 @interface ClueInfo:NSObject
 {

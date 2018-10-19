@@ -14,11 +14,6 @@
 //-----------------------------------------------------------------------------
 #import	"ClueLoadNib.h"
 
-#import	<Foundation/NSBundle.h>
-#import	<AppKit/NSApplication.h>
-#import	<AppKit/NSPanel.h>
-#import <AppKit/NSNibLoading.h>
-
 extern "C" {
 #import	<stdio.h>
 #import	<stdlib.h>

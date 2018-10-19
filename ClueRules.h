@@ -15,8 +15,7 @@
 //  
 //-----------------------------------------------------------------------------
 
-#import <Foundation/NSObject.h>
-@class NSTextView, NSWindow;
+#import <Cocoa/Cocoa.h>
 
 @interface ClueRules : NSObject
 {

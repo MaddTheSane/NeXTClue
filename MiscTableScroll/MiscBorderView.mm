@@ -76,14 +76,7 @@
 
 #import	<new>
 
-#import <AppKit/NSApplication.h>
-#import <AppKit/NSClipView.h>
-#import <AppKit/NSFont.h>
-#import <AppKit/NSCursor.h>
-#import <AppKit/NSImage.h>
-#import <AppKit/NSText.h>
-#import <AppKit/NSWindow.h>
-#import <Foundation/NSBundle.h>
+#import <Cocoa/Cocoa.h>
 
 extern "C" {
 #import <float.h>
@@ -93,8 +86,8 @@ extern "C" {
 #include <cstring>
 #include <cstdio>
 
-static float MIN_TOGGLE_WIDTH	= 5;
-static float TOGGLE_WIDTH	= 5;
+static CGFloat MIN_TOGGLE_WIDTH	= 5;
+static CGFloat TOGGLE_WIDTH	= 5;
 
 int const MISC_RESIZE_EPSILON	= 4;
 
@@ -432,12 +425,15 @@ static inline void startTimer()
 - (void)drawPos:(MiscCoord_V)pos inRect:(NSRect)r controlView:(NSView*)v
 {
     NSImage* img = 0;
-    if ([scroll autoSortSlots:MISC_OTHER_BORDER([self borderType])])
-        if (info->isSortable(pos))
-            if (info->getSortDirection(pos) == MISC_SORT_DESCENDING)
+    if ([scroll autoSortSlots:MISC_OTHER_BORDER([self borderType])]) {
+        if (info->isSortable(pos)) {
+            if (info->getSortDirection(pos) == MISC_SORT_DESCENDING) {
                 img = togglePos == pos ? sortDescendHImage : sortDescendImage;
-            else
+            } else {
                 img = togglePos == pos ? sortAscendHImage : sortAscendImage;
+            }
+        }
+    }
     
     [theCell setToggleImage:img];
     [theCell setStringValue:info->getTitle(pos)];
@@ -714,8 +710,8 @@ static inline void startTimer()
     MiscRect_O clipFrame( isHorz, nsClipFrame );
     MiscPixels const minDrawX = clipFrame.getX_O();	// Scroll coords.
     MiscPixels const maxDrawX = clipFrame.getMaxX_O();	// Scroll coords.
-    unsigned int const WANTED =
-    (NSLeftMouseUpMask | NSLeftMouseDraggedMask | NSPeriodicMask);
+    NSEventMask const WANTED =
+    (NSEventMaskLeftMouseUp | NSEventMaskLeftMouseDragged | NSEventMaskPeriodic);
 
     x += deltaX;
 
@@ -744,9 +740,9 @@ static inline void startTimer()
     {
         p = [[self window] nextEventMatchingMask:WANTED];
 
-        if (p == 0 || [p type] == NSLeftMouseUp)
+        if (p == 0 || [p type] == NSEventTypeLeftMouseUp)
             break;
-        else if ([p type] == NSPeriodic)
+        else if ([p type] == NSEventTypePeriodic)
         {
             NSPoint mousePt =
             [scroll convertPoint:[lastEvent locationInWindow] fromView:0];
@@ -894,8 +890,8 @@ static void draw_view( NSView* v, NSRect r )
     // FIXME: maybe clip, maybe manually transform graphics state coord matrix.
     [v drawRect:r];
     NSArray* subs = [v subviews];
-    unsigned int lim = (subs ? [subs count] : 0);
-    for (unsigned int i = 0; i < lim; i++)
+    NSInteger lim = (subs ? [subs count] : 0);
+    for (NSInteger i = 0; i < lim; i++)
     {
         NSView* sub = (NSView*)[subs objectAtIndex:i];
         NSRect subFrame = NSIntersectionRect( r, [sub frame] );
@@ -945,16 +941,16 @@ static void draw_view( NSView* v, NSRect r )
         oScroll.setHeight_O( oCache.getHeight_O() );
         NSRect nsScroll = [scroll convertRect:oScroll fromView:self];
 
-        [scroll lockFocus];
-        NSBitmapImageRep* rep = [[[NSBitmapImageRep allocWithZone:[self zone]]
-                                  initWithFocusedViewRect:nsScroll] autorelease];
-        [scroll unlockFocus];
+        NSBitmapImageRep* rep = [[NSBitmapImageRep alloc]
+                                 initWithBitmapDataPlanes:NULL pixelsWide:ceil(nsScroll.size.width) pixelsHigh:ceil(nsScroll.size.height) bitsPerSample:8 samplesPerPixel:4 hasAlpha:YES isPlanar:NO colorSpaceName:NSDeviceRGBColorSpace bytesPerRow:ceil(nsScroll.size.width)*4 bitsPerPixel:32];
+        [scroll cacheDisplayInRect:nsScroll toBitmapImageRep:rep];
+
         [cache addRepresentation:rep];
+        [rep release];
     }
     else
     {
-        [cache setFlipped:YES];
-        [cache lockFocus];
+        [cache lockFocusFlipped:YES];
 
         oTable.setX_O( oBorder.getX_O() );		// NOTE *COORDS*
         oTable.setWidth_O( oBorder.getWidth_O() );
@@ -1001,13 +997,14 @@ static void draw_view( NSView* v, NSRect r )
     r.setWidth_O( rVis.getWidth_O() );
     r.setHeight_O( rVis.getHeight_O() + rDoc.getHeight_O() );
 
-    [scroll lockFocus];
-    NSBitmapImageRep* rep = [[NSBitmapImageRep allocWithZone:[self zone]]
-                             initWithFocusedViewRect:r];
-    [scroll unlockFocus];
+    
+    NSBitmapImageRep* rep = [[NSBitmapImageRep alloc]
+                             initWithBitmapDataPlanes:NULL pixelsWide:r.getWidth() pixelsHigh:r.getHeight() bitsPerSample:8 samplesPerPixel:4 hasAlpha:YES isPlanar:NO colorSpaceName:NSDeviceRGBColorSpace bytesPerRow:r.getWidth()*4 bitsPerPixel:32];
+    [scroll cacheDisplayInRect:r toBitmapImageRep:rep];
 
-    NSImage* cache = [[NSImage allocWithZone:[self zone]] initWithSize:r];
+    NSImage* cache = [[NSImage alloc] initWithSize:r];
     [cache addRepresentation:rep];
+    [rep release];
     return [cache autorelease];
 }
 
@@ -1018,7 +1015,6 @@ static void draw_view( NSView* v, NSRect r )
 - (void)setWells:(MiscTableWell**)w1 :(MiscTableWell**)w2
     forPos:(MiscCoord_V)pos
 {
-    NSZone* const z = [self zone];
     MiscTableView* doc = [scroll documentView];
     MiscRect_O rDoc( isHorz, [doc visibleRect] );
     MiscRect_O rClip( isHorz, [[self superview] frame] );
@@ -1028,12 +1024,12 @@ static void draw_view( NSView* v, NSRect r )
     r.setWidth_O( info->effectiveSize(pos) );
     r.setHeight_O( rClip.getHeight_O() );
 
-    *w1 = [[MiscTableWell allocWithZone:z] initWithFrame:r];
+    *w1 = [[MiscTableWell alloc] initWithFrame:r];
     [self addSubview:*w1];
 
     r.setY_O( rDoc.getY_O() );
     r.setHeight_O( rDoc.getHeight_O() );
-    *w2 = [[MiscTableWell allocWithZone:z] initWithFrame:r];
+    *w2 = [[MiscTableWell alloc] initWithFrame:r];
     [doc addSubview:*w2];
 
     [*w1 display];
@@ -1101,11 +1097,11 @@ static void draw_view( NSView* v, NSRect r )
 //-----------------------------------------------------------------------------
 - (MiscCoord_V)dragEvent:(NSEvent*)event inPos:(MiscCoord_V)pos
 {
-    int const WANTED =
-    (NSLeftMouseUpMask | NSLeftMouseDraggedMask | NSPeriodicMask);
+    NSEventMask const WANTED =
+    (NSEventMaskLeftMouseUp | NSEventMaskLeftMouseDragged | NSEventMaskPeriodic);
 
     NSPoint mouseDownPt =
-    [self convertPoint:[event locationInWindow] fromView:0];
+    [self convertPoint:[event locationInWindow] fromView:nil];
     NSPoint mouseUpPt = mouseDownPt;
     NSWindow* win = [self window];
 
@@ -1154,8 +1150,8 @@ static void draw_view( NSView* v, NSRect r )
             pt = [scroll convertPoint:pt fromView:self];
             rDrag.setWidth_O( dw );
             rDrag.setHeight_O( size.getHeight_O() );
-            [dragCache compositeToPoint:pt fromRect:rDrag
-                              operation:NSCompositeCopy];
+            [dragCache drawAtPoint:pt fromRect:rDrag
+                         operation:NSCompositingOperationCopy fraction:1];
         }
         [win enableFlushWindow];
         [win flushWindow];
@@ -1184,18 +1180,18 @@ static void draw_view( NSView* v, NSRect r )
             rVis.setX_O( xTarg );
             rVis.setWidth_O( rDrag.getWidth_O() );
             rVis.setHeight_O( rDrag.getHeight_O() );
-            [visCache compositeToPoint:pt fromRect:rVis
-                             operation:NSCompositeCopy];
+            [visCache drawAtPoint:pt fromRect:rVis
+                        operation:NSCompositingOperationCopy fraction:1];
         }
 
         if (event == 0)
             break;
-        else if ([event type] == NSLeftMouseUp)
+        else if ([event type] == NSEventTypeLeftMouseUp)
         {
             mouseUpPt = [self convertPoint:[event locationInWindow] fromView:0];
             break;
         }
-        else if ([event type] != NSPeriodic)
+        else if ([event type] != NSEventTypePeriodic)
         {
             [lastEvent release];
             lastEvent = [event copy];
@@ -1263,7 +1259,7 @@ static void draw_view( NSView* v, NSRect r )
 - (MiscCoord_V)awaitDragEvent:(NSEvent*)event inPos:(MiscCoord_V)pos
 {
     MiscCoord_V toPos = pos;
-    int const WANTED = (NSLeftMouseUpMask | NSLeftMouseDraggedMask);
+    NSEventMask const WANTED = (NSEventMaskLeftMouseUp | NSEventMaskLeftMouseDragged);
     float const SLOP = 2.0;
     NSWindow* win = [self window];
     NSEvent* mouseDown = [event copy];
@@ -1276,9 +1272,9 @@ static void draw_view( NSView* v, NSRect r )
                                         dequeue:NO];
         if (p == 0)
             break;
-        else if ([p type] == NSLeftMouseUp)
+        else if ([p type] == NSEventTypeLeftMouseUp)
         {
-            [win nextEventMatchingMask:NSLeftMouseUpMask];
+            [win nextEventMatchingMask:NSEventMaskLeftMouseUp];
             break;
         }
         else // ([p type] == NSLeftMouseDragged)
@@ -1293,7 +1289,7 @@ static void draw_view( NSView* v, NSRect r )
                 break;
             }
             else
-                [win nextEventMatchingMask:NSLeftMouseDraggedMask];
+                [win nextEventMatchingMask:NSEventMaskLeftMouseDragged];
         }
     }
     [mouseDown release];
@@ -1311,7 +1307,7 @@ static void draw_view( NSView* v, NSRect r )
 - (NSRect)toggleRectForPos:(MiscCoord_V)pos
 {
     NSRect r = [self rectForPos:pos];
-    float const w = TOGGLE_WIDTH + MISC_RESIZE_EPSILON;
+    CGFloat const w = TOGGLE_WIDTH + MISC_RESIZE_EPSILON;
     r.origin.x = floor( r.origin.x + r.size.width - w );
     r.size.width = w;
     return r;
@@ -1352,7 +1348,7 @@ static void draw_view( NSView* v, NSRect r )
     for (;;)
     {
         p = [win nextEventMatchingMask:
-             (NSLeftMouseUpMask | NSLeftMouseDraggedMask)];
+             (NSEventMaskLeftMouseUp | NSEventMaskLeftMouseDragged)];
 
         NSPoint new_loc = [p locationInWindow];
         new_loc = [self convertPoint:new_loc fromView:0];
@@ -1365,7 +1361,7 @@ static void draw_view( NSView* v, NSRect r )
             [win flushWindow];
         }
         
-        if ([p type] == NSLeftMouseUp)
+        if ([p type] == NSEventTypeLeftMouseUp)
             break;
     }
 
@@ -1408,8 +1404,8 @@ static void draw_view( NSView* v, NSRect r )
 //-----------------------------------------------------------------------------
 - (void)selectionEvent:(NSEvent*)p fromPos:(MiscCoord_V)pos
 {
-    unsigned int const WANTED =
-    (NSLeftMouseUpMask | NSLeftMouseDraggedMask | NSPeriodicMask);
+    NSEventMask const WANTED =
+    (NSEventMaskLeftMouseUp | NSEventMaskLeftMouseDragged | NSEventMaskPeriodic);
     BOOL doubleClicked = ([p clickCount] > 1);
 
     [scroll disableCursor];
@@ -1425,9 +1421,9 @@ static void draw_view( NSView* v, NSRect r )
     {
         p = [[self window] nextEventMatchingMask:WANTED];
         
-        if (p == 0 || [p type] == NSLeftMouseUp)
+        if (p == 0 || [p type] == NSEventTypeLeftMouseUp)
             break;
-        else if ([p type] == NSPeriodic)
+        else if ([p type] == NSEventTypePeriodic)
             [self autoscroll:lastEvent];
         else
         {
@@ -1529,7 +1525,7 @@ static void draw_view( NSView* v, NSRect r )
             [scroll resumeEditing];
         }
         else if (info->isDraggable() && (info->isModifierDrag() ==
-                                         (([p modifierFlags] & NSCommandKeyMask) != 0)))
+                                         (([p modifierFlags] & NSEventModifierFlagCommand) != 0)))
         {
             [self awaitDragEvent:p inPos:pos];
         }

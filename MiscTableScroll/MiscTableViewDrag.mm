@@ -56,7 +56,7 @@ static inline BOOL isSlop( NSEvent* e1, NSEvent* e2, float const slop )
 //-----------------------------------------------------------------------------
 // draggingSourceOperationMaskForLocal:
 //-----------------------------------------------------------------------------
-- (unsigned int)draggingSourceOperationMaskForLocal:(BOOL)flag
+- (NSDragOperation)draggingSourceOperationMaskForLocal:(BOOL)flag
 {
     id const scroll = [self scroll];
     id const d = [scroll responsibleDelegate:DF::DEL_DRAG_OP_MASK];
@@ -159,7 +159,7 @@ static inline BOOL isSlop( NSEvent* e1, NSEvent* e2, float const slop )
         if ([self isFlipped])
             origin->y += image_r.size.height;
 
-        if (dragEvent != 0 && [dragEvent type] == NSLeftMouseDragged)
+        if (dragEvent != 0 && [dragEvent type] == NSEventTypeLeftMouseDragged)
         {
             NSPoint ptDrag = [dragEvent locationInWindow];
             NSPoint ptDown = [downEvent locationInWindow];
@@ -209,7 +209,7 @@ static inline BOOL isSlop( NSEvent* e1, NSEvent* e2, float const slop )
         [self calcOrigin:&origin andOffset:&offset forImage:i inRect:r
                    atRow:row column:col downEvent:mouseDown dragEvent:dragEvent];
 
-        NSPasteboard* pb = [NSPasteboard pasteboardWithName:NSDragPboard];
+        NSPasteboard* pb = [NSPasteboard pasteboardWithName:NSPasteboardNameDrag];
         [self prepareDragPasteboard:pb atRow:row column:col];
 
         [self dragImage:i at:origin offset:offset
@@ -226,9 +226,9 @@ static inline BOOL isSlop( NSEvent* e1, NSEvent* e2, float const slop )
 - (BOOL)awaitDragEvent:(NSEvent*)mouseDown
     atRow:(MiscCoord_P)row column:(MiscCoord_P)col inRect:(NSRect)rect
 {
-    float const DELAY = 0.25;
-    float const SLOP = 4.0;
-    unsigned int const WANTED = (NSLeftMouseUpMask | NSLeftMouseDraggedMask);
+    CGFloat const DELAY = 0.25;
+    CGFloat const SLOP = 4.0;
+    NSEventMask const WANTED = (NSEventMaskLeftMouseUp | NSEventMaskLeftMouseDragged);
 
     BOOL ret = NO;
     NSEvent* event;
@@ -238,12 +238,12 @@ static inline BOOL isSlop( NSEvent* e1, NSEvent* e2, float const slop )
         event = [win nextEventMatchingMask:WANTED
                                  untilDate:[NSDate dateWithTimeIntervalSinceNow:DELAY]
                                     inMode:NSEventTrackingRunLoopMode dequeue:NO];
-        if (event != 0 && [event type] == NSLeftMouseDragged)
-            event = [win nextEventMatchingMask:NSLeftMouseDraggedMask];
-    } while (event != 0 && [event type] == NSLeftMouseDragged &&
+        if (event != 0 && [event type] == NSEventTypeLeftMouseDragged)
+            event = [win nextEventMatchingMask:NSEventMaskLeftMouseDragged];
+    } while (event != 0 && [event type] == NSEventTypeLeftMouseDragged &&
              isSlop( event, mouseDown, SLOP ));
 
-    if (event == 0 || [event type] == NSLeftMouseDragged)
+    if (event == 0 || [event type] == NSEventTypeLeftMouseDragged)
         ret = [self performDrag:mouseDown atRow:row column:col inRect:rect
                       dragEvent:event];
     return ret;

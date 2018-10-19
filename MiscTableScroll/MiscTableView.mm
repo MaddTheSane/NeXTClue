@@ -963,7 +963,7 @@ static int extract_rect( int* map, int nc, int nr,
 - (void)mouseDown:(NSEvent*)p
 {
     NSEventMask const WANTED =
-    (NSLeftMouseUpMask | NSLeftMouseDraggedMask | NSPeriodicMask);
+    (NSEventMaskLeftMouseUp | NSEventMaskLeftMouseDragged | NSEventMaskPeriodic);
 
     id const scroll = [self scroll];
     BOOL const doubleClicked = ([p clickCount] > 1);
@@ -1003,9 +1003,9 @@ static int extract_rect( int* map, int nc, int nr,
             for (;;)
             {
                 p = [[self window] nextEventMatchingMask:WANTED];
-                if (p == 0 || [p type] == NSLeftMouseUp)
+                if (p == 0 || [p type] == NSEventTypeLeftMouseUp)
                     break;
-                else if ([p type] == NSPeriodic)
+                else if ([p type] == NSEventTypePeriodic)
                     [self autoscroll:lastEvent];
                 else
                 {

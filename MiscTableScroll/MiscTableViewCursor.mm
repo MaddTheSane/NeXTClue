@@ -42,6 +42,7 @@
 #import "MiscTableBorder.h"
 #import "MiscMouseTracker.h"
 #import <AppKit/NSFontManager.h>
+#import <AppKit/NSWindow.h>
 
 extern "C" {
 //#import "MiscTableViewPS.h"

@@ -62,7 +62,7 @@ int const RESIZE_WIDTH = 4; // Resize zone to right of "toggle" image.
     toggleImage = 0;
     [self setBordered:YES];
     [self setWraps:NO];
-    [self setAlignment:NSCenterTextAlignment];
+    [self setAlignment:NSTextAlignmentCenter];
 }
 
 
@@ -135,15 +135,15 @@ int const RESIZE_WIDTH = 4; // Resize zone to right of "toggle" image.
             }
             sz = q.size;
             pt.x -= sz.width;
-            [toggleImage compositeToPoint:pt fromRect:q
-                                operation:NSCompositeSourceOver];
+            [toggleImage drawAtPoint:pt fromRect:q
+                           operation:NSCompositingOperationSourceOver fraction:1];
         }
         else
         {
             // Center image vertically.
             pt.y = floor( pt.y - ((max_height - sz.height) / 2) );
             pt.x -= sz.width;
-            [toggleImage compositeToPoint:pt operation:NSCompositeSourceOver];
+            [toggleImage drawAtPoint:pt fromRect:NSZeroRect operation:NSCompositingOperationSourceOver fraction:1];
         }
 
         r.size.width -= (sz.width + RESIZE_WIDTH);

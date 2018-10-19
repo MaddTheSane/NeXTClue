@@ -16,7 +16,6 @@
 #import	"ClueDefs.h"
 #import	"ClueMgr.h"
 
-#import	<AppKit/NSApplication.h>	// for perform:with:afterDelay:cancelPrevious:
 extern "C" {
 #import <string.h>	// memcpy
 }
@@ -70,14 +69,14 @@ extern "C" {
 //-----------------------------//
 
 - (void) direct:(SEL)aSel
-{ [clueMgr performSelector:aSel object:self afterDelay:(0) / 1000.0]; }
+{ [clueMgr performSelector:aSel withObject:self afterDelay:(0) / 1000.0]; }
 
 - (void) nextPlayerOk		{ [self direct:@selector(nextPlayerOk:)]; }
 - (void) revealOk		{ [self direct:@selector(revealOk:)]; }
 
 
 - (void) delayed:(SEL)aSel
-{ [self performSelector:aSel object:0 afterDelay:(0) / 1000.0]; }
+{ [self performSelector:aSel withObject:nil afterDelay:(0) / 1000.0]; }
 
 
 - (void) cp_do_move:sender	{ [clueMgr moveTo:cp_coord ok:self]; }

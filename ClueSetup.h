@@ -17,19 +17,19 @@
 
 #import <Foundation/NSObject.h>
 #import <AppKit/NSWindow.h>
-#import <AppKit/NSButton.h>
+#import <AppKit/NSPopUpButton.h>
 #import	"ClueDefs.h"
 
 @interface ClueSetup:NSObject
 {
     IBOutlet NSWindow*	window;
-    IBOutlet NSButton*	mustardPop;
-    IBOutlet NSButton*	plumPop;
-    IBOutlet NSButton*	greenPop;
-    IBOutlet NSButton*	peacockPop;
-    IBOutlet NSButton*	scarletPop;
-    IBOutlet NSButton*	whitePop;
-    NSButton*	pops[ 6 ];
+    IBOutlet NSPopUpButton*	mustardPop;
+    IBOutlet NSPopUpButton*	plumPop;
+    IBOutlet NSPopUpButton*	greenPop;
+    IBOutlet NSPopUpButton*	peacockPop;
+    IBOutlet NSPopUpButton*	scarletPop;
+    IBOutlet NSPopUpButton*	whitePop;
+    NSPopUpButton*	pops[ 6 ];
 }
 
 + (BOOL) startNewGame;

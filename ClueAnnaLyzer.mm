@@ -49,7 +49,7 @@ inline bool complete( ClueSolution const& s )
     FILE* output = stdout;
     int const NUM_PLAYERS = [self numPlayers];
 
-    fprintf( output, "\n\%s:%d\n", [(NSString*)[[self class] name] UTF8String], [self playerID] + 1 );
+    fprintf( output, "\n\%s:%d\n", [[self className] UTF8String], [self playerID] + 1 );
 
     fprintf( output, "solution:" );
     for (int i = 0; i < CLUE_CATEGORY_COUNT; i++)
@@ -559,8 +559,8 @@ inline bool complete( ClueSolution const& s )
     for (int i = CLUE_ROOM_FIRST; i < CLUE_ROOM_LAST; i++)
     {
         int const x = card_to_player[i];
-        if (x == PLAYER_UNKNOWN || x == PLAYER_SOLUTION ||
-            x == self_id && self_ok)
+        if ((x == PLAYER_UNKNOWN || x == PLAYER_SOLUTION ||
+            x == self_id) && self_ok)
             buff[ n++ ] = ClueCard(i);
     }
     

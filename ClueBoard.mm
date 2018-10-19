@@ -21,7 +21,6 @@
 
 - (ClueBoardView*) boardView { return boardView; }
 - (void) orderFront { [window orderFront:self]; }
-#warning PrintingConversion:  printPSCode: has been renamed to print:.  Rename this method?
 - (void)print:(id)sender { [boardView print:self];
 }
 

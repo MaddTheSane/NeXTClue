@@ -294,10 +294,11 @@ static inline bool is_same_region( char c_old, char c_new )
             NSSize s; s = [pieces[i] size];
             NSPoint const p = [self originAtCoord:coord forSize:s];
             if (dragging &&
-                dragSource.row == coord.row && dragSource.col == coord.col)
-                [fade compositeToPoint:p operation:NSCompositeSourceOver];
-            else
-                [pieces[i] compositeToPoint:p operation:NSCompositeSourceOver];
+                dragSource.row == coord.row && dragSource.col == coord.col) {
+                [fade compositeToPoint:p operation:NSCompositingOperationSourceOver];
+            } else {
+                [pieces[i] compositeToPoint:p operation:NSCompositingOperationSourceOver];
+            }
         }
     }
 }
@@ -348,11 +349,11 @@ static inline bool is_same_region( char c_old, char c_new )
 }
 
 - (void) movePiece:(ClueCard)piece
-	from:(ClueCoord)old_pos to:(ClueCoord)new_pos
+              from:(ClueCoord)old_pos to:(ClueCoord)new_pos
 {
     [self displayAt:old_pos];
     [self displayAt:new_pos];
-    [[self window] flushWindow];
+    //[[self window] flushWindow];
 }
 
 

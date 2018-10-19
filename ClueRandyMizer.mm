@@ -22,13 +22,13 @@
 //-----------------------------------------------------------------------------
 // initPlayer:numPlayers:numCards:cards:piece:location:
 //-----------------------------------------------------------------------------
-- initWithPlayer:(int)playerID numberOfPlayers:(int)numPlayers
-    numCards:(int)numCards cards:(ClueCard const*)i_cards
-       piece:(ClueCard)pieceID location:(ClueCoord)i_location
-     clueMgr:(ClueMgr*)mgr
+- initWithPlayer:(int)playerID playerCount:(int)numPlayers
+       cardCount:(int)numCards cards:(ClueCard const*)i_cards
+           piece:(ClueCard)pieceID location:(ClueCoord)i_location
+     clueManager:(ClueMgr*)mgr
 {
-    if (self = [super initWithPlayer:playerID numberOfPlayers:numPlayers
-                       numberOfCards:numCards cards:i_cards
+    if (self = [super initWithPlayer:playerID playerCount:numPlayers
+                       cardCount:numCards cards:i_cards
                                piece:pieceID location:i_location clueManager:mgr]) {
 
         for (int i = 0; i < CLUE_ROOM_COUNT; i++) {

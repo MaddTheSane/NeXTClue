@@ -26,7 +26,6 @@ static NSString * const RULES = @"ClueRules";
 //-----------------------------------------------------------------------------
 // print:
 //-----------------------------------------------------------------------------
-#warning PrintingConversion:  printPSCode: has been renamed to print:.  Rename this method?
 - (void)print:(id)sender
 {
     [text print:self];

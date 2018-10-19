@@ -17,8 +17,8 @@
 //  v21
 //-----------------------------------------------------------------------------
 #import	"CluePlayer.h"
+#import <Cocoa/Cocoa.h>
 
-@class NSButton, NSMatrix, NSText, NSTextField, NSWindow;
 @class MiscTableScroll;
 class ClueMap;
 
@@ -33,9 +33,9 @@ class ClueMap;
     IBOutlet NSButton*		rollButton;
     IBOutlet NSButton*		dieButton;
     IBOutlet NSButton*		revealButton;
-    IBOutlet NSButton*		suspectPop;
-    IBOutlet NSButton*		weaponPop;
-    IBOutlet NSButton*		roomPop;
+    IBOutlet NSPopUpButton*	suspectPop;
+    IBOutlet NSPopUpButton*	weaponPop;
+    IBOutlet NSPopUpButton*	roomPop;
     IBOutlet NSButton*		skipButton;
     IBOutlet NSButton*		suggestButton;
     IBOutlet NSButton*		accuseButton;

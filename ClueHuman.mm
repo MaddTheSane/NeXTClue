@@ -23,7 +23,6 @@
 //-----------------------------------------------------------------------------
 #import "ClueHuman.h"
 #import	"ClueBoardView.h"
-#import	"ClueButton.h"
 #import	"ClueCoordArray.h"
 #import	"ClueLoadNib.h"
 #import	"ClueMap.h"
@@ -216,9 +215,9 @@ ClueFilter( unsigned short c, NSEventModifierFlags flags, unsigned short cset )
         fieldEditor = [[NSText allocWithZone:[self zone]] init];
         [fieldEditor setCharFilter:ClueFilter];
 
-        [suspectPop selectTag: [self pieceID]];
-        [weaponPop selectTag: CLUE_CARD_KNIFE];
-        [roomPop selectTag: CLUE_CARD_HALL];
+        [suspectPop selectItemWithTag: [self pieceID]];
+        [weaponPop selectItemWithTag: CLUE_CARD_KNIFE];
+        [roomPop selectItemWithTag: CLUE_CARD_HALL];
 
         map = new ClueMap;
 
@@ -494,7 +493,7 @@ ClueFilter( unsigned short c, NSEventModifierFlags flags, unsigned short cset )
         
         [messageField setStringValue:@"Make a suggestion or skip."];
         [suggestButton setEnabled:YES];
-        [roomPop selectTag: int(curr_room)];
+        [roomPop selectItemWithTag: int(curr_room)];
         
         suspectID = ClueCard( [suspectPop selectedTag] );
         [self movePiece:suspectID toRoom:currRoom savePos:&suspectPos];
@@ -703,7 +702,7 @@ ClueFilter( unsigned short c, NSEventModifierFlags flags, unsigned short cset )
                 [self restorePiece:suspectID to:suspectPos];
                 suspectID = piece;
                 suspectPos = oldPos;
-                [suspectPop selectTag:int(piece)];
+                [suspectPop selectItemWithTag:int(piece)];
             }
         }
         else
@@ -713,7 +712,7 @@ ClueFilter( unsigned short c, NSEventModifierFlags flags, unsigned short cset )
                 [self restorePiece:weaponID to:weaponPos];
                 weaponID = piece;
                 weaponPos = oldPos;
-                [weaponPop selectTag:int(piece)];
+                [weaponPop selectItemWithTag:int(piece)];
             }
         }
         [self allowDrag];

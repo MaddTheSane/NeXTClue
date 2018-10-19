@@ -21,8 +21,7 @@
 #import	"ClueSetup.h"
 #import	"ClueMessages.h"
 #import	"ClueTrace.h"
-#import <AppKit/NSApplication.h>
-#include <objc/hashtable2.h>
+#import <Cocoa/Cocoa.h>
 
 extern "C" {
 #import	<assert.h>

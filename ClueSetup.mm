@@ -13,7 +13,6 @@
 //  
 //-----------------------------------------------------------------------------
 #import "ClueSetup.h"
-#import	"ClueButton.h"
 #import	"ClueLoadNib.h"
 
 #import "ClueAnnaLyzer.h"
@@ -147,7 +146,7 @@ int const OK_PRESSED		= 1;
 - (void) revert
 {
     for (int i = 0; i < 6; i++)
-        [pops[i] selectTag:PIECE_CHOICE[i]];
+        [pops[i] selectItemWithTag:PIECE_CHOICE[i]];
 }
 
 
@@ -171,7 +170,7 @@ int const OK_PRESSED		= 1;
     int n = 0;
     for (int i = 0; i < 6; i++)
     {
-        int const x = [pops[i] selectedTag];
+        int const x = (int)[pops[i] selectedTag];
         v[i] = x;
         if (x != 0)
             n++;

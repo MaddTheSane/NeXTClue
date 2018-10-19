@@ -18,7 +18,6 @@
 //  
 //-----------------------------------------------------------------------------
 
-#import <objc/hashtable2.h>	// NXAtom
 #include <cstdlib>
 
 #ifdef __OBJC__
@@ -79,7 +78,7 @@ int const CLUE_CARD_COUNT	= CLUE_CARD_LAST - CLUE_CARD_FIRST + 1;
 
 typedef unsigned int ClueCardSet;	// Bit mask of cards.
 inline ClueCardSet ClueCardToBit( ClueCard x )
-	{ return ClueCardSet( 1 << x ); }
+{ return ClueCardSet( 1 << x ); }
 inline ClueCard ClueBitToCard( ClueCardSet x )
 {
     int i = 0;

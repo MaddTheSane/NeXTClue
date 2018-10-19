@@ -64,8 +64,9 @@ static char const* const DIE_ICON[] =
 };
 
 char const MAKE_ACCUSATION[] = "Make an accusation or skip.";
+typedef int MiscCoord_P;    // Physical coordinate.
 
-@interface ClueHuman(ForwardReference)
+@interface ClueHuman()
 - (void) startAccuse;
 @end
 
@@ -103,7 +104,7 @@ ClueFilter( unsigned short c, NSEventModifierFlags flags, unsigned short cset )
 @implementation ClueHuman
 
 - (BOOL) isHuman		{ return YES; }
-- (char const*) playerName	{ return "Human"; }
+- (NSString*) playerName	{ return "Human"; }
 
 - (void)print:(id)x	{ [window print:self];
 }
@@ -185,7 +186,7 @@ ClueFilter( unsigned short c, NSEventModifierFlags flags, unsigned short cset )
         [cell setTag:tag];
 
         char const* const s = ([self amHoldingCard:card] ? "x" : "-");
-        [[scroll cellAtRow:row column:self_slot] setStringValue:[NSString stringWithCString:s]];
+        [[scroll cellAtRow:row column:self_slot] setStringValue:([self amHoldingCard:card] ? @"x" : @"-")];
     }
 
     [self separatorRow:row tag:(CLUE_CARD_COUNT << 1) name:"notes"];
@@ -216,10 +217,8 @@ ClueFilter( unsigned short c, NSEventModifierFlags flags, unsigned short cset )
 
         [window setFrameAutosaveName:@"ClueHumanWindow"];
 
-        char buff[ 128 ];
         char const* const piece_name = ClueCardName( pieceID );
-        sprintf( buff, "Player %d -- %s", playerID + 1, piece_name );
-        [window setTitle:[NSString stringWithCString:buff]];
+        [window setTitle:[NSString stringWithFormat:@"Player %d -- %s", playerID + 1, piece_name]];
 
         [self initScroll];
 

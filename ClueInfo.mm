@@ -81,6 +81,7 @@ extern "C" {
 //-----------------------------------------------------------------------------
 - (void)makeKeyAndOrderFront:(id)sender
 {
+    [window center];
     [window makeKeyAndOrderFront:sender];
 }
 
@@ -88,14 +89,13 @@ extern "C" {
 //-----------------------------------------------------------------------------
 // +launch
 //-----------------------------------------------------------------------------
-+ (id) launch
++ (void) launch
 {
     static ClueInfo* instance = nil;
     if (instance == nil) {
         instance = [[self alloc] init];
     }
     [instance makeKeyAndOrderFront:self];
-    return instance;
 }
 
 @end

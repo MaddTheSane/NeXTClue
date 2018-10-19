@@ -25,7 +25,7 @@
     IBOutlet NSTextField*	buildField;
     IBOutlet NSTextField*	releaseField;
 }
-+ launch;
++ (void)launch;
 @end
 
 #endif // __ClueInfo_h

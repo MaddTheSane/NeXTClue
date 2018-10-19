@@ -37,6 +37,7 @@
 #include "MiscLineWrapper.h"
 #import	<AppKit/NSText.h>	// NSLeftTextAlignment
 #import	<AppKit/NSGraphicsContext.h>
+#import	<AppKit/NSStringDrawing.h>
 #include <cmath>
 #include <cstdio>
 #include <cstdlib>
@@ -456,8 +457,7 @@ void MiscLineWrapper::draw( float x, float y, int start, int len )
     int const lim = start + len;
     char const save_ch = text[ lim ];
     text[ lim ] = '\0';
-    PSmoveto( x, y );
-    PSshow( text + start );
+	[@(text + start) drawAtPoint:NSMakePoint(x, y) withAttributes:nil];
     text[ lim ] = save_ch;
     }
 
@@ -497,13 +497,13 @@ void MiscLineWrapper::draw()
     {
     wrap();
 
-    float const wmax = rect.size.width;
-    float const x0 = rect.origin.x;
-    float const xmax = x0 + wmax;
-    float x = x0;
-    float const y0 = rect.origin.y;
-    float const ymax = y0 + rect.size.height;
-    float y = y0 + line_height - descender;
+    CGFloat const wmax = rect.size.width;
+    CGFloat const x0 = rect.origin.x;
+    CGFloat const xmax = x0 + wmax;
+    CGFloat x = x0;
+    CGFloat const y0 = rect.origin.y;
+    CGFloat const ymax = y0 + rect.size.height;
+    CGFloat y = y0 + line_height - descender;
 
     bool did_clip = false;
     if (width_check())
@@ -529,11 +529,11 @@ void MiscLineWrapper::draw()
 		}
 	    x = x0;
 	    if (line.width < wmax)
-		if (alignment == NSCenterTextAlignment)
+		if (alignment == NSTextAlignmentCenter)
 		    x = floor( x0 + (wmax - line.width) / 2 );
-		else if (alignment == NSRightTextAlignment)
+		else if (alignment == NSTextAlignmentRight)
 		    x = floor( xmax - line.width );
-	    if (alignment == NSLeftTextAlignment && has_tabs( line ))
+		if (alignment == NSTextAlignmentLeft && has_tabs( line ))
 		draw_tabs( x, y, line );
 	    else
 		draw( x, y, line.start, line.len );

@@ -286,7 +286,7 @@ clip_exit:
 	    NUMOBJ(Int,info->num_print_rows), @"NumberOfPrintRows",
 	    NUMOBJ(Int,info->num_print_cols), @"NumberOfPrintColumns",
 	    NUMOBJ(Double,info->scale_factor), @"ScaleFactor",
-	    NUMOBJ(Bool,info->is_scaled), @"IsScaled", 0]];
+	    NUMOBJ(Bool,info->is_scaled), @"IsScaled", nil]];
 #undef NUMOBJ
     }
 

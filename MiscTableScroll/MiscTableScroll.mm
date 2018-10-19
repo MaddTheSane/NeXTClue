@@ -123,6 +123,7 @@
 #import <AppKit/NSFont.h>
 #import <AppKit/NSFontManager.h>
 #import <AppKit/NSScroller.h>
+#import <AppKit/NSColor.h>
 
 typedef MiscDelegateFlags DF;
 
@@ -1132,7 +1133,7 @@ static double get_height( NSFont* font )
 
 	[[NSNotificationCenter defaultCenter]
 	    postNotificationName:notification object:self userInfo:
-	    [NSDictionary dictionaryWithObjectsAndKeys:x, @"Color", 0]];
+	    [NSDictionary dictionaryWithObjectsAndKeys:x, @"Color", nil]];
 
 	[self setNeedsDisplay:YES];
 	}

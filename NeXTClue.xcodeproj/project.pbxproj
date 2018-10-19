@@ -65,7 +65,7 @@
 		55B436E121797608005ABAA2 /* MiscGeometry.h in Headers */ = {isa = PBXBuildFile; fileRef = 55B4368E21797602005ABAA2 /* MiscGeometry.h */; };
 		55B436E221797608005ABAA2 /* MiscRectColorList.h in Headers */ = {isa = PBXBuildFile; fileRef = 55B4368F21797602005ABAA2 /* MiscRectColorList.h */; };
 		55B436E321797608005ABAA2 /* MiscExporterAccessoryView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 55B4369021797602005ABAA2 /* MiscExporterAccessoryView.mm */; };
-		55B436E421797608005ABAA2 /* MiscTableScroll.h in Headers */ = {isa = PBXBuildFile; fileRef = 55B4369121797602005ABAA2 /* MiscTableScroll.h */; };
+		55B436E421797608005ABAA2 /* MiscTableScroll.h in Headers */ = {isa = PBXBuildFile; fileRef = 55B4369121797602005ABAA2 /* MiscTableScroll.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		55B436E521797608005ABAA2 /* MiscTableCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 55B4369221797602005ABAA2 /* MiscTableCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		55B436E621797608005ABAA2 /* MiscCornerView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 55B4369321797602005ABAA2 /* MiscCornerView.mm */; };
 		55B436E721797608005ABAA2 /* MiscExporterASCII.mm in Sources */ = {isa = PBXBuildFile; fileRef = 55B4369421797602005ABAA2 /* MiscExporterASCII.mm */; };

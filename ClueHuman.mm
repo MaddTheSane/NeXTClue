@@ -28,8 +28,8 @@
 #import	"ClueMap.h"
 #import	"ClueMgr.h"
 
-//#import	<misckit/MiscTableScroll.h>
-//#import	<misckit/MiscTableCell.h>
+#import	<MiscTableScroll/MiscTableScroll.h>
+#import	<MiscTableScroll/MiscTableCell.h>
 @class MiscTableCell;
 
 #import <Cocoa/Cocoa.h>
@@ -104,7 +104,7 @@ ClueFilter( unsigned short c, NSEventModifierFlags flags, unsigned short cset )
 @implementation ClueHuman
 
 - (BOOL) isHuman		{ return YES; }
-- (NSString*) playerName	{ return "Human"; }
+- (NSString*) playerName	{ return @"Human"; }
 
 - (void)print:(id)x	{ [window print:self];
 }
@@ -255,7 +255,7 @@ ClueFilter( unsigned short c, NSEventModifierFlags flags, unsigned short cset )
 //-----------------------------------------------------------------------------
 - (void)editNext:(BOOL)next row:(MiscCoord_P)p_row col:(MiscCoord_P)p_col
 {
-    int const nrows = [scroll numRows];
+    int const nrows = [scroll numberOfRows];
     MiscCoord_V v_row = [scroll rowPosition:p_row];
 
     v_row += (next ? 1 : -1);
@@ -263,8 +263,8 @@ ClueFilter( unsigned short c, NSEventModifierFlags flags, unsigned short cset )
     else if (v_row < 0) v_row = nrows - 1;
 
     p_row = [scroll rowAtPosition:v_row];
-    if ([scroll canEdit:0 at:p_row:p_col])
-        [scroll editCellAt:p_row:p_col];
+    if ([scroll canEdit:0 atRow:p_row column:p_col])
+        [scroll editCellAtRow:p_row column:p_col];
 }
 
 
@@ -278,20 +278,20 @@ ClueFilter( unsigned short c, NSEventModifierFlags flags, unsigned short cset )
     NSText *theText = [notification object];
     int whyEnd = [[[notification userInfo] objectForKey:@"NSTextMovement"] intValue];
     MiscCoord_P row = [scroll clickedRow];
-    MiscCoord_P col = [scroll clickedCol];
+    MiscCoord_P col = [scroll clickedColumn];
     switch (whyEnd)
     {
         case NSTabTextMovement:
             if (VERTICAL_MOVEMENT)
                 [self editNext:YES row:row col:col];
-            else if ([scroll getNext:YES editRow:&row andCol:&col])
-                [scroll editCellAt:row:col];
+            else if ([scroll getNext:YES editRow:&row column:&col])
+                [scroll editCellAtRow:row column:col];
             break;
         case NSBacktabTextMovement:
             if (VERTICAL_MOVEMENT)
                 [self editNext:NO row:row col:col];
             else if ([scroll getNext:NO editRow:&row andCol:&col])
-                [scroll editCellAt:row:col];
+                [scroll editCellAtRow:row column:col];
             break;
         case NSReturnTextMovement:
             [scroll selectText:self];
@@ -568,7 +568,7 @@ ClueFilter( unsigned short c, NSEventModifierFlags flags, unsigned short cset )
 {
     NSButtonCell* cell = [revealMatrix cellAtRow:row column:0];
     [cell setEnabled:[self amHoldingCard:x]];
-    [cell setTitle:[NSString stringWithCString:ClueCardName(x)]];
+    [cell setTitle:@(ClueCardName(x))];
     [cell setTag:x];
     [cell setState:0];
 }
@@ -735,7 +735,7 @@ ClueFilter( unsigned short c, NSEventModifierFlags flags, unsigned short cset )
 
     int const die_roll = [clueMgr rollDie];
 
-    [dieButton setImage:[NSImage imageNamed:[NSString stringWithCString:DIE_ICON[ die_roll - 1 ]]]];
+    [dieButton setImage:[NSImage imageNamed:@(DIE_ICON[ die_roll - 1 ])]];
 
     char buff[128];
     if ([self makeMapForRoll:die_roll])
@@ -750,7 +750,7 @@ ClueFilter( unsigned short c, NSEventModifierFlags flags, unsigned short cset )
         sprintf( buff, "You rolled %d, but can only use %d.\n"
                 "Move your piece.", die_roll, n );
     }
-    [messageField setStringValue:[NSString stringWithCString:buff]];
+    [messageField setStringValue:@(buff)];
 
     memset( draggable, 0, sizeof(draggable) );
     draggable[ [self pieceID] ] = true;

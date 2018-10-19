@@ -36,14 +36,10 @@
 //-----------------------------------------------------------------------------
 #import "MiscExporterPrivate.h"
 #import	<MiscTableScroll/MiscTableScroll.h>
-#import	"bool.h"
-extern "Objective-C" {
+#include <stdbool.h>
 #import	<AppKit/NSCell.h>
 #import	<AppKit/NSText.h>
-}
-extern "C" {
-#import	<stdio.h>
-}
+#include <cstdio>
 
 
 //=============================================================================

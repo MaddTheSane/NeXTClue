@@ -42,10 +42,7 @@
 #import "MiscTableBorder.h"
 #import "MiscTableScrollPrivate.h"
 #import "MiscTableView.h"
-#import <new.h>
-extern "Objective-C" {
 #import <AppKit/NSClipView.h>
-}
 
 @implementation MiscTableScroll(IO)
 

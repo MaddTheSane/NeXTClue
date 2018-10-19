@@ -35,10 +35,8 @@
 //  subclassing from NSTextFieldCell rather than NSCell.  This way color can
 //  be set with -setTextColor:.
 //-----------------------------------------------------------------------------
-extern "Objective-C" {
 #import <AppKit/NSTableHeaderCell.h>
-}
-class NSImage;
+@class NSImage;
 
 @interface MiscBorderCell : NSTableHeaderCell
     {

@@ -48,89 +48,90 @@
 		55B436752179756C005ABAA2 /* MiscTableScroll.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55B4366E2179756C005ABAA2 /* MiscTableScroll.framework */; };
 		55B436762179756C005ABAA2 /* MiscTableScroll.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 55B4366E2179756C005ABAA2 /* MiscTableScroll.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		55B4367D217975AF005ABAA2 /* MiscExporterAccessoryView.nib in Resources */ = {isa = PBXBuildFile; fileRef = 55B4367F217975AF005ABAA2 /* MiscExporterAccessoryView.nib */; };
-		55B436D321797608005ABAA2 /* MiscTableScrollData.M in Sources */ = {isa = PBXBuildFile; fileRef = 55B4368021797601005ABAA2 /* MiscTableScrollData.M */; };
-		55B436D421797608005ABAA2 /* MiscRectList.cc in Sources */ = {isa = PBXBuildFile; fileRef = 55B4368121797601005ABAA2 /* MiscRectList.cc */; };
-		55B436D521797608005ABAA2 /* MiscTableScroll.M in Sources */ = {isa = PBXBuildFile; fileRef = 55B4368221797601005ABAA2 /* MiscTableScroll.M */; };
-		55B436D621797608005ABAA2 /* MiscExporter.h in Headers */ = {isa = PBXBuildFile; fileRef = 55B4368321797601005ABAA2 /* MiscExporter.h */; };
+		55B436D321797608005ABAA2 /* MiscTableScrollData.mm in Sources */ = {isa = PBXBuildFile; fileRef = 55B4368021797601005ABAA2 /* MiscTableScrollData.mm */; };
+		55B436D421797608005ABAA2 /* MiscRectList.mm in Sources */ = {isa = PBXBuildFile; fileRef = 55B4368121797601005ABAA2 /* MiscRectList.mm */; };
+		55B436D521797608005ABAA2 /* MiscTableScroll.mm in Sources */ = {isa = PBXBuildFile; fileRef = 55B4368221797601005ABAA2 /* MiscTableScroll.mm */; };
+		55B436D621797608005ABAA2 /* MiscExporter.h in Headers */ = {isa = PBXBuildFile; fileRef = 55B4368321797601005ABAA2 /* MiscExporter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		55B436D721797608005ABAA2 /* MiscTableViewPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 55B4368421797601005ABAA2 /* MiscTableViewPrivate.h */; };
 		55B436D821797608005ABAA2 /* MiscTableViewPS.psw in Resources */ = {isa = PBXBuildFile; fileRef = 55B4368521797601005ABAA2 /* MiscTableViewPS.psw */; };
-		55B436D921797608005ABAA2 /* MiscTableScrollISearch.M in Sources */ = {isa = PBXBuildFile; fileRef = 55B4368621797601005ABAA2 /* MiscTableScrollISearch.M */; };
+		55B436D921797608005ABAA2 /* MiscTableScrollISearch.mm in Sources */ = {isa = PBXBuildFile; fileRef = 55B4368621797601005ABAA2 /* MiscTableScrollISearch.mm */; };
 		55B436DA21797608005ABAA2 /* MiscTableConnector.h in Headers */ = {isa = PBXBuildFile; fileRef = 55B4368721797601005ABAA2 /* MiscTableConnector.h */; };
 		55B436DB21797608005ABAA2 /* MiscListTracker.h in Headers */ = {isa = PBXBuildFile; fileRef = 55B4368821797602005ABAA2 /* MiscListTracker.h */; };
 		55B436DC21797608005ABAA2 /* MiscTableScrollPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 55B4368921797602005ABAA2 /* MiscTableScrollPrivate.h */; };
-		55B436DD21797608005ABAA2 /* MiscTableScrollIO.M in Sources */ = {isa = PBXBuildFile; fileRef = 55B4368A21797602005ABAA2 /* MiscTableScrollIO.M */; };
+		55B436DD21797608005ABAA2 /* MiscTableScrollIO.mm in Sources */ = {isa = PBXBuildFile; fileRef = 55B4368A21797602005ABAA2 /* MiscTableScrollIO.mm */; };
 		55B436DE21797608005ABAA2 /* MiscExporterPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 55B4368B21797602005ABAA2 /* MiscExporterPrivate.h */; };
-		55B436DF21797608005ABAA2 /* MiscMouseTracker.M in Sources */ = {isa = PBXBuildFile; fileRef = 55B4368C21797602005ABAA2 /* MiscMouseTracker.M */; };
+		55B436DF21797608005ABAA2 /* MiscMouseTracker.mm in Sources */ = {isa = PBXBuildFile; fileRef = 55B4368C21797602005ABAA2 /* MiscMouseTracker.mm */; };
 		55B436E021797608005ABAA2 /* MiscSlotDragCursor.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 55B4368D21797602005ABAA2 /* MiscSlotDragCursor.tiff */; };
 		55B436E121797608005ABAA2 /* MiscGeometry.h in Headers */ = {isa = PBXBuildFile; fileRef = 55B4368E21797602005ABAA2 /* MiscGeometry.h */; };
 		55B436E221797608005ABAA2 /* MiscRectColorList.h in Headers */ = {isa = PBXBuildFile; fileRef = 55B4368F21797602005ABAA2 /* MiscRectColorList.h */; };
-		55B436E321797608005ABAA2 /* MiscExporterAccessoryView.M in Sources */ = {isa = PBXBuildFile; fileRef = 55B4369021797602005ABAA2 /* MiscExporterAccessoryView.M */; };
+		55B436E321797608005ABAA2 /* MiscExporterAccessoryView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 55B4369021797602005ABAA2 /* MiscExporterAccessoryView.mm */; };
 		55B436E421797608005ABAA2 /* MiscTableScroll.h in Headers */ = {isa = PBXBuildFile; fileRef = 55B4369121797602005ABAA2 /* MiscTableScroll.h */; };
-		55B436E521797608005ABAA2 /* MiscTableCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 55B4369221797602005ABAA2 /* MiscTableCell.h */; };
-		55B436E621797608005ABAA2 /* MiscCornerView.M in Sources */ = {isa = PBXBuildFile; fileRef = 55B4369321797602005ABAA2 /* MiscCornerView.M */; };
-		55B436E721797608005ABAA2 /* MiscExporterASCII.M in Sources */ = {isa = PBXBuildFile; fileRef = 55B4369421797602005ABAA2 /* MiscExporterASCII.M */; };
+		55B436E521797608005ABAA2 /* MiscTableCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 55B4369221797602005ABAA2 /* MiscTableCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		55B436E621797608005ABAA2 /* MiscCornerView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 55B4369321797602005ABAA2 /* MiscCornerView.mm */; };
+		55B436E721797608005ABAA2 /* MiscExporterASCII.mm in Sources */ = {isa = PBXBuildFile; fileRef = 55B4369421797602005ABAA2 /* MiscExporterASCII.mm */; };
 		55B436E821797608005ABAA2 /* MiscSortAscendH.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 55B4369521797602005ABAA2 /* MiscSortAscendH.tiff */; };
-		55B436E921797608005ABAA2 /* MiscRowView.M in Sources */ = {isa = PBXBuildFile; fileRef = 55B4369621797603005ABAA2 /* MiscRowView.M */; };
-		55B436EA21797608005ABAA2 /* MiscHighlightTracker.M in Sources */ = {isa = PBXBuildFile; fileRef = 55B4369721797603005ABAA2 /* MiscHighlightTracker.M */; };
-		55B436EB21797608005ABAA2 /* MiscGeometry.cc in Sources */ = {isa = PBXBuildFile; fileRef = 55B4369821797603005ABAA2 /* MiscGeometry.cc */; };
-		55B436EC21797608005ABAA2 /* MiscTableConnector.M in Sources */ = {isa = PBXBuildFile; fileRef = 55B4369921797603005ABAA2 /* MiscTableConnector.M */; };
-		55B436ED21797608005ABAA2 /* MiscColView.M in Sources */ = {isa = PBXBuildFile; fileRef = 55B4369A21797603005ABAA2 /* MiscColView.M */; };
-		55B436EE21797608005ABAA2 /* MiscLineWrapper.cc in Sources */ = {isa = PBXBuildFile; fileRef = 55B4369B21797603005ABAA2 /* MiscLineWrapper.cc */; };
-		55B436EF21797608005ABAA2 /* MiscTableScrollSort.M in Sources */ = {isa = PBXBuildFile; fileRef = 55B4369C21797603005ABAA2 /* MiscTableScrollSort.M */; };
-		55B436F021797608005ABAA2 /* MiscTableScrollSymbols.M in Sources */ = {isa = PBXBuildFile; fileRef = 55B4369D21797603005ABAA2 /* MiscTableScrollSymbols.M */; };
+		55B436E921797608005ABAA2 /* MiscRowView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 55B4369621797603005ABAA2 /* MiscRowView.mm */; };
+		55B436EA21797608005ABAA2 /* MiscHighlightTracker.mm in Sources */ = {isa = PBXBuildFile; fileRef = 55B4369721797603005ABAA2 /* MiscHighlightTracker.mm */; };
+		55B436EB21797608005ABAA2 /* MiscGeometry.mm in Sources */ = {isa = PBXBuildFile; fileRef = 55B4369821797603005ABAA2 /* MiscGeometry.mm */; };
+		55B436EC21797608005ABAA2 /* MiscTableConnector.mm in Sources */ = {isa = PBXBuildFile; fileRef = 55B4369921797603005ABAA2 /* MiscTableConnector.mm */; };
+		55B436ED21797608005ABAA2 /* MiscColView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 55B4369A21797603005ABAA2 /* MiscColView.mm */; };
+		55B436EE21797608005ABAA2 /* MiscLineWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 55B4369B21797603005ABAA2 /* MiscLineWrapper.mm */; };
+		55B436EF21797608005ABAA2 /* MiscTableScrollSort.mm in Sources */ = {isa = PBXBuildFile; fileRef = 55B4369C21797603005ABAA2 /* MiscTableScrollSort.mm */; };
+		55B436F021797608005ABAA2 /* MiscTableScrollSymbols.mm in Sources */ = {isa = PBXBuildFile; fileRef = 55B4369D21797603005ABAA2 /* MiscTableScrollSymbols.mm */; };
 		55B436F121797608005ABAA2 /* MiscSparseSet.cc in Sources */ = {isa = PBXBuildFile; fileRef = 55B4369E21797603005ABAA2 /* MiscSparseSet.cc */; };
-		55B436F221797608005ABAA2 /* MiscTableScrollSel.M in Sources */ = {isa = PBXBuildFile; fileRef = 55B4369F21797603005ABAA2 /* MiscTableScrollSel.M */; };
+		55B436F221797608005ABAA2 /* MiscTableScrollSel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 55B4369F21797603005ABAA2 /* MiscTableScrollSel.mm */; };
 		55B436F321797608005ABAA2 /* MiscTableUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 55B436A021797604005ABAA2 /* MiscTableUtil.h */; };
-		55B436F421797608005ABAA2 /* MiscTableViewCursor.M in Sources */ = {isa = PBXBuildFile; fileRef = 55B436A121797604005ABAA2 /* MiscTableViewCursor.M */; };
+		55B436F421797608005ABAA2 /* MiscTableViewCursor.mm in Sources */ = {isa = PBXBuildFile; fileRef = 55B436A121797604005ABAA2 /* MiscTableViewCursor.mm */; };
 		55B436F521797608005ABAA2 /* MiscTracer.h in Headers */ = {isa = PBXBuildFile; fileRef = 55B436A221797604005ABAA2 /* MiscTracer.h */; };
 		55B436F621797608005ABAA2 /* MiscSparseSet.h in Headers */ = {isa = PBXBuildFile; fileRef = 55B436A321797604005ABAA2 /* MiscSparseSet.h */; };
-		55B436F721797608005ABAA2 /* MiscTableView.M in Sources */ = {isa = PBXBuildFile; fileRef = 55B436A421797604005ABAA2 /* MiscTableView.M */; };
+		55B436F721797608005ABAA2 /* MiscTableView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 55B436A421797604005ABAA2 /* MiscTableView.mm */; };
 		55B436F821797608005ABAA2 /* MiscCornerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 55B436A521797604005ABAA2 /* MiscCornerView.h */; };
 		55B436F921797608005ABAA2 /* MiscSortDescendH.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 55B436A621797604005ABAA2 /* MiscSortDescendH.tiff */; };
 		55B436FA21797608005ABAA2 /* MiscRectList.h in Headers */ = {isa = PBXBuildFile; fileRef = 55B436A721797604005ABAA2 /* MiscRectList.h */; };
-		55B436FB21797608005ABAA2 /* MiscDrawList.cc in Sources */ = {isa = PBXBuildFile; fileRef = 55B436A821797604005ABAA2 /* MiscDrawList.cc */; };
-		55B436FC21797608005ABAA2 /* MiscTableScrollPB.M in Sources */ = {isa = PBXBuildFile; fileRef = 55B436A921797605005ABAA2 /* MiscTableScrollPB.M */; };
+		55B436FB21797608005ABAA2 /* MiscDrawList.mm in Sources */ = {isa = PBXBuildFile; fileRef = 55B436A821797604005ABAA2 /* MiscDrawList.mm */; };
+		55B436FC21797608005ABAA2 /* MiscTableScrollPB.mm in Sources */ = {isa = PBXBuildFile; fileRef = 55B436A921797605005ABAA2 /* MiscTableScrollPB.mm */; };
 		55B436FD21797608005ABAA2 /* MiscMouseTracker.h in Headers */ = {isa = PBXBuildFile; fileRef = 55B436AA21797605005ABAA2 /* MiscMouseTracker.h */; };
 		55B436FE21797608005ABAA2 /* MiscHighlightTracker.h in Headers */ = {isa = PBXBuildFile; fileRef = 55B436AB21797605005ABAA2 /* MiscHighlightTracker.h */; };
 		55B436FF21797608005ABAA2 /* MiscColView.h in Headers */ = {isa = PBXBuildFile; fileRef = 55B436AC21797605005ABAA2 /* MiscColView.h */; };
-		55B4370021797608005ABAA2 /* MiscRadioTracker.M in Sources */ = {isa = PBXBuildFile; fileRef = 55B436AD21797605005ABAA2 /* MiscRadioTracker.M */; };
+		55B4370021797608005ABAA2 /* MiscRadioTracker.mm in Sources */ = {isa = PBXBuildFile; fileRef = 55B436AD21797605005ABAA2 /* MiscRadioTracker.mm */; };
 		55B4370121797608005ABAA2 /* MiscExporterAccessoryView.h in Headers */ = {isa = PBXBuildFile; fileRef = 55B436AE21797605005ABAA2 /* MiscExporterAccessoryView.h */; };
-		55B4370221797608005ABAA2 /* MiscTableScrollEdit.M in Sources */ = {isa = PBXBuildFile; fileRef = 55B436AF21797605005ABAA2 /* MiscTableScrollEdit.M */; };
+		55B4370221797608005ABAA2 /* MiscTableScrollEdit.mm in Sources */ = {isa = PBXBuildFile; fileRef = 55B436AF21797605005ABAA2 /* MiscTableScrollEdit.mm */; };
 		55B4370321797608005ABAA2 /* MiscTableBorder.h in Headers */ = {isa = PBXBuildFile; fileRef = 55B436B021797605005ABAA2 /* MiscTableBorder.h */; };
 		55B4370421797608005ABAA2 /* MiscRowView.h in Headers */ = {isa = PBXBuildFile; fileRef = 55B436B121797605005ABAA2 /* MiscRowView.h */; };
 		55B4370521797608005ABAA2 /* MiscDrawList.h in Headers */ = {isa = PBXBuildFile; fileRef = 55B436B221797605005ABAA2 /* MiscDrawList.h */; };
-		55B4370621797608005ABAA2 /* MiscTableScrollKB.M in Sources */ = {isa = PBXBuildFile; fileRef = 55B436B321797606005ABAA2 /* MiscTableScrollKB.M */; };
+		55B4370621797608005ABAA2 /* MiscTableScrollKB.mm in Sources */ = {isa = PBXBuildFile; fileRef = 55B436B321797606005ABAA2 /* MiscTableScrollKB.mm */; };
 		55B4370721797608005ABAA2 /* MiscHorzResizeCursor.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 55B436B421797606005ABAA2 /* MiscHorzResizeCursor.tiff */; };
-		55B4370821797608005ABAA2 /* MiscColorList.cc in Sources */ = {isa = PBXBuildFile; fileRef = 55B436B521797606005ABAA2 /* MiscColorList.cc */; };
-		55B4370921797608005ABAA2 /* MiscTableBorderSel.cc in Sources */ = {isa = PBXBuildFile; fileRef = 55B436B621797606005ABAA2 /* MiscTableBorderSel.cc */; };
+		55B4370821797608005ABAA2 /* MiscColorList.mm in Sources */ = {isa = PBXBuildFile; fileRef = 55B436B521797606005ABAA2 /* MiscColorList.mm */; };
+		55B4370921797608005ABAA2 /* MiscTableBorderSel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 55B436B621797606005ABAA2 /* MiscTableBorderSel.mm */; };
 		55B4370A21797608005ABAA2 /* MiscLineWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 55B436B721797606005ABAA2 /* MiscLineWrapper.h */; };
-		55B4370B21797608005ABAA2 /* MiscTableWell.M in Sources */ = {isa = PBXBuildFile; fileRef = 55B436B821797606005ABAA2 /* MiscTableWell.M */; };
-		55B4370C21797608005ABAA2 /* MiscExporterDBF.M in Sources */ = {isa = PBXBuildFile; fileRef = 55B436B921797606005ABAA2 /* MiscExporterDBF.M */; };
+		55B4370B21797608005ABAA2 /* MiscTableWell.mm in Sources */ = {isa = PBXBuildFile; fileRef = 55B436B821797606005ABAA2 /* MiscTableWell.mm */; };
+		55B4370C21797608005ABAA2 /* MiscExporterDBF.mm in Sources */ = {isa = PBXBuildFile; fileRef = 55B436B921797606005ABAA2 /* MiscExporterDBF.mm */; };
 		55B4370D21797608005ABAA2 /* MiscSortDescend.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 55B436BA21797606005ABAA2 /* MiscSortDescend.tiff */; };
 		55B4370E21797608005ABAA2 /* MiscDelegateFlags.h in Headers */ = {isa = PBXBuildFile; fileRef = 55B436BB21797606005ABAA2 /* MiscDelegateFlags.h */; };
-		55B4370F21797608005ABAA2 /* MiscListTracker.M in Sources */ = {isa = PBXBuildFile; fileRef = 55B436BC21797606005ABAA2 /* MiscListTracker.M */; };
+		55B4370F21797608005ABAA2 /* MiscListTracker.mm in Sources */ = {isa = PBXBuildFile; fileRef = 55B436BC21797606005ABAA2 /* MiscListTracker.mm */; };
 		55B4371021797608005ABAA2 /* MiscTableView.h in Headers */ = {isa = PBXBuildFile; fileRef = 55B436BD21797606005ABAA2 /* MiscTableView.h */; };
-		55B4371121797608005ABAA2 /* MiscTableBorderIO.cc in Sources */ = {isa = PBXBuildFile; fileRef = 55B436BE21797607005ABAA2 /* MiscTableBorderIO.cc */; };
+		55B4371121797608005ABAA2 /* MiscTableBorderIO.mm in Sources */ = {isa = PBXBuildFile; fileRef = 55B436BE21797607005ABAA2 /* MiscTableBorderIO.mm */; };
 		55B4371221797608005ABAA2 /* MiscRadioTracker.h in Headers */ = {isa = PBXBuildFile; fileRef = 55B436BF21797607005ABAA2 /* MiscRadioTracker.h */; };
 		55B4371321797608005ABAA2 /* MiscColorList.h in Headers */ = {isa = PBXBuildFile; fileRef = 55B436C021797607005ABAA2 /* MiscColorList.h */; };
-		55B4371421797608005ABAA2 /* MiscTableBorder.cc in Sources */ = {isa = PBXBuildFile; fileRef = 55B436C121797607005ABAA2 /* MiscTableBorder.cc */; };
+		55B4371421797608005ABAA2 /* MiscTableBorder.mm in Sources */ = {isa = PBXBuildFile; fileRef = 55B436C121797607005ABAA2 /* MiscTableBorder.mm */; };
 		55B4371521797608005ABAA2 /* MiscTableTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 55B436C221797607005ABAA2 /* MiscTableTypes.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		55B4371621797608005ABAA2 /* MiscRectColorList.cc in Sources */ = {isa = PBXBuildFile; fileRef = 55B436C321797607005ABAA2 /* MiscRectColorList.cc */; };
+		55B4371621797608005ABAA2 /* MiscRectColorList.mm in Sources */ = {isa = PBXBuildFile; fileRef = 55B436C321797607005ABAA2 /* MiscRectColorList.mm */; };
 		55B4371721797608005ABAA2 /* MiscReverseCursor.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 55B436C421797607005ABAA2 /* MiscReverseCursor.tiff */; };
-		55B4371821797609005ABAA2 /* MiscBorderView.M in Sources */ = {isa = PBXBuildFile; fileRef = 55B436C521797607005ABAA2 /* MiscBorderView.M */; };
-		55B4371921797609005ABAA2 /* MiscBorderCell.M in Sources */ = {isa = PBXBuildFile; fileRef = 55B436C621797607005ABAA2 /* MiscBorderCell.M */; };
-		55B4371A21797609005ABAA2 /* MiscTableCell.M in Sources */ = {isa = PBXBuildFile; fileRef = 55B436C721797607005ABAA2 /* MiscTableCell.M */; };
-		55B4371B21797609005ABAA2 /* MiscTableScrollPrint.M in Sources */ = {isa = PBXBuildFile; fileRef = 55B436C821797607005ABAA2 /* MiscTableScrollPrint.M */; };
-		55B4371C21797609005ABAA2 /* MiscExporter.M in Sources */ = {isa = PBXBuildFile; fileRef = 55B436C921797607005ABAA2 /* MiscExporter.M */; };
-		55B4371D21797609005ABAA2 /* MiscTableViewDrag.M in Sources */ = {isa = PBXBuildFile; fileRef = 55B436CA21797608005ABAA2 /* MiscTableViewDrag.M */; };
-		55B4371E21797609005ABAA2 /* MiscTracer.cc in Sources */ = {isa = PBXBuildFile; fileRef = 55B436CB21797608005ABAA2 /* MiscTracer.cc */; };
-		55B4371F21797609005ABAA2 /* MiscDelegateFlags.cc in Sources */ = {isa = PBXBuildFile; fileRef = 55B436CC21797608005ABAA2 /* MiscDelegateFlags.cc */; };
+		55B4371821797609005ABAA2 /* MiscBorderView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 55B436C521797607005ABAA2 /* MiscBorderView.mm */; };
+		55B4371921797609005ABAA2 /* MiscBorderCell.mm in Sources */ = {isa = PBXBuildFile; fileRef = 55B436C621797607005ABAA2 /* MiscBorderCell.mm */; };
+		55B4371A21797609005ABAA2 /* MiscTableCell.mm in Sources */ = {isa = PBXBuildFile; fileRef = 55B436C721797607005ABAA2 /* MiscTableCell.mm */; };
+		55B4371B21797609005ABAA2 /* MiscTableScrollPrint.mm in Sources */ = {isa = PBXBuildFile; fileRef = 55B436C821797607005ABAA2 /* MiscTableScrollPrint.mm */; };
+		55B4371C21797609005ABAA2 /* MiscExporter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 55B436C921797607005ABAA2 /* MiscExporter.mm */; };
+		55B4371D21797609005ABAA2 /* MiscTableViewDrag.mm in Sources */ = {isa = PBXBuildFile; fileRef = 55B436CA21797608005ABAA2 /* MiscTableViewDrag.mm */; };
+		55B4371E21797609005ABAA2 /* MiscTracer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 55B436CB21797608005ABAA2 /* MiscTracer.mm */; };
+		55B4371F21797609005ABAA2 /* MiscDelegateFlags.mm in Sources */ = {isa = PBXBuildFile; fileRef = 55B436CC21797608005ABAA2 /* MiscDelegateFlags.mm */; };
 		55B4372021797609005ABAA2 /* MiscSortAscend.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 55B436CD21797608005ABAA2 /* MiscSortAscend.tiff */; };
 		55B4372121797609005ABAA2 /* MiscTableWell.h in Headers */ = {isa = PBXBuildFile; fileRef = 55B436CE21797608005ABAA2 /* MiscTableWell.h */; };
 		55B4372221797609005ABAA2 /* MiscBorderCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 55B436CF21797608005ABAA2 /* MiscBorderCell.h */; };
 		55B4372321797609005ABAA2 /* MiscVertResizeCursor.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 55B436D021797608005ABAA2 /* MiscVertResizeCursor.tiff */; };
 		55B4372421797609005ABAA2 /* MiscBorderView.h in Headers */ = {isa = PBXBuildFile; fileRef = 55B436D121797608005ABAA2 /* MiscBorderView.h */; };
-		55B4372521797609005ABAA2 /* MiscTableViewPrint.M in Sources */ = {isa = PBXBuildFile; fileRef = 55B436D221797608005ABAA2 /* MiscTableViewPrint.M */; };
+		55B4372521797609005ABAA2 /* MiscTableViewPrint.mm in Sources */ = {isa = PBXBuildFile; fileRef = 55B436D221797608005ABAA2 /* MiscTableViewPrint.mm */; };
+		55B4372721797A4F005ABAA2 /* NSNibConnector.h in Headers */ = {isa = PBXBuildFile; fileRef = 55B4372621797A4F005ABAA2 /* NSNibConnector.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -226,89 +227,90 @@
 		55B4366E2179756C005ABAA2 /* MiscTableScroll.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MiscTableScroll.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55B436712179756C005ABAA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55B4367E217975AF005ABAA2 /* en */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = en; path = en.lproj/MiscExporterAccessoryView.nib; sourceTree = "<group>"; };
-		55B4368021797601005ABAA2 /* MiscTableScrollData.M */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MiscTableScrollData.M; sourceTree = "<group>"; };
-		55B4368121797601005ABAA2 /* MiscRectList.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MiscRectList.cc; sourceTree = "<group>"; };
-		55B4368221797601005ABAA2 /* MiscTableScroll.M */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MiscTableScroll.M; sourceTree = "<group>"; };
+		55B4368021797601005ABAA2 /* MiscTableScrollData.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MiscTableScrollData.mm; sourceTree = "<group>"; };
+		55B4368121797601005ABAA2 /* MiscRectList.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MiscRectList.mm; sourceTree = "<group>"; };
+		55B4368221797601005ABAA2 /* MiscTableScroll.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MiscTableScroll.mm; sourceTree = "<group>"; };
 		55B4368321797601005ABAA2 /* MiscExporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiscExporter.h; sourceTree = "<group>"; };
 		55B4368421797601005ABAA2 /* MiscTableViewPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiscTableViewPrivate.h; sourceTree = "<group>"; };
 		55B4368521797601005ABAA2 /* MiscTableViewPS.psw */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MiscTableViewPS.psw; sourceTree = "<group>"; };
-		55B4368621797601005ABAA2 /* MiscTableScrollISearch.M */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MiscTableScrollISearch.M; sourceTree = "<group>"; };
+		55B4368621797601005ABAA2 /* MiscTableScrollISearch.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MiscTableScrollISearch.mm; sourceTree = "<group>"; };
 		55B4368721797601005ABAA2 /* MiscTableConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiscTableConnector.h; sourceTree = "<group>"; };
 		55B4368821797602005ABAA2 /* MiscListTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiscListTracker.h; sourceTree = "<group>"; };
 		55B4368921797602005ABAA2 /* MiscTableScrollPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiscTableScrollPrivate.h; sourceTree = "<group>"; };
-		55B4368A21797602005ABAA2 /* MiscTableScrollIO.M */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MiscTableScrollIO.M; sourceTree = "<group>"; };
+		55B4368A21797602005ABAA2 /* MiscTableScrollIO.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MiscTableScrollIO.mm; sourceTree = "<group>"; };
 		55B4368B21797602005ABAA2 /* MiscExporterPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiscExporterPrivate.h; sourceTree = "<group>"; };
-		55B4368C21797602005ABAA2 /* MiscMouseTracker.M */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MiscMouseTracker.M; sourceTree = "<group>"; };
+		55B4368C21797602005ABAA2 /* MiscMouseTracker.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MiscMouseTracker.mm; sourceTree = "<group>"; };
 		55B4368D21797602005ABAA2 /* MiscSlotDragCursor.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = MiscSlotDragCursor.tiff; sourceTree = "<group>"; };
 		55B4368E21797602005ABAA2 /* MiscGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiscGeometry.h; sourceTree = "<group>"; };
 		55B4368F21797602005ABAA2 /* MiscRectColorList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiscRectColorList.h; sourceTree = "<group>"; };
-		55B4369021797602005ABAA2 /* MiscExporterAccessoryView.M */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MiscExporterAccessoryView.M; sourceTree = "<group>"; };
+		55B4369021797602005ABAA2 /* MiscExporterAccessoryView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MiscExporterAccessoryView.mm; sourceTree = "<group>"; };
 		55B4369121797602005ABAA2 /* MiscTableScroll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiscTableScroll.h; sourceTree = "<group>"; };
 		55B4369221797602005ABAA2 /* MiscTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiscTableCell.h; sourceTree = "<group>"; };
-		55B4369321797602005ABAA2 /* MiscCornerView.M */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MiscCornerView.M; sourceTree = "<group>"; };
-		55B4369421797602005ABAA2 /* MiscExporterASCII.M */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MiscExporterASCII.M; sourceTree = "<group>"; };
+		55B4369321797602005ABAA2 /* MiscCornerView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MiscCornerView.mm; sourceTree = "<group>"; };
+		55B4369421797602005ABAA2 /* MiscExporterASCII.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MiscExporterASCII.mm; sourceTree = "<group>"; };
 		55B4369521797602005ABAA2 /* MiscSortAscendH.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = MiscSortAscendH.tiff; sourceTree = "<group>"; };
-		55B4369621797603005ABAA2 /* MiscRowView.M */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MiscRowView.M; sourceTree = "<group>"; };
-		55B4369721797603005ABAA2 /* MiscHighlightTracker.M */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MiscHighlightTracker.M; sourceTree = "<group>"; };
-		55B4369821797603005ABAA2 /* MiscGeometry.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MiscGeometry.cc; sourceTree = "<group>"; };
-		55B4369921797603005ABAA2 /* MiscTableConnector.M */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MiscTableConnector.M; sourceTree = "<group>"; };
-		55B4369A21797603005ABAA2 /* MiscColView.M */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MiscColView.M; sourceTree = "<group>"; };
-		55B4369B21797603005ABAA2 /* MiscLineWrapper.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MiscLineWrapper.cc; sourceTree = "<group>"; };
-		55B4369C21797603005ABAA2 /* MiscTableScrollSort.M */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MiscTableScrollSort.M; sourceTree = "<group>"; };
-		55B4369D21797603005ABAA2 /* MiscTableScrollSymbols.M */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MiscTableScrollSymbols.M; sourceTree = "<group>"; };
+		55B4369621797603005ABAA2 /* MiscRowView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MiscRowView.mm; sourceTree = "<group>"; };
+		55B4369721797603005ABAA2 /* MiscHighlightTracker.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MiscHighlightTracker.mm; sourceTree = "<group>"; };
+		55B4369821797603005ABAA2 /* MiscGeometry.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MiscGeometry.mm; sourceTree = "<group>"; };
+		55B4369921797603005ABAA2 /* MiscTableConnector.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MiscTableConnector.mm; sourceTree = "<group>"; };
+		55B4369A21797603005ABAA2 /* MiscColView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MiscColView.mm; sourceTree = "<group>"; };
+		55B4369B21797603005ABAA2 /* MiscLineWrapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MiscLineWrapper.mm; sourceTree = "<group>"; };
+		55B4369C21797603005ABAA2 /* MiscTableScrollSort.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MiscTableScrollSort.mm; sourceTree = "<group>"; };
+		55B4369D21797603005ABAA2 /* MiscTableScrollSymbols.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MiscTableScrollSymbols.mm; sourceTree = "<group>"; };
 		55B4369E21797603005ABAA2 /* MiscSparseSet.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MiscSparseSet.cc; sourceTree = "<group>"; };
-		55B4369F21797603005ABAA2 /* MiscTableScrollSel.M */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MiscTableScrollSel.M; sourceTree = "<group>"; };
+		55B4369F21797603005ABAA2 /* MiscTableScrollSel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MiscTableScrollSel.mm; sourceTree = "<group>"; };
 		55B436A021797604005ABAA2 /* MiscTableUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiscTableUtil.h; sourceTree = "<group>"; };
-		55B436A121797604005ABAA2 /* MiscTableViewCursor.M */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MiscTableViewCursor.M; sourceTree = "<group>"; };
+		55B436A121797604005ABAA2 /* MiscTableViewCursor.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MiscTableViewCursor.mm; sourceTree = "<group>"; };
 		55B436A221797604005ABAA2 /* MiscTracer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiscTracer.h; sourceTree = "<group>"; };
 		55B436A321797604005ABAA2 /* MiscSparseSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiscSparseSet.h; sourceTree = "<group>"; };
-		55B436A421797604005ABAA2 /* MiscTableView.M */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MiscTableView.M; sourceTree = "<group>"; };
+		55B436A421797604005ABAA2 /* MiscTableView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MiscTableView.mm; sourceTree = "<group>"; };
 		55B436A521797604005ABAA2 /* MiscCornerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiscCornerView.h; sourceTree = "<group>"; };
 		55B436A621797604005ABAA2 /* MiscSortDescendH.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = MiscSortDescendH.tiff; sourceTree = "<group>"; };
 		55B436A721797604005ABAA2 /* MiscRectList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiscRectList.h; sourceTree = "<group>"; };
-		55B436A821797604005ABAA2 /* MiscDrawList.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MiscDrawList.cc; sourceTree = "<group>"; };
-		55B436A921797605005ABAA2 /* MiscTableScrollPB.M */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MiscTableScrollPB.M; sourceTree = "<group>"; };
+		55B436A821797604005ABAA2 /* MiscDrawList.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MiscDrawList.mm; sourceTree = "<group>"; };
+		55B436A921797605005ABAA2 /* MiscTableScrollPB.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MiscTableScrollPB.mm; sourceTree = "<group>"; };
 		55B436AA21797605005ABAA2 /* MiscMouseTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiscMouseTracker.h; sourceTree = "<group>"; };
 		55B436AB21797605005ABAA2 /* MiscHighlightTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiscHighlightTracker.h; sourceTree = "<group>"; };
 		55B436AC21797605005ABAA2 /* MiscColView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiscColView.h; sourceTree = "<group>"; };
-		55B436AD21797605005ABAA2 /* MiscRadioTracker.M */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MiscRadioTracker.M; sourceTree = "<group>"; };
+		55B436AD21797605005ABAA2 /* MiscRadioTracker.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MiscRadioTracker.mm; sourceTree = "<group>"; };
 		55B436AE21797605005ABAA2 /* MiscExporterAccessoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiscExporterAccessoryView.h; sourceTree = "<group>"; };
-		55B436AF21797605005ABAA2 /* MiscTableScrollEdit.M */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MiscTableScrollEdit.M; sourceTree = "<group>"; };
+		55B436AF21797605005ABAA2 /* MiscTableScrollEdit.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MiscTableScrollEdit.mm; sourceTree = "<group>"; };
 		55B436B021797605005ABAA2 /* MiscTableBorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiscTableBorder.h; sourceTree = "<group>"; };
 		55B436B121797605005ABAA2 /* MiscRowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiscRowView.h; sourceTree = "<group>"; };
 		55B436B221797605005ABAA2 /* MiscDrawList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiscDrawList.h; sourceTree = "<group>"; };
-		55B436B321797606005ABAA2 /* MiscTableScrollKB.M */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MiscTableScrollKB.M; sourceTree = "<group>"; };
+		55B436B321797606005ABAA2 /* MiscTableScrollKB.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MiscTableScrollKB.mm; sourceTree = "<group>"; };
 		55B436B421797606005ABAA2 /* MiscHorzResizeCursor.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = MiscHorzResizeCursor.tiff; sourceTree = "<group>"; };
-		55B436B521797606005ABAA2 /* MiscColorList.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MiscColorList.cc; sourceTree = "<group>"; };
-		55B436B621797606005ABAA2 /* MiscTableBorderSel.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MiscTableBorderSel.cc; sourceTree = "<group>"; };
+		55B436B521797606005ABAA2 /* MiscColorList.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MiscColorList.mm; sourceTree = "<group>"; };
+		55B436B621797606005ABAA2 /* MiscTableBorderSel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MiscTableBorderSel.mm; sourceTree = "<group>"; };
 		55B436B721797606005ABAA2 /* MiscLineWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiscLineWrapper.h; sourceTree = "<group>"; };
-		55B436B821797606005ABAA2 /* MiscTableWell.M */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MiscTableWell.M; sourceTree = "<group>"; };
-		55B436B921797606005ABAA2 /* MiscExporterDBF.M */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MiscExporterDBF.M; sourceTree = "<group>"; };
+		55B436B821797606005ABAA2 /* MiscTableWell.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MiscTableWell.mm; sourceTree = "<group>"; };
+		55B436B921797606005ABAA2 /* MiscExporterDBF.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MiscExporterDBF.mm; sourceTree = "<group>"; };
 		55B436BA21797606005ABAA2 /* MiscSortDescend.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = MiscSortDescend.tiff; sourceTree = "<group>"; };
 		55B436BB21797606005ABAA2 /* MiscDelegateFlags.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiscDelegateFlags.h; sourceTree = "<group>"; };
-		55B436BC21797606005ABAA2 /* MiscListTracker.M */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MiscListTracker.M; sourceTree = "<group>"; };
+		55B436BC21797606005ABAA2 /* MiscListTracker.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MiscListTracker.mm; sourceTree = "<group>"; };
 		55B436BD21797606005ABAA2 /* MiscTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiscTableView.h; sourceTree = "<group>"; };
-		55B436BE21797607005ABAA2 /* MiscTableBorderIO.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MiscTableBorderIO.cc; sourceTree = "<group>"; };
+		55B436BE21797607005ABAA2 /* MiscTableBorderIO.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MiscTableBorderIO.mm; sourceTree = "<group>"; };
 		55B436BF21797607005ABAA2 /* MiscRadioTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiscRadioTracker.h; sourceTree = "<group>"; };
 		55B436C021797607005ABAA2 /* MiscColorList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiscColorList.h; sourceTree = "<group>"; };
-		55B436C121797607005ABAA2 /* MiscTableBorder.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MiscTableBorder.cc; sourceTree = "<group>"; };
+		55B436C121797607005ABAA2 /* MiscTableBorder.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MiscTableBorder.mm; sourceTree = "<group>"; };
 		55B436C221797607005ABAA2 /* MiscTableTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiscTableTypes.h; sourceTree = "<group>"; };
-		55B436C321797607005ABAA2 /* MiscRectColorList.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MiscRectColorList.cc; sourceTree = "<group>"; };
+		55B436C321797607005ABAA2 /* MiscRectColorList.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MiscRectColorList.mm; sourceTree = "<group>"; };
 		55B436C421797607005ABAA2 /* MiscReverseCursor.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = MiscReverseCursor.tiff; sourceTree = "<group>"; };
-		55B436C521797607005ABAA2 /* MiscBorderView.M */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MiscBorderView.M; sourceTree = "<group>"; };
-		55B436C621797607005ABAA2 /* MiscBorderCell.M */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MiscBorderCell.M; sourceTree = "<group>"; };
-		55B436C721797607005ABAA2 /* MiscTableCell.M */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MiscTableCell.M; sourceTree = "<group>"; };
-		55B436C821797607005ABAA2 /* MiscTableScrollPrint.M */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MiscTableScrollPrint.M; sourceTree = "<group>"; };
-		55B436C921797607005ABAA2 /* MiscExporter.M */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MiscExporter.M; sourceTree = "<group>"; };
-		55B436CA21797608005ABAA2 /* MiscTableViewDrag.M */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MiscTableViewDrag.M; sourceTree = "<group>"; };
-		55B436CB21797608005ABAA2 /* MiscTracer.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MiscTracer.cc; sourceTree = "<group>"; };
-		55B436CC21797608005ABAA2 /* MiscDelegateFlags.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MiscDelegateFlags.cc; sourceTree = "<group>"; };
+		55B436C521797607005ABAA2 /* MiscBorderView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MiscBorderView.mm; sourceTree = "<group>"; };
+		55B436C621797607005ABAA2 /* MiscBorderCell.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MiscBorderCell.mm; sourceTree = "<group>"; };
+		55B436C721797607005ABAA2 /* MiscTableCell.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MiscTableCell.mm; sourceTree = "<group>"; };
+		55B436C821797607005ABAA2 /* MiscTableScrollPrint.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MiscTableScrollPrint.mm; sourceTree = "<group>"; };
+		55B436C921797607005ABAA2 /* MiscExporter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MiscExporter.mm; sourceTree = "<group>"; };
+		55B436CA21797608005ABAA2 /* MiscTableViewDrag.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MiscTableViewDrag.mm; sourceTree = "<group>"; };
+		55B436CB21797608005ABAA2 /* MiscTracer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MiscTracer.mm; sourceTree = "<group>"; };
+		55B436CC21797608005ABAA2 /* MiscDelegateFlags.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MiscDelegateFlags.mm; sourceTree = "<group>"; };
 		55B436CD21797608005ABAA2 /* MiscSortAscend.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = MiscSortAscend.tiff; sourceTree = "<group>"; };
 		55B436CE21797608005ABAA2 /* MiscTableWell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiscTableWell.h; sourceTree = "<group>"; };
 		55B436CF21797608005ABAA2 /* MiscBorderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiscBorderCell.h; sourceTree = "<group>"; };
 		55B436D021797608005ABAA2 /* MiscVertResizeCursor.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = MiscVertResizeCursor.tiff; sourceTree = "<group>"; };
 		55B436D121797608005ABAA2 /* MiscBorderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiscBorderView.h; sourceTree = "<group>"; };
-		55B436D221797608005ABAA2 /* MiscTableViewPrint.M */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MiscTableViewPrint.M; sourceTree = "<group>"; };
+		55B436D221797608005ABAA2 /* MiscTableViewPrint.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MiscTableViewPrint.mm; sourceTree = "<group>"; };
+		55B4372621797A4F005ABAA2 /* NSNibConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSNibConnector.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -432,46 +434,46 @@
 			isa = PBXGroup;
 			children = (
 				55B436CF21797608005ABAA2 /* MiscBorderCell.h */,
-				55B436C621797607005ABAA2 /* MiscBorderCell.M */,
+				55B436C621797607005ABAA2 /* MiscBorderCell.mm */,
 				55B436D121797608005ABAA2 /* MiscBorderView.h */,
-				55B436C521797607005ABAA2 /* MiscBorderView.M */,
-				55B436B521797606005ABAA2 /* MiscColorList.cc */,
+				55B436C521797607005ABAA2 /* MiscBorderView.mm */,
+				55B436B521797606005ABAA2 /* MiscColorList.mm */,
 				55B436C021797607005ABAA2 /* MiscColorList.h */,
 				55B436AC21797605005ABAA2 /* MiscColView.h */,
-				55B4369A21797603005ABAA2 /* MiscColView.M */,
+				55B4369A21797603005ABAA2 /* MiscColView.mm */,
 				55B436A521797604005ABAA2 /* MiscCornerView.h */,
-				55B4369321797602005ABAA2 /* MiscCornerView.M */,
-				55B436CC21797608005ABAA2 /* MiscDelegateFlags.cc */,
+				55B4369321797602005ABAA2 /* MiscCornerView.mm */,
+				55B436CC21797608005ABAA2 /* MiscDelegateFlags.mm */,
 				55B436BB21797606005ABAA2 /* MiscDelegateFlags.h */,
-				55B436A821797604005ABAA2 /* MiscDrawList.cc */,
+				55B436A821797604005ABAA2 /* MiscDrawList.mm */,
 				55B436B221797605005ABAA2 /* MiscDrawList.h */,
 				55B4368321797601005ABAA2 /* MiscExporter.h */,
-				55B436C921797607005ABAA2 /* MiscExporter.M */,
+				55B436C921797607005ABAA2 /* MiscExporter.mm */,
 				55B436AE21797605005ABAA2 /* MiscExporterAccessoryView.h */,
-				55B4369021797602005ABAA2 /* MiscExporterAccessoryView.M */,
-				55B4369421797602005ABAA2 /* MiscExporterASCII.M */,
-				55B436B921797606005ABAA2 /* MiscExporterDBF.M */,
+				55B4369021797602005ABAA2 /* MiscExporterAccessoryView.mm */,
+				55B4369421797602005ABAA2 /* MiscExporterASCII.mm */,
+				55B436B921797606005ABAA2 /* MiscExporterDBF.mm */,
 				55B4368B21797602005ABAA2 /* MiscExporterPrivate.h */,
-				55B4369821797603005ABAA2 /* MiscGeometry.cc */,
+				55B4369821797603005ABAA2 /* MiscGeometry.mm */,
 				55B4368E21797602005ABAA2 /* MiscGeometry.h */,
 				55B436AB21797605005ABAA2 /* MiscHighlightTracker.h */,
-				55B4369721797603005ABAA2 /* MiscHighlightTracker.M */,
+				55B4369721797603005ABAA2 /* MiscHighlightTracker.mm */,
 				55B436B421797606005ABAA2 /* MiscHorzResizeCursor.tiff */,
-				55B4369B21797603005ABAA2 /* MiscLineWrapper.cc */,
 				55B436B721797606005ABAA2 /* MiscLineWrapper.h */,
+				55B4369B21797603005ABAA2 /* MiscLineWrapper.mm */,
 				55B4368821797602005ABAA2 /* MiscListTracker.h */,
-				55B436BC21797606005ABAA2 /* MiscListTracker.M */,
+				55B436BC21797606005ABAA2 /* MiscListTracker.mm */,
 				55B436AA21797605005ABAA2 /* MiscMouseTracker.h */,
-				55B4368C21797602005ABAA2 /* MiscMouseTracker.M */,
+				55B4368C21797602005ABAA2 /* MiscMouseTracker.mm */,
 				55B436BF21797607005ABAA2 /* MiscRadioTracker.h */,
-				55B436AD21797605005ABAA2 /* MiscRadioTracker.M */,
-				55B436C321797607005ABAA2 /* MiscRectColorList.cc */,
+				55B436AD21797605005ABAA2 /* MiscRadioTracker.mm */,
 				55B4368F21797602005ABAA2 /* MiscRectColorList.h */,
-				55B4368121797601005ABAA2 /* MiscRectList.cc */,
+				55B436C321797607005ABAA2 /* MiscRectColorList.mm */,
 				55B436A721797604005ABAA2 /* MiscRectList.h */,
+				55B4368121797601005ABAA2 /* MiscRectList.mm */,
 				55B436C421797607005ABAA2 /* MiscReverseCursor.tiff */,
 				55B436B121797605005ABAA2 /* MiscRowView.h */,
-				55B4369621797603005ABAA2 /* MiscRowView.M */,
+				55B4369621797603005ABAA2 /* MiscRowView.mm */,
 				55B4368D21797602005ABAA2 /* MiscSlotDragCursor.tiff */,
 				55B436CD21797608005ABAA2 /* MiscSortAscend.tiff */,
 				55B4369521797602005ABAA2 /* MiscSortAscendH.tiff */,
@@ -479,40 +481,41 @@
 				55B436A621797604005ABAA2 /* MiscSortDescendH.tiff */,
 				55B4369E21797603005ABAA2 /* MiscSparseSet.cc */,
 				55B436A321797604005ABAA2 /* MiscSparseSet.h */,
-				55B436C121797607005ABAA2 /* MiscTableBorder.cc */,
 				55B436B021797605005ABAA2 /* MiscTableBorder.h */,
-				55B436BE21797607005ABAA2 /* MiscTableBorderIO.cc */,
-				55B436B621797606005ABAA2 /* MiscTableBorderSel.cc */,
+				55B436C121797607005ABAA2 /* MiscTableBorder.mm */,
+				55B436BE21797607005ABAA2 /* MiscTableBorderIO.mm */,
+				55B436B621797606005ABAA2 /* MiscTableBorderSel.mm */,
 				55B4369221797602005ABAA2 /* MiscTableCell.h */,
-				55B436C721797607005ABAA2 /* MiscTableCell.M */,
+				55B436C721797607005ABAA2 /* MiscTableCell.mm */,
 				55B4368721797601005ABAA2 /* MiscTableConnector.h */,
-				55B4369921797603005ABAA2 /* MiscTableConnector.M */,
+				55B4369921797603005ABAA2 /* MiscTableConnector.mm */,
 				55B4369121797602005ABAA2 /* MiscTableScroll.h */,
-				55B4368221797601005ABAA2 /* MiscTableScroll.M */,
-				55B4368021797601005ABAA2 /* MiscTableScrollData.M */,
-				55B436AF21797605005ABAA2 /* MiscTableScrollEdit.M */,
-				55B4368A21797602005ABAA2 /* MiscTableScrollIO.M */,
-				55B4368621797601005ABAA2 /* MiscTableScrollISearch.M */,
-				55B436B321797606005ABAA2 /* MiscTableScrollKB.M */,
-				55B436A921797605005ABAA2 /* MiscTableScrollPB.M */,
-				55B436C821797607005ABAA2 /* MiscTableScrollPrint.M */,
+				55B4368221797601005ABAA2 /* MiscTableScroll.mm */,
+				55B4368021797601005ABAA2 /* MiscTableScrollData.mm */,
+				55B436AF21797605005ABAA2 /* MiscTableScrollEdit.mm */,
+				55B4368A21797602005ABAA2 /* MiscTableScrollIO.mm */,
+				55B4368621797601005ABAA2 /* MiscTableScrollISearch.mm */,
+				55B436B321797606005ABAA2 /* MiscTableScrollKB.mm */,
+				55B436A921797605005ABAA2 /* MiscTableScrollPB.mm */,
+				55B436C821797607005ABAA2 /* MiscTableScrollPrint.mm */,
 				55B4368921797602005ABAA2 /* MiscTableScrollPrivate.h */,
-				55B4369F21797603005ABAA2 /* MiscTableScrollSel.M */,
-				55B4369C21797603005ABAA2 /* MiscTableScrollSort.M */,
-				55B4369D21797603005ABAA2 /* MiscTableScrollSymbols.M */,
+				55B4369F21797603005ABAA2 /* MiscTableScrollSel.mm */,
+				55B4369C21797603005ABAA2 /* MiscTableScrollSort.mm */,
+				55B4369D21797603005ABAA2 /* MiscTableScrollSymbols.mm */,
 				55B436C221797607005ABAA2 /* MiscTableTypes.h */,
 				55B436A021797604005ABAA2 /* MiscTableUtil.h */,
 				55B436BD21797606005ABAA2 /* MiscTableView.h */,
-				55B436A421797604005ABAA2 /* MiscTableView.M */,
-				55B436A121797604005ABAA2 /* MiscTableViewCursor.M */,
-				55B436CA21797608005ABAA2 /* MiscTableViewDrag.M */,
-				55B436D221797608005ABAA2 /* MiscTableViewPrint.M */,
+				55B436A421797604005ABAA2 /* MiscTableView.mm */,
+				55B4372621797A4F005ABAA2 /* NSNibConnector.h */,
+				55B436A121797604005ABAA2 /* MiscTableViewCursor.mm */,
+				55B436CA21797608005ABAA2 /* MiscTableViewDrag.mm */,
+				55B436D221797608005ABAA2 /* MiscTableViewPrint.mm */,
 				55B4368421797601005ABAA2 /* MiscTableViewPrivate.h */,
 				55B4368521797601005ABAA2 /* MiscTableViewPS.psw */,
 				55B436CE21797608005ABAA2 /* MiscTableWell.h */,
-				55B436B821797606005ABAA2 /* MiscTableWell.M */,
-				55B436CB21797608005ABAA2 /* MiscTracer.cc */,
+				55B436B821797606005ABAA2 /* MiscTableWell.mm */,
 				55B436A221797604005ABAA2 /* MiscTracer.h */,
+				55B436CB21797608005ABAA2 /* MiscTracer.mm */,
 				55B436D021797608005ABAA2 /* MiscVertResizeCursor.tiff */,
 				55B4367F217975AF005ABAA2 /* MiscExporterAccessoryView.nib */,
 				55B436712179756C005ABAA2 /* Info.plist */,
@@ -538,6 +541,7 @@
 				55B4370A21797608005ABAA2 /* MiscLineWrapper.h in Headers */,
 				55B436F821797608005ABAA2 /* MiscCornerView.h in Headers */,
 				55B436DE21797608005ABAA2 /* MiscExporterPrivate.h in Headers */,
+				55B4372721797A4F005ABAA2 /* NSNibConnector.h in Headers */,
 				55B4372421797609005ABAA2 /* MiscBorderView.h in Headers */,
 				55B436FD21797608005ABAA2 /* MiscMouseTracker.h in Headers */,
 				55B436DA21797608005ABAA2 /* MiscTableConnector.h in Headers */,
@@ -716,49 +720,49 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55B436EE21797608005ABAA2 /* MiscLineWrapper.cc in Sources */,
-				55B436D321797608005ABAA2 /* MiscTableScrollData.M in Sources */,
-				55B436E921797608005ABAA2 /* MiscRowView.M in Sources */,
-				55B436DD21797608005ABAA2 /* MiscTableScrollIO.M in Sources */,
-				55B4371F21797609005ABAA2 /* MiscDelegateFlags.cc in Sources */,
-				55B4371821797609005ABAA2 /* MiscBorderView.M in Sources */,
-				55B4371921797609005ABAA2 /* MiscBorderCell.M in Sources */,
-				55B436E321797608005ABAA2 /* MiscExporterAccessoryView.M in Sources */,
-				55B4371C21797609005ABAA2 /* MiscExporter.M in Sources */,
-				55B4371B21797609005ABAA2 /* MiscTableScrollPrint.M in Sources */,
-				55B4370F21797608005ABAA2 /* MiscListTracker.M in Sources */,
-				55B436E621797608005ABAA2 /* MiscCornerView.M in Sources */,
-				55B4371D21797609005ABAA2 /* MiscTableViewDrag.M in Sources */,
-				55B436FC21797608005ABAA2 /* MiscTableScrollPB.M in Sources */,
-				55B4371A21797609005ABAA2 /* MiscTableCell.M in Sources */,
+				55B436EE21797608005ABAA2 /* MiscLineWrapper.mm in Sources */,
+				55B436D321797608005ABAA2 /* MiscTableScrollData.mm in Sources */,
+				55B436E921797608005ABAA2 /* MiscRowView.mm in Sources */,
+				55B436DD21797608005ABAA2 /* MiscTableScrollIO.mm in Sources */,
+				55B4371F21797609005ABAA2 /* MiscDelegateFlags.mm in Sources */,
+				55B4371821797609005ABAA2 /* MiscBorderView.mm in Sources */,
+				55B4371921797609005ABAA2 /* MiscBorderCell.mm in Sources */,
+				55B436E321797608005ABAA2 /* MiscExporterAccessoryView.mm in Sources */,
+				55B4371C21797609005ABAA2 /* MiscExporter.mm in Sources */,
+				55B4371B21797609005ABAA2 /* MiscTableScrollPrint.mm in Sources */,
+				55B4370F21797608005ABAA2 /* MiscListTracker.mm in Sources */,
+				55B436E621797608005ABAA2 /* MiscCornerView.mm in Sources */,
+				55B4371D21797609005ABAA2 /* MiscTableViewDrag.mm in Sources */,
+				55B436FC21797608005ABAA2 /* MiscTableScrollPB.mm in Sources */,
+				55B4371A21797609005ABAA2 /* MiscTableCell.mm in Sources */,
 				55B436F121797608005ABAA2 /* MiscSparseSet.cc in Sources */,
-				55B436EC21797608005ABAA2 /* MiscTableConnector.M in Sources */,
-				55B436DF21797608005ABAA2 /* MiscMouseTracker.M in Sources */,
-				55B4370621797608005ABAA2 /* MiscTableScrollKB.M in Sources */,
-				55B436EA21797608005ABAA2 /* MiscHighlightTracker.M in Sources */,
-				55B436D921797608005ABAA2 /* MiscTableScrollISearch.M in Sources */,
-				55B4370021797608005ABAA2 /* MiscRadioTracker.M in Sources */,
-				55B436ED21797608005ABAA2 /* MiscColView.M in Sources */,
-				55B436EF21797608005ABAA2 /* MiscTableScrollSort.M in Sources */,
-				55B436FB21797608005ABAA2 /* MiscDrawList.cc in Sources */,
-				55B4371121797608005ABAA2 /* MiscTableBorderIO.cc in Sources */,
-				55B436F221797608005ABAA2 /* MiscTableScrollSel.M in Sources */,
-				55B436D521797608005ABAA2 /* MiscTableScroll.M in Sources */,
-				55B4370821797608005ABAA2 /* MiscColorList.cc in Sources */,
-				55B436D421797608005ABAA2 /* MiscRectList.cc in Sources */,
-				55B4370C21797608005ABAA2 /* MiscExporterDBF.M in Sources */,
-				55B4370221797608005ABAA2 /* MiscTableScrollEdit.M in Sources */,
-				55B436E721797608005ABAA2 /* MiscExporterASCII.M in Sources */,
-				55B4371E21797609005ABAA2 /* MiscTracer.cc in Sources */,
-				55B4370B21797608005ABAA2 /* MiscTableWell.M in Sources */,
-				55B436F421797608005ABAA2 /* MiscTableViewCursor.M in Sources */,
-				55B436EB21797608005ABAA2 /* MiscGeometry.cc in Sources */,
-				55B436F021797608005ABAA2 /* MiscTableScrollSymbols.M in Sources */,
-				55B436F721797608005ABAA2 /* MiscTableView.M in Sources */,
-				55B4370921797608005ABAA2 /* MiscTableBorderSel.cc in Sources */,
-				55B4371421797608005ABAA2 /* MiscTableBorder.cc in Sources */,
-				55B4371621797608005ABAA2 /* MiscRectColorList.cc in Sources */,
-				55B4372521797609005ABAA2 /* MiscTableViewPrint.M in Sources */,
+				55B436EC21797608005ABAA2 /* MiscTableConnector.mm in Sources */,
+				55B436DF21797608005ABAA2 /* MiscMouseTracker.mm in Sources */,
+				55B4370621797608005ABAA2 /* MiscTableScrollKB.mm in Sources */,
+				55B436EA21797608005ABAA2 /* MiscHighlightTracker.mm in Sources */,
+				55B436D921797608005ABAA2 /* MiscTableScrollISearch.mm in Sources */,
+				55B4370021797608005ABAA2 /* MiscRadioTracker.mm in Sources */,
+				55B436ED21797608005ABAA2 /* MiscColView.mm in Sources */,
+				55B436EF21797608005ABAA2 /* MiscTableScrollSort.mm in Sources */,
+				55B436FB21797608005ABAA2 /* MiscDrawList.mm in Sources */,
+				55B4371121797608005ABAA2 /* MiscTableBorderIO.mm in Sources */,
+				55B436F221797608005ABAA2 /* MiscTableScrollSel.mm in Sources */,
+				55B436D521797608005ABAA2 /* MiscTableScroll.mm in Sources */,
+				55B4370821797608005ABAA2 /* MiscColorList.mm in Sources */,
+				55B436D421797608005ABAA2 /* MiscRectList.mm in Sources */,
+				55B4370C21797608005ABAA2 /* MiscExporterDBF.mm in Sources */,
+				55B4370221797608005ABAA2 /* MiscTableScrollEdit.mm in Sources */,
+				55B436E721797608005ABAA2 /* MiscExporterASCII.mm in Sources */,
+				55B4371E21797609005ABAA2 /* MiscTracer.mm in Sources */,
+				55B4370B21797608005ABAA2 /* MiscTableWell.mm in Sources */,
+				55B436F421797608005ABAA2 /* MiscTableViewCursor.mm in Sources */,
+				55B436EB21797608005ABAA2 /* MiscGeometry.mm in Sources */,
+				55B436F021797608005ABAA2 /* MiscTableScrollSymbols.mm in Sources */,
+				55B436F721797608005ABAA2 /* MiscTableView.mm in Sources */,
+				55B4370921797608005ABAA2 /* MiscTableBorderSel.mm in Sources */,
+				55B4371421797608005ABAA2 /* MiscTableBorder.mm in Sources */,
+				55B4371621797608005ABAA2 /* MiscRectColorList.mm in Sources */,
+				55B4372521797609005ABAA2 /* MiscTableViewPrint.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

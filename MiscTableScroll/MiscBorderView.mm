@@ -74,9 +74,8 @@
 #import <MiscTableScroll/MiscTableScroll.h>
 #import <MiscTableScroll/MiscTableTypes.h>
 
-#import	<new.h>
+#import	<new>
 
-extern "Objective-C" {
 #import <AppKit/NSApplication.h>
 #import <AppKit/NSClipView.h>
 #import <AppKit/NSFont.h>
@@ -84,17 +83,15 @@ extern "Objective-C" {
 #import <AppKit/NSImage.h>
 #import <AppKit/NSText.h>
 #import <AppKit/NSWindow.h>
-#import <AppKit/psopsNeXT.h>
 #import <Foundation/NSBundle.h>
-}
 
 extern "C" {
 #import <float.h>
 #import <limits.h>
-#import <math.h>
-#import <string.h>	// memset().
-#import <stdio.h>	// FILENAME_MAX
 }
+#include <cmath>
+#include <cstring>
+#include <cstdio>
 
 static float MIN_TOGGLE_WIDTH	= 5;
 static float TOGGLE_WIDTH	= 5;

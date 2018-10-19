@@ -36,9 +36,7 @@
 //-----------------------------------------------------------------------------
 #include "MiscColorList.h"
 
-extern "Objective-C" {
 #import	<Foundation/NSGeometry.h>	// NSRect
-}
 
 struct MiscRectColorList
 	{

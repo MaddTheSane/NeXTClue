@@ -40,11 +40,8 @@
 #import "MiscTableBorder.h"
 #import "MiscTableScrollPrivate.h"
 #import "MiscTableView.h"
-
-extern "Objective-C" {
 #import	<AppKit/NSApplication.h>
 #import <AppKit/NSCursor.h>
-}
 
 static float const ISEARCH_TIMEOUT = 2.5;	// seconds
 

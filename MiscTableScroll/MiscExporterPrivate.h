@@ -36,15 +36,9 @@
 //-----------------------------------------------------------------------------
 #import <MiscTableScroll/MiscExporter.h>
 #import	<MiscTableScroll/MiscTableScroll.h>
-
-extern "Objective-C" {
 #import	<AppKit/NSCell.h>
-}
-
-extern "C" {
-#import	<stdio.h>
-#import	<string.h>
-}
+#include <cstdio>
+#include <cstring>
 
 
 @interface MiscExporter(Private)

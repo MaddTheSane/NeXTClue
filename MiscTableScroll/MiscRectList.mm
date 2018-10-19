@@ -33,12 +33,8 @@
 #pragma implementation
 #endif
 #include "MiscRectList.h"
-extern "Objective-C" {
 #import <AppKit/NSColor.h>
-}
-extern "C" {
-#include <stdlib.h>	// malloc(), realloc(), free()
-}
+#include <cstdlib> // malloc(), realloc(), free()
 
 //-----------------------------------------------------------------------------
 // Constructor

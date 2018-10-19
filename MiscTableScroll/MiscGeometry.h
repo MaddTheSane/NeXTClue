@@ -44,10 +44,8 @@
 // Ported to OpenStep 4.0 for Mach PR2.
 //-----------------------------------------------------------------------------
 #include <MiscTableScroll/MiscTableTypes.h>
-#include "bool.h"
-extern "C" {
+#include <stdbool.h>
 #import <Foundation/NSGeometry.h>
-}
 
 class MiscOrientation
     {

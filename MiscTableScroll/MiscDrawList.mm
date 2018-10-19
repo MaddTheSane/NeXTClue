@@ -36,18 +36,13 @@
 #include "MiscDrawList.h"
 #include "MiscLineWrapper.h"
 #include <MiscTableScroll/MiscTableCell.h>
-
-extern "Objective-C" {
 #import	<AppKit/NSCell.h>
 #import	<AppKit/NSFont.h>
 #import	<AppKit/NSImage.h>
 #import	<AppKit/NSText.h>	// NSLeftTextAlignment
-}
-
-extern "C" {
-#include <math.h>
-#include <stdlib.h>
-}
+#import <AppKit/NSGraphicsContext.h>
+#include <cmath>
+#include <cstdlib>
 
 //-----------------------------------------------------------------------------
 // get_char_wrap
@@ -115,7 +110,7 @@ void MiscDrawList::append( NSRect frame_rect, id cell, BOOL lit,
 
 		r.text_color = color_list.store( color );
 
-		int flags;
+		NSUInteger flags;
 		if ([cell respondsToSelector:@selector(alignment)])
 		    flags = ([cell alignment] << 1);
 		else
@@ -205,7 +200,7 @@ void MiscDrawList::draw_text()
 	    {
 	    NSFont* const font = recs[i].font;
 	    NSFont* screenFont = 0;
-	    if ([[NSDPSContext currentContext] isDrawingToScreen] &&
+	    if ([[NSGraphicsContext currentContext] isDrawingToScreen] &&
 		(screenFont = [font screenFont]) != 0)
 		{
 		[screenFont set];

@@ -39,10 +39,8 @@
 // Revision 1.9  98/03/23  07:46:41  sunshine
 // v134.1: Eliminated -tableScroll:edit:atRow:column:.
 //-----------------------------------------------------------------------------
-#include "bool.h"
-extern "Objective-C" {
+#include <stdbool.h>
 #import <Foundation/NSObject.h>
-}
 
 class MiscDelegateFlags
     {
@@ -106,7 +104,7 @@ public:
 	};
 
 private:
-    int const SET_SIZE = ((MAX_DEL_ENUM - 1) / 8) + 1;
+    static int const SET_SIZE = ((MAX_DEL_ENUM - 1) / 8) + 1;
     unsigned char set[ SET_SIZE ];
 
 public:

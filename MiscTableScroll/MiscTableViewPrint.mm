@@ -48,19 +48,13 @@
 #import "MiscGeometry.h"
 #import "MiscTableBorder.h"
 #import "MiscTableScrollPrivate.h"
-
-extern "Objective-C" {
 #import	<AppKit/NSApplication.h>
 #import	<AppKit/NSImage.h>
 #import	<AppKit/NSPrintInfo.h>
 #import <AppKit/NSPrintOperation.h>
 #import	<AppKit/NSPrintPanel.h>
-#import <AppKit/psops.h>
-}
-
-extern "C" {
-#import	<math.h>	// floor()
-}
+//#import <AppKit/psops.h>
+#include <cmath>	// floor()
 
 @implementation MiscTableView(Print)
 

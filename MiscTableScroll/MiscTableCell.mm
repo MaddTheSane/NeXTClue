@@ -51,16 +51,12 @@
 #import <MiscTableScroll/MiscTableScroll.h>
 #import "MiscTableView.h"
 #import "MiscTableScrollPrivate.h"
-extern "Objective-C" {
 #import <AppKit/NSApplication.h> // NSEventTrackingRunLoopMode
 #import <AppKit/NSFont.h>
 #import <AppKit/NSImage.h>
 #import <AppKit/NSPasteboard.h>
-}
-extern "C" {
-#import <math.h> // floor()
-#import	<string.h>
-}
+#include <cmath>
+#include <cstring>
 
 #define	MISC_TC_VERSION_0	0	// Conditional tag.
 #define	MISC_TC_VERSION_1	1	// Tag became unconditional.

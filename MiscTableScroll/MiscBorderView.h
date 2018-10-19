@@ -34,9 +34,7 @@
 //  Revision 1.8  97/03/10  10:11:39  sunshine
 //  v113.1: Added -setFrameHeight:.  Added missing (id) to -initWithFrame:.
 //-----------------------------------------------------------------------------
-extern "Objective-C" {
 #import <AppKit/NSView.h>
-}
 #import <MiscTableScroll/MiscTableTypes.h>
 class MiscSparseSet;
 class MiscTableBorder;

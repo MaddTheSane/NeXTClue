@@ -42,15 +42,13 @@
 #import <MiscTableScroll/MiscTableCell.h>
 #import "MiscTableBorder.h"
 #import "MiscTableScrollPrivate.h"
-extern "Objective-C" {
 #import <AppKit/NSCell.h>
 #import <AppKit/NSImage.h>
-}
 extern "C" {
 #import <limits.h>
-#import <stdlib.h>
-#import <string.h>
 }
+#include <cstdlib>
+#include <cstring>
 
 #define	EAGER_CELL_AT(R,C)	(cells[ (R) * num_cols + (C) ])
 

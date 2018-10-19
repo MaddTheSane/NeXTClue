@@ -47,7 +47,7 @@
 //  Revision 1.3  96/04/30  05:38:43  sunshine
 //  Ported to OpenStep 4.0 for Mach PR2.
 //-----------------------------------------------------------------------------
-#include "bool.h"
+#include <stdbool.h>
 
 class MiscSparseSet
 	{

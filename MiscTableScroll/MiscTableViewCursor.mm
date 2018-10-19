@@ -41,14 +41,12 @@
 #import "MiscTableViewPrivate.h"
 #import "MiscTableBorder.h"
 #import "MiscMouseTracker.h"
-
-extern "Objective-C" {
 #import <AppKit/NSFontManager.h>
-}
+
 extern "C" {
-#import "MiscTableViewPS.h"
-#import <math.h>	// floor()
+//#import "MiscTableViewPS.h"
 }
+#include <cmath>
 
 int const NUM_EDGES = 4;	// 4 edges to draw per focus rectangle
 int const NUM_COORDS = 4;	// 4 coords per rectangle (x,y,w,h)
@@ -59,7 +57,7 @@ int const MAX_COORDS = NUM_EDGES * NUM_COORDS;	// 16 coords per 4 rects
 //-----------------------------------------------------------------------------
 static inline void init_pswrap()
     {
-    static initialized = NO;
+    static BOOL initialized = NO;
     if (!initialized)
 	{
 	initialized = YES;

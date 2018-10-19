@@ -39,11 +39,9 @@
 // Revision 1.1  96/08/30  14:56:41  sunshine
 // A C++ object for calculating line breaks in text.
 //-----------------------------------------------------------------------------
-#include <bool.h>
-extern "Objective-C" {
+#include <stdbool.h>
 #import	<AppKit/NSFont.h>
 #import	<Foundation/NSGeometry.h>	// NSRect
-}
 extern "C" {
 #include <limits.h>		// INT_MAX
 }
@@ -68,7 +66,7 @@ private:
 	int	text_max;
 	char*	text;
 	NSFont*	font;
-	int	alignment;
+	NSTextAlignment	alignment;
 	int	num_lines;
 	int	max_lines;
 	Line*	lines;
@@ -104,7 +102,7 @@ public:
 	void		setTopMargin( float );
 	void		setRightMargin( float );
 	void		setBottomMargin( float );
-	void		setAlignment( int );
+	void		setAlignment( NSTextAlignment );
 	void		setCharWrap( bool );
 	void		setNoPartialLines( bool b ) { no_partial = b; }
 
@@ -115,7 +113,7 @@ public:
 	float		getTopMargin() const	{ return top_margin; }
 	float		getRightMargin() const	{ return right_margin; }
 	float		getBottomMargin() const	{ return bottom_margin; }
-	int		getAlignment() const	{ return alignment; }
+	NSTextAlignment		getAlignment() const	{ return alignment; }
 	bool		getCharWrap() const	{ return char_wrap; }
 	bool		getNoPartialLines() const { return no_partial; }
 

@@ -40,12 +40,9 @@
 #import "MiscDelegateFlags.h"
 #import "MiscTableView.h"
 #import "MiscBorderView.h"
-
-extern "Objective-C" {
 #import	<AppKit/NSApplication.h>
 #import	<AppKit/NSPrintInfo.h>
 #import	<AppKit/NSPrintPanel.h>
-}
 
 
 //=============================================================================

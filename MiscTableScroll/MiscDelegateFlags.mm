@@ -38,9 +38,8 @@
 #pragma implementation
 #endif
 #include "MiscDelegateFlags.h"
-extern "Objective-C" {
 #import <Foundation/NSObject.h>
-}
+#include <cstring>
 extern "C" {
 #include <string.h>	// memset()
 }

@@ -35,18 +35,12 @@
 #pragma implementation
 #endif
 #include "MiscLineWrapper.h"
-
-extern "Objective-C" {
 #import	<AppKit/NSText.h>	// NSLeftTextAlignment
-#import <AppKit/psops.h>
-}
-
-extern "C" {
-#include <math.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-}
+#import	<AppKit/NSGraphicsContext.h>
+#include <cmath>
+#include <cstdio>
+#include <cstdlib>
+#include <cstring>
 
 float const MiscLineWrapper::DEFAULT_LEFT_MARGIN   = 2.0;
 float const MiscLineWrapper::DEFAULT_TOP_MARGIN    = 0.0;
@@ -236,7 +230,7 @@ void MiscLineWrapper::setFont( NSFont* f )
 //-----------------------------------------------------------------------------
 // setAlignment
 //-----------------------------------------------------------------------------
-void MiscLineWrapper::setAlignment( int a )
+void MiscLineWrapper::setAlignment( NSTextAlignment a )
     {
     if (a != NSCenterTextAlignment && a != NSRightTextAlignment)
 	a = NSLeftTextAlignment;
@@ -247,6 +241,10 @@ void MiscLineWrapper::setAlignment( int a )
 	}
     }
 
+@interface NSFont (deprecated)
+- (CGFloat)widthOfString:(NSString*)str1;
+- (CGFloat*)widths;
+@end
 
 //-----------------------------------------------------------------------------
 // calc_width
@@ -258,7 +256,7 @@ float MiscLineWrapper::calc_width( int i, int lim ) const
     if ([font isFixedPitch])
 	{
 	int const TAB_STOPS = 8;
-	int n = 0;
+	NSInteger n = 0;
 	for (int j = i; j < lim; j++)
 	    if (text[j] == '\t' && alignment == NSLeftTextAlignment)
 		n += TAB_STOPS - (n & (TAB_STOPS - 1));
@@ -272,7 +270,7 @@ float MiscLineWrapper::calc_width( int i, int lim ) const
 	float const TAB_SIZE = 8 * space_width;
 
 	float sz = [font pointSize];
-	float const* widths = [font widths];
+	CGFloat const* widths = [font widths];
 	BOOL const is_screen_font = (font == [font screenFont]);
     
 	for ( ; i < lim; i++)
@@ -511,7 +509,7 @@ void MiscLineWrapper::draw()
     if (width_check())
 	{
 	did_clip = true;
-	PSgsave();
+	[NSGraphicsContext saveGraphicsState];
 	NSRectClip( rect );
 	}
 
@@ -526,7 +524,7 @@ void MiscLineWrapper::draw()
 	    if (is_partial && !did_clip)
 		{
 		did_clip = true;
-		PSgsave();
+		[NSGraphicsContext saveGraphicsState];
 		NSRectClip( rect );
 		}
 	    x = x0;
@@ -543,5 +541,5 @@ void MiscLineWrapper::draw()
 	}
 
     if (did_clip)
-	PSgrestore();
+	[NSGraphicsContext restoreGraphicsState];
     }

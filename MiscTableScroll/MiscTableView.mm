@@ -54,18 +54,12 @@
 #import "MiscTableScrollPrivate.h"
 #import <MiscTableScroll/MiscTableCell.h>
 #import <MiscTableScroll/MiscTableScroll.h>
-#import	<new.h>
-
-extern "Objective-C" {
+#import	<new>
 #import <AppKit/NSApplication.h>
 #import <AppKit/NSControl.h>	// Control-text notifications
 #import <AppKit/NSText.h>
-#import <AppKit/psops.h>
-}
-
-extern "C" {
-#import <math.h>	// floor()
-}
+//#import <AppKit/psops.h>
+#include <cmath>	// floor()
 
 //-----------------------------------------------------------------------------
 // dump_map

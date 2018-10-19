@@ -35,7 +35,7 @@
 // Exports the contents of table scroll in dBASEIII .dbf format.
 //-----------------------------------------------------------------------------
 #import "MiscExporterPrivate.h"
-#import	"bool.h"
+#include <stdbool.h>
 
 extern "C" {
 #import	<stdio.h>

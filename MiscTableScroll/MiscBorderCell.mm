@@ -34,10 +34,8 @@
 //  be set with -setTextColor:.
 //-----------------------------------------------------------------------------
 #import "MiscBorderCell.h"
-extern "Objective-C" {
 #import <AppKit/NSFont.h>
 #import <AppKit/NSImage.h>
-}
 
 int const RESIZE_WIDTH = 4; // Resize zone to right of "toggle" image.
 

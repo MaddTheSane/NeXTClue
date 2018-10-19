@@ -31,15 +31,11 @@
 #import "MiscTableViewPrivate.h"
 #import "MiscTableScrollPrivate.h"
 #import <MiscTableScroll/MiscTableCell.h>
-extern "Objective-C" {
 #import <AppKit/NSApplication.h>
 #import <AppKit/NSImage.h>
 #import <AppKit/NSPasteboard.h>
 #import <AppKit/NSWindow.h>
-}
-extern "C" {
-#import <math.h>	// floor()
-}
+#include <cmath>	// floor()
 
 typedef MiscDelegateFlags DF;
 

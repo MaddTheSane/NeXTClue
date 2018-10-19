@@ -36,12 +36,9 @@
 //-----------------------------------------------------------------------------
 #import <MiscTableScroll/MiscTableScroll.h>
 #import "MiscTableScrollPrivate.h"
-
-extern "Objective-C" {
 #import <AppKit/NSApplication.h>
 #import <AppKit/NSCell.h>
 #import <AppKit/NSPasteboard.h>
-}
 
 #define	MISC_PB_FIELD_SEPARATOR		@"\t"
 #define	MISC_PB_RECORD_TERMINATOR	@"\n"

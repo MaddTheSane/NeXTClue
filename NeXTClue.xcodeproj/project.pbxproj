@@ -133,6 +133,7 @@
 		55B4372721797A4F005ABAA2 /* NSNibConnector.h in Headers */ = {isa = PBXBuildFile; fileRef = 55B4372621797A4F005ABAA2 /* NSNibConnector.h */; };
 		55B4372A2179AB7A005ABAA2 /* License.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 55B437282179AB7A005ABAA2 /* License.rtf */; };
 		55B4372B2179AB7A005ABAA2 /* License_Notes.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 55B437292179AB7A005ABAA2 /* License_Notes.rtf */; };
+		55B4372D2179ACAB005ABAA2 /* README.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 55B4372C2179ACAB005ABAA2 /* README.rtf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -314,6 +315,7 @@
 		55B4372621797A4F005ABAA2 /* NSNibConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSNibConnector.h; sourceTree = "<group>"; };
 		55B437282179AB7A005ABAA2 /* License.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = License.rtf; sourceTree = "<group>"; };
 		55B437292179AB7A005ABAA2 /* License_Notes.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = License_Notes.rtf; sourceTree = "<group>"; };
+		55B4372C2179ACAB005ABAA2 /* README.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = README.rtf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -436,6 +438,7 @@
 		55B4366F2179756C005ABAA2 /* MiscTableScroll */ = {
 			isa = PBXGroup;
 			children = (
+				55B4372C2179ACAB005ABAA2 /* README.rtf */,
 				55B437292179AB7A005ABAA2 /* License_Notes.rtf */,
 				55B437282179AB7A005ABAA2 /* License.rtf */,
 				55B436CF21797608005ABAA2 /* MiscBorderCell.h */,
@@ -678,6 +681,7 @@
 				55B4367D217975AF005ABAA2 /* MiscExporterAccessoryView.nib in Resources */,
 				55B436E821797608005ABAA2 /* MiscSortAscendH.tiff in Resources */,
 				55B4371721797608005ABAA2 /* MiscReverseCursor.tiff in Resources */,
+				55B4372D2179ACAB005ABAA2 /* README.rtf in Resources */,
 				55B4372021797609005ABAA2 /* MiscSortAscend.tiff in Resources */,
 				55B4372321797609005ABAA2 /* MiscVertResizeCursor.tiff in Resources */,
 				55B4370721797608005ABAA2 /* MiscHorzResizeCursor.tiff in Resources */,

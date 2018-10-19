@@ -66,7 +66,7 @@ extern "C" {
 //-----------------------------------------------------------------------------
 - (id) init
 {
-    [super init];
+    self=[super init];
     ClueLoadNib( self );
 
     [self format:"Release %s" field:releaseField file:@"RELEASE_NUMBER"];
@@ -90,11 +90,12 @@ extern "C" {
 //-----------------------------------------------------------------------------
 + (id) launch
 {
-    static ClueInfo* instance = 0;
-    if (instance == 0)
+    static ClueInfo* instance = nil;
+    if (instance == nil) {
         instance = [[self alloc] init];
+    }
     [instance makeKeyAndOrderFront:self];
-    return self;
+    return instance;
 }
 
 @end

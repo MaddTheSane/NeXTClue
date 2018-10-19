@@ -34,7 +34,7 @@ void ClueLoadNib( id obj )
         exit(3);
     }
 
-    if ([NSBundle loadNibNamed:buff owner:obj] == 0)
+    if ([NSBundle loadNibFile:buff externalNameTable:[NSDictionary dictionaryWithObjectsAndKeys:obj, @"NSOwner", nil] withZone:[obj zone]] == 0)
     {
         NSRunAlertPanel(@"Fatal", @"Cannot load %@", @"OK", nil, nil, buff);
         exit(3);

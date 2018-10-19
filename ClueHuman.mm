@@ -63,14 +63,14 @@ static char const* const DIE_ICON[] =
     "die6"
 };
 
-char const MAKE_ACCUSATION[] = "Make an accusation or skip.";
-typedef int MiscCoord_P;    // Physical coordinate.
+NSString * const MAKE_ACCUSATION = @"Make an accusation or skip.";
 
 @interface ClueHuman()
 - (void) startAccuse;
 @end
 
 static BOOL VERTICAL_MOVEMENT = NO;
+extern "C" unsigned short NSFieldFilter( unsigned short c, NSEventModifierFlags flags, unsigned short cset );
 
 //-----------------------------------------------------------------------------
 // ClueFilter
@@ -138,7 +138,7 @@ ClueFilter( unsigned short c, NSEventModifierFlags flags, unsigned short cset )
     for (int i = MAX_SLOT; i-- > 0; )
     {
         cell = [scroll cellAtRow:row column:i];
-        [cell setHighlightBackgroundColor:[NSColor darkGrayColor]];
+        [cell setSelectedBackgroundColor:[NSColor darkGrayColor]];
         [cell setBackgroundColor:[NSColor darkGrayColor]];
         [cell setTextColor:[NSColor whiteColor]];
     }
@@ -178,14 +178,13 @@ ClueFilter( unsigned short c, NSEventModifierFlags flags, unsigned short cset )
         }
 
         cell = [scroll cellAtRow:row column:ICON_SLOT];
-        [cell setImage:[NSImage imageNamed:[NSString stringWithCString:ClueCardName(card)]]];
+        [cell setImage:[NSImage imageNamed:@(ClueCardName(card))]];
         [cell setTag:tag];
 
         cell = [scroll cellAtRow:row column:NAME_SLOT];
-        [cell setStringValue:[NSString stringWithCString:ClueCardName(card)]];
+        [cell setStringValue:@(ClueCardName(card))];
         [cell setTag:tag];
 
-        char const* const s = ([self amHoldingCard:card] ? "x" : "-");
         [[scroll cellAtRow:row column:self_slot] setStringValue:([self amHoldingCard:card] ? @"x" : @"-")];
     }
 
@@ -290,7 +289,7 @@ ClueFilter( unsigned short c, NSEventModifierFlags flags, unsigned short cset )
         case NSBacktabTextMovement:
             if (VERTICAL_MOVEMENT)
                 [self editNext:NO row:row col:col];
-            else if ([scroll getNext:NO editRow:&row andCol:&col])
+            else if ([scroll getNext:NO editRow:&row column:&col])
                 [scroll editCellAtRow:row column:col];
             break;
         case NSReturnTextMovement:
@@ -321,8 +320,7 @@ ClueFilter( unsigned short c, NSEventModifierFlags flags, unsigned short cset )
 {
     if (p == [self playerID])
     {
-        char const* s = (wins ? "You win!" : "You lose.");
-        [messageField setStringValue:[NSString stringWithCString:s]];
+        [messageField setStringValue:(wins ? @"You win!" : @"You lose.")];
     }
 }
 
@@ -336,10 +334,8 @@ ClueFilter( unsigned short c, NSEventModifierFlags flags, unsigned short cset )
 //-----------------------------------------------------------------------------
 - (void) player:(int)p reveals:(ClueCard)c
 {
-    char buff[128];
-    sprintf( buff, "player %d reveals %s.\n%s",
-            p+1, ClueCardName(c), MAKE_ACCUSATION );
-    [messageField setStringValue:[NSString stringWithCString:buff]];
+    [messageField setStringValue:[NSString stringWithFormat:@"player %d reveals %s.\n%@",
+                                  p+1, ClueCardName(c), MAKE_ACCUSATION]];
     wasDisproved = YES;
     [self revealOk];
 }
@@ -396,7 +392,7 @@ ClueFilter( unsigned short c, NSEventModifierFlags flags, unsigned short cset )
         [self restorePiece:weaponID to:weaponPos];
     }
     wasDisproved = YES;		// Suppress "nobody disproved".
-    [messageField setStringValue:[NSString stringWithCString:MAKE_ACCUSATION]];
+    [messageField setStringValue:MAKE_ACCUSATION];
     [self finishSolution:YES];
     return self;
 }
@@ -507,7 +503,7 @@ ClueFilter( unsigned short c, NSEventModifierFlags flags, unsigned short cset )
     else
     {
         wasDisproved = YES;	// Suppress "nobody disproved" message.
-        [messageField setStringValue:[NSString stringWithCString:MAKE_ACCUSATION]];
+        [messageField setStringValue:MAKE_ACCUSATION];
         [self suggest:0];
     }
 }
@@ -532,10 +528,8 @@ ClueFilter( unsigned short c, NSEventModifierFlags flags, unsigned short cset )
 {
     if (!wasDisproved)
     {
-        char buff[ 128 ];
-        sprintf( buff, "Nobody can disprove your suggestion.\n%s",
-                MAKE_ACCUSATION );
-        [messageField setStringValue:[NSString stringWithCString:buff]];
+        [messageField setStringValue:[NSString stringWithFormat:@"Nobody can disprove your suggestion.\n%@",
+                                      MAKE_ACCUSATION]];
     }
     [self startAccuse];
 }
@@ -547,17 +541,16 @@ ClueFilter( unsigned short c, NSEventModifierFlags flags, unsigned short cset )
 //-----------------------------------------------------------------------------
 // revealPressed:
 //-----------------------------------------------------------------------------
-- revealPressed:sender
+- (IBAction)revealPressed:sender
 {
     [revealButton setEnabled:NO];
     [revealMatrix setEnabled:NO];
 
-    int const row = [revealMatrix selectedRow];
+    NSInteger const row = [revealMatrix selectedRow];
     assert( 0 <= row && row < int(CLUE_CATEGORY_COUNT) );
     ClueCard x = suggestion.v[ row ];
 
     [self reveal:x];
-    return self;
 }
 
 
@@ -651,21 +644,19 @@ ClueFilter( unsigned short c, NSEventModifierFlags flags, unsigned short cset )
 //-----------------------------------------------------------------------------
 // stayPressed:
 //-----------------------------------------------------------------------------
-- stayPressed:sender
+- (IBAction)stayPressed:sender
 {
     [self finishMove:[self location]];
-    return self;
 }
 
 
 //-----------------------------------------------------------------------------
 // passagePressed:
 //-----------------------------------------------------------------------------
-- passagePressed:sender
+- (IBAction)passagePressed:sender
 {
     ClueCoord pos = [clueMgr roomCoord:passageRoom];
     [self finishMove:pos];
-    return self;
 }
 
 
@@ -729,7 +720,7 @@ ClueFilter( unsigned short c, NSEventModifierFlags flags, unsigned short cset )
 //-----------------------------------------------------------------------------
 // rollPressed:
 //-----------------------------------------------------------------------------
-- rollPressed:sender
+- (IBAction)rollPressed:sender
 {
     [self disableMoveButtons];
 
@@ -758,8 +749,6 @@ ClueFilter( unsigned short c, NSEventModifierFlags flags, unsigned short cset )
     forMove = YES;
 
     [self allowDrag];
-
-    return self;
 }
 
 

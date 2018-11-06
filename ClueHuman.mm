@@ -133,7 +133,7 @@ ClueFilter( unsigned short c, NSEventModifierFlags flags, unsigned short cset )
     [cell setTag:tag];
     cell = [scroll cellAtRow:row column:NAME_SLOT];
     [cell setTag:tag];
-    [cell setStringValue:[NSString stringWithCString:name]];
+    [cell setStringValue:@(name)];
 
     for (int i = MAX_SLOT; i-- > 0; )
     {
@@ -153,7 +153,7 @@ ClueFilter( unsigned short c, NSEventModifierFlags flags, unsigned short cset )
     int i;
     for (i = P1_SLOT; i <= NOTES_SLOT; i++)
     {
-        id proto = [scroll colCellPrototype:i];
+        id proto = [scroll columnCellPrototype:i];
         [proto setEditable:YES];
         [proto setScrollable:YES];
     }

@@ -31,7 +31,6 @@
 		552B1F09217925790062E4CC /* ClueMessages.xib in Resources */ = {isa = PBXBuildFile; fileRef = 552B1EC2217925760062E4CC /* ClueMessages.xib */; };
 		552B1F0A217925790062E4CC /* ClueMgr.mm in Sources */ = {isa = PBXBuildFile; fileRef = 552B1EC3217925760062E4CC /* ClueMgr.mm */; };
 		552B1F0B217925790062E4CC /* ClueUpdateStack.cc in Sources */ = {isa = PBXBuildFile; fileRef = 552B1EC4217925760062E4CC /* ClueUpdateStack.cc */; };
-		552B1F0D217925790062E4CC /* ClueHuman.nib in Resources */ = {isa = PBXBuildFile; fileRef = 552B1EC7217925760062E4CC /* ClueHuman.nib */; };
 		552B1F0E217925790062E4CC /* ClueComputer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 552B1EC8217925760062E4CC /* ClueComputer.mm */; };
 		552B1F0F217925790062E4CC /* ClueMap.cc in Sources */ = {isa = PBXBuildFile; fileRef = 552B1EC9217925770062E4CC /* ClueMap.cc */; };
 		552B1F10217925790062E4CC /* ClueSetup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 552B1ECA217925770062E4CC /* ClueSetup.xib */; };
@@ -45,6 +44,7 @@
 		552B1F21217925790062E4CC /* ClueRules.rtfd in Resources */ = {isa = PBXBuildFile; fileRef = 552B1EE0217925790062E4CC /* ClueRules.rtfd */; };
 		552B1F22217925790062E4CC /* CluePlayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 552B1EE1217925790062E4CC /* CluePlayer.mm */; };
 		552B1F25217934650062E4CC /* RELEASE_NUMBER in Resources */ = {isa = PBXBuildFile; fileRef = 552B1F24217934650062E4CC /* RELEASE_NUMBER */; };
+		555B241C21A2A80C00B55B35 /* ClueHuman.xib in Resources */ = {isa = PBXBuildFile; fileRef = 555B241B21A2A80C00B55B35 /* ClueHuman.xib */; };
 		559A25CF2192124B00AFE293 /* MiscTableScroll.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 559A25CE2192123100AFE293 /* MiscTableScroll.framework */; };
 		559A25D02192124B00AFE293 /* MiscTableScroll.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 559A25CE2192123100AFE293 /* MiscTableScroll.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -146,6 +146,7 @@
 		552B1EE0217925790062E4CC /* ClueRules.rtfd */ = {isa = PBXFileReference; lastKnownFileType = wrapper.rtfd; path = ClueRules.rtfd; sourceTree = "<group>"; };
 		552B1EE1217925790062E4CC /* CluePlayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CluePlayer.mm; sourceTree = "<group>"; };
 		552B1F24217934650062E4CC /* RELEASE_NUMBER */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = RELEASE_NUMBER; sourceTree = "<group>"; };
+		555B241B21A2A80C00B55B35 /* ClueHuman.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClueHuman.xib; sourceTree = "<group>"; };
 		559A25C92192123100AFE293 /* MiscTableScroll.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MiscTableScroll.xcodeproj; path = MiscTableScroll/MiscTableScroll.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -199,6 +200,7 @@
 				552B1E97217925710062E4CC /* ClueDefs.mm */,
 				552B1EBF217925750062E4CC /* ClueHuman.h */,
 				552B1E9A217925710062E4CC /* ClueHuman.mm */,
+				555B241B21A2A80C00B55B35 /* ClueHuman.xib */,
 				552B1EC7217925760062E4CC /* ClueHuman.nib */,
 				552B1E8E217925700062E4CC /* ClueInfo.h */,
 				552B1ED7217925780062E4CC /* ClueInfo.mm */,
@@ -345,6 +347,7 @@
 			files = (
 				552B1F1E217925790062E4CC /* PACKAGE_NUMBER in Resources */,
 				552B1F05217925790062E4CC /* ClueBoard.xib in Resources */,
+				555B241C21A2A80C00B55B35 /* ClueHuman.xib in Resources */,
 				552B1F21217925790062E4CC /* ClueRules.rtfd in Resources */,
 				552B1F25217934650062E4CC /* RELEASE_NUMBER in Resources */,
 				552B1F09217925790062E4CC /* ClueMessages.xib in Resources */,
@@ -353,7 +356,6 @@
 				552B1EF2217925790062E4CC /* ClueRules.xib in Resources */,
 				552B1EF3217925790062E4CC /* ClueInfo.xib in Resources */,
 				552B1F10217925790062E4CC /* ClueSetup.xib in Resources */,
-				552B1F0D217925790062E4CC /* ClueHuman.nib in Resources */,
 				552B1F08217925790062E4CC /* Clue.xib in Resources */,
 				552B1E87217925190062E4CC /* Help in Resources */,
 			);

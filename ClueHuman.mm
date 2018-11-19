@@ -206,7 +206,7 @@ ClueFilter( unsigned short c, NSEventModifierFlags flags, unsigned short cset )
 
         ClueLoadNib( self );
         fieldEditor = [[NSText allocWithZone:[self zone]] init];
-        [fieldEditor setCharFilter:ClueFilter];
+        //[fieldEditor setCharFilter:ClueFilter];
 
         [suspectPop selectItemWithTag: [self pieceID]];
         [weaponPop selectItemWithTag: CLUE_CARD_KNIFE];

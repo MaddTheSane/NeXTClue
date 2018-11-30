@@ -167,7 +167,7 @@ static inline bool is_same_region( char c_old, char c_new )
                         int row_origin = height + row_min - coord.row - 1;
                         int col_origin = coord.col - col_min;
                         NSPoint const pt = NSMakePoint(col_origin * TILE_SIZE, row_origin * TILE_SIZE);
-                        [unit_image compositeToPoint:pt operation:NSCompositingOperationCopy];
+                        [unit_image drawAtPoint:pt fromRect:NSZeroRect operation:NSCompositingOperationCopy fraction:1];
                         
                         CL_RegionAbs& reg = REGIONS[coord.row][coord.col];
                         reg.origin.row = row_max;
@@ -280,21 +280,21 @@ static inline bool is_same_region( char c_old, char c_new )
     return CLUE_CARD_MAX;
 }
 
-- (void)drawPieces:(NSRect const*)draw_rect
+- (void)drawPieces:(NSRect)draw_rect
 {
     for (int i = 0; i < CLUE_SUSPECT_COUNT + CLUE_WEAPON_COUNT; i++)
     {
         ClueCoord const coord = [clueMgr pieceLocation:(ClueCard)i];
         NSRect const r = [self rectAtCoord:coord];
-        if (!NSIsEmptyRect(NSIntersectionRect(*draw_rect , r)))
+        if (!NSIsEmptyRect(NSIntersectionRect(draw_rect , r)))
         {
             NSSize s; s = [pieces[i] size];
             NSPoint const p = [self originAtCoord:coord forSize:s];
             if (dragging &&
                 dragSource.row == coord.row && dragSource.col == coord.col) {
-                [fade compositeToPoint:p operation:NSCompositingOperationSourceOver];
+                [fade drawAtPoint:p fromRect:NSZeroRect operation:NSCompositingOperationSourceOver fraction:1];
             } else {
-                [pieces[i] compositeToPoint:p operation:NSCompositingOperationSourceOver];
+                [pieces[i] drawAtPoint:p fromRect:NSZeroRect operation:NSCompositingOperationSourceOver fraction:1];
             }
         }
     }
@@ -303,7 +303,7 @@ static inline bool is_same_region( char c_old, char c_new )
 - (void)drawRect:(NSRect)rects
 {
     [background drawAtPoint:rects.origin fromRect:rects operation:NSCompositingOperationCopy fraction:1];
-    [self drawPieces:&rects];
+    [self drawPieces:rects];
 }
 
 - (void)setClueMgr:(ClueMgr*)p

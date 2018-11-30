@@ -18,9 +18,7 @@
 #endif
 #import "ClueUpdateStack.h"
 
-extern "C" {
-#import	<stdlib.h>
-}
+#import	<cstdlib>
 
 
 void ClueUpdateStack::expand()

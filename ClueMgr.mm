@@ -22,13 +22,11 @@
 #import	"ClueMessages.h"
 #import	"ClueTrace.h"
 
-extern "C" {
-#import	<assert.h>
-#import <stdio.h>
-#import <stdlib.h>
-#import <string.h>
-#import <time.h>
-}
+#include <cassert>
+#include <cstdio>
+#include <cstdlib>
+#include <cstring>
+#include <ctime>
 
 
 //-----------------------------------------------------------------------------
@@ -104,7 +102,7 @@ static void sort_hand( int start_pos, int n, ClueCard* deck )
 //-----------------------------------------------------------------------------
 - (void) delayed:(SEL)aSel
 {
-    [self performSelector:aSel object:0 afterDelay:(0) / 1000.0];
+    [self performSelector:aSel withObject:nil afterDelay:(0) / 1000.0];
 }
 
 
@@ -553,9 +551,9 @@ static void sort_hand( int start_pos, int n, ClueCard* deck )
         r.player = 0;
         r.lost = NO;
         r.player = [[[ClueSetup playerClass:i] alloc]
-                    initPlayer:i numPlayers:num_players
-                    numCards:r.hand_length cards:deck + r.hand_start
-                    piece:r.piece_id location:locations[r.piece_id] clueMgr:self];
+                    initWithPlayer:i playerCount:num_players
+                    cardCount:r.hand_length cards:deck + r.hand_start
+                    piece:r.piece_id location:locations[r.piece_id] clueManager:self];
     }
 }
 

@@ -32,12 +32,10 @@
 #include "ClueCondArray.h"
 #include "ClueUpdateStack.h"
 
-extern "C" {
-#include <assert.h>
-#include <stdio.h>
-#include <stdlib.h>	// malloc(), realloc(), free()
-#include <string.h>	// memmove(), memset()
-}
+#include <cassert>
+#include <cstdio>
+#include <cstdlib>	// malloc(), realloc(), free()
+#include <cstring>	// memmove(), memset()
 
 
 

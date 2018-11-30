@@ -16,10 +16,8 @@
 #pragma implementation
 #endif
 #include "ClueCoordArray.h"
-extern "C" {
-#include <assert.h>
-#include <stdlib.h>	// malloc(), realloc(), free()
-}
+#include <cassert>
+#include <cstdlib>	// malloc(), realloc(), free()
 
 ClueCoordArray::ClueCoordArray():num_recs(0),max_recs(32)
 {

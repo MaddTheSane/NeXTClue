@@ -21,11 +21,8 @@
 #import "ClueMgr.h"
 #import <Cocoa/Cocoa.h>
 
-extern "C" {
-#import <assert.h>
-#import <string.h>	// memset()
-//#import <AppKit/psops.h>
-}
+#import <cassert>
+#import <cstring>	// memset()
 
 static NSString * const BOARD_IMAGE = @"board";
 int const TILE_SIZE = 20;

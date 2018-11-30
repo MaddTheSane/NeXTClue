@@ -86,7 +86,7 @@ int const OK_PRESSED		= 1;
     BOOL ok = NO;
     int v[ 6 ];
 
-    char const* s = [[[NSUserDefaults standardUserDefaults] objectForKey:DEF_NAME] cString];
+    char const* s = [[[NSUserDefaults standardUserDefaults] objectForKey:DEF_NAME] UTF8String];
 
     if (s != 0 &&
         sscanf( s, "%d %d %d %d %d %d", v+0,v+1,v+2,v+3,v+4,v+5 ) == 6)
